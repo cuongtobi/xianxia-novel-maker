@@ -1,0 +1,46 @@
+# Story Manifest Template
+# File đích: stories/<slug>/manifest.yaml
+
+story:
+  slug: ""
+  title: ""
+  branch: "story/<slug>"
+  status: "genesis"
+  language: "vi"
+
+pipeline:
+  version: "1.0"
+  batch_size: 10
+  current_stage: "seed"
+  last_finalized_chapter: 0
+  current_arc: "arc_001"
+  next_chapter: 1
+  qc_required: true
+  rewrite_required: true
+
+artifacts:
+  seed: "seed/seed.yaml"
+  story_bible: "bible/story_bible.md"
+  style_bible: "bible/style_bible.md"
+  characters_bible: "bible/characters_bible.md"
+  master_outline: "outline/master_outline.md"
+  current_arc_outline: "outline/arcs/arc_001.md"
+  current_state: "memory/current_state.md"
+
+locks:
+  canon_initialized: false
+  style_initialized: false
+  characters_initialized: false
+  master_outline_initialized: false
+  opening_arc_initialized: false
+  memory_initialized: false
+
+production:
+  target_chapters: null
+  chapter_words_target: null
+  last_batch_audit: null
+  next_batch_start: 1
+
+notes:
+  framework_migration: ""
+  user_constraints: []

@@ -1,0 +1,124 @@
+# Story Seed Template
+# Người dùng chỉ cần điền những gì mình biết. Có thể để null cho phần muốn AI đề xuất.
+# Không dùng seed này như story bible; seed là ý định sáng tác ban đầu.
+
+meta:
+  working_title: ""
+  slug: ""
+  language: "vi"
+  genres:
+    - "tiên hiệp"
+    - "tu tiên"
+  subgenres: []
+  target_length_chapters: 500
+  chapter_length_words:
+    min: 2500
+    target: 3200
+    max: 4200
+  rating: ""
+
+creative_intent:
+  one_sentence_premise: ""
+  core_hook: ""
+  reading_experience:
+    # Ví dụ: nhiệt huyết, trầm tĩnh, hiểm ác, hài nhẹ, bi tráng, phiêu lưu...
+    primary_mood: ""
+    secondary_moods: []
+  what_makes_this_story_different: ""
+  must_have_elements: []
+  avoid_elements: []
+  inspiration_notes: []
+  originality_constraints:
+    do_not_copy_specific_plot: true
+    do_not_copy_specific_characters: true
+    notes: ""
+
+protagonist_seed:
+  name: ""
+  gender: ""
+  starting_age: null
+  origin: ""
+  starting_status: ""
+  surface_goal: ""
+  deeper_need: ""
+  personality_keywords: []
+  strengths: []
+  flaws: []
+  special_trait_or_cheat: ""
+  cheat_constraints: ""
+  initial_relationships: []
+  notes: ""
+
+world_seed:
+  world_scale: ""
+  starting_region: ""
+  civilization_flavor: ""
+  cultivation_flavor: ""
+  supernatural_density: ""
+  mortal_cultivator_relationship: ""
+  important_world_ideas: []
+  forbidden_world_ideas: []
+  notes: ""
+
+cultivation_seed:
+  desired_feel: ""
+  known_realms: []
+  special_rules: []
+  protagonist_path: ""
+  resource_pressure: ""
+  breakthrough_style: ""
+  power_ceiling_hint: ""
+  notes: ""
+
+plot_seed:
+  opening_situation: ""
+  inciting_incident: ""
+  first_major_goal: ""
+  early_antagonistic_force: ""
+  long_term_direction: ""
+  ending_direction: ""
+  major_scenes_user_wants: []
+  twists_user_wants: []
+  twists_to_avoid: []
+
+factions_seed:
+  must_have_factions: []
+  faction_flavor: ""
+  notes: ""
+
+romance_seed:
+  enabled: false
+  importance: "none"
+  pairing_direction: ""
+  harem: false
+  constraints: []
+  notes: ""
+
+tone_and_style_seed:
+  narration_pov: "third_limited"
+  preferred_pacing: ""
+  preferred_dialogue_density: ""
+  humor_level: ""
+  brutality_level: ""
+  philosophical_depth: ""
+  prose_notes: ""
+  phrases_or_tics_to_avoid: []
+
+content_boundaries:
+  prohibited_content: []
+  violence_notes: ""
+  romance_notes: ""
+  other_boundaries: []
+
+production:
+  batch_size: 10
+  auto_run_batch: true
+  require_qc: true
+  require_rewrite: true
+  final_filename_format: "Chương {chapter}: {title}.txt"
+  branch_format: "story/{slug}"
+
+open_questions:
+  # AI phải giải quyết sáng tạo nếu người dùng không bắt buộc duyệt.
+  user_wants_ai_to_decide: []
+  user_must_decide: []
