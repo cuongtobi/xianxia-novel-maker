@@ -1,407 +1,233 @@
 # ChatGPT Web + GitHub Protocol
 
-## 1. Mục đích
+## 1. Purpose
 
-Tài liệu này định nghĩa cách vận hành pipeline hoàn toàn qua hội thoại ChatGPT và GitHub connector/plugin.
+Framework runs through ChatGPT + GitHub connector. GitHub is persistent state; ChatGPT executes the pipeline in-session.
 
-Không cần một service chạy nền. GitHub là persistent memory; ChatGPT là execution engine theo từng phiên.
+Framework branch: `main`.
+Story branch: `story/<slug>`.
 
-Pipeline v2 quản song song:
+Default production batch: **5 chapters**.
 
-- story correctness;
-- reader experience.
-
-## 2. Repository model
-
-- Framework branch: `main`
-- Story branch: `story/<slug>`
-- Một story branch chỉ chứa dữ liệu của một truyện trong `stories/<slug>/`.
-- Framework có thể được cải tiến trên `main`; story đang chạy **không tự động nhận thay đổi** trừ khi user yêu cầu đồng bộ.
-
-## 3. New Story Protocol
-
-Khi user cung cấp seed:
+## 2. New Story Protocol
 
 ### Step 1 — Resolve slug
 
-- ưu tiên `meta.slug` nếu có;
-- nếu trống, sinh slug Latin/kebab-case từ working title;
-- branch: `story/<slug>`.
+Use `meta.slug` or derive kebab-case slug.
 
-### Step 2 — Create branch
+### Step 2 — Create story branch
 
-Tạo từ `main`.
+Create `story/<slug>` from `main`.
 
 ### Step 3 — Create story tree
 
-Tạo ít nhất:
+At minimum:
 
 ```text
-stories/<slug>/seed/seed.yaml
-stories/<slug>/bible/story_bible.md
-stories/<slug>/bible/style_bible.md
-stories/<slug>/bible/characters_bible.md
-stories/<slug>/outline/master_outline.md
-stories/<slug>/outline/arcs/arc_001.md
-stories/<slug>/memory/current_state.md
-stories/<slug>/memory/canon_ledger.md
-stories/<slug>/memory/timeline.md
-stories/<slug>/memory/character_states.md
-stories/<slug>/memory/relationships.md
-stories/<slug>/memory/cultivation_ledger.md
-stories/<slug>/memory/inventory_artifacts.md
-stories/<slug>/memory/factions_locations.md
-stories/<slug>/memory/knowledge_ledger.md
-stories/<slug>/memory/foreshadowing.md
-stories/<slug>/memory/unresolved_threads.md
-stories/<slug>/memory/chapter_summaries.md
-stories/<slug>/memory/reader_experience.md
+manifest.yaml
+seed/seed.yaml
+bible/story_bible.md
+bible/style_bible.md
+bible/characters_bible.md
+outline/master_outline.md
+outline/arcs/arc_001.md
+memory/current_state.md
+memory/canon_ledger.md
+memory/timeline.md
+memory/character_states.md
+memory/relationships.md
+memory/cultivation_ledger.md
+memory/inventory_artifacts.md
+memory/factions_locations.md
+memory/knowledge_ledger.md
+memory/foreshadowing.md
+memory/unresolved_threads.md
+memory/chapter_summaries.md
+memory/reader_experience.md
 ```
 
-### Step 4 — Seed validation
+### Step 4 — Genesis
 
-Không hỏi lại phần user đã cung cấp. Chỉ xác định:
+1. validate seed;
+2. Story Bible;
+3. Style Bible;
+4. Characters Bible;
+5. Master Outline + 3–5 Story Promises;
+6. Arc 1 + Promise/Narrative Engine/Xianxia/Emotional plan;
+7. initialize story memory;
+8. initialize Reader Experience Memory.
 
-- contradiction;
-- missing critical constraint;
-- creative blanks AI được phép quyết định;
-- content user bắt buộc quyết định;
-- candidate reader promises từ premise/hook.
+## 3. Framework defaults
 
-Nếu không có blocker, tự tiếp tục Genesis.
+Native v2.1 manifest:
 
-### Step 5 — Genesis
+```yaml
+pipeline:
+  version: "2.1"
+  batch_size: 5
+  batch_workflow: "docs/BATCH_5_WORKFLOW.md"
+  rolling_audit_every: 3
+```
 
-Chạy theo thứ tự:
+If user explicitly asks for another range or batch size for one run, follow that request. Otherwise “next batch” = 5 chapters.
 
-1. Story Bible
-2. Style Bible
-3. Characters Bible
-4. Master Outline + lock 3–5 Story Promises
-5. Arc 1 Outline + Narrative Engine/Xianxia/Emotional maps
-6. Initialize Story State Memory
-7. Initialize Reader Experience Memory
+## 4. Read Protocol
 
-Mỗi stage đọc output trước đó.
+### Framework session
 
-READY_TO_WRITE chỉ hợp lệ khi Story Promises và `reader_experience.md` đã initialized.
+Read:
 
-## 4. How ChatGPT Should Read GitHub
+- `AGENTS.md`;
+- relevant workflow docs.
 
-### Framework session start
+### Story session
 
-Đọc:
+Read from exact story branch:
 
-- `AGENTS.md`
-- `docs/READER_EXPERIENCE_SYSTEM.md`
-- tài liệu workflow liên quan.
-
-### Story session start
-
-Đọc từ đúng branch:
-
+- manifest;
 - seed;
-- current_state;
-- `reader_experience.md`;
-- master Story Promise section;
-- arc hiện tại;
-- bible liên quan;
-- memory ledgers liên quan;
-- batch audit gần nhất nếu có;
-- artifact tree chapter gần nhất.
+- current state;
+- reader experience;
+- current arc;
+- relevant bibles/ledgers;
+- recent batch audit;
+- recent summaries/finals as needed.
 
-### Targeted reads
+Do not rely on old chat memory as source of truth.
 
-Không tải toàn bộ hàng trăm chapter. Dùng filename, summary và ledger.
+## 5. Write Protocol
 
-Nhưng phải đọc full final khi:
+Framework changes → `main`.
+Story artifacts → matching `story/<slug>`.
 
-- continuity trực tiếp;
-- callback cụ thể;
-- Reader Retention/Style Fingerprint cần so repetition;
-- Rolling 3-Chapter Audit yêu cầu full N-2/N-1.
+Before every write confirm repo, branch, slug, path.
 
-## 5. How ChatGPT Should Write GitHub
+## 6. Atomic Chapter Transaction
 
-### Framework files
+For chapter N:
 
-Ghi vào `main` chỉ khi user đang phát triển pipeline.
+1. scene plan;
+2. draft;
+3. continuity report;
+4. reader retention report;
+5. style fingerprint report;
+6. aggregate quality report;
+7. rewrite;
+8. critical re-QC;
+9. rolling audit if `N % 3 == 0`;
+10. final;
+11. update story memory;
+12. update reader experience.
 
-### Story files
+Do not move to N+1 before both memories reflect final N.
 
-Ghi vào `story/<slug>`.
+## 7. Batch 5 Protocol
 
-Không ghi story artifact lên `main`.
+When user says:
 
-### Atomicity rule — chapter N
+> Viết batch tiếp theo.
 
-1. `scene_plan.md`
-2. `draft.txt`
-3. `continuity_report.md`
-4. `reader_retention_report.md`
-5. `style_fingerprint_report.md`
-6. `quality_report.md` aggregate
-7. `rewrite.txt` nếu required/config
-8. critical re-QC
-9. `rolling_3_chapter_audit.md` nếu `N % 3 == 0`
-10. final TXT
-11. update story memory
-12. update `reader_experience.md`
-13. refresh `current_state.md`
+Resolve default range:
 
-Nếu dừng giữa chừng, `final/` không được giả vờ đã hoàn tất.
+`next_chapter ... next_chapter + 4`
 
-## 6. Commit Strategy
+Typical ranges:
 
-Khuyến nghị:
+- 1–5
+- 6–10
+- 11–15
+- 16–20
 
-- Genesis: 1–3 commits theo nhóm bible/outline/memory.
-- Production: 1 commit/chapter hoặc 1 commit chapter artifacts + 1 memory commit.
-- Batch audit: 1 commit cuối batch.
+Run chapter transactions sequentially.
 
-Commit message gợi ý:
+After fifth requested chapter create:
 
-- `story: bootstrap <slug>`
-- `story: build bible for <slug>`
-- `story: lock promises for <slug>`
-- `story: outline opening arc for <slug>`
-- `chapter: finalize ch 001 <slug>`
-- `memory: update through ch 001 <slug>`
-- `audit: rolling ch 001-003 <slug>`
-- `audit: batch 001-010 <slug>`
+`chapters/batch_NNNN_NNNN_audit.md`
 
-Không bắt buộc đúng literal, nhưng lịch sử phải dễ đọc.
+Use `docs/BATCH_5_WORKFLOW.md` + `templates/batch_audit.template.md`.
 
-## 7. Branch Safety
+## 8. Rolling Audit vs Batch Boundary
 
-Trước mọi write:
+Rolling 3-Chapter Audit is global and independent of batch size.
 
-- xác nhận repository full name;
-- xác nhận story slug;
-- xác nhận branch;
-- story path bắt đầu bằng `stories/<same-slug>/`;
-- framework write chỉ vào `main`.
+Trigger on:
 
-Nếu user chuyển truyện giữa phiên, reset context assembly và đọc branch mới.
+`3, 6, 9, 12, 15...`
 
-## 8. Standard User Interaction
+A rolling window may cross batch boundaries. Example: Ch.4–6 includes chapters from batch 1–5 and batch 6–10; this is expected.
 
-### Create story
-
-User:
-
-> Tạo truyện mới theo seed sau...
-
-Assistant:
-
-- tạo branch;
-- lưu seed;
-- Genesis;
-- lock promises;
-- initialize both memories;
-- báo artifact chính đã tạo.
-
-### Write batch
-
-User:
-
-> Viết tiếp 10 chương.
-
-Assistant:
-
-- xác định story branch;
-- đọc story + reader state;
-- verify previous artifact completion;
-- chạy sequential chapter loop;
-- rolling audit tại 3/6/9/...;
-- tạo batch audit;
-- verify completion gate.
-
-### Continue in a new conversation
-
-User:
-
-> Làm tiếp repo ..., branch story/xxx, viết batch tiếp.
-
-Assistant không cần lịch sử chat cũ; GitHub cung cấp state.
-
-## 9. Orchestrator State Machine
+## 9. State Machine
 
 ```text
 NO_STORY
-  ↓ seed
-SEED_SAVED
-  ↓
-STORY_BIBLE_READY
-  ↓
-STYLE_BIBLE_READY
-  ↓
-CHARACTERS_BIBLE_READY
-  ↓
-MASTER_OUTLINE_READY
-  ↓ Story Promises locked
-PROMISES_READY
-  ↓
-ARC_READY
-  ↓
-STORY_MEMORY_READY
-  ↓
-READER_MEMORY_READY
-  ↓
-READY_TO_WRITE
-  ↓
-SCENE_PLANNED
-  ↓
-DRAFTED
-  ↓
-CONTINUITY_QC_COMPLETE
-  ↓
-RETENTION_QC_COMPLETE
-  ↓
-STYLE_QC_COMPLETE
-  ↓
-AGGREGATE_QC_COMPLETE
-  ↓
-REWRITTEN
-  ↓
-ROLLING_AUDIT_COMPLETE (when due)
-  ↓
-FINALIZED
-  ↓
-STORY_MEMORY_COMMITTED
-  ↓
-READER_MEMORY_COMMITTED
-  └────────→ READY_TO_WRITE
+→ SEED_SAVED
+→ STORY_BIBLE_READY
+→ STYLE_BIBLE_READY
+→ CHARACTERS_BIBLE_READY
+→ MASTER_OUTLINE_READY
+→ ARC_READY
+→ MEMORY_READY
+→ READY_TO_WRITE
+→ SCENE_PLANNED
+→ DRAFTED
+→ THREE_QC_COMPLETE
+→ AGGREGATE_GATE
+→ REWRITTEN
+→ ROLLING_AUDITED_IF_DUE
+→ FINALIZED
+→ MEMORY_COMMITTED
+→ READY_TO_WRITE
 ```
 
-State được suy ra từ **artifact thật trên GitHub**, không cần database riêng.
+State is inferred from GitHub artifacts.
 
-## 10. Artifact Status Rules
+## 10. Resume Rules
 
-### Scene plan exists, no draft
+- scene plan exists, no draft → resume Draft.
+- draft exists, missing reviewer reports → resume QC.
+- reviewers done, aggregate missing → aggregate.
+- aggregate requires rewrite, rewrite missing → rewrite.
+- rewrite exists, rolling audit due but missing → rolling audit.
+- final exists, memory stale → update memory before new chapter.
+- memory says N but final only N-1 → repair inconsistency before production.
 
-Resume Draft.
+## 11. Completion Gate
 
-### Draft exists, one/more reviewer report missing
+Native v2.1 chapter requires:
 
-Resume đúng reviewer còn thiếu. Không coi `quality_report.md` cũ là thay thế ba reviewer.
+- scene plan;
+- draft;
+- 3 reviewer reports;
+- aggregate quality report;
+- rewrite when required/configured;
+- rolling audit when due;
+- final;
+- story + reader memory current.
 
-### Three reviewer reports exist, aggregate missing
+Default batch requires:
 
-Resume Aggregate QC.
+- requested 5 finals;
+- all required per-chapter artifacts;
+- memory through last chapter;
+- batch audit;
+- next-batch handoff.
 
-### Aggregate says rewrite required, no rewrite
+If missing → `INCOMPLETE`, not PASS.
 
-Resume Rewrite.
+## 12. Legacy / Migration Protocol
 
-### Rewrite exists, rolling audit due but missing
+Story branches do not automatically inherit framework updates.
 
-Run/re-run affected reviewer, aggregate, rồi Rolling 3-Chapter Audit. Không final.
+For pre-v2 or batch-10 stories:
 
-### Rolling audit has MAJOR
+- follow `docs/FRAMEWORK_V2_MIGRATION.md`;
+- never fake retroactive pre-final QC;
+- historical 10-chapter batch audits remain valid;
+- when batch-size migration is applied, set `batch_size: 5`;
+- continue next batch from current `next_chapter` for 5 chapters;
+- do not split valid historical `batch_0001_0010_audit.md` into fake retroactive 1–5/6–10 audits.
 
-Rewrite current candidate, rerun affected QC + rolling audit.
-
-### Rewrite exists, no final, all gates PASS
-
-Run critical re-QC rồi final.
-
-### Final exists, story memory outdated
-
-Không viết chapter mới. Update memory.
-
-### Story memory current nhưng `reader_experience.md` outdated
-
-Vẫn `INCOMPLETE`. Update reader memory trước chapter mới.
-
-### Memory says chapter N but final only through N-1
-
-Memory inconsistency. Kiểm final/Git history rồi sửa memory.
-
-### 10 finals exist but `batch_NNNN_NNNN_audit.md` missing
-
-Batch `INCOMPLETE`. Tạo audit trước khi báo hoàn tất.
-
-## 11. Story Promise / Reader Experience Status
-
-Orchestrator phải biết:
-
-- 3–5 promise đã khóa;
-- last ADVANCE/PAY;
-- current drought;
-- recent engines;
-- recent endings;
-- recent rhetorical tics;
-- last wonder/emotional hit;
-- current payoff debt.
-
-`ADVANCE` không được tự đổi thành `PAY` chỉ để tránh warning.
-
-## 12. Rolling Audit Protocol
-
-Trigger: trước final các chapter chia hết cho 3.
-
-Read full:
-
-- N-2 final;
-- N-1 final;
-- N rewrite candidate.
-
-Check:
-
-- opening shape;
-- Narrative Engine;
-- dialogue geometry;
-- conflict solution;
-- ending shape;
-- rhetorical tics;
-- Story Promise PAY;
-- Xianxia Experience;
-- Emotional Residue.
-
-Output:
-
-`chapters/NNNN/rolling_3_chapter_audit.md`
-
-Nếu MAJOR, sửa current N; không retcon N-2/N-1 chỉ để tạo variety.
-
-## 13. Title Generation
-
-Tiêu đề chương chốt sau rewrite, không bắt buộc giữ working title.
-
-Tiêu đề tốt:
-
-- gắn sự kiện/hình ảnh/lựa chọn;
-- không spoil twist lớn;
-- không dùng cùng pattern quá dày;
-- phù hợp style bible.
-
-Final filename:
-
-`Chương X: <Tiêu đề>.txt`
-
-## 14. Data vs Prose Separation
-
-- Data → bible / outline / memory / QC.
-- Prose → draft / rewrite / final.
-- Reader-production state → `reader_experience.md`.
-- Final → chỉ truyện.
-
-Không nhét metadata/controller labels vào final.
-
-## 15. Framework Update Protocol
-
-Khi user yêu cầu sửa pipeline:
-
-1. làm trên `main`;
-2. đọc docs hiện hành;
-3. sửa source files + templates liên quan;
-4. đảm bảo `AGENTS.md`, Architecture, Batch Workflow, Protocol và README không mâu thuẫn;
-5. không tự chỉnh story branch đang chạy;
-6. báo migration note nếu framework change ảnh hưởng story cũ;
-7. verify file tree sau update.
-
-## 16. Recommended Chat Commands
+## 13. Standard User Commands
 
 ### Genesis
 
@@ -409,38 +235,26 @@ Khi user yêu cầu sửa pipeline:
 
 ### One chapter
 
-`Viết chương tiếp theo qua đủ scene plan, 3-mode QC, rewrite, rolling audit nếu đến kỳ, final và memory update.`
+`Viết chương tiếp theo qua đủ pipeline.`
 
 ### Batch
 
-`Viết batch 10 chương tiếp theo theo BATCH_10_WORKFLOW, tuần tự và cập nhật story + reader memory sau từng chương.`
+`Viết batch 5 chương tiếp theo theo BATCH_5_WORKFLOW.`
 
-### Audit continuity
+or
 
-`Audit continuity 20 chương gần nhất; không rewrite nếu chưa cần.`
+`Viết batch tiếp theo đúng pipeline.`
 
-### Audit retention
+### Audit
 
-`Audit Story Promise, Narrative Engine, Xianxia Experience và Emotional Residue 10 chương gần nhất.`
+`Audit các chương gần nhất: continuity, promises, Narrative Engine, Xianxia Experience, Emotional Residue, power và style fingerprint.`
 
-### Audit style fingerprint
+### Migration
 
-`Audit rhetorical tics, Q&A cleanliness, hypothesis-loop, aphorism density và ending repetition 10 chương gần nhất.`
+`Sync story này lên framework hiện tại và chuyển default batch sang 5, không retcon final.`
 
-### Repair
+## 14. Automatic Means In-Session
 
-`Sửa các lỗi đã phát hiện, ưu tiên artifact chưa final; không retcon final nếu chưa được phép.`
+“Automatic” means ChatGPT executes the required stages in the current interaction without asking approval at every step.
 
-## 17. What “automatic” means
-
-Trong ChatGPT Web, “tự động” nghĩa là khi user ra lệnh batch, assistant tự thực hiện mọi bước cần thiết trong lượt làm việc bằng GitHub tools mà không yêu cầu duyệt từng stage.
-
-Nó không có nghĩa có daemon chạy sau khi hội thoại kết thúc, và không được giả vờ có công việc nền chưa thực hiện.
-
-## 18. Completion wording
-
-Chỉ dùng từ như `hoàn tất`, `PASS`, `READY_TO_WRITE`, `ready for next batch` khi Artifact Completion Gate đã verify.
-
-Nếu nội dung chính đã viết nhưng thiếu report/memory/audit bắt buộc, phải nói rõ:
-
-`INCOMPLETE — missing <artifact>`.
+It does not mean background execution, daemon work, or pretending unfinished tasks are complete.
