@@ -11,6 +11,7 @@ ChatGPT phải tách rõ các vai trò dù cùng một model thực hiện:
 - **Story Architect** — master outline, arc, progression dài hạn.
 - **Story Promise Controller** — khóa 3–5 reader promises, theo dõi ADVANCE/PAY magnitude/drought.
 - **Xianxia Experience Controller** — cultivation payoff, wonder, danger, power gap, mystical discovery, desirable resource, threshold crossing.
+- **Xianxia Density Controller** — kiểm Ambient/Active/Aspirational Xianxia, X0–X3, replaceability và rolling genre-density để truyện không chỉ có “skin tu tiên”.
 - **Dramatic Geometry Controller** — bắt chapter khác engine label nhưng cùng conflict/decision/resolution geometry.
 - **Competence Friction Controller** — theo dõi CLEAN_WIN streak, partial/wrong-model/cost/dependence để MC không frictionless.
 - **Aspiration + Heat Controller** — tách fantasy desire khỏi scarcity và kiểm rolling heat curve.
@@ -18,7 +19,7 @@ ChatGPT phải tách rõ các vai trò dù cùng một model thực hiện:
 - **Scene Planner** — đủ constraint nhưng không over-plan prose.
 - **Writer** — prose tiếng Việt tự nhiên.
 - **Continuity Auditor** — canon/state/knowledge/power/POV.
-- **Reader Retention Editor** — promise magnitude, Narrative Engine, Dramatic Geometry, competence friction, aspiration, heat, Binge Test, pacing/drag, agency, Xianxia Experience, Emotional Residue.
+- **Reader Retention Editor** — promise magnitude, Narrative Engine, Dramatic Geometry, competence friction, aspiration, heat, Binge Test, Xianxia Density, pacing/drag, agency, Xianxia Experience, Emotional Residue.
 - **Style Fingerprint Auditor** — rhetorical tic, Q&A cleanliness, hypothesis-loop, aphorism density, cadence/calibration drift.
 - **Rewriter** — sửa theo QC, không retcon tùy tiện.
 - **Memory Keeper** — update story memory + Reader Experience Memory sau mỗi final.
@@ -29,6 +30,7 @@ Không bỏ reviewer, rolling audit hoặc memory để tăng tốc.
 
 - `docs/READER_EXPERIENCE_SYSTEM.md`
 - `docs/RETENTION_CONTROLLERS_V3.md`
+- `docs/XIANXIA_DENSITY_CONTROLLER.md`
 - `docs/BATCH_5_WORKFLOW.md`
 
 ## 2. Source of truth
@@ -46,7 +48,7 @@ Khi canon/state xung đột, ưu tiên:
 
 Outline là kế hoạch. Final + canon ledger là chuyện đã xảy ra.
 
-`memory/reader_experience.md` là source of truth cho production pattern gần đây: promise PAY magnitude, Narrative Engine, Dramatic Geometry, competence outcomes, aspiration beats, heat, Binge Test, ending shape, rhetorical tic, Xianxia/Emotional debt. Nó không override canon hoặc Character DNA.
+`memory/reader_experience.md` là source of truth cho production pattern gần đây: promise PAY magnitude, Narrative Engine, Dramatic Geometry, competence outcomes, aspiration beats, heat, Xianxia Density peaks/replaceability, Binge Test, ending shape, rhetorical tic, Xianxia/Emotional debt. Nó không override canon hoặc Character DNA.
 
 ## 3. Branch contract
 
@@ -63,6 +65,8 @@ Story cũ thiếu Reader Experience / 3-mode QC dùng `docs/FRAMEWORK_V2_MIGRATI
 Không fake retroactive per-chapter QC. Có thể dựng migration baseline từ final thật.
 
 Batch audit lịch sử 10 chương vẫn hợp lệ. Khi story sync batch size 5, không cần chia audit 1–10 cũ thành 1–5 và 6–10.
+
+**Xianxia Density Controller chỉ áp mặc định cho truyện mới dùng framework v3. Không tự sửa/migrate story branch cũ nếu user không yêu cầu.**
 
 ## 4. Read-before-write
 
@@ -108,6 +112,28 @@ Mỗi realm phải có qualitative change, limitation, breakthrough requirement,
 - dao/cultivation insight có consequence;
 - magical craft;
 - world-scale glimpse.
+
+### Xianxia Density rule
+
+Xianxia Experience có thể tồn tại như một beat riêng lẻ, nhưng **Xianxia Density** kiểm việc luật tu tiên có thật sự đi vào causal chain của truyện hay không.
+
+Mỗi chapter của truyện mới v3 phải ghi:
+
+- Ambient Xianxia;
+- Active Xianxia causal beat(s);
+- Aspirational Xianxia;
+- `xianxia_peak: X0/X1/X2/X3`;
+- Replaceability: LOW / MEDIUM / HIGH.
+
+Core rolling rules:
+
+- rolling 3 phải có ít nhất 1 chapter `X2+`;
+- 3 consecutive `HIGH_REPLACEABILITY` → **MAJOR genre dilution risk**;
+- rolling 5 phải có ít nhất 2 chapter `X2+` + ít nhất 1 chapter `X3`;
+- rolling 5 phải có aspiration/wonder desire đủ rõ;
+- không clear finding bằng cách rắc thêm “linh khí / pháp bảo / đạo vận”. Phải sửa causal structure.
+
+Chi tiết: `docs/XIANXIA_DENSITY_CONTROLLER.md`.
 
 ## 6. Story Promise contract
 
@@ -310,7 +336,7 @@ Canon, timeline, geography, cultivation/power, techniques/items, injury/fatigue,
 
 ### Reader Retention Editor
 
-Story Promise magnitude/drought, Narrative Engine + 3/4 rule, Dramatic Geometry, Competence Friction, Aspiration, Heat Curve, Binge Test, opening/movement/drag, agency/humanity, costly mistakes, Xianxia Experience, Emotional Residue, ending/reason-to-continue.
+Story Promise magnitude/drought, Narrative Engine + 3/4 rule, Dramatic Geometry, Competence Friction, Aspiration, Heat Curve, Binge Test, Xianxia Density, opening/movement/drag, agency/humanity, costly mistakes, Xianxia Experience, Emotional Residue, ending/reason-to-continue.
 
 Binge Test bắt buộc trả lời:
 
@@ -318,6 +344,8 @@ Binge Test bắt buộc trả lời:
 2. **Nếu bỏ ending hook, bản thân chương này có đủ đáng đọc không?** (`YES / WEAK / NO`)
 
 `NONE` ở câu 1 hoặc `NO` ở câu 2 là MAJOR trừ explicit structural waiver hợp lệ theo spec v3.
+
+Xianxia Density Gate bắt buộc kiểm `X0–X3`, Replaceability, rolling 3 và rolling 5 theo `docs/XIANXIA_DENSITY_CONTROLLER.md`.
 
 ### Style Fingerprint Auditor
 
@@ -331,7 +359,7 @@ Trước final các chapter chia hết cho 3: `3, 6, 9, 12, 15...`
 
 `chapters/NNNN/rolling_3_chapter_audit.md`
 
-Kiểm opening, engine, Dramatic Geometry, dialogue geometry, conflict solution, ending, rhetorical tics, Story Promise magnitude, Competence Friction, Aspiration, Heat trend, Binge Test trend, Xianxia Experience, Emotional Residue, costly mistake pattern.
+Kiểm opening, engine, Dramatic Geometry, dialogue geometry, conflict solution, ending, rhetorical tics, Story Promise magnitude, Competence Friction, Aspiration, Heat trend, Binge Test trend, Xianxia Density/Replaceability, Xianxia Experience, Emotional Residue, costly mistake pattern.
 
 Batch size 5 **không thay cadence này**.
 
@@ -346,7 +374,8 @@ Rewrite phải:
 3. không thêm twist lớn ngoài outline để cứu prose;
 4. sửa structure nếu lỗi là Narrative Engine/geometry, không synonym-spin;
 5. sửa root cause nếu lỗi là friction/aspiration/heat/binge, không chỉ thêm một câu hook;
-6. re-check vùng sửa và continuity liên quan.
+6. nếu thiếu Xianxia Density, sửa supernatural causality/constraint/consequence, không rắc thêm vocabulary;
+7. re-check vùng sửa và continuity liên quan.
 
 ## 16. Memory contract
 
@@ -378,6 +407,10 @@ Bắt buộc nếu thay đổi:
 - competence outcomes;
 - aspiration beats;
 - peak heat;
+- `xianxia_peak` sequence;
+- Ambient / Active / Aspirational Xianxia summary;
+- replaceability sequence;
+- last `X2+`, last `X3`, genre_density_debt;
 - Binge Test result;
 - dialogue geometries;
 - ending shapes;
@@ -415,9 +448,9 @@ Cuối batch tạo:
 
 `chapters/batch_NNNN_NNNN_audit.md`
 
-Audit: artifact completion, arc progress, Story Promise magnitude/drought, Narrative Engine, Dramatic Geometry, Competence Friction, Aspiration coverage, Heat Curve rolling-5, Binge Test health, Xianxia/Emotional experience, continuity, character agency/irrationality, power/resource economy, style fingerprint, threads/setup/payoff, Reader Experience consistency, next-batch handoff.
+Audit: artifact completion, arc progress, Story Promise magnitude/drought, Narrative Engine, Dramatic Geometry, Competence Friction, Aspiration coverage, Heat Curve rolling-5, Xianxia Density peak sequence/replaceability/Active+Strong counts, Binge Test health, Xianxia/Emotional experience, continuity, character agency/irrationality, power/resource economy, style fingerprint, threads/setup/payoff, Reader Experience consistency, next-batch handoff.
 
-Nếu technical gate sạch nhưng retention controller còn MAJOR → `REPAIR_REQUIRED`, không PASS.
+Nếu technical gate sạch nhưng retention hoặc Xianxia Density controller còn MAJOR → `REPAIR_REQUIRED`, không PASS.
 
 Nếu user explicit yêu cầu range/batch size khác, ưu tiên yêu cầu user cho lần chạy đó.
 
@@ -487,3 +520,26 @@ Không được kết luận batch/chapter PASS chỉ vì continuity, style và 
 Core principle:
 
 **PASS kỹ thuật ≠ PASS trải nghiệm đọc.**
+
+## 22. Xianxia Density Controller v3 contract
+
+Controller này là **binding cho truyện mới framework v3**.
+
+Nó kiểm:
+
+1. Ambient Xianxia;
+2. Active Xianxia causality;
+3. Aspirational Xianxia;
+4. `xianxia_peak X0–X3`;
+5. Replaceability Test;
+6. rolling 3 Active requirement;
+7. rolling 5 `2×X2+ + 1×X3` requirement;
+8. genre_density_debt.
+
+Rule chi tiết và severity tại `docs/XIANXIA_DENSITY_CONTROLLER.md`.
+
+Không được coi việc có nhiều danh từ “linh khí / linh thạch / công pháp / pháp bảo” là đủ density nếu supernatural law không thay đổi lựa chọn hoặc hậu quả.
+
+Core principle:
+
+**Truyện phải có nhân quả tu tiên, không chỉ skin tu tiên.**
