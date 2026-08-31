@@ -13,13 +13,16 @@ Batch chỉ là đơn vị điều phối + audit. Mỗi chương vẫn là mộ
 Framework v3 bắt buộc đọc:
 
 - `docs/RETENTION_CONTROLLERS_V3.md`;
-- `docs/XIANXIA_DENSITY_CONTROLLER.md`.
+- `docs/XIANXIA_DENSITY_CONTROLLER.md`;
+- `docs/REFERENCE_STYLE_SYSTEM.md` khi story bật Reference Style.
 
 Core rules:
 
 **PASS kỹ thuật ≠ PASS trải nghiệm đọc.**
 
 **PASS retention ≠ PASS genre density.**
+
+**Reference Style = high-level Style DNA; Writer viết theo story Style Bible, không sao chép reference.**
 
 ## 2. Chapter transaction
 
@@ -31,7 +34,7 @@ assemble context
 → draft
 → Continuity Auditor
 → Reader Retention Editor + Retention Controllers v3 + Xianxia Density
-→ Style Fingerprint Auditor
+→ Style Fingerprint Auditor + Reference drift/overfit check if enabled
 → aggregate quality gate: Technical Gate + Reader-Reward Gate + Xianxia Density Gate
 → rewrite
 → critical re-QC
@@ -63,18 +66,19 @@ Trước chương đầu batch:
 2. đọc `AGENTS.md`;
 3. đọc `docs/RETENTION_CONTROLLERS_V3.md`;
 4. đọc `docs/XIANXIA_DENSITY_CONTROLLER.md` nếu story là truyện mới v3 hoặc manifest bật `xianxia_density_required`;
-5. đọc manifest và xác nhận `pipeline.batch_size: 5` + các controller bắt buộc;
-6. đọc seed + ba bible;
-7. đọc Story Promises trong master outline;
-8. đọc arc hiện tại;
-9. đọc `memory/current_state.md`;
-10. đọc `memory/reader_experience.md`;
-11. đọc ledgers liên quan;
-12. đọc summaries gần nhất;
-13. đọc full final gần nhất;
-14. đọc thêm 2–3 full final nếu cần kiểm repetition/style/geometry/density;
-15. verify batch audit trước tồn tại nếu range trước đã hoàn tất;
-16. xác định start/end chapter của 5 chương tiếp theo.
+5. nếu manifest/seed bật Reference Style, đọc `docs/REFERENCE_STYLE_SYSTEM.md`, xác nhận profile path hợp lệ và Style Bible đã có `Reference Style Adaptation Contract`;
+6. đọc manifest và xác nhận `pipeline.batch_size: 5` + các controller bắt buộc;
+7. đọc seed + ba bible;
+8. đọc Story Promises trong master outline;
+9. đọc arc hiện tại;
+10. đọc `memory/current_state.md`;
+11. đọc `memory/reader_experience.md`;
+12. đọc ledgers liên quan;
+13. đọc summaries gần nhất;
+14. đọc full final gần nhất;
+15. đọc thêm 2–3 full final nếu cần kiểm repetition/style/geometry/density;
+16. verify batch audit trước tồn tại nếu range trước đã hoàn tất;
+17. xác định start/end chapter của 5 chương tiếp theo.
 
 Preflight phải biết:
 
@@ -97,7 +101,13 @@ Preflight phải biết:
 - reader appetite/payoff debt;
 - cultivation/power constraints;
 - active deadlines/threads;
-- character drift/human irrationality risks.
+- character drift/human irrationality risks;
+- story Style Bible direct contract;
+- Reference Style enabled/profile nếu có;
+- project-owned calibration maturity;
+- recent reference `drift-away / overfit / weakness leakage` findings nếu có.
+
+Writer **không cần reread toàn reference work** trong mỗi chapter. Direct style source là Style Bible + project-owned calibration.
 
 ## 5. Story Promise Controller + Payoff Magnitude
 
@@ -305,7 +315,62 @@ Phải sửa causal structure:
 
 `supernatural law/state → constraint/opportunity → decision → observable consequence`.
 
-## 12. Scene planning — không over-plan
+## 12. Reference Style System
+
+Chỉ áp nếu seed/manifest bật `reference_style_enabled`.
+
+Flow:
+
+`Reference Profile → story Style Bible adaptation → Writer → project-owned calibration → Style Fingerprint QC`.
+
+### Direct writing rule
+
+Writer viết theo **story Style Bible**. Không dùng tên tác giả/tác phẩm reference như direct prompt.
+
+Không copy:
+
+- câu chữ;
+- rhetorical frame;
+- hình ảnh đặc trưng;
+- scene/plot beat;
+- convert syntax;
+- stock gesture của nguồn.
+
+### Default xianxia traits nếu story dùng profile framework
+
+Style Bible có thể adapt:
+
+- prose trực diện/event-forward;
+- câu trung bình làm trục, câu ngắn tại impact;
+- cultivation qua constraint/mechanism/body/perception/resource/consequence;
+- combat tôn trọng power gap/resource/timing/cost;
+- Dao/insight từ lived experience/concrete image lên abstraction;
+- mortal/immortal contrast;
+- emotional restraint → rupture → persistent scar;
+- world scale mở theo tầng.
+
+### Weakness filter
+
+Không học:
+
+- exposition/recap dài;
+- cú pháp dịch cứng;
+- stock `sắc mặt/ánh mắt/hít sâu`;
+- connector lặp;
+- slow pacing không intrinsic reward;
+- aphorism không có trải nghiệm đỡ phía dưới.
+
+### Calibration takeover
+
+Khi story có 4–6 final samples thuộc ít nhất 4 engine và đủ chất lượng, project-owned calibration được ưu tiên hơn Reference Profile.
+
+Style Auditor phải bắt:
+
+- `drift-away`: prose trở lại AI/generic, cultivation khô, combat log, Dao slogan;
+- `overfit`: prose cố giống source qua cú pháp/cụm/frame/stock gesture;
+- `weakness leakage`: bê nhược điểm serialization/dịch cũ vào story mới.
+
+## 13. Scene planning — không over-plan
 
 Planner xác định chapter-level:
 
@@ -322,13 +387,15 @@ Planner xác định chapter-level:
 - Emotional movement nếu có;
 - human irrationality/blind spot nếu relevant;
 - intrinsic reward trước ending hook;
-- ending shape.
+- ending shape;
+- style mode: everyday / cultivation / combat / wonder / Dao / emotional rupture / other.
 
 Planner bắt buộc hỏi:
 
 1. **Yếu tố nào khiến chapter này chỉ có thể tồn tại trong tu tiên giới?**
 2. **Supernatural law/state nào có causal consequence?**
 3. **Nếu chapter là X0/X1, rolling 3/5 có còn hợp lệ không?**
+4. **Style mode cần giữ trait nào từ Style Bible và phải tránh Reference weakness nào?**
 
 Conflict/transaction scene có thể dùng goal/obstacle/stakes/turn/choice/consequence.
 
@@ -341,7 +408,7 @@ Pre-check Binge Test trước draft:
 
 Nếu không có concrete intrinsic reward và không có valid structural waiver, redesign plan.
 
-## 13. Three-mode QC
+## 14. Three-mode QC
 
 Mỗi chapter trong v3 enforcement window phải có:
 
@@ -380,6 +447,8 @@ Bắt buộc kiểm:
 
 Rhetorical tics, Q&A cleanliness, hypothesis-loop, aphorism density, paragraph/sentence shape, dialogue sameness, positive prose texture, calibration drift.
 
+Nếu Reference Style bật, bắt buộc kiểm high-level alignment, drift-away, overfit/imitation risk, weakness leakage và calibration takeover.
+
 ### Aggregate
 
 Phải tách:
@@ -388,9 +457,9 @@ Phải tách:
 - **Reader-Reward Gate**;
 - **Xianxia Density Gate**.
 
-Technical Gate PASS không override Reader-Reward/Xianxia Density MAJOR.
+Technical Gate PASS không override Reader-Reward/Xianxia Density MAJOR. Reference Style overfit/drift MAJOR làm Technical Gate FAIL qua Style reviewer.
 
-## 14. Binge Test — bắt buộc
+## 15. Binge Test — bắt buộc
 
 Ở cuối Reader Retention QC phải trả lời riêng:
 
@@ -414,7 +483,7 @@ Kết quả `YES / WEAK / NO`.
 
 Bingeability không đồng nghĩa cliffhanger.
 
-## 15. Rolling 3-Chapter Audit
+## 16. Rolling 3-Chapter Audit
 
 Vẫn chạy **trước final mọi chapter chia hết cho 3**:
 
@@ -439,7 +508,8 @@ Audit:
 - Binge Test trend;
 - Xianxia Experience;
 - Emotional Residue;
-- costly mistakes.
+- costly mistakes;
+- story-style consistency / reference overfit when enabled.
 
 Heat official rule vẫn rolling 5. Xianxia Density có rolling 3 hard rule và rolling 5 hard rule.
 
@@ -447,7 +517,7 @@ Batch size 5 không thay đổi cadence này.
 
 Nếu audit phát hiện MAJOR ở candidate N, rewrite N rồi rerun reviewer/aggregate/rolling audit cần thiết trước final.
 
-## 16. Xianxia Experience + Emotional Residue
+## 17. Xianxia Experience + Emotional Residue
 
 Theo dõi xuyên batch:
 
@@ -470,7 +540,7 @@ Trong rolling 3–5 chapter cần có thay đổi có bằng chứng về emotio
 
 Không tạo melodrama giả để tick checklist.
 
-## 17. Dynamic outline adaptation
+## 18. Dynamic outline adaptation
 
 Sau mỗi final + memory update:
 
@@ -486,11 +556,12 @@ Sau mỗi final + memory update:
 - cập nhật Xianxia Density peak/replaceability + genre_density_debt;
 - cập nhật Binge risk;
 - cập nhật Xianxia/Emotional debt;
+- cập nhật style correction nếu recent finals drift khỏi Style Bible hoặc overfit reference;
 - ghi revision log khi deviation đáng kể.
 
 Nếu arc kết thúc giữa batch 5, phải tạo/đọc arc tiếp theo trước chapter vượt boundary. Không kéo/kết arc chỉ để khớp batch.
 
-## 18. End-of-Batch Audit
+## 19. End-of-Batch Audit
 
 Sau chapter thứ 5 của requested batch, tạo:
 
@@ -517,11 +588,12 @@ Audit dùng `templates/batch_audit.template.md` và kiểm:
 - character agency/human irrationality;
 - cultivation/power/resource economy;
 - style fingerprints;
+- Reference Style drift/overfit + calibration maturity nếu enabled;
 - setup/payoff/threads;
 - Reader Experience Memory consistency;
 - next-batch handoff.
 
-## 19. Completion gate
+## 20. Completion gate
 
 Batch 5 chỉ được báo `PASS/READY` khi:
 
@@ -534,17 +606,18 @@ Batch 5 chỉ được báo `PASS/READY` khi:
 - không còn BLOCKER/MAJOR chưa xử lý;
 - **Reader-Reward Gate sạch**;
 - **Xianxia Density Gate sạch** đối với story bật controller này;
+- Style reviewer sạch Reference drift/overfit MAJOR nếu Reference Style bật;
 - next-batch handoff rõ.
 
 Thiếu artifact bắt buộc → `INCOMPLETE`.
 
-Retention/Xianxia-Density MAJOR còn tồn tại → `REPAIR_REQUIRED`.
+Retention/Xianxia-Density/Style MAJOR còn tồn tại → `REPAIR_REQUIRED`.
 
-## 20. Legacy / migration
+## 21. Legacy / migration
 
 Các story cũ có batch 10 không cần xóa hoặc chia lại audit lịch sử.
 
-**Không tự migrate story cũ sang Xianxia Density.** Chỉ áp controller cho story mới v3 theo manifest, hoặc khi user explicit yêu cầu migrate một story cũ.
+**Không tự migrate story cũ sang Xianxia Density hoặc default Reference Style.** Chỉ áp cho story mới v3 theo manifest, hoặc khi user explicit yêu cầu migrate/update một story cũ.
 
 Nếu user yêu cầu sync story cũ sang batch 5/v3:
 
@@ -552,12 +625,13 @@ Nếu user yêu cầu sync story cũ sang batch 5/v3:
 - đặt `pipeline.version: 3.0` khi migration hoàn tất;
 - bật `retention_v3_required` theo phạm vi migration;
 - bật `xianxia_density_required` chỉ khi user yêu cầu controller này cho story đó;
+- bật Reference Style chỉ khi user yêu cầu style migration/update;
 - không retroactively fake per-chapter v3 QC;
 - có thể dựng baseline từ recent finals + Reader Experience thật;
 - batch kế tiếp bắt đầu tại `next_chapter` hiện tại và lấy 5 chapter;
 - historical audit cũ vẫn giữ nguyên.
 
-## 21. Resume ở chat mới
+## 22. Resume ở chat mới
 
 Đọc tối thiểu:
 
@@ -565,14 +639,15 @@ Nếu user yêu cầu sync story cũ sang batch 5/v3:
 2. `docs/BATCH_5_WORKFLOW.md`;
 3. `docs/RETENTION_CONTROLLERS_V3.md`;
 4. `docs/XIANXIA_DENSITY_CONTROLLER.md` nếu manifest bật controller;
-5. manifest;
-6. seed;
-7. current state;
-8. reader experience;
-9. batch audit gần nhất;
-10. arc hiện tại;
-11. bible/ledgers liên quan;
-12. recent summaries/final.
+5. `docs/REFERENCE_STYLE_SYSTEM.md` + profile nếu Reference Style bật và đang ở Genesis/Style/QC drift repair;
+6. manifest;
+7. seed;
+8. current state;
+9. reader experience;
+10. batch audit gần nhất;
+11. arc hiện tại;
+12. bible/ledgers liên quan;
+13. recent summaries/final.
 
 Lệnh ngắn hợp lệ:
 
