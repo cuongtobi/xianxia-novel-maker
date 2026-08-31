@@ -1,7 +1,7 @@
 # Characters Bible Template
 
 > File đích: `stories/<slug>/bible/characters_bible.md`
-> Mục tiêu: nhân vật có DNA đủ riêng để hành vi, giọng nói và lựa chọn không thể hoán đổi cho nhau.
+> Mục tiêu: nhân vật có DNA đủ riêng để hành vi, giọng nói và lựa chọn không thể hoán đổi cho nhau; **thông minh nhưng vẫn là con người**.
 
 # 1. Cast Map
 
@@ -69,6 +69,34 @@ Chỉ chọn vài chi tiết giúp nhận diện, không liệt kê như hồ s�
 - Line they refuse to cross:
 - What could make them cross it:
 
+### Human Irrationality Profile
+
+Nhân vật không phải optimizer. Điền những sai lệch **hợp DNA**, không dùng để làm họ ngu phục vụ plot.
+
+- Pride trigger:
+- What makes them fear losing face:
+- Sentimental attachment:
+- Sunk-cost attachment:
+- Person/faction they trust too easily:
+- Person/type they distrust too quickly:
+- Bias under incomplete data:
+- What they avoid admitting even to themselves:
+- What emotion narrows their attention:
+- Typical self-justification after a bad choice:
+- Mistake they are likely to repeat once:
+- Mistake they would almost never make:
+
+### Costly Mistake Pattern
+
+- A plausible wrong choice:
+- Why it makes sense from their DNA:
+- Likely cost type: money / time / injury / relationship / status / opportunity / self-image / other
+- How they initially rationalize it:
+- What evidence would force them to admit error:
+- What scar/learning should remain afterward:
+
+**Rule:** protagonist không được chỉ sai trên giấy rồi luôn được người khác sửa trước khi trả giá. Theo từng arc, nếu blind spot bị kích hoạt đủ mạnh, cho phép sai lầm thật và hậu quả thật.
+
 ### Intelligence profile
 
 - Strong domains:
@@ -77,6 +105,8 @@ Chỉ chọn vài chi tiết giúp nhận diện, không liệt kê như hồ s�
 - Common reasoning mistake:
 - Information they habitually notice:
 - Information they often miss:
+- What they over-measure:
+- What they undervalue because it is hard to measure:
 
 ### Emotional fingerprint
 
@@ -88,6 +118,8 @@ Chỉ chọn vài chi tiết giúp nhận diện, không liệt kê như hồ s�
 - Embarrassment tell:
 - Stress behavior:
 - Self-soothing behavior:
+- What makes them go quiet:
+- What makes them interrupt someone:
 
 ### Speech fingerprint
 
@@ -100,6 +132,9 @@ Chỉ chọn vài chi tiết giúp nhận diện, không liệt kê như hồ s�
 - What they avoid saying:
 - Lie style:
 - Humor style:
+- How they answer when embarrassed:
+- How they answer when they do not know:
+- How they evade a question:
 - Verbal tic (use sparingly):
 - Example 3 original lines:
   1.
@@ -116,6 +151,7 @@ Chỉ chọn vài chi tiết giúp nhận diện, không liệt kê như hồ s�
 - With enemies:
 - With people they love:
 - With people they owe:
+- Who can make them behave less rationally:
 
 ### Cultivation DNA
 
@@ -164,6 +200,8 @@ Mỗi quan hệ quan trọng ghi 0–10 hoặc mô tả tương đương:
 - Crisis choice:
 - End state target:
 - What must remain recognizable even after growth:
+- Irrationality that should soften/worsen/change:
+- Costly mistake opportunity:
 
 ### Forbidden behavior
 
@@ -212,6 +250,14 @@ Ngoài DNA chung, nhân vật chính cần:
 
 Mục tiêu: tránh MC giỏi mọi thứ chỉ vì cốt truyện cần.
 
+## 3.4 Error budget
+
+- Domain MC overestimates self:
+- Domain MC underestimates others:
+- Typical blind-spot mistake:
+- Kind of loss MC must sometimes be allowed to take:
+- What would be too stupid/out-of-character:
+
 # 4. Antagonist Design
 
 Mỗi antagonist dài hạn cần:
@@ -223,6 +269,8 @@ Mỗi antagonist dài hạn cần:
 - Why they think they are right or necessary:
 - What they admire in protagonist:
 - What they misunderstand about protagonist:
+- Their own irrational attachment/bias:
+- What humiliation makes them overreact:
 - Escalation logic:
 - Defeat condition:
 - What changes if they win:
@@ -243,15 +291,24 @@ Mỗi nhân vật phụ phải có ít nhất một chức năng thật:
 
 Không giữ nhân vật chỉ để tung hô MC.
 
+Supporting cast cũng phải có quyền:
+
+- hiểu sai;
+- giấu điều xấu hổ;
+- chọn cảm xúc thay vì tối ưu;
+- làm việc đúng vì lý do sai;
+- phản bác MC nhưng không nhất thiết luôn thắng tranh luận.
+
 # 6. Voice Collision Test
 
-Trước khi khóa Characters Bible, chọn 3 tình huống và viết phản ứng ngắn của 5 nhân vật:
+Trước khi khóa Characters Bible, chọn 4 tình huống và viết phản ứng ngắn của 5 nhân vật:
 
 1. Bị người mạnh hơn công khai sỉ nhục.
 2. Nhặt được tài nguyên đủ đổi vận nhưng chủ cũ có thể còn sống.
 3. Đồng đội phạm sai lầm khiến kế hoạch suýt thất bại.
+4. Chính họ gây một lỗi tốn tiền/quan hệ và bị người khác chỉ ra trước mặt nhiều người.
 
-Nếu phản ứng gần giống nhau, phải làm sâu DNA.
+Nếu phản ứng gần giống nhau hoặc ai cũng bình tĩnh phân tích như chuyên gia, phải làm sâu DNA.
 
 # 7. Character Introduction Rules
 
@@ -261,7 +318,8 @@ Khi giới thiệu nhân vật:
 - để DNA xuất hiện qua lựa chọn;
 - ưu tiên một visual anchor đáng nhớ;
 - danh xưng phải phù hợp POV;
-- không tiết lộ secret chỉ vì bible có ghi.
+- không tiết lộ secret chỉ vì bible có ghi;
+- cho phép một chi tiết vụng, đời thường hoặc không tối ưu phá cảm giác “profile hoàn hảo”.
 
 # 8. Character Update Policy
 
@@ -272,5 +330,8 @@ Nếu một hành vi có vẻ lệch DNA:
 1. tìm pressure mới;
 2. tìm thông tin mới;
 3. tìm relationship change;
-4. nếu vẫn không đủ, rewrite hành vi;
-5. không sửa DNA để hợp thức hóa một scene yếu.
+4. tìm blind spot/emotional trigger/irrationality đã định nghĩa;
+5. nếu vẫn không đủ, rewrite hành vi;
+6. không sửa DNA để hợp thức hóa một scene yếu.
+
+Sai lầm đã gây cost phải để lại dấu trong runtime state hoặc relationship memory; không reset như chưa xảy ra.
