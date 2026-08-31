@@ -1,426 +1,440 @@
-# Tiên Nghịch — High-Level Reference Style Profile
+# Tiên Nghịch — High-Level Style DNA Profile v2
 
-> Reference work: **Tiên Nghịch / Renegade Immortal — Nhĩ Căn**.
-> Purpose: high-level style decomposition for framework v3.
-> Không dùng tài liệu này để copy câu chữ hoặc bắt chước sát dấu vân tay của tác giả. Đây là **Style DNA đã trừu tượng hóa** để tạo house style riêng cho story.
+> Reference: **Tiên Nghịch / 仙逆 / Renegade Immortal — Nhĩ Căn (耳根)**.
+> Purpose: extract **high-level narrative/style principles** for the pipeline.
+> Direct imitation is forbidden: do not copy wording, distinctive rhetorical frames, scenes, characters, plot beats, or translation syntax.
 
-## 0. Analysis basis
+## 0. Research caveat
 
-Profile được tổng hợp từ nhiều loại scene đại diện:
+Sentence-level diction differs across Chinese original, Vietnamese translations/converts and English translations. Therefore this profile does **not** learn exact wording or sentence patterns from any translation.
 
-- opening phàm tục / gia đình / khát vọng bước ra thế giới lớn;
-- cultivation exposition và lore về cảnh giới đặc thù;
-- combat có chênh lệch cảnh giới lớn + resource/tactical constraint;
-- emotional catastrophe gắn thân thể, gia đình và chấp niệm;
-- Hóa Phàm / đời thường làm vật liệu cho đột phá;
-- Dao/ý cảnh và world-scale xianxia ở các giai đoạn cao.
+It focuses on traits that remain visible across versions and across phases of the story:
 
-Mục tiêu là lấy **điểm mạnh đọc được xuyên nhiều phase**, không bê lỗi serialization hoặc văn dịch cứng.
+- the ordinary/mortal baseline before immortal scale;
+- pressure accumulated over time before release;
+- cultivation as qualitative transformation, not only level gain;
+- Dao/insight growing from lived experience;
+- power gaps that constrain decisions;
+- restrained emotion tied to concrete attachments and lasting scars;
+- world scale unfolding layer by layer.
+
+Use this profile as a **Style DNA source**, then adapt it into each story's own `bible/style_bible.md`.
 
 ---
 
 # 1. Core Reading Feel
 
-House-style adaptation nên hướng tới:
+Target feeling:
 
-- **trầm, lạnh, trực diện** hơn là hoa mỹ liên tục;
-- tiên hiệp có cảm giác **đường dài, cô độc, có giá phải trả**;
-- power progression mang trọng lượng vì cảnh giới thật sự đổi cách nhân vật sống, sợ, đi lại và nhìn thế giới;
-- đời thường và siêu phàm đặt cạnh nhau để tăng wonder;
-- cảm xúc phần lớn bị nén, nhưng khi vỡ phải có hậu quả thật;
-- triết lý/Đạo không tồn tại như slogan mà sinh ra từ trải nghiệm, mất mát, thời gian và lựa chọn.
+- serious, grounded and direct rather than continuously ornate;
+- the road of cultivation feels long, dangerous and consequential;
+- the protagonist may become powerful, but power does not erase time, attachment, loss, uncertainty or old debts;
+- the mortal world remains meaningful even after the scale becomes cosmic;
+- breakthroughs feel earned because previous experience has prepared them;
+- emotional peaks are stronger because the prose is usually restrained beforehand.
 
-Không biến mọi truyện dùng profile này thành bi kịch. Giữ **structural qualities**, adapt emotional temperature theo seed.
-
----
-
-# 2. Narrative Stance
-
-## 2.1 POV
-
-Ưu tiên:
-
-- ngôi ba bám protagonist hoặc POV chính;
-- narrative distance trung bình-gần trong action/emotion;
-- có thể zoom-out để giải thích lịch sử/cảnh giới/world scale ở điểm cần thiết;
-- narrator được phép rõ ràng, không bắt mọi lore phải giả thành dialogue.
-
-Adaptation hiện đại:
-
-- zoom-out exposition chỉ dùng khi nó **đổi meaning/stakes** của cảnh đang diễn ra;
-- sau block lore nên nhanh chóng trở về một con người, vật thể, quyết định hoặc hậu quả cụ thể.
-
-## 2.2 Perspective weight
-
-Nhân vật có kinh nghiệm cao phải cảm nhận thế giới bằng **scale memory**:
-
-- biết thứ cấp thấp từng là một phần của hệ thống lớn hơn;
-- hiểu power gap bằng hậu quả, không chỉ bằng adjective;
-- nhìn resource qua potential, cost, history;
-- tri thức cũ có thể sai vì thời đại đổi.
+Do **not** force every story using this profile to become bleak, ruthless or tragic. Inherit the structural depth, then adapt emotional temperature to the seed.
 
 ---
 
-# 3. Prose Movement
+# 2. Seven Core Style Pillars
 
-Đặc trưng nên học:
+## 2.1 Mortal Anchor Before Immortal Scale
 
-`fact/perception → immediate interpretation → action → consequence`
+The extraordinary gains weight when the reader first understands ordinary life.
 
-Prose thường không vòng vo quá lâu trước khi cho biết chuyện gì đang xảy ra.
+Use concrete anchors such as:
 
-## House rule
+- family expectation;
+- food, money, work, travel, illness, age;
+- local status and embarrassment;
+- a village, market, workshop, inn, household or mortal profession;
+- small objects carrying personal meaning.
 
-- ưu tiên động từ rõ;
-- mô tả đủ để hiểu không gian/power/mechanism;
-- hạn chế decorative metaphor nếu không làm tăng mood/wonder;
-- sau một đoạn suy luận phải có **decision, image hoặc physical consequence**.
+When cultivation later changes the character's scale, let the reader remember what has been left behind.
 
-Không biến causal clarity thành công thức máy móc lặp từng đoạn.
+**Rule:** world scale should grow from a human baseline, not open immediately as an encyclopedia of cosmic terms.
 
----
+## 2.2 Accumulated Pressure → Decisive Release
 
-# 4. Sentence & Paragraph Rhythm
+Many strong sequences work because pressure is allowed to accumulate before the decisive act.
 
-## Desired cadence
+Useful pattern:
 
-- câu trung bình là trục chính;
-- câu dài hơn dùng cho lore, accumulation, psychological pressure;
-- câu ngắn xuất hiện ở impact/reversal/emotional break;
-- paragraph thường tập trung một movement hoặc một pressure unit;
-- repetition được phép khi tăng emotional force, không dùng như tic mặc định.
+`constraint → worsening pressure → narrowing options → decision → short decisive release → lasting consequence`
 
-## Không copy weakness
+The release can be combat, escape, breakthrough, betrayal, confession, sacrifice or reveal.
 
-Tránh:
+Do not manufacture delay only to imitate old web-serialization pacing. Accumulation must continuously change risk, understanding or emotional weight.
 
-- câu ghép kiểu convert kéo quá dài;
-- lặp chủ ngữ/tên nhân vật liên tục;
-- dùng nhiều “sắc mặt biến đổi / ánh mắt lóe / hít sâu” như placeholder;
-- cùng một cấu trúc `lập tức / ngay sau đó / đồng thời` quá dày;
-- recap lại điều độc giả vừa đọc.
+## 2.3 Cultivation = Qualitative Transformation
 
----
+Cultivation should not read as only:
 
-# 5. Dialogue Behavior
+`resource consumed → number rises`.
 
-Dialogue phù hợp profile:
+A meaningful cultivation change should alter one or more of:
 
-- tương đối ngắn và có chức năng;
-- địa vị/power gap ảnh hưởng độ trực tiếp;
-- trong nguy hiểm, ít banter dài;
-- lời đe dọa có lực vì thế giới cho phép người nói thực hiện nó;
-- emotional dialogue thường đơn giản hơn prose xung quanh.
+- bodily capability;
+- perception;
+- lifespan/time sense;
+- tactical options;
+- social status;
+- danger tolerance;
+- relationship to the world;
+- understanding of self/Dao.
 
-House adaptation:
+The reader should be able to answer: **what can this person now perceive, choose, endure or do that was impossible before?**
 
-- giữ subtext và Character DNA;
-- không biến mọi cao nhân thành người nói câu triết lý;
-- không dùng dialogue để dump toàn bộ cultivation rule nếu narrator/action làm tốt hơn.
+## 2.4 Lived Experience → Dao / Insight
 
----
+This is the most important trait to learn.
 
-# 6. Cultivation Prose
+Preferred movement:
 
-Đây là phần quan trọng nhất nên học.
+`lived event → concrete image/action/object → emotional or intellectual contradiction → partial realization → later behavioral/cultivation consequence`
 
-Một cultivation beat mạnh nên đi qua nhiều tầng:
+Insight should normally emerge after experience has accumulated, not because the narrator suddenly announces a profound truth.
 
-1. **current state** — cảnh giới/thương thế/bình cảnh hiện tại;
-2. **constraint** — vì sao cách cũ không còn hiệu quả;
-3. **mechanism** — thân thể, thần thức, chân nguyên, công pháp, tài nguyên hoặc ý cảnh hoạt động thế nào;
-4. **decision** — nhân vật đổi cách tu/lựa chọn/cost;
-5. **sensory or bodily proof** — cảm giác, vật chất, environment response;
-6. **meaning** — thay đổi này mở/đóng con đường gì;
-7. **consequence** — đời sống/combat/status/worldview đổi thật.
+Good material can come from ordinary life:
 
-Không để cultivation chỉ là số tầng hoặc một câu “tu vi tăng mạnh”.
+- aging;
+- illness;
+- work;
+- waiting;
+- separation;
+- weather;
+- birth/death;
+- promises;
+- repeated habits;
+- watching another person make a choice.
 
-## Breakthrough feel
+**Anti-slogan rule:** philosophy without a scene underneath it has little weight.
 
-Breakthrough tốt nên có ít nhất một:
+## 2.5 Power Gap Must Change Decisions
 
-- đổi cách cảm nhận thế giới;
-- đổi quyền năng có thể dùng;
-- đổi giới hạn cơ thể/thần hồn;
-- đổi địa vị xã hội;
-- trả giá/cắt bỏ một đường cũ;
-- đi kèm một insight đã được đời sống chuẩn bị.
+A stronger realm is not just a larger attack description.
 
----
+Power gap should affect:
 
-# 7. Dao / Insight Writing
+- whether the protagonist fights, hides, bargains or flees;
+- which artifact/resource can be risked;
+- how much information can be revealed;
+- how others speak and behave;
+- how much collateral damage is possible;
+- what counts as victory.
 
-Đặc điểm nên học:
+A weaker character can still win through preparation, terrain, information, timing or sacrifice, but the gap itself must remain believable.
 
-**Đạo đi từ đời sống lên abstraction, rồi quay lại làm thay đổi hành động.**
+## 2.6 Restrained Emotion → Concrete Rupture → Persistent Scar
 
-Pattern khuyến nghị:
+Default emotional prose should avoid constant declaration.
 
-`lived experience → concrete image/object/action → association → contradiction → insight fragment → later consequence`
+Prefer:
 
-Ví dụ category, không phải scene để copy:
+- attachment to a person, place, promise, object or habit;
+- silence, action, body response or a simple line;
+- emotional pressure accumulating over chapters;
+- rupture at a specific loss/choice;
+- consequences that persist in later decisions.
 
-- đi bộ thay vì phi hành;
-- làm nghề phàm tục;
-- quan sát già/trẻ/sinh/tử;
-- chạm một vật bình thường nhưng thấy meaning khác;
-- một thói quen đời thường làm lộ ra quy luật tu luyện.
+A major emotional event should not disappear once the scene ends.
 
-## Anti-aphorism rule
+For warmer stories, use the same architecture with gratitude, belonging, responsibility, pride or fear of losing a home/family.
 
-Không viết nhiều câu kiểu “Đạo chính là...” nếu chưa có trải nghiệm đỡ phía dưới.
+## 2.7 Layered World-Scale Reveal
 
-Một câu triết lý chỉ có trọng lượng khi reader có thể chỉ ra **scene nào khiến nhân vật phải trả giá để hiểu nó**.
+Expand the world in layers.
 
----
+A new layer should do more than introduce bigger names. It should **revalue what the reader already knows**.
 
-# 8. Mortal / Immortal Contrast
+Useful effects:
 
-Một engine rất mạnh của profile:
+- a local treasure becomes ordinary at a higher layer;
+- a feared realm is revealed as merely an entry threshold;
+- a historical mystery changes current strategy;
+- a new civilization changes the meaning of cultivation itself;
+- a previous victory creates vulnerability at a larger scale.
 
-- bắt đầu hoặc quay về những thứ bình thường;
-- để power/cultivation nhìn đời thường bằng góc khác;
-- để đời thường làm tu sĩ nhận ra thứ sức mạnh không giải được;
-- sau đó khi quay lại siêu phàm, reader cảm thấy cảnh giới có meaning mới.
-
-Ứng dụng:
-
-- domestic chapter không nhất thiết giảm chất tiên hiệp;
-- một bữa cơm, nghề thủ công, bệnh tật, tuổi già, tang lễ, chợ phàm... có thể phục vụ Dao/cultivation nếu causal meaning thật.
-
-Không dùng “Hóa Phàm” như template bắt buộc cho mọi story.
+Avoid endless nested maps that only reset the same conflict with bigger numbers.
 
 ---
 
-# 9. Combat Style
+# 3. Narrative Stance
 
-## Strengths to inherit
+## 3.1 POV
 
-- power gap được nói/cho thấy rõ;
-- nhân vật biết khi mình không thể thắng trực diện;
-- chiến thuật dựa trên resource, deception, timing, artifact, terrain;
-- quyết định nhanh khi sinh tử;
-- thương tích/cost thật;
-- một hành động quyết đoán có thể đổi toàn trận;
-- combat không cần banter dài giữa các đòn.
+Prefer third-person close/medium-close around the active POV character.
 
-## Combat causal chain
+Narrator may zoom out for:
 
-`threat perception → power-gap judgment → resource choice → action → counter → injury/cost → adaptation → irreversible result`
+- cultivation rules;
+- historical context;
+- world-scale explanation;
+- consequences beyond immediate sight.
 
-Không bắt mọi trận phải đủ từng bước như checklist.
+But zoom-out should be brief and useful. Return quickly to a person, object, decision or event.
 
-## Brutality
+## 3.2 Experienced protagonist perspective
 
-Khi story tone cho phép, bạo lực nên:
+An experienced/high-realm protagonist should reveal experience through what they notice and choose, not through constant lore lectures.
 
-- cụ thể;
-- ngắn ở điểm quyết định;
-- để consequence tồn tại sau trận.
+Useful signals:
 
-Không fetishize gore và không dùng brutality để thay Character DNA.
-
----
-
-# 10. Emotional Architecture
-
-Profile thường mạnh khi cảm xúc đi theo:
-
-`restraint → accumulating pressure → concrete loss/attachment → bodily reaction/action → simple line or silence → persistent scar`
-
-Điểm cần học:
-
-- attachment gắn với người/vật/ký ức cụ thể;
-- đau khổ không chỉ là narrator nói “rất đau”;
-- emotional event có thể đổi cultivation path, decision heuristic hoặc worldview;
-- chấp niệm tồn tại lâu và quay lại ở các arc sau.
-
-House adaptation:
-
-- không cần bi kịch cực đoan để tạo trọng lượng;
-- với truyện gia tộc/ấm áp, dùng cùng nguyên lý cho pride, belonging, guilt, gratitude, loss, responsibility.
+- recognizes danger from a small abnormality;
+- values a low-grade object for an unusual reason;
+- notices what younger cultivators ignore;
+- remembers scale without narrating an entire encyclopedia;
+- knows when old knowledge may no longer apply.
 
 ---
 
-# 11. World-Scale Reveal
+# 4. Prose Movement
 
-Cách nên học:
+Default prose movement:
 
-- thế giới mở rộng theo tầng;
-- một khái niệm tưởng lớn ở local layer hóa ra chỉ là phần nhỏ của tầng trên;
-- lore lịch sử được dùng để **revalue current event**;
-- cảnh giới mới mở ra social/world meaning mới, không chỉ chỉ số.
+`perception/fact → interpretation only as needed → decision/action → observable consequence`
 
-Strong reveal nên tạo một trong:
+Prefer:
 
-- awe;
-- fear;
-- aspiration;
-- reinterpretation;
-- new strategic horizon.
+- clear verbs;
+- concrete nouns;
+- selective sensory detail;
+- explanation after or around action when possible;
+- inference space for the reader.
 
-Không dump encyclopedia chỉ để chứng minh world lớn.
+Avoid turning every scene into analytical logs.
 
----
-
-# 12. Xianxia Texture
-
-Profile này hợp mạnh với `Xianxia Density Controller`.
-
-Ưu tiên:
-
-- supernatural law có causal consequence;
-- cultivation ảnh hưởng body/perception/status;
-- pháp bảo/công pháp/trận không chỉ là tên;
-- power gap thay đổi hành vi xã hội;
-- tài nguyên có capability proof;
-- wonder được tạo bằng mechanism + scale;
-- tu sĩ thật sự suy nghĩ như người sống trong thế giới tu luyện.
-
-Replaceability phải thấp hơn bằng **nhân quả**, không bằng vocabulary.
+Experienced characters may reason quickly; prose does not need to print every hypothesis.
 
 ---
 
-# 13. Chapter Pacing
+# 5. Sentence & Paragraph Rhythm
 
-Không copy old-school slow pacing nguyên xi.
+Use:
 
-Giữ:
+- medium sentences as the backbone;
+- longer sentences for accumulation, atmosphere, memory or carefully controlled exposition;
+- short sentences only for impact, reversal or emotional break;
+- paragraph length that follows movement rather than a fixed pattern.
 
-- chapter có một movement rõ;
-- setup được phép thở;
-- payoff lớn có thể tích lũy lâu;
-- bridge chapter vẫn có meaning.
+Avoid:
 
-Modernize:
+- repeated isolated fragments;
+- three short lines used as a cinematic formula;
+- repeated `Không X. Mà Y.` constructions;
+- repeated narrator verdicts at paragraph endings;
+- translation/convert connectors used as cadence;
+- stock gestures replacing emotion.
 
-- mỗi chapter cần intrinsic reward theo Binge Test;
-- Retention Controllers v3 vẫn giữ nguyên;
-- không chấp nhận hàng chục chapter exposition/training thuần chuẩn bị;
-- payoff magnitude, heat, aspiration và Xianxia Density phải giữ rolling health.
-
-Tức là:
-
-**giữ chiều sâu tích lũy của old-school xianxia + dùng retention hiện đại để cắt phần trì trệ.**
+The goal is **weight and clarity**, not imitation of translated syntax.
 
 ---
 
-# 14. Mode Profiles
+# 6. Description
 
-## 14.1 Everyday / Mortal / Domestic
+Description is strongest when it proves something.
 
-- prose giản dị hơn;
-- sensory concrete;
-- ít thuật ngữ;
-- một detail nhỏ mang meaning;
-- cultivation/high-realm perspective chỉ lóe ra khi relevant.
+Use it to establish:
 
-## 14.2 Cultivation / Training
+- scale;
+- danger;
+- age/time;
+- spiritual pressure;
+- social inequality;
+- emotional memory;
+- cultivation consequence.
 
-- mechanism rõ;
-- body/perception/resource;
-- có uncertainty/failure mode;
-- cuối scene phải có result hoặc changed understanding.
+For wonder, show one or two concrete impossible details before explaining them.
 
-## 14.3 Combat / Survival
-
-- động từ nhanh;
-- câu ngắn hơn tại impact;
-- power gap/resource rõ;
-- không giải thích quá nhiều trong lúc đòn đã bay.
-
-## 14.4 Wonder / Discovery
-
-- cho reader nhìn trước khi giải thích;
-- scale hoặc rule unusual phải có concrete proof;
-- exposition chỉ tới mức giúp wonder sâu hơn.
-
-## 14.5 Dao / Philosophical
-
-- chậm hơn;
-- neo bằng vật/việc cụ thể;
-- ít slogan;
-- insight chưa cần hoàn chỉnh ngay;
-- phải có later behavioral/cultivation consequence.
-
-## 14.6 Emotional Rupture
-
-- giảm exposition;
-- attachment cụ thể;
-- body/action trước label;
-- câu ngắn/simple dialogue có thể gánh peak;
-- scar đi vào memory.
+Avoid adjective stacks such as repeatedly calling everything ancient, heaven-defying, supreme or terrifying without proof.
 
 ---
 
-# 15. Strengths to Preserve
+# 7. Dialogue
 
-1. Tu luyện có **trọng lượng tồn tại**, không chỉ level-up.
-2. Power gap đáng sợ và có logic.
-3. Combat quyết đoán, resource-aware.
-4. Đời thường có thể trở thành vật liệu của Đạo.
-5. Cảm xúc lớn gắn với chấp niệm dài hạn.
-6. World scale mở từng lớp tạo awe.
-7. Prose có xu hướng kể thẳng chuyện thay vì trang trí quá nhiều.
-8. Cảnh giới/ý cảnh có meaning tâm lý và xã hội.
-9. Nhân vật có thể chấp nhận cost lớn vì mục tiêu thật.
-10. Tiên hiệp tồn tại trong causal logic chứ không chỉ danh từ.
+Dialogue should reflect hierarchy, urgency and Character DNA.
 
----
+Prefer:
 
-# 16. Weakness Filter — KHÔNG HỌC
+- relatively concise exchanges in danger;
+- threats that matter because the speaker can act on them;
+- emotional lines simpler than surrounding narration;
+- subtext and strategic omission;
+- different levels of directness based on status and relationship.
 
-Pipeline phải chủ động loại:
+Avoid:
 
-1. exposition block quá dài;
-2. nhắc lại lore/canon không cần thiết;
-3. stock gesture lặp: sắc mặt, ánh mắt, hít sâu...;
-4. cú pháp dịch/convert cứng;
-5. modifier thừa và câu ghép dài không kiểm soát;
-6. cùng một emotional reaction lặp nhiều người;
-7. skill/pháp bảo chỉ xuất hiện bằng tên rồi bị bỏ;
-8. slow transition không có intrinsic reward;
-9. philosophical abstraction không có scene support;
-10. chapter sống nhờ hook cuối;
-11. power escalation chỉ bằng “lớn hơn/mạnh hơn”;
-12. side character thành công cụ exposition.
-
-Framework v3 Retention, Style Fingerprint và Xianxia Density có quyền override Reference Profile nếu reference weakness làm chapter kém hơn.
+- long banter during lethal combat unless Character DNA supports it;
+- Q&A exposition where one character asks only so another can teach the reader;
+- every elder speaking in aphorisms.
 
 ---
 
-# 17. Story Bible → Style Bible Adaptation Questions
+# 8. Cultivation & Craft Prose
 
-Khi tạo Style Bible cho story mới, phải trả lời:
+When cultivation/craft is central to the scene, touch only the layers needed for drama:
 
-- Truyện này cần giữ bao nhiêu độ lạnh/trầm của profile?
-- Đời thường nào có thể trở thành material cho Dao/cultivation?
-- Cultivation sensation riêng của world này là gì?
-- Power gap được cảm nhận bằng consequence nào?
-- Loại resource nào có aspiration mạnh?
-- MC có chấp niệm/attachment nào đủ tạo emotional continuity?
-- High-realm perspective có cần không?
-- Loại exposition nào narrator được phép nói thẳng?
-- Bao nhiêu old-school slowness là có ích, bao nhiêu phải cắt bằng Binge/Heat/Payoff rule?
-- Những weakness nào phải blacklist ngay từ đầu?
+- current state;
+- constraint/failure risk;
+- relevant mechanism;
+- resource/cost;
+- decision;
+- body/perception/environment proof;
+- consequence.
+
+Do not mechanically include all layers.
+
+**Key rule:** mechanism exists to make the choice and result believable, not to turn fiction into a technical manual.
+
+For an expert protagonist, compression is often better: show the few details they care about, then act.
 
 ---
 
-# 18. Writer Contract Derived From This Profile
+# 9. Combat
 
-Writer **không được** nghĩ “hãy bắt chước Tiên Nghịch”.
+Combat priorities:
 
-Writer phải nghĩ:
+1. objective;
+2. power-gap judgment;
+3. information/resource choice;
+4. decisive action;
+5. counter/adaptation;
+6. injury/cost;
+7. irreversible result.
 
-- kể thẳng và có lực;
-- tiên hiệp nằm trong mechanism/consequence;
-- tu luyện phải chạm body/perception/resource/meaning;
-- combat tôn trọng power gap;
-- Đạo sinh từ trải nghiệm;
-- cảm xúc nén nhưng có scar;
-- wonder mở scale;
-- prose tự nhiên tiếng Việt hiện đại hơn bản dịch cũ;
-- loại exposition/repetition/tic của webnovel cũ.
+Strong combat can be short if the decisive advantage is real.
 
-Style Bible của story vẫn là contract trực tiếp cao hơn profile này.
+Do not extend fights merely to exchange named techniques.
+
+Use spectators/reactions sparingly; the main proof of strength should come from what the battle changes.
+
+---
+
+# 10. Dao / Philosophical Mode
+
+When entering a Dao/insight scene:
+
+- slow the prose slightly;
+- anchor thought in a physical action/object/place/person;
+- allow incomplete understanding;
+- avoid announcing the thesis too early;
+- make the eventual insight alter a later decision, technique, realm or relationship.
+
+A philosophical sentence is earned only when the reader can identify the experience beneath it.
+
+---
+
+# 11. Mortal / Immortal Contrast Mode
+
+Ordinary scenes can carry high cultivation meaning without adding supernatural spectacle.
+
+Possible uses:
+
+- a powerful cultivator confronting aging or mortality;
+- a mundane profession teaching rhythm/patience/form;
+- returning home and discovering time has moved differently;
+- seeing what power can and cannot repair;
+- an ordinary relationship changing the meaning of a Dao question.
+
+Do not copy a specific "Hóa Phàm" arc structure. Learn the principle: **ordinary life can be cultivation material**.
+
+---
+
+# 12. Emotional Mode
+
+For grief, attachment, romance or family:
+
+- establish recurring concrete anchors before the crisis;
+- keep narration restrained until pressure earns expansion;
+- at rupture, simplify rather than decorate excessively;
+- carry the scar into later behavior.
+
+Do not force romance to imitate the reference. Romance architecture must come from the story's own seed and Character DNA.
+
+---
+
+# 13. World-Scale / Wonder Mode
+
+Reveal large-scale concepts through contrast:
+
+`known scale → impossible evidence → revised understanding → new strategic/emotional horizon`
+
+Wonder needs proof, not adjective spam.
+
+After the reveal, show what changes for the protagonist.
+
+---
+
+# 14. Weakness Filter — Do Not Import
+
+The pipeline should explicitly filter weaknesses associated with older long-form serialization or translation layers:
+
+- long exposition/recap that does not change the scene;
+- transitional arcs that stall for many chapters;
+- repeated emotional beats without new consequence;
+- repeated combat/tournament patterns;
+- dialogue used as cultivation encyclopedia;
+- excessive spectator shock;
+- repetitive stock gestures;
+- overly abstract Dao lecture detached from lived action;
+- translation/convert sentence structure;
+- cliffhangers inserted where a quiet ending would be stronger.
+
+Modernize through **compression and scene consequence**, not through extra controllers/quotas.
+
+---
+
+# 15. Story Adaptation Contract
+
+Each story Style Bible must choose, not blindly inherit.
+
+Record:
+
+- `reference_traits_selected`: 3–6 traits most useful for this premise;
+- `reference_traits_softened`: traits that conflict with the intended tone;
+- `reference_weaknesses_filtered`;
+- `story_specific_expression`: how these traits appear uniquely in this story;
+- `do_not_imitate`: wording/rhetorical/scene patterns forbidden;
+- `calibration_takeover_condition`: when project-owned samples become primary.
+
+The profile must never override:
+
+1. user intent;
+2. Story Promise;
+3. Character DNA;
+4. story-specific Style Bible.
+
+---
+
+# 16. Writer Quick Contract
+
+Writer should internalize only these practical rules:
+
+1. Start from a concrete person/problem/place, not abstract lore.
+2. Let power/cultivation change choices and consequences.
+3. Keep expert reasoning compressed unless uncertainty is dramatic.
+4. Let important insight grow from prior lived experience.
+5. Use ordinary life as meaningful contrast when relevant.
+6. Restrain emotion until a concrete attachment earns rupture.
+7. Open world scale by revaluing what is already known.
+8. Prefer clear consequence over decorative grandeur.
+9. Do not imitate any sentence or recognizable rhetorical frame from the reference.
+
+---
+
+# 17. Combined QC — Reference Style Checks
+
+The Style section of `combined_qc_report.md` should ask:
+
+- Does the prose feel grounded in concrete event/choice, or float in generic xianxia abstraction?
+- When cultivation matters, does it change capability/perception/choice rather than only numbers?
+- Is expert reasoning compressed enough?
+- Are philosophical/Dao lines supported by lived scene material?
+- Do emotional peaks have concrete attachment and persistent consequence?
+- Does power gap constrain behavior?
+- Does a world-scale reveal revalue existing stakes?
+- Is there translation-like syntax, excessive fragments, stock gestures or spectacle adjectives?
+- Is the draft imitating wording/rhetorical frames/scenes from the reference?
+
+These are **style diagnostics**, not controllers or quotas. A chapter does not need to demonstrate every trait.
