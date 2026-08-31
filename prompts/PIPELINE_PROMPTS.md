@@ -1,12 +1,14 @@
 # Pipeline Prompts
 
-Các prompt dưới đây là role contracts để ChatGPT tự thực thi stage. Luôn đọc `AGENTS.md`, `docs/READER_EXPERIENCE_SYSTEM.md`, `docs/RETENTION_CONTROLLERS_V3.md`, `docs/XIANXIA_DENSITY_CONTROLLER.md`, `docs/BATCH_5_WORKFLOW.md` và migration doc khi story là legacy.
+Các prompt dưới đây là role contracts để ChatGPT tự thực thi stage. Luôn đọc `AGENTS.md`, `docs/READER_EXPERIENCE_SYSTEM.md`, `docs/RETENTION_CONTROLLERS_V3.md`, `docs/XIANXIA_DENSITY_CONTROLLER.md`, `docs/REFERENCE_STYLE_SYSTEM.md`, `docs/BATCH_5_WORKFLOW.md` và migration doc khi story là legacy.
 
 Core rules:
 
 **PASS kỹ thuật ≠ PASS trải nghiệm đọc.**
 
 **PASS retention ≠ PASS genre density.**
+
+**Reference Style = high-level DNA, không phải sao chép giọng tác giả.**
 
 ---
 
@@ -28,6 +30,7 @@ Core rules:
 8. Không báo PASS nếu thiếu artifact bắt buộc.
 9. Không báo PASS nếu Reader-Reward Gate còn MAJOR từ Retention Controllers v3.
 10. Nếu manifest bật `xianxia_density_required`, không báo PASS nếu Xianxia Density Gate còn MAJOR.
+11. Nếu seed/manifest bật Reference Style, verify Style Bible đã thực hiện adaptation contract trước khi cho phép draft Ch.1.
 
 ## Legacy
 
@@ -38,7 +41,7 @@ Nếu story pre-v2/v3 hoặc batch_size cũ:
 - existing batch-10 audits vẫn hợp lệ historical;
 - khi sync batch size mới, set `batch_size: 5` và bắt đầu 5-chapter batch từ `next_chapter`;
 - v3 baseline có thể dựng từ recent finals + reader memory, không fake retroactive per-chapter report;
-- **không tự bật Xianxia Density cho story cũ nếu user không yêu cầu**.
+- **không tự bật Xianxia Density hoặc Reference Style cho story cũ nếu user không yêu cầu**.
 
 ---
 
@@ -47,6 +50,13 @@ Nếu story pre-v2/v3 hoặc batch_size cũ:
 Validate premise, protagonist start, tone, world/cultivation constraints, content boundaries, target length và `user_must_decide`.
 
 Creative blanks không bắt buộc user quyết định → tự resolve theo causal logic.
+
+Nếu `tone_and_style_seed.reference_style.enabled: true`:
+
+- verify profile path tồn tại;
+- giữ `usage: high_level_style_dna_only`;
+- không biến inspiration/reference thành quyền copy plot, character, prose hoặc rhetorical frame;
+- user có thể disable/replace profile cho từng story.
 
 Output:
 
@@ -60,6 +70,10 @@ require_qc: true
 require_rewrite: true
 retention_v3_required: true
 xianxia_density_required: true
+reference_style:
+  enabled: true
+  profile: docs/reference_profiles/TIEN_NGHICH_HIGH_LEVEL_STYLE.md
+  usage: high_level_style_dna_only
 ```
 
 ---
@@ -82,6 +96,16 @@ Mỗi source phải có khả năng tạo chuỗi:
 
 `supernatural law/state → constraint/opportunity → decision → consequence`.
 
+Nếu Reference Style được bật, Story Bible nên tạo đủ material để Style Bible có thể dùng các trait cấp cao như:
+
+- mortal/immortal contrast;
+- cultivation có body/perception/resource consequence;
+- power gap có social meaning;
+- đời sống cụ thể có thể trở thành material cho Dao/insight;
+- world scale mở theo tầng.
+
+Không copy worldbuilding của reference.
+
 Output:
 
 `bible/story_bible.md`
@@ -97,14 +121,52 @@ Khóa:
 - dialogue;
 - combat;
 - exposition;
+- cultivation prose;
+- Dao/insight prose;
+- emotional architecture;
 - opening/ending preferences;
 - anti-AI fingerprints;
 - **positive prose targets**;
 - calibration policy.
 
+## Reference Style stage
+
+Nếu seed bật Reference Style:
+
+1. đọc `docs/REFERENCE_STYLE_SYSTEM.md`;
+2. đọc profile được seed/manifest chỉ định;
+3. **không** yêu cầu Writer “viết giống tác giả/tác phẩm reference”;
+4. tạo `Reference Style Adaptation Contract` bên trong Style Bible;
+5. chọn trait cấp cao phù hợp premise/Character DNA;
+6. nêu trait phải giảm/bỏ;
+7. khóa Reference Weakness Filter;
+8. xác định khi nào project-owned calibration sẽ thay reference làm nguồn style chính.
+
+Với default profile xianxia hiện tại, ưu tiên học:
+
+- prose trực diện, event-forward;
+- câu trung bình làm trục, câu ngắn ở impact;
+- cultivation đi qua constraint/mechanism/body/perception/resource/consequence;
+- combat tôn trọng power gap, resource, timing, cost;
+- Dao sinh từ lived experience và concrete image trước abstraction;
+- mortal/immortal contrast;
+- emotional restraint → rupture → persistent scar;
+- world scale reveal theo tầng.
+
+Bắt buộc lọc:
+
+- cú pháp convert/dịch cứng;
+- exposition/recap dài;
+- stock gesture lặp;
+- repetitive connector;
+- slow transition không có intrinsic value;
+- philosophical slogan không có scene support.
+
 Positive texture có thể gồm interruption, unfinished sentence, practical humor, embarrassment, irrational attachment, sensory messiness, misunderstanding, silence, spontaneous choice.
 
 Không auto-calibrate chỉ từ Ch.1–3. Chỉ khóa calibration khi có 4–6 đoạn thuộc ít nhất 4 Narrative Engine khác nhau.
+
+Reference Profile **không được dùng làm few-shot prose source**. Calibration chỉ dùng prose do chính project tạo và được final/duyệt.
 
 Style không được chống cliché đến mức triệt tiêu wonder/spectacle. Xianxia Density phải đến từ mechanism/consequence, không từ adjective spam.
 
@@ -134,6 +196,8 @@ Không biến nhân vật thông minh thành optimizer hoàn hảo.
 Đặc biệt với MC competence cao, phải xác định domain có thể CLEAN_WIN và domain dễ `PARTIAL / WRONG_MODEL / DEPENDENT_ON_OTHER / COSTLY_WIN`.
 
 Nếu MC từng ở cảnh giới cao/sống lâu, Character DNA nên xác định **high-realm aura/perspective**: loại scale memory, old-world knowledge, power meaning và vùng kiến thức có thể lỗi thời.
+
+Reference Style không override Character DNA. Không ép mọi protagonist thành kiểu lạnh/cô độc nếu premise không yêu cầu.
 
 Output:
 
@@ -179,6 +243,16 @@ Build thêm:
 - ending direction;
 - flex zones.
 
+Nếu Reference Style bật, xác định thêm ở mức dài hạn:
+
+- where mortal/immortal contrast matters;
+- where cultivation changes meaning, không chỉ level;
+- where lived experience can seed Dao/insight;
+- where world-scale layer opens;
+- where emotional scars alter later decisions.
+
+Không copy arc/plot từ reference.
+
 Không backload toàn bộ Strong Xianxia đến quá xa trong opening nếu premise là progression xianxia.
 
 Output:
@@ -218,6 +292,8 @@ Do not make engine variety fake: engine labels may differ while pressure/decisio
 
 Không để nhiều chapter admin/economy/family liên tiếp mà supernatural law không đổi causal chain.
 
+Reference Style có thể ảnh hưởng **cách trải nghiệm được kể**, không được dùng để clone sequence/arc từ tác phẩm reference.
+
 Output:
 
 `outline/arcs/arc_NNN.md`
@@ -232,6 +308,7 @@ Read:
 - reader experience;
 - arc beat;
 - Story Promise state;
+- style bible;
 - relevant DNA/ledgers;
 - recent finals when pattern check requires.
 
@@ -251,13 +328,15 @@ Chapter-level plan must know:
 - Emotional movement if any;
 - human irrationality/blind spot if relevant;
 - intrinsic chapter reward before ending hook;
-- ending shape.
+- ending shape;
+- style mode phù hợp: everyday / cultivation / combat / wonder / Dao / emotional rupture / other.
 
 Bắt buộc pre-check:
 
 1. **Yếu tố nào khiến chapter này chỉ có thể tồn tại trong tu tiên giới?**
 2. **Supernatural law/state nào tạo constraint/opportunity và consequence?**
 3. **Nếu chapter X0/X1, rolling 3/5 có còn pass không?**
+4. **Style mode này cần học trait cấp cao nào từ Style Bible và cần tránh reference weakness nào?**
 
 ### Relaxed planning
 
@@ -284,15 +363,25 @@ Output:
 
 Write complete Vietnamese chapter faithful to plan/bibles/memory but not as a checklist.
 
+**Direct style contract = story `bible/style_bible.md`.** Reference Profile chỉ là background đã được Style Bible chuyển hóa.
+
+Không được tự nhủ “viết giống Nhĩ Căn/Tiên Nghịch” hoặc bất kỳ tác giả/tác phẩm reference nào. Không reuse câu chữ, đoạn văn, rhetorical frame, hình ảnh đặc trưng hoặc plot beat từ reference.
+
 Rules:
 
 - POV consistent;
 - action before explanation where natural;
+- prose trực diện khi scene cần clarity;
 - dialogue with subtext/roughness;
 - worldbuilding through situation;
 - rhythm variation;
+- câu trung bình làm trục, có thể rút ngắn tại impact;
 - Hán Việt vừa đủ;
-- combat = perception → decision → action → consequence;
+- cultivation phải có mechanism/body/perception/resource/meaning/consequence khi relevant;
+- combat = perception/power-gap judgment → decision → action → consequence, không phải log skill;
+- Dao/insight phải có lived experience/concrete image support trước khi abstract;
+- emotional peak ưu tiên attachment + body/action + scar hơn narrator labeling;
+- world-scale reveal phải revalue current stakes, không chỉ khoe lore;
 - leave inference space;
 - positive human texture when organic;
 - avoid packaged aphorisms and repetitive hypothesis loops;
@@ -300,7 +389,8 @@ Rules:
 - không cứu Binge Test chỉ bằng cliffhanger cuối;
 - không fake Xianxia Density bằng cách rắc thêm “linh khí / pháp bảo / thiên địa / đạo vận”;
 - Active Xianxia phải đi qua causal action/consequence;
-- nếu POV từng ở high realm, thỉnh thoảng giữ scale perspective nhưng không biến thành lore flex.
+- nếu POV từng ở high realm, thỉnh thoảng giữ scale perspective nhưng không biến thành lore flex;
+- không bê weakness của reference: convert syntax, recap, stock gesture, repetitive connectors, info-dump dài.
 
 Output:
 
@@ -428,7 +518,13 @@ Audit:
 - lexical/rhetorical tics;
 - dialogue sameness;
 - positive prose texture;
-- calibration drift.
+- calibration drift;
+- **Reference Style drift-away**: prose có quay về giọng AI sạch/đều, cultivation khô, combat log, Dao slogan không?;
+- **Reference Style overfit**: có bắt chước cú pháp/cụm từ/rhetorical frame/stock gesture của reference không?;
+- story Style Bible có còn cao hơn Reference Profile không?;
+- project-owned calibration có được ưu tiên khi đã đủ sample không?.
+
+Reference alignment chỉ chấm trait cấp cao. Không bao giờ yêu cầu “giống hơn” bằng cách sao chép câu chữ.
 
 Output:
 
@@ -476,7 +572,7 @@ Priority:
 7. Competence Friction;
 8. Aspiration / Heat / Binge Test;
 9. Xianxia/Emotional debt;
-10. style fingerprint;
+10. style fingerprint + Reference Style drift/overfit;
 11. minor polish.
 
 If repetition is structural, rewrite structure; do not synonym-spin.
@@ -484,6 +580,8 @@ If repetition is structural, rewrite structure; do not synonym-spin.
 Nếu lỗi là aspiration/heat/binge, không được chỉ thêm một câu hook cuối.
 
 Nếu lỗi là Xianxia Density, phải sửa supernatural causality/constraint/consequence; không chữa bằng vocabulary.
+
+Nếu lỗi là style drift-away, sửa theo **story Style Bible high-level traits**. Nếu lỗi là overfit reference, loại cụm/cú pháp/frame dễ nhận diện và trả prose về giọng riêng của story.
 
 Output:
 
@@ -505,7 +603,8 @@ Recompute if affected:
 - xianxia_peak;
 - replaceability;
 - genre_density_debt;
-- Binge Test.
+- Binge Test;
+- style drift/overfit.
 
 No final while BLOCKER/MAJOR remains.
 
@@ -538,7 +637,8 @@ Audit:
 - Binge Test trend;
 - Xianxia Experience;
 - Emotional Residue;
-- costly mistakes.
+- costly mistakes;
+- story-style consistency without reference overfit.
 
 Heat official rule remains rolling 5. Xianxia Density has hard rolling 3 + rolling 5 rules.
 
@@ -605,6 +705,8 @@ Update `memory/reader_experience.md`:
 - Xianxia Experience;
 - reader appetite/payoff debt.
 
+Style-specific runtime memory không cần lưu prose reference. Chỉ lưu drift/tic của **story hiện tại** và calibration sample metadata nếu có.
+
 Plan ≠ fact. Belief ≠ truth.
 
 ---
@@ -645,6 +747,7 @@ Audit:
 - character agency/irrationality;
 - cultivation/power/resource economy;
 - style fingerprints;
+- Reference Style drift/overfit and project-owned calibration maturity;
 - threads/setup/payoff;
 - reader memory consistency;
 - next-batch handoff.
@@ -666,6 +769,12 @@ Existing batch-10 historical audits remain valid after migration.
 
 Before telling user a chapter/batch is complete, inspect artifact tree.
 
+Native v3 Genesis with Reference Style enabled requires:
+
+- seed points to valid Reference Style System/Profile;
+- Style Bible contains `Reference Style Adaptation Contract`;
+- Style Bible states traits inherited, weaknesses filtered and calibration takeover rule.
+
 Native v3 chapter requires:
 
 - scene_plan;
@@ -683,7 +792,7 @@ Native default batch requires:
 
 - requested 5 finals;
 - memory current through last chapter;
-- batch audit including geometry/magnitude/friction/aspiration/heat/density/binge sections;
+- batch audit including geometry/magnitude/friction/aspiration/heat/density/binge/style sections;
 - next-batch handoff.
 
 Missing required artifact = `INCOMPLETE`, never PASS.
