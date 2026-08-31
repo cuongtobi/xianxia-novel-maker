@@ -1,6 +1,10 @@
 # Pipeline Prompts
 
-Các prompt dưới đây là role contracts để ChatGPT tự thực thi stage. Luôn đọc `AGENTS.md`, `docs/READER_EXPERIENCE_SYSTEM.md`, `docs/BATCH_5_WORKFLOW.md` và migration doc khi story là legacy.
+Các prompt dưới đây là role contracts để ChatGPT tự thực thi stage. Luôn đọc `AGENTS.md`, `docs/READER_EXPERIENCE_SYSTEM.md`, `docs/RETENTION_CONTROLLERS_V3.md`, `docs/BATCH_5_WORKFLOW.md` và migration doc khi story là legacy.
+
+Core rule:
+
+**PASS kỹ thuật ≠ PASS trải nghiệm đọc.**
 
 ---
 
@@ -20,15 +24,17 @@ Các prompt dưới đây là role contracts để ChatGPT tự thực thi stage
 6. Chạy tuần tự từng chapter transaction.
 7. Không sang chapter mới khi story memory hoặc reader experience chưa cập nhật.
 8. Không báo PASS nếu thiếu artifact bắt buộc.
+9. Không báo PASS nếu Reader-Reward Gate còn MAJOR từ Retention Controllers v3.
 
 ## Legacy
 
-Nếu story pre-v2 hoặc batch_size cũ:
+Nếu story pre-v2/v3 hoặc batch_size cũ:
 
 - không fake retroactive QC;
 - dùng migration baseline;
 - existing batch-10 audits vẫn hợp lệ historical;
-- khi sync batch size mới, set `batch_size: 5` và bắt đầu 5-chapter batch từ `next_chapter`.
+- khi sync batch size mới, set `batch_size: 5` và bắt đầu 5-chapter batch từ `next_chapter`;
+- v3 baseline có thể dựng từ recent finals + reader memory, không fake retroactive per-chapter report.
 
 ---
 
@@ -48,6 +54,7 @@ Default production nếu user không override:
 batch_size: 5
 require_qc: true
 require_rewrite: true
+retention_v3_required: true
 ```
 
 ---
@@ -61,6 +68,8 @@ Build world bằng causal chain:
 Mỗi realm phải có qualitative change, limitation, breakthrough requirement, failure mode, social/lifespan meaning và cross-realm logic.
 
 World logic phải phục vụ truyện; không nhồi hệ thống chỉ để hoành tráng.
+
+Phân biệt world scarcity với fantasy aspiration: một world có thể nghèo, nhưng vẫn phải có những thứ khiến reader muốn nhìn thấy/chiếm hữu/vươn tới.
 
 Output:
 
@@ -109,6 +118,8 @@ Mỗi nhân vật quan trọng cần:
 
 Không biến nhân vật thông minh thành optimizer hoàn hảo.
 
+Đặc biệt với MC competence cao, phải xác định domain có thể CLEAN_WIN và domain dễ `PARTIAL / WRONG_MODEL / DEPENDENT_ON_OTHER / COSTLY_WIN`.
+
 Output:
 
 `bible/characters_bible.md`
@@ -129,7 +140,28 @@ Bắt buộc khóa **3–5 Story Promises**:
 - drought warning;
 - escalation path.
 
-Build thêm saga map, protagonist transformation, antagonistic forces, cultivation progression, reveals, relationship turns, ending direction, flex zones.
+Bắt buộc khóa **Payoff Magnitude** cho từng promise:
+
+- `PAY_MINOR`;
+- `PAY_MAJOR`;
+- `PAY_ARC`;
+- max major payoff debt;
+- major-pay windows.
+
+Build thêm:
+
+- saga map;
+- protagonist transformation;
+- competence-friction sources;
+- antagonistic forces;
+- cultivation progression;
+- Xianxia Experience spine;
+- Aspiration spine;
+- Heat identity/long-range curve;
+- reveals;
+- relationship turns;
+- ending direction;
+- flex zones.
 
 Output:
 
@@ -149,14 +181,21 @@ Build:
 - mystery/reveal;
 - faction moves;
 - setup/payoff;
-- Story Promise PAY windows;
+- Story Promise PAY windows + minimum magnitude;
 - Narrative Engine distribution;
+- **Dramatic Geometry map**;
+- **Competence Friction plan**;
+- **Aspiration beats**;
+- **Heat Curve**;
+- **Binge Test risk map**;
 - Xianxia Experience targets;
 - Emotional Residue plan;
 - costly mistake opportunities;
 - chapter intent table.
 
 Do not force arc boundary to match batch size 5.
+
+Do not make engine variety fake: engine labels may differ while pressure/decision/information/resolution geometry remains the same.
 
 Output:
 
@@ -178,20 +217,32 @@ Read:
 Chapter-level plan must know:
 
 - primary/secondary Narrative Engine;
-- Story Promise target UNTOUCHED/ADVANCE/PAY;
+- Dramatic Geometry signature;
+- Story Promise target `UNTOUCHED/ADVANCE/PAY_MINOR/PAY_MAJOR/PAY_ARC`;
+- intended competence outcome if MC uses competence;
+- aspiration target if needed by rolling debt;
+- `peak_heat` target;
 - POV + knowledge boundary;
 - Xianxia Experience target if organic;
 - Emotional movement if any;
 - human irrationality/blind spot if relevant;
+- intrinsic chapter reward before ending hook;
 - ending shape.
 
 ### Relaxed planning
 
 Conflict/transaction scene may use goal/obstacle/stakes/turn/choice/consequence.
 
-Quiet/discovery/emotional scene only needs focal tension/curiosity, sensory anchor, knowledge boundary and meaningful movement/residue.
+Quiet/discovery/emotional scene only needs focal tension/curiosity, sensory anchor, knowledge boundary và meaningful movement/residue.
 
 Do not force every scene into the same mini-plot template.
+
+Pre-check Binge Test:
+
+1. Khoảnh khắc sướng nhất dự kiến là gì?
+2. Bỏ ending hook, chapter có đủ giá trị nội tại không?
+
+Nếu chưa có concrete reward và không có valid structural waiver, redesign trước draft.
 
 Output:
 
@@ -214,7 +265,9 @@ Rules:
 - combat = perception → decision → action → consequence;
 - leave inference space;
 - positive human texture when organic;
-- avoid packaged aphorisms and repetitive hypothesis loops.
+- avoid packaged aphorisms and repetitive hypothesis loops;
+- không biến aspiration/heat/payoff target thành exposition list;
+- không cứu Binge Test chỉ bằng cliffhanger cuối.
 
 Output:
 
@@ -247,12 +300,76 @@ Output:
 
 # P9B — Reader Retention Editor
 
-Audit:
+Audit toàn bộ Retention Controllers v3:
 
-- Story Promise ADVANCE/PAY/drought;
-- chapter payoff;
-- Narrative Engine;
-- rolling 3/4 same-engine risk;
+## Story Promise + Payoff Magnitude
+
+- `UNTOUCHED / ADVANCE / PAY_MINOR / PAY_MAJOR / PAY_ARC`;
+- reward score;
+- pay drought;
+- major payoff debt;
+- false PAY;
+- chuỗi PAY_MINOR đang che thiếu PAY_MAJOR hay không.
+
+## Narrative Engine
+
+- primary/secondary engine;
+- rolling 3/4 same-engine risk.
+
+## Dramatic Geometry Controller
+
+Ghi:
+
+- pressure source;
+- decision locus;
+- movement mode;
+- information flow;
+- opposition shape;
+- resolution mode;
+- reversal type;
+- kinetic level.
+
+3 consecutive near-same → WATCH. 3/4 same core geometry → `MAJOR pacing risk` dù engine label khác.
+
+## Competence Friction Meter
+
+Phân loại competence conversion:
+
+`CLEAN_WIN / COSTLY_WIN / PARTIAL / WRONG_MODEL / DEPENDENT_ON_OTHER / FAILURE / NO_CONVERSION`.
+
+- 3 CLEAN_WIN liên tiếp → WATCH;
+- 4/5 recent conversions CLEAN_WIN → `MAJOR flattening risk`.
+
+Không tính chosen cost biết trước thành costly mistake nếu không có misjudgment/consequence ngoài dự kiến.
+
+## Aspiration Controller
+
+Tách scarcity khỏi fantasy desire. Kiểm object_of_desire, why desirable, proof/image, gate/cost, future use, status.
+
+Rolling 5 chỉ scarcity/admin/problem-fixing mà không aspiration/wonder đủ mạnh → `MAJOR appetite risk`.
+
+## Heat Curve
+
+Ghi `peak_heat`:
+
+- H0 quiet;
+- H1 active;
+- H2 strong memorable beat;
+- H3 peak.
+
+Rolling 5 không có H2+ → `MAJOR flatness risk`.
+
+## Binge Test — BẮT BUỘC
+
+1. **Khoảnh khắc sướng nhất chương là gì?**
+2. **Nếu bỏ ending hook, bản thân chương này có đủ đáng đọc không?** `YES / WEAK / NO`
+
+- câu 1 = `NONE` → ít nhất MAJOR trừ decompression có emotional payoff rất rõ;
+- câu 2 = `NO` → MAJOR + rewrite trừ explicit valid waiver;
+- waiver không dùng hai chapter liên tiếp.
+
+Audit thêm:
+
 - opening/movement/drag;
 - conflict solution repetition;
 - agency/human irrationality;
@@ -260,8 +377,6 @@ Audit:
 - Xianxia Experience;
 - Emotional Residue;
 - ending/reason-to-continue.
-
-If 2–3 chapters have no core PAY, warn. If 3/4 rolling chapters use same primary engine, `MAJOR pacing risk` unless deliberately justified.
 
 Output:
 
@@ -300,10 +415,17 @@ Output:
 
 No PASS if any reviewer still has BLOCKER/MAJOR.
 
+Gate phải tách:
+
+- **Technical Gate** — continuity, knowledge, style, artifacts;
+- **Reader-Reward Gate** — payoff magnitude, geometry, competence friction, aspiration, heat, Binge Test, Xianxia/Emotional reward.
+
+Technical Gate PASS không override Reader-Reward Gate MAJOR.
+
 Severity:
 
 - BLOCKER — canon/logic/release contract broken;
-- MAJOR — character/retention/engine/style defect requiring rewrite;
+- MAJOR — character/retention/payoff/engine/geometry/friction/aspiration/heat/binge/style defect requiring rewrite;
 - MINOR — useful correction;
 - NOTE — tracking only.
 
@@ -316,13 +438,17 @@ Priority:
 1. canon/knowledge/data;
 2. Character DNA;
 3. causality/power;
-4. Story Promise/retention;
-5. Narrative Engine/geometry;
-6. Xianxia/Emotional debt;
-7. style fingerprint;
-8. minor polish.
+4. Story Promise + Payoff Magnitude;
+5. Narrative Engine + Dramatic Geometry;
+6. Competence Friction;
+7. Aspiration / Heat / Binge Test;
+8. Xianxia/Emotional debt;
+9. style fingerprint;
+10. minor polish.
 
 If repetition is structural, rewrite structure; do not synonym-spin.
+
+Nếu lỗi là aspiration/heat/binge, không được chỉ thêm một câu hook cuối.
 
 Output:
 
@@ -333,6 +459,15 @@ Output:
 # P10.5 — Critical Re-QC
 
 Recheck all BLOCKER/MAJOR and changed regions. Rerun affected reviewer report if rewrite materially changes its domain.
+
+Recompute if affected:
+
+- payoff magnitude;
+- geometry;
+- competence outcome;
+- aspiration;
+- peak heat;
+- Binge Test.
 
 No final while BLOCKER/MAJOR remains.
 
@@ -348,7 +483,25 @@ Read full:
 - final N-1;
 - rewrite candidate N.
 
-Audit opening, engine, dialogue geometry, conflict solution, ending, rhetorical tics, Promise PAY, Xianxia Experience, Emotional Residue, costly mistakes.
+Audit:
+
+- opening;
+- engine;
+- Dramatic Geometry;
+- dialogue geometry;
+- conflict solution;
+- ending;
+- rhetorical tics;
+- Promise PAY magnitude;
+- competence friction trend;
+- aspiration trend;
+- heat trend;
+- Binge Test trend;
+- Xianxia Experience;
+- Emotional Residue;
+- costly mistakes.
+
+Heat official rule remains rolling 5; rolling-3 only warns early.
 
 Batch boundary does not reset this cadence.
 
@@ -390,12 +543,18 @@ After final update story memory deltas:
 
 Update `memory/reader_experience.md`:
 
-- Story Promise UNTOUCHED/ADVANCE/PAY;
+- Story Promise `UNTOUCHED/ADVANCE/PAY_MINOR/PAY_MAJOR/PAY_ARC`;
+- pay drought + major payoff debt;
 - last major payoff;
 - last wonder beat;
 - last emotional hit;
 - last costly mistake;
 - recent engines;
+- Dramatic Geometry signatures;
+- competence outcomes;
+- aspiration beats;
+- heat sequence / last H2+;
+- Binge Test results;
 - dialogue geometries;
 - ending shapes;
 - rhetorical tics;
@@ -426,8 +585,13 @@ Audit:
 
 - artifact completion;
 - arc progress;
-- Story Promise PAY/drought;
+- Story Promise magnitude + pay/major-payoff debt;
 - Narrative Engine distribution, including windows crossing batch boundary;
+- Dramatic Geometry distribution;
+- Competence Friction distribution;
+- Aspiration coverage;
+- rolling-5 Heat Curve;
+- Binge Test health;
 - Xianxia/Emotional experience;
 - continuity;
 - character agency/irrationality;
@@ -436,6 +600,8 @@ Audit:
 - threads/setup/payoff;
 - reader memory consistency;
 - next-batch handoff.
+
+Batch technical gate sạch nhưng retention-controller MAJOR còn tồn tại → `REPAIR_REQUIRED`, không PASS.
 
 Batch ranges normally:
 
@@ -452,14 +618,14 @@ Existing batch-10 historical audits remain valid after migration.
 
 Before telling user a chapter/batch is complete, inspect artifact tree.
 
-Native v2.1 chapter requires:
+Native v3 chapter requires:
 
 - scene_plan;
 - draft;
 - continuity_report;
-- reader_retention_report;
+- reader_retention_report with Retention Controllers v3 + Binge Test;
 - style_fingerprint_report;
-- quality_report;
+- quality_report with Technical Gate + Reader-Reward Gate;
 - rewrite when required;
 - rolling audit when N%3==0;
 - final;
@@ -469,7 +635,9 @@ Native default batch requires:
 
 - requested 5 finals;
 - memory current through last chapter;
-- batch audit;
+- batch audit including geometry/magnitude/friction/aspiration/heat/binge sections;
 - next-batch handoff.
 
 Missing required artifact = `INCOMPLETE`, never PASS.
+
+Reader-Reward Gate MAJOR = `REPAIR_REQUIRED`, never PASS.
