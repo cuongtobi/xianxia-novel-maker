@@ -2,6 +2,7 @@
 
 > File đích: `stories/<slug>/bible/story_bible.md`
 > Mục tiêu: định nghĩa thế giới và luật truyện đủ sâu để sinh xung đột tự nhiên, không biến thành catalog tên riêng.
+> Với truyện mới framework v3, bắt buộc tương thích `docs/XIANXIA_DENSITY_CONTROLLER.md`.
 
 # 1. Story Identity
 
@@ -257,7 +258,55 @@ Cho mỗi thế lực lớn:
 - Cách thông tin truyền:
 - Tổ chức kiểm soát tri thức:
 
-# 12. Conflict Generators
+# 12. Xianxia Density Foundations
+
+Mục này không liệt kê “đồ tu tiên”; nó khóa **nhân quả tu tiên**.
+
+## 12.1 Ambient Xianxia identity
+
+- Tu sĩ dùng giác quan/năng lực nào trong đời thường mà phàm nhân không có?:
+- Linh khí/địa mạch/linh triều ảnh hưởng môi trường hằng ngày ra sao?:
+- Pháp khí/trận/phù/linh thực/yêu thú xuất hiện trong sinh hoạt thế nào?:
+- Cảnh giới thay đổi tuổi thọ, lao động, travel, địa vị và luật xã hội ra sao?:
+- Những sensory motif nào khiến thế giới luôn có texture tu tiên mà không spam cliché?:
+
+## 12.2 Active Xianxia causal sources
+
+Liệt kê tối thiểu 6 source mà **supernatural law/state thực sự đổi lựa chọn/hậu quả**.
+
+| Source | Supernatural law/state | Constraint/opportunity | Who exploits/suffers | Decision it can force | Observable consequence |
+|---|---|---|---|---|---|
+
+Ví dụ source: linh mạch, công pháp, thần thức, cảnh giới, injury, trận/phù/đan/khí, linh triều, yêu thú, bí cảnh, thiên tượng, huyết mạch, địa mạch, đạo ý, power hierarchy.
+
+Mỗi source phải hỗ trợ causal chain:
+
+`supernatural law/state → constraint/opportunity → decision → consequence`.
+
+## 12.3 Aspirational Xianxia foundations
+
+- Những cảnh giới/năng lực nào phải khiến reader muốn đạt tới?:
+- Tài nguyên nào phải có “future-use image” rõ?:
+- Địa điểm/bí cảnh nào dùng để mở chân trời?:
+- Nghề phụ/pháp bảo/truyền thừa nào tạo desire mạnh?:
+- Loại wonder nào là signature của truyện?:
+
+## 12.4 Replaceability hazards
+
+- Loại conflict nào dễ biến thành “kinh tế phàm tục + đổi danh từ”?:
+- Loại family/politics/admin scene nào dễ HIGH_REPLACEABILITY?:
+- Causal mechanism nào sẽ giữ chúng rooted in cultivation world?:
+- Những danh từ nào dễ bị lạm dụng như skin mà không có consequence?:
+
+## 12.5 High-realm / ancient POV aura (nếu relevant)
+
+- Scale memory:
+- Knowledge category MC từng trải qua:
+- Power/cultivation consequences MC hiểu sâu hơn người thường:
+- Old knowledge likely to become outdated:
+- Cách thể hiện aura bằng perception/choice, không bằng lore dump:
+
+# 13. Conflict Generators
 
 Liệt kê ít nhất 10 cơ chế sinh xung đột từ chính thế giới, không phải twist ngẫu nhiên.
 
@@ -268,8 +317,12 @@ Mỗi entry:
 - Ai hưởng lợi:
 - Ai chịu thiệt:
 - Loại arc có thể sinh ra:
+- Xianxia causal source liên quan:
+- Nếu bỏ yếu tố tu tiên, conflict có còn nguyên vẹn không?:
 
-# 13. Hard Rules
+Ưu tiên nhiều generator có LOW/MEDIUM replaceability; không để toàn bộ conflict generators có thể dịch thẳng sang bối cảnh phàm tục.
+
+# 14. Hard Rules
 
 Các luật không được phá nếu không có setup cực mạnh:
 
@@ -277,20 +330,21 @@ Các luật không được phá nếu không có setup cực mạnh:
 2.
 3.
 
-# 14. Soft Rules / Myths / Exceptions
+# 15. Soft Rules / Myths / Exceptions
 
 - Quy tắc được tin là đúng nhưng có thể sai:
 - Ngoại lệ hiếm:
 - Điều kiện ngoại lệ:
 
-# 15. Story Constraints
+# 16. Story Constraints
 
 - Không được xuất hiện:
 - Không được retcon:
 - Cần duy trì:
 - Các bí mật chưa được reveal sớm:
+- Xianxia Density risks cần tránh:
 
-# 16. Canon Lock Log
+# 17. Canon Lock Log
 
 Mỗi khi Story Bible được sửa sau khi truyện đã bắt đầu:
 
@@ -300,3 +354,4 @@ Mỗi khi Story Bible được sửa sau khi truyện đã bắt đầu:
 - New rule:
 - Reason:
 - Continuity impact:
+- Xianxia Density impact:
