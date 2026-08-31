@@ -1,130 +1,99 @@
 # Architecture
 
-## 1. Tổng quan
+## 1. Overview
 
-Xianxia Novel Maker được thiết kế cho mô hình **ChatGPT Web + GitHub connector**. GitHub giữ state bền vững; ChatGPT đọc state, tạo artifact, kiểm tra và ghi kết quả.
+Xianxia Novel Maker chạy trên **ChatGPT Web + GitHub connector**. GitHub là persistent state; ChatGPT là execution engine.
 
-Từ pipeline v2, hệ thống quản hai thứ song song:
-
-1. **Story correctness** — canon, continuity, power, knowledge, Character DNA.
-2. **Reader experience** — Story Promise, Narrative Engine, Xianxia Experience, Emotional Residue và style fingerprint.
+Pipeline v2.1:
 
 ```text
 Human Seed
-   ↓
-Story Genesis
-   ├─ Story Bible
-   ├─ Style Bible
-   ├─ Characters Bible
-   └─ Reader-promise candidates
-   ↓
-Long-range Planning
-   ├─ Master Outline
-   │   └─ lock 3–5 Story Promises
-   └─ Arc Outline
-       ├─ Promise PAY windows
-       ├─ Narrative Engine map
-       ├─ Xianxia Experience map
-       └─ Emotional Residue plan
-   ↓
-Initialize Memory
-   ├─ Story State Memory
-   └─ Reader Experience Memory
-   ↓
-Chapter Loop (sequential)
-   ├─ Context Assembly
-   ├─ Scene Plan (relaxed modes)
-   ├─ Draft
-   ├─ Continuity Auditor
-   ├─ Reader Retention Editor
-   ├─ Style Fingerprint Auditor
-   ├─ Aggregate Quality Gate
-   ├─ Rewrite
-   ├─ Critical Re-QC
-   ├─ Rolling 3-Chapter Audit on Ch. 3/6/9/...
-   ├─ Final TXT
-   └─ Story + Reader Memory Commit
-   ↓
-Batch Audit every 10 chapters
+↓
+Genesis
+  ├─ Story Bible
+  ├─ Style Bible
+  ├─ Characters Bible
+  ├─ Master Outline + 3–5 Story Promises
+  ├─ Arc Outline
+  └─ Story + Reader Experience Memory
+↓
+Sequential Chapter Transaction
+  ├─ Context Assembly
+  ├─ Scene Plan
+  ├─ Draft
+  ├─ Continuity Auditor
+  ├─ Reader Retention Editor
+  ├─ Style Fingerprint Auditor
+  ├─ Aggregate Quality Gate
+  ├─ Rewrite + Critical Re-QC
+  ├─ Rolling 3-Chapter Audit when due
+  ├─ Final TXT
+  └─ Memory Commit
+↓
+Batch Audit every 5 default chapters
 ```
 
-Chi tiết controller: `docs/READER_EXPERIENCE_SYSTEM.md`.
+## 2. Data layers
 
-## 2. Bốn lớp dữ liệu
+### Canon / slow-changing
 
-### A. Immutable / slow-changing canon
+- bibles;
+- canon ledger;
+- Character DNA;
+- Story Promise contract;
+- final chapters.
 
-Lưu tại `bible/` và `memory/canon_ledger.md`.
+### Planning
 
-- bản chất thế giới;
-- quy tắc tu luyện;
-- lịch sử nền;
-- hệ thống cảnh giới;
-- cấu trúc quyền lực;
-- Character DNA cốt lõi;
-- style rules;
-- canon fact đã xuất hiện trong final.
+- master outline;
+- arc outlines;
+- planned Promise PAY windows;
+- planned Narrative Engine distribution;
+- planned Xianxia/Emotional targets.
 
-### B. Planning state
+Planning can change; final/canon wins.
 
-Lưu tại `outline/`.
+### Runtime story state
 
-- master outline: hướng truyện dài hạn + Story Promise contract;
-- arc outline: mục tiêu, payoff, Narrative Engine, Xianxia Experience;
-- chapter intent: target chưa final.
-
-Planning state có thể điều chỉnh nếu final dẫn sang hướng khác, miễn không retcon canon.
-
-### C. Fast-changing story memory
-
-Lưu tại `memory/`:
-
-- time/location;
-- physical/emotional state;
+- current state;
+- timeline;
+- character states;
+- relationships;
 - cultivation;
 - inventory;
-- relationships;
+- faction/location;
 - knowledge;
-- faction state;
 - foreshadowing;
-- unresolved threads.
+- unresolved threads;
+- chapter summaries.
 
-### D. Reader Experience Memory
+### Reader Experience state
 
-Lưu tại `memory/reader_experience.md`.
+`memory/reader_experience.md` tracks:
 
-Theo dõi:
-
-- Story Promise last ADVANCE/PAY/drought;
+- Story Promise ADVANCE/PAY;
 - last major payoff;
-- recent primary/secondary Narrative Engines;
-- dialogue geometry;
-- recent ending shapes;
-- recent rhetorical tics;
-- Xianxia Experience delivered;
-- last wonder beat;
-- last emotional hit;
-- last costly mistake;
-- reader appetite / payoff debt;
-- calibration rotation.
-
-Reader Experience Memory **không phải canon** và không override final/Character DNA.
+- recent Narrative Engines;
+- dialogue geometries;
+- ending shapes;
+- rhetorical tics;
+- Xianxia Experience;
+- Emotional Residue;
+- costly mistakes;
+- reader appetite/payoff debt.
 
 ## 3. Story branch lifecycle
 
-### 3.1 Create
+### Create
 
-Từ `main`, tạo:
+From `main` create `story/<slug>`.
 
-`story/<slug>`
-
-Framework source sống trên `main`. Story branch cũ không được mặc định đã nhận framework upgrade nếu chưa sync/verify.
-
-### 3.2 Bootstrap
+### Bootstrap
 
 ```text
 stories/<slug>/
-  seed/seed.yaml
+  manifest.yaml
+  seed/
   bible/
   outline/arcs/
   chapters/
@@ -132,127 +101,86 @@ stories/<slug>/
   memory/
 ```
 
-### 3.3 Genesis
+### Genesis
 
-Theo thứ tự:
-
-1. validate seed + candidate reader promises;
+1. validate seed;
 2. story bible;
 3. style bible;
 4. characters bible;
-5. master outline + lock 3–5 Story Promises;
-6. arc 1 outline + Narrative Engine/Xianxia/Emotional maps;
-7. initialize Story State Memory;
-8. initialize Reader Experience Memory.
+5. master outline + Story Promises;
+6. opening arc;
+7. initialize story memory;
+8. initialize reader experience.
 
-### 3.4 Production
+### Production
 
-Viết tuần tự. Mỗi chương là transaction hoàn chỉnh.
+Chapter transactions are sequential.
 
-### 3.5 Rolling checkpoint
+### Default batch checkpoint
 
-Trước final các chương `3, 6, 9, 12...`, chạy Rolling 3-Chapter Audit.
+Every 5 requested chapters:
 
-### 3.6 Batch checkpoint
+`chapters/batch_NNNN_NNNN_audit.md`
 
-Cứ 10 chương bắt buộc có:
+Typical ranges: 1–5, 6–10, 11–15...
 
-`chapters/batch_XXXX_XXXX_audit.md`
+Existing historical 10-chapter audits remain valid after migration.
 
-Không có file audit → batch `INCOMPLETE`.
+## 4. Context Assembly
 
-## 4. Context Assembly Engine
-
-Vì context hữu hạn, đọc theo tầng.
-
-### Tier 0 — always read
+Always read:
 
 - seed;
-- story bible;
-- style bible;
-- master Story Promise section;
-- arc hiện tại;
+- story/style bible;
+- Story Promises;
+- arc;
 - current state;
 - reader experience;
-- canon ledger;
-- chapter summaries gần nhất.
+- canon;
+- recent summaries.
 
-### Tier 1 — scene-specific
+Scene-specific reads:
 
-- Character DNA nhân vật xuất hiện;
-- cultivation ledger;
-- knowledge ledger;
-- relationship records;
-- faction/location records;
-- unresolved threads;
-- foreshadowing setup sắp payoff.
+- Character DNA;
+- cultivation/knowledge/relationships;
+- factions/locations;
+- foreshadowing/unresolved threads.
 
-### Tier 2 — historical retrieval
+Historical full final reads when:
 
-Đọc full final cũ khi:
+- callback needs exact text;
+- continuity is uncertain;
+- Reader Retention/Style/Rolling Audit needs pattern comparison.
 
-- callback cụ thể;
-- continuity checker nghi vấn;
-- lời thoại/chi tiết phải nhắc chính xác;
-- Reader Retention/Style Fingerprint cần so cấu trúc;
-- Rolling 3-Chapter Audit bắt buộc full N-2/N-1.
+## 5. Story Promise system
 
-Mục tiêu: **đủ context đúng**, không phải nhiều context nhất.
+Every story locks 3–5 reader promises.
 
-## 5. Story Promise architecture
+A promise records:
 
-Master Outline khóa 3–5 promise.
-
-Mỗi promise có:
-
-- ID;
-- reader promise;
 - PAY definition;
 - ADVANCE definition;
 - false pay;
 - drought warning;
 - escalation path.
 
-### Important distinction
+Each final updates promise state in Reader Experience Memory.
 
-`ADVANCE` là chuẩn bị.
+## 6. Narrative Engine system
 
-`PAY` là độc giả thật sự nhận được:
+Narrative Engine describes **how movement happens**, not topic.
 
-- thành quả;
-- reveal;
-- capability change;
-- emotional resolution;
-- threshold crossing;
-- trải nghiệm premise đã hứa.
+Examples: audit, negotiation, hypothesis-test, training calibration, chase, reveal, ritual, domestic, combat, grief, wonder, investigation.
 
-Nếu 2–3 chapter không PAY core promise nào, Reader Retention Editor phải cảnh báo.
+Hard rolling rule:
 
-## 6. Narrative Engine architecture
+**3/4 recent chapters with same primary engine = MAJOR pacing risk.**
 
-Topic không đủ để đo pacing.
+This window crosses batch boundaries.
 
-`Narrative Engine` mô tả cách chapter tạo chuyển động.
+## 7. Xianxia Experience
 
-Ví dụ:
-
-`Q&A meeting / audit / negotiation / hypothesis-test / training calibration / chase / reveal / ritual / domestic / combat / grief / wonder / investigation / survival task / repair-build / travel discovery / aftermath / rescue / moral choice / competition`.
-
-Vocabulary không đóng.
-
-### Rolling rule
-
-Trong 4 chapter:
-
-**3/4 cùng primary engine = MAJOR pacing risk.**
-
-Không được coi ba chapter audit về ba topic khác nhau là variety.
-
-## 7. Xianxia Experience architecture
-
-Worldbuilding logic và fantasy experience là hai trục khác nhau.
-
-Theo dõi:
+Track independently from world logic:
 
 - cultivation payoff;
 - wonder/awe;
@@ -261,365 +189,145 @@ Theo dõi:
 - mystical discovery;
 - desirable resource;
 - threshold crossing;
-- dao insight có consequence;
 - magical craft;
 - world-scale glimpse.
 
-Không quota cứng. Controller tồn tại để phát hiện drought, đặc biệt khi arc bị kéo vào logistics/administration/investigation thuần lý trí.
+## 8. Character engine
 
-## 8. Emotional Residue architecture
-
-Rolling 3–5 chapter nên có ít nhất một thay đổi thật về:
-
-- emotional state;
-- relationship meaning;
-- self-image;
-- grief/joy/shame/fear/attachment;
-- meaning của object/place/memory.
-
-Không bắt mỗi chapter phải melodrama.
-
-Nếu chỉ inventory/knowledge/cultivation đổi còn con người đứng yên, Reader Retention Editor cảnh báo.
-
-## 9. Character engine
-
-Character Bible gồm:
+Two layers:
 
 ### Core DNA
 
-- desire/fear/wound;
-- decision heuristic;
-- speech fingerprint;
-- value/blind spot;
-- cultivation philosophy;
-- forbidden behavior.
-
-### Human irrationality profile
-
-- pride trigger;
-- shame/fear of losing face;
-- sentimental attachment;
-- sunk cost;
-- bias under incomplete data;
-- trust/distrust distortions;
-- self-justification.
-
-### Costly mistake pattern
-
-Protagonist/supporting cast có thể sai theo DNA và chịu cost thật.
-
-Không dùng “thông minh” để biến mọi nhân vật thành operations expert. Không dùng “humanity” để làm họ ngu chạy plot.
+Values, fears, wounds, decision logic, speech, irrationality, costly mistake tendency.
 
 ### Runtime state
 
-Lưu trong memory:
+Location, goal, emotion, injury, relationships, secrets, resources.
 
-- goal;
-- relationship;
-- injury;
-- emotional residue;
-- costly mistake scar;
-- known information.
+Characters may be intelligent but should not become perfect optimizers.
 
-## 10. Scene planning architecture
+## 9. Scene architecture
 
-Pipeline v2 bỏ rule “mọi scene phải có goal + obstacle + stakes + turn + choice + consequence + state delta”.
+Scene planning is intentionally relaxed.
 
-Có hai mode:
+### Conflict/transaction scene
 
-### Conflict / Transaction
+May use goal/obstacle/stakes/turn/choice/consequence.
 
-Dùng structure plot rõ khi thực sự có opposing agenda.
+### Quiet/discovery/emotional scene
 
-### Quiet / Discovery / Emotional
+May use focal tension/curiosity + sensory anchor + knowledge boundary + meaningful movement/residue.
 
-Có thể chỉ cần:
+Not every scene must be a mini-plot.
 
-- focal tension/curiosity;
-- sensory anchor;
-- knowledge boundary;
-- human friction;
-- perception/emotional movement;
-- unresolved movement / exit image.
+## 10. QC architecture
 
-Scene không đổi canon vẫn có thể có giá nếu đổi **meaning, relationship texture, wonder hoặc emotional residue**.
-
-## 11. Positive style architecture
-
-Anti-AI blacklist không đủ.
-
-Style Bible còn định nghĩa texture tích cực:
-
-- awkward conversation;
-- interruption;
-- unfinished sentence;
-- practical humor;
-- embarrassment;
-- irrational attachment;
-- sensory messiness;
-- misunderstanding;
-- silence;
-- spontaneous choice;
-- physical inconvenience;
-- asymmetrical emotion.
-
-Không dùng như quota.
-
-### Calibration
-
-Không khóa calibration chỉ từ Ch.1–3.
-
-Valid set:
-
-- 4–6 approved/final samples;
-- ít nhất 4 Narrative Engine khác nhau;
-- narration + dialogue + pressure/wonder.
-
-Mỗi batch/chapter xoay 2–3 sample phù hợp để tránh style collapse.
-
-## 12. Memory model
-
-Story State Memory gồm:
-
-- `current_state.md`;
-- `canon_ledger.md`;
-- `timeline.md`;
-- `character_states.md`;
-- `relationships.md`;
-- `cultivation_ledger.md`;
-- `inventory_artifacts.md`;
-- `factions_locations.md`;
-- `knowledge_ledger.md`;
-- `foreshadowing.md`;
-- `unresolved_threads.md`;
-- `chapter_summaries.md`.
-
-Reader layer:
-
-- `reader_experience.md`.
-
-Chi tiết format: `memory/MEMORY_SYSTEM.md`.
-
-## 13. Worldbuilding engine
-
-Story Bible dùng causal chain:
-
-`natural law → resource scarcity → institution → incentive → behavior → conflict → story utility`.
-
-Mỗi ý tưởng thế giới phải thay đổi đời sống/xung đột, không chỉ làm lore dày.
-
-## 14. Power system engine
-
-Mỗi realm cần:
-
-- qualitative change;
-- quantitative range;
-- abilities;
-- limitations;
-- resource cost;
-- breakthrough condition;
-- failure mode;
-- social meaning;
-- lifespan;
-- realistic cross-realm exceptions.
-
-Nếu vượt cấp, phải có lý do được ledger hóa: counter, artifact, terrain, injury, bloodline, ambush, sacrificial cost, superior foundation, information advantage...
-
-## 15. Outline architecture
-
-### Master Outline
-
-Khóa:
-
-- premise;
-- 3–5 Story Promises;
-- long-range question;
-- sagas;
-- irreversible turns;
-- protagonist transformation;
-- antagonistic forces;
-- cultivation + Xianxia spine;
-- ending direction.
-
-### Arc Outline
-
-Chi tiết:
-
-- arc question;
-- promise PAY windows;
-- conflict ladder;
-- costly mistake opportunities;
-- cultivation;
-- Xianxia Experience;
-- Emotional Residue;
-- reveals;
-- faction moves;
-- Narrative Engine distribution;
-- ending-shape map.
-
-Arc có thể đổi sau final/batch audit; canon thắng planning.
-
-## 16. Chapter transaction
-
-```text
-READ story + reader context
-→ PLAN scene
-→ DRAFT
-→ CONTINUITY AUDIT
-→ RETENTION AUDIT
-→ STYLE FINGERPRINT AUDIT
-→ AGGREGATE QC
-→ REWRITE
-→ CRITICAL RE-QC
-→ ROLLING 3-CH AUDIT if due
-→ WRITE final
-→ UPDATE story memory
-→ UPDATE reader experience
-→ COMMIT
-```
-
-Nếu bất kỳ required memory/artifact nào thất bại, transaction chưa hoàn tất.
-
-## 17. QC architecture
+Three independent reviewers:
 
 ### Continuity Auditor
 
-Chỉ kiểm correctness:
-
-- canon;
-- timeline;
-- distance;
-- realm;
-- technique;
-- item;
-- injury;
-- knowledge;
-- relationship/faction state;
-- POV boundary.
+Data/canon/state/knowledge/power/POV.
 
 ### Reader Retention Editor
 
-Chỉ kiểm reading experience:
-
-- Story Promise PAY/drought;
-- Narrative Engine;
-- opening/drag;
-- agency/humanity;
-- Xianxia Experience;
-- Emotional Residue;
-- ending/reason-to-continue.
+Promise delivery, Narrative Engine, pacing/drag, agency, Xianxia Experience, Emotional Residue.
 
 ### Style Fingerprint Auditor
 
-Chỉ kiểm recurring prose fingerprints:
+Rhetorical patterns, Q&A cleanliness, hypothesis-loop, aphorism density, cadence, calibration.
 
-- `Không X. Mà Y.`;
-- Q&A cleanliness;
-- hypothesis-loop;
-- aphorism density;
-- paragraph rhythm;
-- lexical/rhetorical tics;
-- calibration drift.
+Aggregate gate cannot PASS with reviewer BLOCKER/MAJOR.
 
-### Aggregate Gate
+## 11. Rolling 3-Chapter Audit
 
-Không reviewer nào được “nuốt” reviewer khác.
+Runs globally on chapter numbers divisible by 3:
 
-Continuity PASS + Retention MAJOR = vẫn rewrite.
+`3, 6, 9, 12, 15...`
 
-## 18. Rolling 3-Chapter Audit
+It is independent of batch size.
 
-Trước final `3/6/9/12...`:
+Reads full N-2 + N-1 + candidate N and checks cross-chapter experience/style patterns before final.
 
-- đọc full N-2;
-- full N-1;
-- rewrite candidate N.
+## 12. Batch 5 architecture
 
-So:
+Default batch size is 5.
 
-- opening shape;
-- engine;
-- dialogue geometry;
-- conflict solution;
-- ending shape;
-- rhetorical tics;
-- promises;
-- xianxia;
-- emotion.
+```text
+Batch start
+→ Preflight
+→ Chapter N full transaction
+→ Chapter N+1 reads updated memory
+→ ...
+→ Chapter N+4 full transaction
+→ Batch Audit
+→ Next-batch handoff
+```
 
-Nếu current N tạo MAJOR pattern, sửa N. Không retcon hai final trước chỉ để tạo variety.
+Do not draft all 5 in parallel.
 
-## 19. Orchestration gate
+Batch boundaries are operational, not story-arc boundaries.
 
-Orchestrator không được báo complete dựa trên ý định hoặc lời chat.
+Arc may end in the middle of a batch; new arc must be initialized before writing beyond the boundary.
 
-### Chapter required
+## 13. Atomic chapter transaction
+
+```text
+READ
+→ PLAN
+→ DRAFT
+→ 3 REVIEWERS
+→ AGGREGATE
+→ REWRITE
+→ CRITICAL RE-QC
+→ ROLLING AUDIT IF DUE
+→ FINAL
+→ UPDATE STORY MEMORY
+→ UPDATE READER EXPERIENCE
+```
+
+If either memory update fails, transaction is incomplete.
+
+## 14. Completion semantics
+
+`PASS/READY` is an artifact state, not a verbal judgment.
+
+Per chapter required in enforcement window:
 
 - scene plan;
 - draft;
 - 3 reviewer reports;
-- aggregate QC;
-- rewrite nếu required;
-- rolling audit nếu due;
+- aggregate quality report;
+- rewrite when required;
+- rolling audit when due;
 - final;
-- story memory;
-- reader memory.
+- current story + reader memory.
 
-### Batch required
+Per default batch:
 
-- requested finals;
-- all chapter gates;
-- final memories;
+- 5 requested finals;
+- memory current through last chapter;
 - batch audit;
-- arc revision if needed;
 - next-batch handoff.
 
-Thiếu artifact = `INCOMPLETE`.
+Missing required artifact → `INCOMPLETE`.
 
-## 20. Human control points
+## 15. Legacy compatibility
 
-Người dùng có quyền dừng/chỉnh ở:
+Changing default batch size from 10 to 5 does not invalidate old story history.
 
-- seed validation;
-- story bible;
-- character bible;
-- master Story Promises;
-- master outline;
-- arc outline;
-- batch audit.
+If a story already has `batch_0001_0010_audit.md`, keep it.
 
-Nếu user lệnh tự chạy batch, ChatGPT không cần hỏi lại từng chapter trừ conflict canon thật sự không thể giải quyết.
+When synced to v2.1:
 
-## 21. Failure handling
+- set `pipeline.batch_size: 5`;
+- set `batch_workflow: docs/BATCH_5_WORKFLOW.md`;
+- continue from current `next_chapter` for 5 chapters;
+- do not fake retroactive split audits.
 
-### Missing canon
+## 16. Design principle
 
-Không bịa chi tiết ảnh hưởng lớn. Chọn phương án không khóa canon mới hoặc ghi assumption trong planning artifact.
+Pipeline optimizes for:
 
-### Outline contradiction
+**continuity + reader experience + prose quality + controllability**.
 
-Final/canon thắng. Sửa future outline.
-
-### Character drift
-
-Dùng DNA + human irrationality profile để phân biệt phát triển thật với hành vi phục vụ plot.
-
-### Power scaling conflict
-
-Ưu tiên ledger. Thay mechanism of victory, không phá luật.
-
-### Reader experience drift
-
-Không retcon final chỉ vì engine/promise drought. Sửa chapter hiện tại chưa final hoặc future arc beats.
-
-### Context too large
-
-Dùng summary + ledger + reader experience + targeted full-final retrieval.
-
-## 22. Design principle
-
-Pipeline tối ưu cho:
-
-**continuity + prose quality + reader retention + xianxia experience + controllability**.
-
-Không tối ưu cho tốc độ token và không biến truyện thành một bài toán operations hoàn hảo. Logic phải chắc, nhưng nhân vật vẫn được phép sai, thương, tiếc, xấu hổ, bất ngờ và trả giá.
+Batch 5 intentionally shortens the feedback loop so outline/pacing/style can adapt twice as often as the old batch-10 workflow.
