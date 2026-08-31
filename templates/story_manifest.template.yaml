@@ -9,14 +9,20 @@ story:
   language: "vi"
 
 pipeline:
-  version: "1.0"
+  version: "2.0"
   batch_size: 10
   current_stage: "seed"
   last_finalized_chapter: 0
   current_arc: "arc_001"
   next_chapter: 1
   qc_required: true
+  qc_modes:
+    - continuity
+    - reader_retention
+    - style_fingerprint
+  rolling_audit_every: 3
   rewrite_required: true
+  reader_experience_required: true
 
 artifacts:
   seed: "seed/seed.yaml"
@@ -26,20 +32,30 @@ artifacts:
   master_outline: "outline/master_outline.md"
   current_arc_outline: "outline/arcs/arc_001.md"
   current_state: "memory/current_state.md"
+  reader_experience: "memory/reader_experience.md"
 
 locks:
   canon_initialized: false
   style_initialized: false
   characters_initialized: false
+  story_promises_initialized: false
   master_outline_initialized: false
   opening_arc_initialized: false
   memory_initialized: false
+  reader_experience_initialized: false
 
 production:
   target_chapters: null
   chapter_words_target: null
   last_batch_audit: null
   next_batch_start: 1
+  last_rolling_audit_chapter: 0
+
+completion_gate:
+  verify_artifacts_before_reporting_complete: true
+  require_batch_audit: true
+  require_reader_experience_update: true
+  require_rolling_audit_when_due: true
 
 notes:
   framework_migration: ""
