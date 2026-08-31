@@ -103,6 +103,17 @@ tone_and_style_seed:
   philosophical_depth: ""
   prose_notes: ""
   phrases_or_tics_to_avoid: []
+  reference_style:
+    enabled: true
+    system_spec: "docs/REFERENCE_STYLE_SYSTEM.md"
+    profile: "docs/reference_profiles/TIEN_NGHICH_HIGH_LEVEL_STYLE.md"
+    usage: "high_level_style_dna_only"
+    adapt_to_story_dna: true
+    copy_specific_phrasing: false
+    copy_specific_rhetorical_frames: false
+    copy_plot_or_characters: false
+    project_owned_calibration_takes_over_later: true
+    notes: "Default xianxia baseline; user may disable or replace per story."
 
 content_boundaries:
   prohibited_content: []
