@@ -2,7 +2,14 @@
 
 ## 1. Mục tiêu
 
-Memory là hệ thống chống quên và chống tự mâu thuẫn cho truyện dài. Nó không thay thế final chapter và cũng không phải bản tóm tắt văn học. Memory lưu **state có thể truy vấn** để chương sau biết chính xác thế giới đang ở đâu.
+Memory là hệ thống chống quên và chống tự mâu thuẫn cho truyện dài. Nó không thay thế final chapter và cũng không phải bản tóm tắt văn học.
+
+Memory có hai lớp:
+
+1. **Story State Memory** — thế giới/nhân vật/canon đang ở đâu.
+2. **Reader Experience Memory** — độc giả vừa trải qua loại chương gì, promise nào vừa được trả, cảm giác nào đang thiếu.
+
+Hai lớp không được trộn. Reader Experience không override canon.
 
 Mỗi story branch phải có:
 
@@ -19,19 +26,22 @@ memory/
 ├── knowledge_ledger.md
 ├── foreshadowing.md
 ├── unresolved_threads.md
-└── chapter_summaries.md
+├── chapter_summaries.md
+└── reader_experience.md
 ```
 
 ## 2. Memory principles
 
 1. Final chapter là sự kiện đã xảy ra; memory là chỉ mục của sự kiện đó.
-2. Chỉ ghi fact có bằng chứng từ bible hoặc final.
+2. Chỉ ghi canon fact có bằng chứng từ bible hoặc final.
 3. Phân biệt **truth**, **belief**, **rumor**, **plan**.
 4. Không biến suy luận của AI thành canon.
 5. Mỗi thay đổi quan trọng phải có `source chapter`.
 6. State hiện tại phải được cập nhật sau mỗi chương final.
 7. Nếu memory và final xung đột, final thắng; sửa memory.
 8. Nếu bible và final xung đột vì lỗi đã phát hành, đánh dấu contradiction và yêu cầu quyết định retcon, không âm thầm sửa quá khứ.
+9. Reader Experience Memory chỉ mô tả **trải nghiệm và pattern**, không phải sự thật thế giới.
+10. `ADVANCE` và `PAY` của Story Promise phải phân biệt rõ.
 
 ## 3. `current_state.md`
 
@@ -133,10 +143,14 @@ Nếu calendar chưa cụ thể, dùng relative time nhất quán: `Ngày 12 sau
 - Debts/promises:
 - Active relationships:
 - Last meaningful choice:
+- Last costly mistake:
+- Residual shame/pride/grief/attachment:
 - Next likely pressure:
 ```
 
 Không copy toàn bộ Character DNA vào đây. DNA ở `bible/characters_bible.md`; file này chỉ lưu state động.
+
+Sai lầm gây cost thật phải để lại residue nếu final chứng minh nó còn ảnh hưởng.
 
 ## 7. `relationships.md`
 
@@ -186,6 +200,8 @@ Mỗi breakthrough phải ghi:
 - trigger;
 - risk;
 - lasting consequence.
+
+Reader-facing cultivation PAY được ghi riêng ở `reader_experience.md`; ledger này chỉ giữ state tu luyện.
 
 ## 9. `inventory_artifacts.md`
 
@@ -254,6 +270,8 @@ Mỗi breakthrough phải ghi:
 
 Nếu một nhân vật suy luận, ghi `confidence`, không tự nâng thành TRUE trừ khi có evidence.
 
+Ký ức chủ quan, residue, vision hoặc lời kể người chết không tự động là TRUE.
+
 ## 12. `foreshadowing.md`
 
 ```md
@@ -299,24 +317,97 @@ Mỗi chương chỉ ghi dữ liệu truy hồi đáng giá.
 
 - Time/location:
 - POV:
-- Goal:
+- Major pressure/question:
 - Major events:
 - Choice:
 - Consequence:
 - New knowledge:
 - Relationship delta:
+- Emotional/self-image delta:
 - Cultivation delta:
 - Inventory delta:
 - Setup/payoff:
+- Story Promise ADVANCE/PAY:
+- Narrative Engine:
+- Xianxia Experience:
 - Open thread:
 - End state:
 ```
 
-## 15. Memory Update Protocol
+## 15. `reader_experience.md`
+
+Đây là memory về **cách truyện đang được trải nghiệm**, không phải canon.
+
+Format khuyến nghị:
+
+```md
+# Reader Experience Memory
+
+- Last updated: Ch. 0
+- Current arc:
+- Last major payoff:
+- Last wonder beat:
+- Last emotional hit:
+- Last costly mistake:
+- Current reader appetite:
+- Current payoff debt:
+
+## Story Promise State
+| Promise ID | Promise | Core? | PAY definition | Last ADVANCE | Last PAY | Drought warning | Current drought | Status |
+|---|---|---|---|---:|---:|---:|---:|---|
+
+## Recent Chapter Experience
+| Ch | Primary Engine | Secondary Engine | Dialogue Geometry | Promise ADVANCE/PAY | Xianxia Experience | Emotional Residue | Ending Shape |
+|---:|---|---|---|---|---|---|---|
+
+## Recent Rhetorical Tics
+| Tic | Chapters seen | Density/risk | Avoid next? |
+|---|---|---|---|
+
+## Recent Ending Shapes
+-
+
+## Recent Xianxia Beats
+- cultivation payoff:
+- wonder:
+- supernatural danger:
+- power gap:
+- mystical discovery:
+- desirable resource:
+- threshold crossing:
+- magical craft:
+- world-scale glimpse:
+
+## Emotional Residue Window
+- Last relationship shift:
+- Last self-image shift:
+- Last grief/joy/shame/attachment beat:
+- Chapters since meaningful emotional change:
+
+## Narrative Engine Window
+- Last 4 primary engines:
+- 3/4 same-engine risk:
+
+## Calibration Rotation
+- Active samples:
+- Engines represented:
+- Samples to rest next:
+```
+
+### Reader Experience rules
+
+1. Update sau mỗi final.
+2. Chỉ ghi `PAY` khi final thực sự thỏa PAY definition trong master outline.
+3. `recent` nên giữ 8–10 chương gần nhất; cũ hơn có thể compact.
+4. Rhetorical tic là signal, không phải canon.
+5. `reader appetite` là suy đoán production để planner dùng, không phải sự thật về người dùng thật.
+6. Không dùng memory này để ép quota hoặc phá scene organic.
+
+## 16. Memory Update Protocol
 
 Sau rewrite và re-QC:
 
-### Step 1 — Extract delta
+### Step 1 — Extract story-state delta
 
 So sánh đầu chương và cuối chương:
 
@@ -330,32 +421,50 @@ So sánh đầu chương và cuối chương:
 
 ### Step 2 — Validate delta
 
-Mỗi delta phải có bằng chứng trong rewrite.
+Mỗi canon/state delta phải có bằng chứng trong rewrite/final candidate.
 
-### Step 3 — Write final
+### Step 3 — Finalize chapter
 
-Chỉ sau khi rewrite đủ điều kiện.
+Chỉ sau khi quality gate và rolling audit (nếu required) PASS.
 
-### Step 4 — Update ledgers
+### Step 4 — Update story-state ledgers
 
 Cập nhật từng file liên quan.
 
-### Step 5 — Refresh `current_state.md`
+### Step 5 — Update Reader Experience Memory
+
+Từ final, xác định:
+
+- Story Promise: untouched / ADVANCE / PAY;
+- primary/secondary Narrative Engine;
+- dialogue geometry;
+- Xianxia Experience thực sự delivered;
+- Emotional Residue;
+- ending shape;
+- rhetorical tics đáng theo dõi;
+- costly mistake nếu có;
+- current payoff debt.
+
+### Step 6 — Refresh `current_state.md`
 
 Đây là bước cuối cùng của chapter transaction.
 
-## 16. Memory Compaction
+Không sang chương mới nếu `reader_experience.md` hoặc `current_state.md` chưa cập nhật.
+
+## 17. Memory Compaction
 
 Khi truyện dài:
 
 - không xóa canon;
-- có thể chuyển thread đã resolved lâu vào phần archive trong cùng file;
+- có thể chuyển thread đã resolved lâu vào archive trong cùng file;
 - chapter summary giữ dạng ngắn;
 - chỉ đọc 3–10 summary gần nhất theo nhu cầu;
 - dùng ID ổn định cho entity và fact;
-- không đổi ID vì đổi tên/danh xưng.
+- không đổi ID vì đổi tên/danh xưng;
+- `reader_experience.md` giữ chi tiết 8–10 chương gần nhất, sau đó compact thành pattern theo arc/batch;
+- không giữ mọi lexical tic lịch sử; chỉ giữ tic đang hoạt động hoặc tái phát.
 
-## 17. Contradiction Protocol
+## 18. Contradiction Protocol
 
 Khi phát hiện contradiction:
 
@@ -366,7 +475,9 @@ Khi phát hiện contradiction:
 5. draft bug → rewrite draft;
 6. published canon conflict → không tự retcon, ghi issue và xin/user directive nếu ảnh hưởng lớn.
 
-## 18. Minimum memory for a new story
+Reader Experience Memory không tham gia quyết định canon conflict.
+
+## 19. Minimum memory for a new story
 
 Ngay sau Genesis phải tạo ít nhất:
 
@@ -377,4 +488,5 @@ Ngay sau Genesis phải tạo ít nhất:
 - faction/location state vùng mở đầu;
 - knowledge ledger các secret quan trọng;
 - foreshadowing ledger từ master/arc outline;
-- unresolved threads của opening arc.
+- unresolved threads của opening arc;
+- **reader_experience.md** với 3–5 Story Promise đã khóa, drought warning, empty recent windows và Reader Experience opening state.
