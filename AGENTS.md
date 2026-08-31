@@ -9,13 +9,16 @@ ChatGPT phải tách rõ các vai trò dù cùng một model thực hiện:
 - **Orchestrator** — xác định stage, đọc đúng source of truth, điều phối workflow, verify artifact gate.
 - **World Architect** — world/cultivation có nhân quả, tài nguyên, giới hạn và hậu quả xã hội.
 - **Story Architect** — master outline, arc, progression dài hạn.
-- **Story Promise Controller** — khóa 3–5 reader promises, theo dõi ADVANCE/PAY/drought.
+- **Story Promise Controller** — khóa 3–5 reader promises, theo dõi ADVANCE/PAY magnitude/drought.
 - **Xianxia Experience Controller** — cultivation payoff, wonder, danger, power gap, mystical discovery, desirable resource, threshold crossing.
+- **Dramatic Geometry Controller** — bắt chapter khác engine label nhưng cùng conflict/decision/resolution geometry.
+- **Competence Friction Controller** — theo dõi CLEAN_WIN streak, partial/wrong-model/cost/dependence để MC không frictionless.
+- **Aspiration + Heat Controller** — tách fantasy desire khỏi scarcity và kiểm rolling heat curve.
 - **Character Director** — Character DNA, agency, human irrationality, costly mistakes.
 - **Scene Planner** — đủ constraint nhưng không over-plan prose.
 - **Writer** — prose tiếng Việt tự nhiên.
 - **Continuity Auditor** — canon/state/knowledge/power/POV.
-- **Reader Retention Editor** — promise delivery, Narrative Engine, pacing/drag, agency, Xianxia Experience, Emotional Residue.
+- **Reader Retention Editor** — promise magnitude, Narrative Engine, Dramatic Geometry, competence friction, aspiration, heat, Binge Test, pacing/drag, agency, Xianxia Experience, Emotional Residue.
 - **Style Fingerprint Auditor** — rhetorical tic, Q&A cleanliness, hypothesis-loop, aphorism density, cadence/calibration drift.
 - **Rewriter** — sửa theo QC, không retcon tùy tiện.
 - **Memory Keeper** — update story memory + Reader Experience Memory sau mỗi final.
@@ -25,6 +28,7 @@ Không bỏ reviewer, rolling audit hoặc memory để tăng tốc.
 Đọc thêm:
 
 - `docs/READER_EXPERIENCE_SYSTEM.md`
+- `docs/RETENTION_CONTROLLERS_V3.md`
 - `docs/BATCH_5_WORKFLOW.md`
 
 ## 2. Source of truth
@@ -42,7 +46,7 @@ Khi canon/state xung đột, ưu tiên:
 
 Outline là kế hoạch. Final + canon ledger là chuyện đã xảy ra.
 
-`memory/reader_experience.md` là source of truth cho production pattern gần đây: promise PAY, Narrative Engine, ending shape, rhetorical tic, Xianxia/Emotional debt. Nó không override canon hoặc Character DNA.
+`memory/reader_experience.md` là source of truth cho production pattern gần đây: promise PAY magnitude, Narrative Engine, Dramatic Geometry, competence outcomes, aspiration beats, heat, Binge Test, ending shape, rhetorical tic, Xianxia/Emotional debt. Nó không override canon hoặc Character DNA.
 
 ## 3. Branch contract
 
@@ -123,10 +127,14 @@ Rules:
 
 - setup ≠ PAY;
 - nói về tu luyện ≠ cultivation payoff nếu không có thay đổi hữu hình;
-- sau final, mỗi promise ghi UNTOUCHED / ADVANCE / PAY;
+- sau final, mỗi promise ghi `UNTOUCHED / ADVANCE / PAY_MINOR / PAY_MAJOR / PAY_ARC`;
+- `PAY_MINOR` không được dùng để che `major_payoff_debt` của core promise;
+- theo dõi riêng `pay_drought` và `major_payoff_debt`;
 - 2–3 chapter không PAY core promise → Retention warning;
-- Arc Outline có planned PAY windows;
-- Batch Audit đo drought thực tế.
+- Arc Outline có planned PAY windows + minimum magnitude;
+- Batch Audit đo drought thực tế + magnitude distribution.
+
+Chi tiết: `docs/RETENTION_CONTROLLERS_V3.md`.
 
 ## 7. Narrative Engine contract
 
@@ -170,6 +178,21 @@ Batch boundary không reset window. Ví dụ Ch.4–7 vẫn phải xét cùng nh
 - `A hỏi → B trả lời → MC kết luận`;
 - `quan sát → giả thuyết → kiểm chứng → kết luận`.
 
+### Dramatic Geometry rule
+
+Engine khác tên không tự động tạo variety. Mỗi chapter theo dõi:
+
+- pressure source;
+- decision locus;
+- movement mode;
+- information flow;
+- opposition shape;
+- resolution mode;
+- reversal type;
+- kinetic level.
+
+`3 consecutive` near-same geometry → WATCH. `3/4` cùng core geometry → **MAJOR pacing risk** dù primary engine khác nhau.
+
 ## 8. Character DNA + human irrationality
 
 Nhân vật quan trọng cần:
@@ -189,6 +212,11 @@ Nhân vật thông minh không phải optimizer hoàn hảo. Có thể sai vì b
 Không dùng irrationality để làm họ ngu chạy plot.
 
 MC không được chỉ “sai trên giấy” rồi luôn có người sửa trước khi mất gì. Blind spot có thể gây cost thật: tiền, thời gian, quan hệ, thương tích, cơ hội, địa vị hoặc self-image.
+
+Competence conversion chính phải được phân loại `CLEAN_WIN / COSTLY_WIN / PARTIAL / WRONG_MODEL / DEPENDENT_ON_OTHER / FAILURE / NO_CONVERSION`.
+
+- 3 CLEAN_WIN conversions liên tiếp → WATCH;
+- 4/5 recent competence conversions là CLEAN_WIN → **MAJOR flattening risk**.
 
 ## 9. Style + positive texture
 
@@ -282,7 +310,14 @@ Canon, timeline, geography, cultivation/power, techniques/items, injury/fatigue,
 
 ### Reader Retention Editor
 
-Story Promise PAY/drought, Narrative Engine + 3/4 rule, opening/movement/drag, agency/humanity, costly mistakes, Xianxia Experience, Emotional Residue, ending/reason-to-continue.
+Story Promise magnitude/drought, Narrative Engine + 3/4 rule, Dramatic Geometry, Competence Friction, Aspiration, Heat Curve, Binge Test, opening/movement/drag, agency/humanity, costly mistakes, Xianxia Experience, Emotional Residue, ending/reason-to-continue.
+
+Binge Test bắt buộc trả lời:
+
+1. **Khoảnh khắc sướng nhất chương là gì?**
+2. **Nếu bỏ ending hook, bản thân chương này có đủ đáng đọc không?** (`YES / WEAK / NO`)
+
+`NONE` ở câu 1 hoặc `NO` ở câu 2 là MAJOR trừ explicit structural waiver hợp lệ theo spec v3.
 
 ### Style Fingerprint Auditor
 
@@ -296,7 +331,7 @@ Trước final các chapter chia hết cho 3: `3, 6, 9, 12, 15...`
 
 `chapters/NNNN/rolling_3_chapter_audit.md`
 
-Kiểm opening, engine, dialogue geometry, conflict solution, ending, rhetorical tics, Story Promise PAY, Xianxia Experience, Emotional Residue, costly mistake pattern.
+Kiểm opening, engine, Dramatic Geometry, dialogue geometry, conflict solution, ending, rhetorical tics, Story Promise magnitude, Competence Friction, Aspiration, Heat trend, Binge Test trend, Xianxia Experience, Emotional Residue, costly mistake pattern.
 
 Batch size 5 **không thay cadence này**.
 
@@ -310,7 +345,8 @@ Rewrite phải:
 2. giữ canon đúng;
 3. không thêm twist lớn ngoài outline để cứu prose;
 4. sửa structure nếu lỗi là Narrative Engine/geometry, không synonym-spin;
-5. re-check vùng sửa và continuity liên quan.
+5. sửa root cause nếu lỗi là friction/aspiration/heat/binge, không chỉ thêm một câu hook;
+6. re-check vùng sửa và continuity liên quan.
 
 ## 16. Memory contract
 
@@ -331,12 +367,18 @@ Bắt buộc nếu thay đổi:
 
 `memory/reader_experience.md` phải ghi:
 
-- promise UNTOUCHED/ADVANCE/PAY;
+- promise `UNTOUCHED/ADVANCE/PAY_MINOR/PAY_MAJOR/PAY_ARC`;
+- pay drought + major payoff debt;
 - last_major_payoff;
 - last_wonder_beat;
 - last_emotional_hit;
 - last_costly_mistake;
 - recent engines;
+- Dramatic Geometry signatures;
+- competence outcomes;
+- aspiration beats;
+- peak heat;
+- Binge Test result;
 - dialogue geometries;
 - ending shapes;
 - rhetorical tics;
@@ -373,7 +415,9 @@ Cuối batch tạo:
 
 `chapters/batch_NNNN_NNNN_audit.md`
 
-Audit: artifact completion, arc progress, Story Promise PAY/drought, Narrative Engine, Xianxia/Emotional experience, continuity, character agency/irrationality, power/resource economy, style fingerprint, threads/setup/payoff, Reader Experience consistency, next-batch handoff.
+Audit: artifact completion, arc progress, Story Promise magnitude/drought, Narrative Engine, Dramatic Geometry, Competence Friction, Aspiration coverage, Heat Curve rolling-5, Binge Test health, Xianxia/Emotional experience, continuity, character agency/irrationality, power/resource economy, style fingerprint, threads/setup/payoff, Reader Experience consistency, next-batch handoff.
+
+Nếu technical gate sạch nhưng retention controller còn MAJOR → `REPAIR_REQUIRED`, không PASS.
 
 Nếu user explicit yêu cầu range/batch size khác, ưu tiên yêu cầu user cho lần chạy đó.
 
@@ -424,3 +468,22 @@ Chỉ chứa title + story prose. Không QC note/metadata/prompt/markdown report
 ## 20. Automation discipline
 
 “Tự động” nghĩa ChatGPT tự chạy đầy đủ stage **trong lượt làm việc hiện tại**. Không bỏ kiểm tra, không bịa missing data, không giả có background process, không làm song song stage phụ thuộc nhau.
+
+## 21. Retention Controllers v3 contract
+
+Sáu controller dưới đây là **binding**, không phải suggestion:
+
+1. Dramatic Geometry Controller;
+2. Payoff Magnitude;
+3. Competence Friction Meter;
+4. Aspiration Controller;
+5. Heat Curve;
+6. Binge Test.
+
+Rule chi tiết và severity mặc định nằm tại `docs/RETENTION_CONTROLLERS_V3.md`.
+
+Không được kết luận batch/chapter PASS chỉ vì continuity, style và artifact completion đều sạch nếu một retention controller còn `MAJOR`.
+
+Core principle:
+
+**PASS kỹ thuật ≠ PASS trải nghiệm đọc.**
