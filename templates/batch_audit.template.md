@@ -2,7 +2,7 @@
 
 > File đích: `stories/<slug>/chapters/batch_NNNN_NNNN_audit.md`
 > Bắt buộc sau mỗi batch requested range.
-> Batch không PASS nếu retention controller còn `MAJOR`, dù artifact/continuity/style đều sạch.
+> Batch không PASS nếu retention hoặc Xianxia Density controller còn `MAJOR`, dù artifact/continuity/style đều sạch.
 
 # Metadata
 
@@ -141,7 +141,31 @@ Rolling 5 không có `H2+` → `MAJOR flatness risk`.
 - Longest xianxia drought:
 - Experience debt next batch:
 
-# 11. Emotional Residue
+# 11. Xianxia Density Controller
+
+| Ch | Xianxia Peak X0–X3 | Ambient | Active causal beat | Aspirational beat | Replaceability LOW/MEDIUM/HIGH |
+|---:|---|---|---|---|---|
+
+- Peak sequence:
+- Active `X2+` count:
+- Strong `X3` count:
+- Aspirational/wonder desire beats:
+- Any rolling 3 without `X2+`?:
+- Any rolling 5 with fewer than 2 `X2+`?:
+- Any rolling 5 without `X3`?:
+- Any 3 consecutive HIGH_REPLACEABILITY?:
+- Strongest genre-defining moment:
+- High-realm/ancient POV aura health if relevant:
+- Genre density debt next batch:
+
+Rules:
+
+- rolling 3 không có Active `X2+` → `MAJOR` trừ valid decompression waiver;
+- rolling 5 thiếu `2×X2+` hoặc `1×X3` → `MAJOR`;
+- 3 consecutive HIGH_REPLACEABILITY → `MAJOR genre dilution risk`;
+- fake density bằng terminology/infodump không được clear finding.
+
+# 12. Emotional Residue
 
 - Relationship changes:
 - Self-image changes:
@@ -150,7 +174,7 @@ Rolling 5 không có `H2+` → `MAJOR flatness risk`.
 - Costly mistakes and active scars:
 - Any 3–5 chapter emotionally flat window?:
 
-# 12. Continuity
+# 13. Continuity
 
 - Timeline:
 - Geography:
@@ -161,7 +185,7 @@ Rolling 5 không có `H2+` → `MAJOR flatness risk`.
 - Factions:
 - Canon contradictions:
 
-# 13. Character
+# 14. Character
 
 - MC drift:
 - Supporting cast agency:
@@ -171,7 +195,7 @@ Rolling 5 không có `H2+` → `MAJOR flatness risk`.
 - Anyone becoming optimizer-like?:
 - MC repeatedly corrected before paying cost?:
 
-# 14. Cultivation / Power
+# 15. Cultivation / Power
 
 - Progress earned?:
 - Resource economy:
@@ -181,7 +205,7 @@ Rolling 5 không có `H2+` → `MAJOR flatness risk`.
 - Power anomalies:
 - Cheat/special trait frequency:
 
-# 15. Style Fingerprint
+# 16. Style Fingerprint
 
 - Repeated words/phrases:
 - `Không X. Mà Y.` density:
@@ -195,7 +219,7 @@ Rolling 5 không có `H2+` → `MAJOR flatness risk`.
 - positive prose texture health:
 - calibration rotation health:
 
-# 16. Threads / Setup / Payoff
+# 17. Threads / Setup / Payoff
 
 - Opened:
 - Advanced:
@@ -204,19 +228,21 @@ Rolling 5 không có `H2+` → `MAJOR flatness risk`.
 - Forgotten risk:
 - Premature reveal risk:
 
-# 17. Reader Experience Memory Consistency
+# 18. Reader Experience Memory Consistency
 
 - Promise magnitude states match finals?:
 - Narrative engines match finals?:
 - Dramatic geometry signatures current?:
 - Competence outcomes current?:
 - Aspiration/heat current?:
+- Xianxia peaks/replaceability current?:
+- Genre density debt plausible?:
 - Binge results current?:
 - Last wonder/emotional hit accurate?:
 - Rhetorical tics current?:
 - Reader appetite/payoff debt plausible?:
 
-# 18. Next Batch Handoff
+# 19. Next Batch Handoff
 
 - Required arc beats:
 - Core promise PAY debt + required magnitude:
@@ -225,6 +251,8 @@ Rolling 5 không có `H2+` → `MAJOR flatness risk`.
 - Competence friction need:
 - Aspiration debt:
 - Heat target/contrast:
+- Xianxia Density target (`X2+/X3` need + mechanism):
+- Replaceability pattern to avoid:
 - Binge weakness to avoid:
 - Xianxia experience debt:
 - Emotional residue needs:
@@ -240,11 +268,13 @@ Rolling 5 không có `H2+` → `MAJOR flatness risk`.
 - Published BLOCKER:
 - Published MAJOR requiring retcon:
 - Retention-controller MAJOR remaining:
+- Xianxia Density MAJOR remaining:
 - Missing artifact count:
 - Memory contradiction requiring repair:
 - Arc revision required:
 - Technical gate clean?: YES / NO
 - Reader-reward gate clean?: YES / NO
+- Xianxia Density gate clean?: YES / NO
 - Ready for next batch: YES / NO
 
-**PASS kỹ thuật ≠ PASS trải nghiệm đọc.**
+**PASS kỹ thuật ≠ PASS trải nghiệm đọc. PASS retention ≠ PASS genre density.**
