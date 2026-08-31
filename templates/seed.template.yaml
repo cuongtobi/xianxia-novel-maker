@@ -111,7 +111,7 @@ content_boundaries:
   other_boundaries: []
 
 production:
-  batch_size: 10
+  batch_size: 5
   auto_run_batch: true
   require_qc: true
   require_rewrite: true
