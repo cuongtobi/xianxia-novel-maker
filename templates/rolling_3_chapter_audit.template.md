@@ -3,6 +3,7 @@
 > File đích: `stories/<slug>/chapters/NNNN/rolling_3_chapter_audit.md`
 > Chỉ chạy trước final các chương `N % 3 == 0`.
 > Đọc full final `N-2`, full final `N-1`, và rewrite candidate `N`.
+> Heat rolling rule chính thức vẫn tính 5 chapter; audit 3 chương dùng để cảnh báo sớm.
 
 # Metadata
 
@@ -22,24 +23,48 @@
 
 # 2. Narrative Engine
 
-| Chapter | Primary engine | Secondary engine | Dialogue geometry | Conflict solution |
-|---:|---|---|---|---|
+| Chapter | Primary engine | Secondary engine | Conflict solution |
+|---:|---|---|---|
 
 - Same primary engine count:
 - 3/4 rolling-window rule hit?:
 - Nếu current chapter tạo `3/4 same primary engine` → `MAJOR pacing risk`.
 - Topic có khác nhưng engine thực chất giống nhau không?:
 
-# 3. Story Promise PAY
+# 3. Dramatic Geometry
 
-| Chapter | Promise advanced | Promise paid | Major payoff? |
-|---:|---|---|---|
+| Chapter | Pressure | Decision locus | Movement | Info flow | Opposition | Resolution | Reversal | Kinetic |
+|---:|---|---|---|---|---|---|---|---|
 
-- Core promise drought:
+- 3 consecutive near-same geometry?:
+- Candidate có làm rolling 4 thành 3/4 same core geometry?:
+- Engine khác tên nhưng geometry giống?:
+- Required structural correction:
+
+# 4. Story Promise + Payoff Magnitude
+
+| Chapter | Promise advanced | PAY_MINOR | PAY_MAJOR | PAY_ARC | Reward score |
+|---:|---|---|---|---|---:|
+
+- Core pay drought:
+- Core major payoff debt:
 - 2–3 chapters without core PAY?:
-- Current chapter cần PAY hay có lý do hợp lệ để tiếp tục setup?:
+- Có chuỗi PAY_MINOR đang giả cảm giác đã trả promise?:
+- Current chapter cần mức PAY nào hoặc có lý do hợp lệ để tiếp tục setup?:
 
-# 4. Dialogue Geometry
+# 5. Competence Friction
+
+| Chapter | Main competence conversion | Outcome | Cost | Other agency |
+|---:|---|---|---|---|
+
+Outcome: `CLEAN_WIN / COSTLY_WIN / PARTIAL / WRONG_MODEL / DEPENDENT_ON_OTHER / FAILURE / NO_CONVERSION`.
+
+- 3 CLEAN_WIN conversions liên tiếp?:
+- Rolling 5 đang tiến gần 4/5 CLEAN_WIN?:
+- MC có được sửa sai hộ trước consequence?:
+- Candidate cần friction khác không?:
+
+# 6. Dialogue Geometry
 
 Kiểm tra ba chapter:
 
@@ -49,7 +74,35 @@ Kiểm tra ba chapter:
 - conflict chủ yếu thắng bằng argument/analysis?:
 - emotional asymmetry/interruption/misunderstanding có đủ tự nhiên?:
 
-# 5. Ending Shape
+# 7. Aspiration
+
+| Chapter | Object of desire | Why desirable | Status | Scarcity-only? |
+|---:|---|---|---|---|
+
+- 3 chapter liên tiếp chỉ problem-fixing/scarcity/admin?:
+- Rolling 5 aspiration drought đang hình thành?:
+- Candidate có tạo fantasy desire/wonder thật không?:
+
+# 8. Heat Trend
+
+| Chapter | Peak Heat | Strongest heat beat |
+|---:|---|---|
+
+- 3-chapter sequence:
+- Last H2+ chapter:
+- Rolling 5 có nguy cơ không H2+?:
+- Candidate quá phẳng hay đang làm đúng decompression contrast?:
+
+# 9. Binge Test Trend
+
+| Chapter | Best reward moment | Without ending hook | YES/WEAK/NO |
+|---:|---|---|---|
+
+- Consecutive WEAK/NO?:
+- Candidate có intrinsic reward rõ không?:
+- Candidate có đang sống nhờ hook cuối?:
+
+# 10. Ending Shape
 
 | Chapter | Ending shape | Final image/line function | State changed? |
 |---:|---|---|---|
@@ -58,7 +111,7 @@ Kiểm tra ba chapter:
 - notebook/list/conclusion ending repeated?:
 - cliffhanger pattern repeated?:
 
-# 6. Rhetorical Tics
+# 11. Rhetorical Tics
 
 So sánh cụ thể:
 
@@ -70,7 +123,7 @@ So sánh cụ thể:
 - narrator conclusion endings:
 - repeated sensory/image motif without evolution:
 
-# 7. Xianxia Experience
+# 12. Xianxia Experience
 
 | Chapter | Cultivation payoff | Wonder | Danger | Power gap | Mystical discovery | Resource desire | Threshold crossing |
 |---:|---|---|---|---|---|---|---|
@@ -78,7 +131,7 @@ So sánh cụ thể:
 - Three-chapter xianxia drought?:
 - Current correction needed?:
 
-# 8. Emotional Residue
+# 13. Emotional Residue
 
 | Chapter | Emotional/relationship/self-image change | Evidence |
 |---:|---|---|
@@ -86,22 +139,28 @@ So sánh cụ thể:
 - 3-chapter window chỉ đổi knowledge/inventory/cultivation?:
 - Có human cost/attachment/embarrassment/grief/joy thật không?:
 
-# 9. Human Irrationality
+# 14. Human Irrationality
 
 - Có quyết định không tối ưu nhưng hợp DNA?:
 - Có costly mistake?:
 - MC có được sửa sai hộ trước khi trả giá lặp lại không?:
 - Supporting cast có hành vi mang bias/sĩ diện/sợ hãi/tình cảm riêng không?:
 
-# 10. Required Changes to Current Candidate
+# 15. Required Changes to Current Candidate
 
-| ID | Severity | Pattern | Why it matters | Required rewrite |
+| ID | Severity | Controller/pattern | Why it matters | Required rewrite |
 |---|---|---|---|---|
 
 Không retcon hai final trước chỉ để tạo variety. Sửa candidate N hoặc điều chỉnh beat tiếp theo nếu issue chỉ là NOTE/MINOR.
 
-# 11. Gate
+# 16. Gate
 
 - BLOCKER remaining:
 - MAJOR remaining:
+- Geometry healthy?:
+- Payoff magnitude healthy?:
+- Competence friction healthy?:
+- Aspiration trend healthy?:
+- Heat trend healthy?:
+- Binge trend healthy?:
 - Current candidate can final?: yes/no
