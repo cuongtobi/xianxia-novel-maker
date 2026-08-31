@@ -3,7 +3,7 @@
 > File đích: `stories/<slug>/chapters/NNNN/scene_plan.md`
 > Scene plan phải đủ để giữ continuity nhưng **không biến prose thành điền form**.
 > Planner ưu tiên constraint, tension và reader experience; không bắt mọi scene phải có đủ goal/obstacle/turn/choice/consequence.
-> Bắt buộc đọc `docs/RETENTION_CONTROLLERS_V3.md`.
+> Bắt buộc đọc `docs/RETENTION_CONTROLLERS_V3.md` và `docs/XIANXIA_DENSITY_CONTROLLER.md`.
 
 # Chapter Metadata
 
@@ -21,6 +21,8 @@
 - Dialogue geometry if dialogue-heavy:
 - Planned payoff magnitude:
 - Planned peak heat: H0 / H1 / H2 / H3
+- Planned xianxia peak: X0 / X1 / X2 / X3
+- Planned replaceability: LOW / MEDIUM / HIGH
 
 # 1. Required Inputs
 
@@ -49,6 +51,10 @@
 - Recent competence outcomes:
 - Recent aspiration beats:
 - Recent heat sequence:
+- Recent xianxia peak sequence:
+- Recent replaceability sequence:
+- Chapters since last X2+ / X3:
+- Current genre_density_debt:
 - Recent Binge Test results:
 - Recent ending shapes:
 - Recent rhetorical tics to avoid:
@@ -105,6 +111,23 @@ Choose only what belongs naturally in this chapter:
 - dao/cultivation insight with consequence:
 - magical craft:
 - world-scale glimpse:
+
+## Xianxia Density target
+
+- What makes this chapter only possible in a cultivation world?:
+- Ambient Xianxia mechanism/texture:
+- Active supernatural causal beat:
+- Aspirational Xianxia beat:
+- Planned `xianxia_peak`: X0 / X1 / X2 / X3
+- Planned replaceability: LOW / MEDIUM / HIGH
+- If replacing `linh thạch→tiền`, `linh điền→ruộng`, `công pháp→kỹ thuật`, what causal chain breaks?:
+- Is X2+ required by rolling 3?: yes/no
+- Is X2+/X3 required by rolling 5?: yes/no
+- Explicit decompression waiver if intentionally X0/X1:
+
+Không tăng density bằng danh từ. Active beat cần causal chain:
+
+`supernatural law/state → constraint/opportunity → decision → observable consequence`.
 
 ## Aspiration target
 
@@ -199,6 +222,7 @@ Suggested fields:
 - Consequence:
 - Sensory anchor:
 - Dialogue intention/geometry:
+- Xianxia causal element if relevant:
 - What not to explain:
 - Exit movement:
 
@@ -217,6 +241,7 @@ Suggested fields:
 - What draws attention:
 - Sensory anchor:
 - Knowledge boundary:
+- Ambient Xianxia texture if organic:
 - Human friction: awkwardness / silence / interruption / attachment / embarrassment / misunderstanding nếu hợp scene:
 - Perception or emotional movement:
 - What remains unresolved:
@@ -255,6 +280,8 @@ Chỉ viết causal spine cho **plot-causal beats**, không ép mọi khoảnh k
 Example:
 
 `Because A → character attempts B → causes C → other side reacts D → therefore E`
+
+Nếu chapter có Active Xianxia, causal spine phải cho thấy luật/trạng thái siêu nhiên thật sự đổi constraint/opportunity, không chỉ được nhắc tên.
 
 Quiet/emotional transitions có thể nối bằng:
 
@@ -361,7 +388,7 @@ Dự kiến sau final có thể cập nhật:
 - faction/location:
 - foreshadowing:
 - unresolved threads:
-- reader experience: promise magnitude / geometry / competence outcome / aspiration / heat / binge / engine / ending / tics
+- reader experience: promise magnitude / geometry / competence outcome / aspiration / heat / xianxia_peak / replaceability / genre_density_debt / binge / engine / ending / tics
 
 `Plan ≠ fact`. Memory Keeper chỉ ghi delta thật có trong final.
 
@@ -375,4 +402,6 @@ Writer được phép thay đổi micro-beat, câu thoại, sensory detail, inte
 - không quay về Narrative Engine hoặc Dramatic Geometry lặp chỉ vì dễ viết;
 - không biến MC thành frictionless optimizer trái rolling window;
 - không làm mất H2+/aspiration/binge reward đang bắt buộc bởi reader-experience debt;
+- không làm mất X2+/X3 đang bắt buộc bởi Xianxia Density rolling window;
+- không fake density bằng vocabulary;
 - state lớn tạo ra phải được memory ghi nhận sau final.
