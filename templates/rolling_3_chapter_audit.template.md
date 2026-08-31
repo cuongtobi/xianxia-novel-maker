@@ -3,7 +3,7 @@
 > File đích: `stories/<slug>/chapters/NNNN/rolling_3_chapter_audit.md`
 > Chỉ chạy trước final các chương `N % 3 == 0`.
 > Đọc full final `N-2`, full final `N-1`, và rewrite candidate `N`.
-> Heat rolling rule chính thức vẫn tính 5 chapter; audit 3 chương dùng để cảnh báo sớm.
+> Heat rolling rule chính thức vẫn tính 5 chapter; Xianxia Density có cả rolling 3 và rolling 5.
 
 # Metadata
 
@@ -131,7 +131,26 @@ So sánh cụ thể:
 - Three-chapter xianxia drought?:
 - Current correction needed?:
 
-# 13. Emotional Residue
+# 13. Xianxia Density
+
+| Chapter | Xianxia Peak X0–X3 | Ambient | Active causal beat | Aspirational beat | Replaceability LOW/MEDIUM/HIGH |
+|---:|---|---|---|---|---|
+
+- 3-chapter window có ít nhất 1 `X2+`?:
+- 3 consecutive HIGH_REPLACEABILITY?:
+- Candidate có làm rolling 5 thiếu `2×X2+` hoặc `1×X3` không?:
+- Candidate có đang fake density bằng terminology/lore?:
+- Nếu đổi toàn bộ tu tiên noun sang mundane equivalents, conflict còn chạy gần nguyên vẹn không?:
+- Required causal correction:
+
+Rules:
+
+- rolling 3 không có `X2+` → MAJOR trừ valid decompression waiver;
+- 3 consecutive HIGH_REPLACEABILITY → MAJOR;
+- rolling 5 thiếu `2×X2+` hoặc `1×X3` → MAJOR;
+- sửa bằng supernatural causality, không bằng adjective/vocabulary.
+
+# 14. Emotional Residue
 
 | Chapter | Emotional/relationship/self-image change | Evidence |
 |---:|---|---|
@@ -139,21 +158,21 @@ So sánh cụ thể:
 - 3-chapter window chỉ đổi knowledge/inventory/cultivation?:
 - Có human cost/attachment/embarrassment/grief/joy thật không?:
 
-# 14. Human Irrationality
+# 15. Human Irrationality
 
 - Có quyết định không tối ưu nhưng hợp DNA?:
 - Có costly mistake?:
 - MC có được sửa sai hộ trước khi trả giá lặp lại không?:
 - Supporting cast có hành vi mang bias/sĩ diện/sợ hãi/tình cảm riêng không?:
 
-# 15. Required Changes to Current Candidate
+# 16. Required Changes to Current Candidate
 
 | ID | Severity | Controller/pattern | Why it matters | Required rewrite |
 |---|---|---|---|---|
 
 Không retcon hai final trước chỉ để tạo variety. Sửa candidate N hoặc điều chỉnh beat tiếp theo nếu issue chỉ là NOTE/MINOR.
 
-# 16. Gate
+# 17. Gate
 
 - BLOCKER remaining:
 - MAJOR remaining:
@@ -162,5 +181,6 @@ Không retcon hai final trước chỉ để tạo variety. Sửa candidate N ho
 - Competence friction healthy?:
 - Aspiration trend healthy?:
 - Heat trend healthy?:
+- Xianxia Density healthy?:
 - Binge trend healthy?:
 - Current candidate can final?: yes/no
