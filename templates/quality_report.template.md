@@ -1,209 +1,140 @@
-# Quality Report Template
+# Quality Gate Aggregate Template
 
 > File đích: `stories/<slug>/chapters/NNNN/quality_report.md`
-> QC không được viết chung chung kiểu “văn phong tốt”. Mọi lỗi phải có bằng chứng hoặc vị trí cụ thể.
+> File này **không thay thế** ba reviewer report. Nó aggregate kết quả để quyết định rewrite/final.
+
+Một chapter QC đầy đủ phải có:
+
+- `continuity_report.md` — Continuity Auditor;
+- `reader_retention_report.md` — Reader Retention Editor;
+- `style_fingerprint_report.md` — Style Fingerprint Auditor;
+- `quality_report.md` — aggregate gate này.
+
+Nếu `N % 3 == 0`, trước final còn phải có:
+
+- `rolling_3_chapter_audit.md`.
 
 # Metadata
 
 - Chapter:
-- Draft reviewed:
+- Draft/rewrite reviewed:
 - Arc:
-- Reviewer mode: data + narrative + style
+- Continuity report:
+- Reader retention report:
+- Style fingerprint report:
+- Rolling audit required: yes/no
+- Rolling audit path if required:
 - Result: PASS / REWRITE_REQUIRED
 
 # Severity
 
-- `BLOCKER`: phá canon, logic nền, timeline, knowledge, power system; không được final.
-- `MAJOR`: làm hỏng nhân vật, nhịp, nhân quả hoặc chất lượng rõ rệt; phải sửa.
+- `BLOCKER`: phá canon, logic nền, timeline, knowledge, power system hoặc release contract; không được final.
+- `MAJOR`: làm hỏng nhân vật, reader promise, nhịp, narrative engine diversity, causal logic hoặc tạo style fingerprint rõ; phải sửa.
 - `MINOR`: nên sửa nếu không gây tác dụng phụ.
-- `NOTE`: quan sát để theo dõi, không bắt buộc sửa.
+- `NOTE`: theo dõi, không bắt buộc sửa ngay.
 
-# 1. Data / Continuity Audit
+Không được hạ severity chỉ vì một reviewer khác PASS. Ba reviewer có mục tiêu độc lập.
 
-## Canon
+# 1. Continuity Auditor Summary
 
-- Status:
-- Findings:
+- BLOCKER:
+- MAJOR:
+- Key data findings:
+- Knowledge/POV findings:
+- Character-state findings:
 
-## Timeline
+# 2. Reader Retention Editor Summary
 
-- Status:
-- Findings:
+- Core promise targeted:
+- Promise ADVANCE/PAY:
+- Core promise drought:
+- Primary narrative engine:
+- 3/4 same-engine risk:
+- Xianxia Experience delivered:
+- Emotional Residue:
+- Drag/retention findings:
+- Ending / reason to continue:
+- MAJOR findings:
 
-## Geography / travel time
+# 3. Style Fingerprint Auditor Summary
 
-- Status:
-- Findings:
+- Dominant rhetorical tics:
+- Q&A/dialogue cleanliness:
+- Hypothesis-loop risk:
+- Aphorism density:
+- Paragraph/sentence fingerprint:
+- Positive prose texture present:
+- Calibration drift:
+- MAJOR findings:
 
-## Cultivation / power scaling
+# 4. Rolling 3-Chapter Audit Summary
 
-- Status:
-- Findings:
+Chỉ điền nếu `N % 3 == 0`.
 
-## Techniques / abilities
+- Compared chapters:
+- Opening repetition:
+- Narrative engine repetition:
+- Dialogue geometry repetition:
+- Ending repetition:
+- Rhetorical tic repetition:
+- Promise drought:
+- Xianxia drought:
+- Emotional residue drought:
+- BLOCKER/MAJOR findings:
 
-- Status:
-- Findings:
+# 5. Cross-Reviewer Conflict Resolution
 
-## Inventory / artifacts / consumables
+Nếu reviewer bất đồng, ghi rõ.
 
-- Status:
-- Findings:
+Ví dụ:
 
-## Injury / fatigue / recovery
+- Continuity PASS nhưng Retention MAJOR vì chapter thứ ba liên tiếp là audit/Q&A → vẫn phải rewrite.
+- Retention thích một reveal nhưng Continuity đánh knowledge leak → continuity thắng.
+- Style muốn cắt giải thích nhưng cắt làm mất knowledge boundary → giữ fact, đổi cách thể hiện.
 
-- Status:
-- Findings:
+Findings:
 
-## Character knowledge
+# 6. Consolidated Issue List
 
-- Status:
-- Findings:
-
-## Relationships / faction state
-
-- Status:
-- Findings:
-
-# 2. Character Audit
-
-Cho từng nhân vật quan trọng:
-
-- DNA consistency:
-- Goal consistency:
-- Decision plausibility:
-- Voice differentiation:
-- Emotional continuity:
-- Character agency:
-- Findings:
-
-### Character drift test
-
-Nếu hành vi lệch DNA, xác định:
-
-- có pressure mới đủ mạnh không;
-- có information mới không;
-- có relationship change không;
-- có arc transformation đã setup không;
-
-Nếu không có, đánh `MAJOR`.
-
-# 3. Scene Logic Audit
-
-Mỗi scene:
-
-- goal rõ?
-- obstacle thật?
-- causal chain?
-- turn/reversal?
-- state change?
-- scene có thể cắt mà truyện vẫn y hệt không?
-
-Nếu có thể cắt hoàn toàn mà không mất gì, đánh dấu cần gộp/cắt.
-
-# 4. POV Audit
-
-- Head-hopping:
-- Narrator leaks forbidden info:
-- POV sensory consistency:
-- Internal monologue ownership:
-
-# 5. Pacing Audit
-
-- Opening force:
-- Mid-chapter movement:
-- Escalation:
-- Breathing room:
-- Ending:
-- Repeated beat pattern:
-
-# 6. Prose Naturalness Audit
-
-Tìm cụ thể:
-
-- câu/đoạn cùng nhịp quá đều;
-- transition máy móc;
-- từ đệm lặp;
-- adjective inflation;
-- generic emotion labels;
-- exposition dump;
-- recap thừa;
-- văn quá “tròn trịa” không có giọng người;
-- cliché tiên hiệp dùng quá mật;
-- cùng một kiểu ẩn dụ;
-- “ánh mắt / khóe môi / khí tức” dùng như filler;
-- dialogue quá sạch, quá lý trí hoặc cùng giọng;
-- mọi đoạn đều kết bằng câu kết luận;
-- cấu trúc ba vế / đối xứng lặp.
-
-# 7. Repetition Audit
-
-## Within chapter
-
-- repeated words:
-- repeated sentence frames:
-- repeated emotional beats:
-- repeated information:
-
-## Across recent chapters
-
-So với 3–10 chương gần nhất:
-
-- same opening pattern:
-- same ending pattern:
-- same conflict solution:
-- same reaction beat:
-- same cultivation description:
-
-# 8. Xianxia Authenticity Audit
-
-- Cultivation affects decisions naturally?
-- Hierarchy/status visible through behavior rather than exposition?
-- Resources have scarcity/cost?
-- Realm difference has consequences?
-- Etiquette/address feels coherent?
-- World feels inhabited beyond MC?
-- Terms are consistent?
-
-# 9. Setup / Payoff Audit
-
-- New setup planted:
-- Existing setup reinforced:
-- Payoff delivered:
-- Premature reveal:
-- Forgotten active thread:
-
-# 10. Ending Audit
-
-- State changed?
-- Reader has reason to continue?
-- Cliffhanger organic?
-- Any fake mystery created by withholding obvious info?
-- Does ending repeat recent chapter endings?
-
-# 11. Issue List
-
-| ID | Severity | Location | Problem | Why it matters | Required fix | Canon constraints |
+| ID | Source reviewer | Severity | Location | Problem | Required fix | Constraints |
 |---|---|---|---|---|---|---|
 
-# 12. Rewrite Directive
+Mỗi BLOCKER/MAJOR phải có vị trí và directive sửa cụ thể.
 
-Ưu tiên theo thứ tự:
+# 7. Rewrite Directive
 
-1. BLOCKER
-2. MAJOR continuity / character / causality
-3. MAJOR prose / pacing
-4. MINOR có lợi rõ
+Ưu tiên:
 
-Ghi directive cụ thể, ví dụ:
+1. BLOCKER continuity/data;
+2. MAJOR character/knowledge/causality;
+3. MAJOR Story Promise / Narrative Engine / retention;
+4. MAJOR Style Fingerprint;
+5. Xianxia Experience / Emotional Residue thiếu kéo dài;
+6. MINOR có lợi rõ.
 
-- “Scene 2: nhân vật A biết bí mật B trước thời điểm được tiết lộ; sửa quyết định dựa trên dấu hiệu C thay vì tri thức B.”
-- “Đoạn chiến đấu cuối: thêm chi phí sử dụng pháp bảo đã khóa trong cultivation ledger; hiện tại thắng quá dễ.”
-- “Ba đoạn liên tiếp dùng cùng nhịp ‘hắn... rồi...’; thay cấu trúc thông qua hành động và sensory anchor, không chỉ đổi synonym.”
+Rewrite không được chữa repetition bằng synonym-spin. Nếu issue là engine/geometry, phải sửa cấu trúc hoặc cách conflict vận hành.
 
-# 13. Final Gate
+# 8. Critical Re-QC
 
+Sau rewrite:
+
+- Continuity issues fixed?:
+- Retention issues fixed?:
+- Style fingerprint issues fixed?:
+- Rolling audit issues fixed if required?:
+- Rewrite có tạo contradiction mới?:
+
+Nếu sửa lớn ở structure, chạy lại reviewer bị ảnh hưởng; không tự tick PASS bằng cảm giác.
+
+# 9. Final Gate
+
+- Continuity report exists: yes/no
+- Reader retention report exists: yes/no
+- Style fingerprint report exists: yes/no
+- Rolling audit exists when required: yes/no/NA
 - BLOCKER remaining: 0 / >0
 - MAJOR remaining: 0 / >0
 - Rewrite required: yes/no
-- Ready for final after rewrite: yes/no
+- Ready for final: yes/no
+
+**Final bị cấm nếu thiếu artifact reviewer bắt buộc, kể cả nội dung chương có vẻ ổn.**
