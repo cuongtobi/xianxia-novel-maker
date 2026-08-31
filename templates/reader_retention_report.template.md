@@ -1,8 +1,8 @@
 # Reader Retention Report Template
 
 > File đích: `stories/<slug>/chapters/NNNN/reader_retention_report.md`
-> Reviewer mode: **Reader Retention Editor**. Reviewer này không chấm canon; chỉ hỏi chapter có giữ lời hứa, có chuyển động, có payoff, có fantasy desire/heat/friction và có khiến độc giả muốn đọc tiếp hay không.
-> Bắt buộc đọc `docs/RETENTION_CONTROLLERS_V3.md`.
+> Reviewer mode: **Reader Retention Editor**. Reviewer này không chấm canon; chỉ hỏi chapter có giữ lời hứa, có chuyển động, có payoff, có fantasy desire/heat/friction, có đủ chất tu tiên và có khiến độc giả muốn đọc tiếp hay không.
+> Bắt buộc đọc `docs/RETENTION_CONTROLLERS_V3.md` và `docs/XIANXIA_DENSITY_CONTROLLER.md`.
 
 # Metadata
 
@@ -182,14 +182,57 @@ Rolling 5 không có H2+ = **MAJOR flatness risk**.
 - Recent xianxia drought:
 - Finding:
 
-# 12. Reader appetite
+# 12. Xianxia Density Controller — BẮT BUỘC
+
+## Ambient / Active / Aspirational
+
+- Ambient Xianxia evidence:
+- Active Xianxia causal beat(s):
+- Aspirational Xianxia beat:
+- Strongest genre-defining moment:
+
+## Density classification
+
+- `xianxia_peak`: X0 / X1 / X2 / X3
+- Replaceability: LOW_REPLACEABILITY / MEDIUM_REPLACEABILITY / HIGH_REPLACEABILITY
+- Nếu đổi `linh thạch→tiền`, `linh điền→ruộng`, `công pháp→kỹ thuật`, `tông môn→tổ chức phàm`, causal logic mất bao nhiêu?:
+
+Definitions:
+
+- `X0`: skin only — chủ yếu đổi danh từ;
+- `X1`: ambient — texture tu tiên rõ nhưng chưa chi phối outcome lớn;
+- `X2`: active — supernatural law/state làm đổi lựa chọn hoặc hậu quả thật;
+- `X3`: strong — cultivation/wonder/danger/discovery/resource/craft/threshold/dao beat đáng nhớ.
+
+## Rolling checks
+
+- Previous 2 xianxia peaks:
+- Previous 4 xianxia peaks:
+- Recent replaceability sequence:
+- Rolling 3 có ít nhất 1 Active `X2+`?: yes/no
+- Rolling 3 có 3 HIGH_REPLACEABILITY?: yes/no
+- Rolling 5 có ít nhất 2 chapter `X2+`?: yes/no
+- Rolling 5 có ít nhất 1 `X3`?: yes/no
+- Rolling 5 có Aspirational Xianxia/wonder desire?: yes/no
+- Explicit decompression waiver nếu có:
+- Genre dilution finding:
+
+Rules:
+
+- 3 consecutive `HIGH_REPLACEABILITY` = **MAJOR genre dilution risk**;
+- rolling 3 không có Active `X2+` = **MAJOR** trừ waiver hợp lệ;
+- rolling 5 thiếu `2×X2+` hoặc thiếu `1×X3` = **MAJOR**;
+- fake density bằng danh từ/infodump không clear finding;
+- thiếu density phải sửa causal structure, không rắc thêm “linh khí/đạo vận/pháp bảo”.
+
+# 13. Reader appetite
 
 - Câu hỏi độc giả thật sự muốn biết tiếp:
 - Phần thưởng/trải nghiệm nào đang bị nợ:
 - Có fake mystery do cố giấu điều POV hiển nhiên biết không?:
 - Có reason-to-continue ngoài cliffhanger không?:
 
-# 13. Ending
+# 14. Ending
 
 - Ending shape:
 - State changed?:
@@ -197,7 +240,7 @@ Rolling 5 không có H2+ = **MAJOR flatness risk**.
 - Repeats recent ending shape?:
 - Cliffhanger organic?:
 
-# 14. Binge Test — BẮT BUỘC
+# 15. Binge Test — BẮT BUỘC
 
 ## Câu 1
 
@@ -224,14 +267,14 @@ Rules:
 - `NO` ở câu 2 → `MAJOR` + rewrite required trừ explicit structural waiver; waiver không dùng hai chapter liên tiếp;
 - `WEAK` → WATCH/MINOR hoặc MAJOR tùy payoff/heat/drought context.
 
-# 15. Issue List
+# 16. Issue List
 
 | ID | Severity | Controller | Location | Problem | Why reader may disengage | Required fix |
 |---|---|---|---|---|---|---|
 
 Severity: `MAJOR / MINOR / NOTE`. Chỉ dùng `BLOCKER` nếu chapter về cơ bản không thực hiện được story promise bắt buộc/arc gate đã khóa.
 
-# 16. Gate
+# 17. Gate
 
 - MAJOR remaining:
 - Promise magnitude/drought acceptable?:
@@ -240,8 +283,10 @@ Severity: `MAJOR / MINOR / NOTE`. Chỉ dùng `BLOCKER` nếu chapter về cơ b
 - Competence friction healthy?:
 - Aspiration coverage healthy?:
 - Heat curve healthy?:
+- Xianxia Density rolling rules pass?:
+- Replaceability acceptable?:
 - Binge Test passes?:
 - Reader turns page for a concrete reason?:
 - Ready for aggregate QC: yes/no
 
-**PASS kỹ thuật ≠ PASS trải nghiệm đọc.**
+**PASS kỹ thuật ≠ PASS trải nghiệm đọc. PASS retention ≠ PASS genre density.**
