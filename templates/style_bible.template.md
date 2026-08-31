@@ -2,6 +2,7 @@
 
 > File đích: `stories/<slug>/bible/style_bible.md`
 > Đây là contract về giọng văn, không phải bộ từ khóa để model nhồi vào câu.
+> Nếu seed bật Reference Style, bắt buộc đọc `docs/REFERENCE_STYLE_SYSTEM.md` và profile được chỉ định trước khi khóa Style Bible.
 
 # 1. Style Identity
 
@@ -14,6 +15,40 @@
 - Philosophical depth:
 - Romance tone nếu có:
 
+## 1.1 Reference Style Adaptation Contract
+
+Reference Profile là **input cấp cao**, không phải lệnh bắt chước tác giả/tác phẩm.
+
+- Reference style enabled: yes/no
+- Reference system spec:
+- Reference profile:
+- High-level traits to inherit:
+- Traits to weaken/adapt for this story:
+- Reference weaknesses explicitly filtered:
+- Story-specific deviations:
+- When project-owned calibration should take priority:
+
+Nếu dùng default xianxia profile của framework, ưu tiên học:
+
+- prose trực diện, event-forward;
+- cultivation gắn body/perception/resource/consequence;
+- combat tôn trọng power gap và resource constraint;
+- Đạo/insight sinh từ lived experience rồi quay lại đổi hành động;
+- mortal/immortal contrast tạo wonder;
+- emotional pressure bị nén nhưng scar phải tồn tại;
+- world scale mở theo tầng.
+
+Không học/copy:
+
+- câu chữ cụ thể;
+- rhetorical frame dễ nhận diện;
+- cú pháp dịch/convert cứng;
+- stock gesture lặp;
+- exposition dài và recap;
+- slow pacing không có intrinsic reward.
+
+Style Bible của story luôn có ưu tiên cao hơn Reference Profile.
+
 # 2. Narrative POV
 
 - Primary POV:
@@ -22,12 +57,14 @@
 - Scene break convention:
 - What narrator may reveal:
 - What narrator must hide:
+- When narrator may zoom out for cultivation/history/world-scale context:
 
 ## POV rules
 
 - Chỉ mô tả nội tâm của POV character trong scene.
 - Thông tin ngoài nhận thức phải thể hiện qua dấu hiệu bên ngoài hoặc trì hoãn reveal.
 - Không đổi POV giữa scene nếu không có scene break rõ.
+- Nếu zoom-out để giải thích lore/cảnh giới, block đó phải đổi stakes/meaning của scene và nhanh chóng quay về con người/vật thể/quyết định cụ thể.
 
 # 3. Vietnamese Prose Standard
 
@@ -37,6 +74,8 @@
 - Căng thẳng: rút nhịp, ưu tiên động từ rõ.
 - Chiến đấu: câu thay đổi theo nhịp ra đòn và nhận thức, không biến thành log kỹ năng.
 - Đoạn suy tưởng: dùng hình ảnh/chi tiết cụ thể làm neo, không triết lý chung chung.
+- Câu trung bình là trục; câu dài dùng cho accumulation/lore có mục đích; câu ngắn dành cho impact/reversal/emotional break.
+- Repetition chỉ dùng khi tăng emotional force, không biến thành nhịp mặc định.
 
 ## 3.2 Diction
 
@@ -44,6 +83,7 @@
 - Từ thuần Việt: ưu tiên cho cảm giác thân thể, đời sống, phản ứng tự nhiên.
 - Không lai giọng hiện đại nếu setting không cho phép.
 - Tránh từ “game hóa” trừ khi seed quy định hệ thống dạng game.
+- Không cố cổ phong bằng adjective spam; khí chất phải đến từ world law, power relation và perception.
 
 ## 3.3 Description
 
@@ -87,6 +127,48 @@ Không tạo “khí chất” bằng cách nhồi liên tục: thiên địa, t
 - Threshold crossing nên được kể theo:
 - World-scale glimpse nên dùng tiết chế thế nào:
 
+## 4.2 Cultivation Prose Contract
+
+Một cultivation beat mạnh nên chạm nhiều hơn một tầng:
+
+`current state → constraint → mechanism → decision → bodily/sensory proof → meaning → consequence`
+
+Không bắt buộc đủ cả bảy bước như checklist, nhưng phải tránh kiểu:
+
+`ngồi tu → linh khí tăng → tu vi mạnh hơn`.
+
+Ưu tiên thể hiện:
+
+- kinh mạch/đan điền/thần hồn/body response;
+- perception thay đổi;
+- resource consumed;
+- failure mode;
+- realm/social meaning;
+- lựa chọn con đường;
+- breakthrough mở/đóng capability thật.
+
+## 4.3 Dao / Insight Contract
+
+Đạo/ý cảnh nên đi từ trải nghiệm cụ thể lên abstraction rồi quay lại thay đổi hành động:
+
+`lived experience → object/action/image → association/contradiction → insight fragment → later consequence`.
+
+- Không ép mọi insight thành chân lý hoàn chỉnh ngay.
+- Không dùng nhiều câu “Đạo chính là...” nếu chưa có scene support.
+- Một câu triết lý chỉ có trọng lượng nếu reader có thể chỉ ra trải nghiệm/cost đã tạo ra nó.
+
+## 4.4 Mortal / Immortal Contrast
+
+Đời thường có thể là chất liệu tiên hiệp mạnh nếu nó làm đổi:
+
+- cách tu sĩ hiểu thời gian/sinh tử/attachment;
+- cultivation insight;
+- power meaning;
+- relationship với phàm nhân;
+- perception về cảnh giới.
+
+Domestic/phàm tục không đồng nghĩa giảm Xianxia Density nếu causal meaning thật.
+
 # 5. Dialogue Bible
 
 Mỗi nhân vật quan trọng có speech fingerprint riêng trong Characters Bible.
@@ -102,7 +184,9 @@ Quy tắc chung:
 - cho phép ngập ngừng, né tránh, cắt lời khi hợp tính cách;
 - không cần mọi câu trả lời đúng trọng tâm;
 - cho phép một người hiểu sai, nghe sót hoặc cố tình lờ đi;
-- không để hội thoại liên tục thành `A hỏi → B trả lời → MC kết luận`.
+- không để hội thoại liên tục thành `A hỏi → B trả lời → MC kết luận`;
+- trong sinh tử/power confrontation, tránh banter dài nếu không hợp DNA;
+- emotional dialogue có thể đơn giản; không bắt nhân vật nói lời triết lý để chứng minh chiều sâu.
 
 # 6. Internal Monologue
 
@@ -112,6 +196,7 @@ Quy tắc chung:
 - Suy nghĩ phải mang dấu vân tay nhân vật, không phải giọng narrator chung.
 - Nhân vật được phép nghĩ sai, giữ bias, tự bào chữa hoặc không muốn nhìn thẳng vào điều hiển nhiên.
 - Không biến “cẩn trọng” thành loop bắt buộc `giả thuyết → kiểm chứng → kết luận` ở mọi chương.
+- Sau một block suy luận dài nên có decision, image hoặc physical consequence.
 
 # 7. Positive Prose Texture
 
@@ -176,9 +261,17 @@ Mỗi trận phải rõ:
 
 Ưu tiên chuỗi nhân quả:
 
-`quan sát → quyết định → hành động → phản ứng → hậu quả → thích nghi`
+`threat perception → power-gap judgment → resource choice → action → counter → injury/cost → adaptation → irreversible result`
 
 Nhưng không dùng chuỗi này như prose formula lặp lại ở mọi trận.
+
+Điểm cần giữ:
+
+- power gap thật sự giới hạn lựa chọn;
+- nhân vật biết khi không thể thắng trực diện;
+- resource/deception/timing/terrain có giá trị;
+- quyết định sinh tử nhanh;
+- thương tích/cost còn tồn tại sau combat.
 
 Tránh:
 
@@ -186,7 +279,8 @@ Tránh:
 - nâng cấp giữa trận không setup;
 - đối thủ quên dùng năng lực;
 - “nhanh đến không thể tưởng tượng” lặp lại;
-- nhân vật đứng giải thích chiêu thức giữa sinh tử.
+- nhân vật đứng giải thích chiêu thức giữa sinh tử;
+- combat dài chỉ vì trao đổi kỹ năng mà không đổi trạng thái.
 
 # 9. Exposition Strategy
 
@@ -202,7 +296,14 @@ Worldbuilding được phát qua:
 - nhu cầu tức thời;
 - wonder hoặc sự lệch giữa điều nhân vật tưởng và điều họ trải nghiệm.
 
-Không dump lore dài chỉ vì thông tin đã có trong bible.
+Narrator **được phép nói thẳng** cultivation/history/world-scale lore khi điều đó giúp reader hiểu stakes hoặc revalue current event.
+
+Nhưng:
+
+- không dump lore dài chỉ vì thông tin đã có trong bible;
+- không recap lore reader vừa biết;
+- sau lore block phải trở về action/choice/image/consequence;
+- exposition không được thay thế mystery bằng giấu/nhả thông tin máy móc.
 
 # 10. Chapter Structure Preference
 
@@ -211,8 +312,20 @@ Không dump lore dài chỉ vì thông tin đã có trong bible.
 - End: thay đổi trạng thái, decision, reveal, consequence, emotional residue hoặc hình ảnh đổi nghĩa.
 - Cliffhanger: chỉ dùng khi organic, không bắt buộc mỗi chương.
 - Quiet chapter được phép nếu nó làm relationship/self-image/meaning đổi thật.
+- Old-school accumulation được phép nhưng vẫn phải pass Binge Test, Payoff/Heat/Aspiration/Xianxia Density hiện hành.
 
-# 11. Naturalness / Anti-AI Checklist
+# 11. Emotional Architecture
+
+Ưu tiên pattern cấp cao:
+
+`restraint → accumulating pressure → concrete attachment/loss → body/action → simple line/silence → persistent scar`.
+
+- attachment phải gắn người/vật/ký ức cụ thể;
+- emotional event có thể đổi cultivation path, worldview, relationship hoặc decision heuristic;
+- không cần bi kịch cực đoan để có trọng lượng;
+- scar thật phải đi vào memory nếu còn ảnh hưởng.
+
+# 12. Naturalness / Anti-AI + Reference Weakness Filter
 
 Phát hiện và sửa nếu xuất hiện quá dày:
 
@@ -226,6 +339,8 @@ Phát hiện và sửa nếu xuất hiện quá dày:
 - recap thông tin vừa xảy ra;
 - nhân vật đều nói bóng bẩy như nhau;
 - quá nhiều “ánh mắt”, “khóe môi”, “khí tức” như placeholder;
+- quá nhiều `sắc mặt biến đổi / ánh mắt lóe / hít sâu` như stock reaction;
+- `lập tức / ngay sau đó / đồng thời` thành nhịp convert lặp;
 - ẩn dụ chung chung không gắn POV;
 - câu văn phô trương hơn mức quan trọng của sự kiện;
 - mở chapter bằng mô tả thời tiết vô nghĩa;
@@ -233,9 +348,11 @@ Phát hiện và sửa nếu xuất hiện quá dày:
 - `Không X. Mà Y.` / `Không phải X. Là Y.` dùng như nhịp mặc định;
 - `Đúng. Nhưng... / Vậy... / Cho nên...` xuất hiện như dialogue engine lặp;
 - quá nhiều aphorism / câu đóng gói chân lý;
-- hypothesis-loop `quan sát → giả thuyết → kiểm chứng → kết luận` lặp xuyên chương.
+- hypothesis-loop `quan sát → giả thuyết → kiểm chứng → kết luận` lặp xuyên chương;
+- exposition dài/redundant chỉ vì reference old-school từng làm vậy;
+- cố bắt chước cú pháp dịch cũ để tạo “chất tiên hiệp”.
 
-# 12. Repetition Control
+# 13. Repetition Control
 
 Theo dõi ở bốn mức:
 
@@ -246,16 +363,17 @@ Theo dõi ở bốn mức:
 
 Không chỉ dùng synonym để chữa repetition; thay cách conflict vận hành, cách nhân vật chú ý hoặc cách scene tạo chuyển động.
 
-# 13. Sensory Palette
+# 14. Sensory Palette
 
 - Default dominant senses:
 - Rare senses:
 - Body sensations:
 - Cultivation-specific sensations:
 - Everyday messiness:
+- Wonder-specific sensations:
 - Avoided clichés:
 
-# 14. Naming & Address Rules
+# 15. Naming & Address Rules
 
 - Cách gọi cảnh giới:
 - Danh xưng sư môn:
@@ -265,7 +383,7 @@ Không chỉ dùng synonym để chữa repetition; thay cách conflict vận h�
 - Hán Việt vs thuần Việt:
 - Viết hoa:
 
-# 15. Formatting
+# 16. Formatting
 
 Final chapter:
 
@@ -280,7 +398,7 @@ Nội dung...
 - Paragraph vừa phải; tránh một khối quá dài trừ dụng ý.
 - Dấu câu tiếng Việt tự nhiên.
 
-# 16. Story-specific Do / Don't
+# 17. Story-specific Do / Don't
 
 ## Do
 
@@ -294,11 +412,13 @@ Nội dung...
 -
 -
 
-# 17. Calibration Samples & Rotation Policy
+# 18. Calibration Samples & Rotation Policy
 
 Dùng các đoạn **do chính dự án tạo ra và người dùng duyệt**, không copy văn của tác giả sống hoặc tác phẩm cụ thể.
 
-## 17.1 Valid calibration set
+Reference Profile giúp định hình early house style nhưng **không được dùng đoạn nguyên văn reference làm few-shot calibration**.
+
+## 18.1 Valid calibration set
 
 Chỉ khóa calibration set khi có:
 
@@ -309,7 +429,7 @@ Chỉ khóa calibration set khi có:
 - có ít nhất một scene pressure/wonder/cultivation/combat phù hợp truyện;
 - không lấy toàn bộ từ Chương 1–3 chỉ vì đó là chương đầu.
 
-## 17.2 Sample metadata
+## 18.2 Sample metadata
 
 | Sample | Chapter | Narrative engine | What to learn | What NOT to copy |
 |---|---:|---|---|---|
@@ -320,11 +440,12 @@ Chỉ khóa calibration set khi có:
 | E | | | | |
 | F | | | | |
 
-## 17.3 Rotation
+## 18.3 Rotation
 
 - Mỗi batch/chapter chỉ kích hoạt 2–3 sample phù hợp engine hiện tại.
 - Xoay vòng sample; không để cùng sample chi phối mọi loại scene.
 - Học nhịp, POV distance, dialogue roughness, sensory density, diction balance và paragraph cadence.
 - Không tái sử dụng câu chữ, rhetorical frame hoặc cách kết đoạn đặc trưng của sample.
+- Khi calibration project đã đủ mạnh, ưu tiên calibration của story hơn Reference Profile.
 
-Nếu chưa đủ 4 engine khác nhau, **chưa khóa calibration**. Dùng style rules thay vì tự học quá mạnh từ early finals.
+Nếu chưa đủ 4 engine khác nhau, **chưa khóa calibration**. Dùng Style Bible + Reference Profile high-level thay vì tự học quá mạnh từ early finals.
