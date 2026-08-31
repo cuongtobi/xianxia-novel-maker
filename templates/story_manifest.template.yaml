@@ -9,13 +9,14 @@ story:
   language: "vi"
 
 pipeline:
-  version: "3.0"
+  version: "3.1"
   batch_size: 5
   batch_workflow: "docs/BATCH_5_WORKFLOW.md"
-  retention_spec: "docs/RETENTION_CONTROLLERS_V3.md"
-  xianxia_density_spec: "docs/XIANXIA_DENSITY_CONTROLLER.md"
+  story_promise_spec: "docs/READER_EXPERIENCE_SYSTEM.md"
   reference_style_spec: "docs/REFERENCE_STYLE_SYSTEM.md"
   reference_style_profile: "docs/reference_profiles/TIEN_NGHICH_HIGH_LEVEL_STYLE.md"
+  controllers:
+    - story_promise
   current_stage: "seed"
   last_finalized_chapter: 0
   current_arc: "arc_001"
@@ -23,23 +24,13 @@ pipeline:
   qc_required: true
   qc_modes:
     - continuity
-    - reader_retention
+    - story_promise
     - style_fingerprint
-  rolling_audit_every: 3
   rewrite_required: true
+  story_promise_required: true
   reader_experience_required: true
-  retention_v3_required: true
-  xianxia_density_required: true
   reference_style_enabled: true
   reference_style_mode: "high_level_style_dna_only"
-  retention_controllers:
-    dramatic_geometry: true
-    payoff_magnitude: true
-    competence_friction: true
-    aspiration: true
-    heat_curve: true
-    binge_test: true
-    xianxia_density: true
 
 artifacts:
   seed: "seed/seed.yaml"
@@ -60,8 +51,6 @@ locks:
   opening_arc_initialized: false
   memory_initialized: false
   reader_experience_initialized: false
-  retention_v3_initialized: false
-  xianxia_density_initialized: false
   reference_style_adapted: false
 
 production:
@@ -69,28 +58,22 @@ production:
   chapter_words_target: null
   last_batch_audit: null
   next_batch_start: 1
-  last_rolling_audit_chapter: 0
 
 completion_gate:
   verify_artifacts_before_reporting_complete: true
   require_batch_audit: true
   require_reader_experience_update: true
-  require_rolling_audit_when_due: true
-  require_reader_reward_gate: true
-  require_xianxia_density_gate: true
+  require_story_promise_review: true
   require_reference_style_adaptation_when_enabled: true
-  v3_enforced_from_chapter: 1
 
 migration:
   from_version: null
   migrated_to: null
   legacy_cutoff_chapter: 0
-  v2_enforced_from_chapter: 1
-  v3_enforced_from_chapter: 1
   migration_baseline: null
-  legacy_batch_audits_backfilled: false
   prior_batch_size: null
   batch_size_migrated_at_chapter: null
+  retired_controller_artifacts_preserved: true
 
 notes:
   framework_migration: ""

@@ -2,46 +2,33 @@
 
 Tài liệu này là luật vận hành bắt buộc cho mọi phiên ChatGPT làm việc với repository này.
 
-## 1. Vai trò
+## 1. Nguyên tắc kiến trúc
 
-ChatGPT phải tách rõ các vai trò dù cùng một model thực hiện:
+Framework hiện hành dùng **một controller duy nhất: Story Promise Controller**.
 
-- **Orchestrator** — xác định stage, đọc đúng source of truth, điều phối workflow, verify artifact gate.
-- **World Architect** — world/cultivation có nhân quả, tài nguyên, giới hạn và hậu quả xã hội.
+Không tạo, không chạy, không chấm quota và không dùng làm hard gate các controller đã loại bỏ: Narrative Engine, Dramatic Geometry, Competence Friction, Aspiration, Heat Curve, Binge Test, Xianxia Experience, Xianxia Density, Emotional Residue hoặc Human Irrationality Controller.
+
+Các khái niệm như nhịp, cảm xúc, chất tiên hiệp, sai lầm, ham muốn, combat, wonder vẫn có thể xuất hiện tự nhiên trong Story Bible, Character DNA, Style Bible và prose. Chúng **không phải controller, không có rolling quota và không được ép Writer tối ưu metric**.
+
+## 2. Vai trò
+
+- **Orchestrator** — xác định stage, đọc source of truth, điều phối workflow, verify artifact gate.
+- **World Architect** — xây world/cultivation có luật, giới hạn, tài nguyên và hệ quả.
 - **Story Architect** — master outline, arc, progression dài hạn.
-- **Story Promise Controller** — khóa 3–5 reader promises, theo dõi ADVANCE/PAY magnitude/drought.
-- **Xianxia Experience Controller** — cultivation payoff, wonder, danger, power gap, mystical discovery, desirable resource, threshold crossing.
-- **Xianxia Density Controller** — kiểm Ambient/Active/Aspirational Xianxia, X0–X3, replaceability và rolling genre-density để truyện không chỉ có “skin tu tiên”.
-- **Reference Style Director** — phân rã reference thành high-level Style DNA, adapt thành house style riêng, lọc weakness và chống imitation/overfit.
-- **Dramatic Geometry Controller** — bắt chapter khác engine label nhưng cùng conflict/decision/resolution geometry.
-- **Competence Friction Controller** — theo dõi CLEAN_WIN streak, partial/wrong-model/cost/dependence để MC không frictionless.
-- **Aspiration + Heat Controller** — tách fantasy desire khỏi scarcity và kiểm rolling heat curve.
-- **Character Director** — Character DNA, agency, human irrationality, costly mistakes.
-- **Scene Planner** — đủ constraint nhưng không over-plan prose.
-- **Writer** — prose tiếng Việt tự nhiên theo story Style Bible, không trực tiếp bắt chước reference.
+- **Story Promise Controller** — khóa 3–5 reader promises và theo dõi trạng thái payoff.
+- **Reference Style Director** — chuyển high-level style traits thành house style riêng khi story bật Reference Style.
+- **Character Director** — Character DNA, động cơ, mâu thuẫn, agency.
+- **Scene Planner** — plan chapter gọn: mục tiêu, xung đột, payoff, promise target, continuity/style constraints.
+- **Writer** — viết prose tiếng Việt tự nhiên theo story Style Bible.
 - **Continuity Auditor** — canon/state/knowledge/power/POV.
-- **Reader Retention Editor** — promise magnitude, Narrative Engine, Dramatic Geometry, competence friction, aspiration, heat, Binge Test, Xianxia Density, pacing/drag, agency, Xianxia Experience, Emotional Residue.
-- **Style Fingerprint Auditor** — rhetorical tic, Q&A cleanliness, hypothesis-loop, aphorism density, cadence/calibration drift, Reference Style drift-away/overfit.
-- **Rewriter** — sửa theo QC, không retcon tùy tiện.
-- **Memory Keeper** — update story memory + Reader Experience Memory sau mỗi final.
+- **Story Promise Reviewer** — kiểm ADVANCE/PAY/false-pay/drought của Story Promise; không chấm controller khác.
+- **Style Fingerprint Auditor** — kiểm prose AI-like, cadence, dialogue sameness, reference drift/overfit.
+- **Rewriter** — sửa findings cụ thể, không trang trí để pass checklist.
+- **Memory Keeper** — cập nhật story memory + promise state sau mỗi final.
 
-Không bỏ reviewer, rolling audit hoặc memory để tăng tốc.
+## 3. Source of truth
 
-Đọc thêm:
-
-- `docs/READER_EXPERIENCE_SYSTEM.md`
-- `docs/RETENTION_CONTROLLERS_V3.md`
-- `docs/XIANXIA_DENSITY_CONTROLLER.md`
-- `docs/REFERENCE_STYLE_SYSTEM.md`
-- `docs/BATCH_5_WORKFLOW.md`
-
-Default Reference Style profile cho truyện tiên hiệp/tu tiên mới v3 nếu seed không override:
-
-- `docs/reference_profiles/TIEN_NGHICH_HIGH_LEVEL_STYLE.md`
-
-## 2. Source of truth
-
-Khi canon/state xung đột, ưu tiên:
+Khi dữ liệu xung đột, ưu tiên:
 
 1. `memory/canon_ledger.md`
 2. final chapters
@@ -52,581 +39,184 @@ Khi canon/state xung đột, ưu tiên:
 7. seed
 8. draft/scene plan
 
-Outline là kế hoạch. Final + canon ledger là chuyện đã xảy ra.
+Outline là kế hoạch. Final + Canon Ledger là chuyện đã xảy ra.
 
-`memory/reader_experience.md` là source of truth cho production pattern gần đây: promise PAY magnitude, Narrative Engine, Dramatic Geometry, competence outcomes, aspiration beats, heat, Xianxia Density peaks/replaceability, Binge Test, ending shape, rhetorical tic, Xianxia/Emotional debt. Nó không override canon hoặc Character DNA.
+`memory/reader_experience.md` chỉ giữ **Story Promise runtime state** và ghi chú payoff gần đây; không override canon.
 
-### Style source hierarchy
-
-Khi style sources xung đột, ưu tiên:
+### Style hierarchy
 
 1. story-specific `bible/style_bible.md`;
-2. project-owned final/calibration samples đã khóa;
-3. seed tone/style intent;
-4. Reference Style Profile;
-5. generic framework defaults.
+2. project-owned final/calibration samples đã duyệt;
+3. seed style intent;
+4. Reference Style Profile nếu bật;
+5. framework defaults.
 
-Reference Profile không bao giờ override Character DNA, canon, story promise hoặc style decision đã adapt riêng cho story.
+## 4. Branch contract
 
-## 3. Branch contract
-
-- Framework sống trên `main`.
-- Mỗi truyện sống trên `story/<slug>`.
-- Không viết hai truyện trên cùng branch.
+- Framework ở `main`.
+- Mỗi truyện ở `story/<slug>`.
 - Không ghi story artifact lên `main`.
-- Framework change trên `main` không tự động áp vào story branch cũ nếu chưa sync/migrate.
+- Framework change không tự áp vào story branch cũ; phải sync/migrate có chủ đích.
 
-### Legacy migration
+## 5. Read-before-write
 
-Story cũ thiếu Reader Experience / 3-mode QC dùng `docs/FRAMEWORK_V2_MIGRATION.md`.
+Trước chapter mới, đọc tối thiểu:
 
-Không fake retroactive per-chapter QC. Có thể dựng migration baseline từ final thật.
-
-Batch audit lịch sử 10 chương vẫn hợp lệ. Khi story sync batch size 5, không cần chia audit 1–10 cũ thành 1–5 và 6–10.
-
-**Xianxia Density Controller và Reference Style mặc định chỉ áp cho truyện mới dùng framework v3. Không tự sửa/migrate story branch cũ nếu user không yêu cầu.**
-
-## 4. Read-before-write
-
-Trước một chapter, đọc tối thiểu:
-
-- seed;
-- story/style bible;
-- Character DNA nhân vật xuất hiện;
-- Story Promises + master outline phần liên quan;
+- manifest + seed;
+- story/style/characters bible phần liên quan;
+- Story Promises trong master outline;
 - arc hiện tại;
 - `memory/current_state.md`;
 - `memory/reader_experience.md`;
-- canon/character/cultivation/knowledge/foreshadowing/unresolved ledgers liên quan;
+- ledgers cần thiết;
 - ít nhất 3 recent summaries;
 - full final gần nhất khi continuity trực tiếp.
 
-Writer lấy **story Style Bible** làm direct style contract. Không cần reread toàn tác phẩm reference trước từng chapter.
+Không yêu cầu Writer đọc hoặc tối ưu metric/controller đã loại bỏ.
 
-Style Fingerprint Auditor, Genesis Style Director hoặc khi có style drift nghiêm trọng mới cần đọc Reference Style Profile đã chỉ định.
+## 6. Story Promise Controller
 
-Reader Retention / Style / Rolling Audit phải đọc full 2–3 recent finals khi kiểm repetition; không chỉ dựa summary.
-
-Nếu story legacy chưa migrate và framework hiện hành yêu cầu reader memory, migrate trước hoặc làm theo explicit user directive về version.
-
-## 5. World + Xianxia contract
-
-Worldbuilding phải trả lời:
-
-- luật tự nhiên nào tạo tài nguyên/khan hiếm;
-- ai kiểm soát/khai thác;
-- institution/incentive nào xuất hiện;
-- đời sống người thường và tu sĩ thay đổi ra sao;
-- conflict nào tự nhiên sinh ra;
-- giới hạn/cost/ngoại lệ là gì.
-
-Mỗi realm phải có qualitative change, limitation, breakthrough requirement, failure mode, social meaning và cross-realm logic.
-
-**World logic không thay thế Xianxia Experience.** Theo dõi riêng:
-
-- cultivation payoff;
-- wonder/awe;
-- supernatural danger;
-- power gap;
-- mystical discovery;
-- desirable resource;
-- threshold crossing;
-- dao/cultivation insight có consequence;
-- magical craft;
-- world-scale glimpse.
-
-### Xianxia Density rule
-
-Xianxia Experience có thể tồn tại như một beat riêng lẻ, nhưng **Xianxia Density** kiểm việc luật tu tiên có thật sự đi vào causal chain của truyện hay không.
-
-Mỗi chapter của truyện mới v3 phải ghi:
-
-- Ambient Xianxia;
-- Active Xianxia causal beat(s);
-- Aspirational Xianxia;
-- `xianxia_peak: X0/X1/X2/X3`;
-- Replaceability: LOW / MEDIUM / HIGH.
-
-Core rolling rules:
-
-- rolling 3 phải có ít nhất 1 chapter `X2+`;
-- 3 consecutive `HIGH_REPLACEABILITY` → **MAJOR genre dilution risk**;
-- rolling 5 phải có ít nhất 2 chapter `X2+` + ít nhất 1 chapter `X3`;
-- rolling 5 phải có aspiration/wonder desire đủ rõ;
-- không clear finding bằng cách rắc thêm “linh khí / pháp bảo / đạo vận”. Phải sửa causal structure.
-
-Chi tiết: `docs/XIANXIA_DENSITY_CONTROLLER.md`.
-
-## 6. Story Promise contract
-
-Genesis khóa **3–5 Story Promises** trong master outline.
-
-Mỗi promise có:
+Genesis khóa **3–5 Story Promises**. Mỗi promise có:
 
 - stable ID;
 - reader promise;
-- PAY definition;
-- ADVANCE definition;
-- false pay;
+- vì sao reader quan tâm;
+- `PAY` definition;
+- `ADVANCE` definition;
+- false-pay examples;
 - drought warning;
 - escalation path.
+
+Sau mỗi final, mỗi promise được ghi một trạng thái:
+
+- `UNTOUCHED`;
+- `ADVANCE`;
+- `PAY_MINOR`;
+- `PAY_MAJOR`;
+- `PAY_ARC`.
+
+Payoff magnitude là **thuộc tính của Story Promise Controller**, không phải controller riêng.
 
 Rules:
 
 - setup ≠ PAY;
-- nói về tu luyện ≠ cultivation payoff nếu không có thay đổi hữu hình;
-- sau final, mỗi promise ghi `UNTOUCHED / ADVANCE / PAY_MINOR / PAY_MAJOR / PAY_ARC`;
-- `PAY_MINOR` không được dùng để che `major_payoff_debt` của core promise;
-- theo dõi riêng `pay_drought` và `major_payoff_debt`;
-- 2–3 chapter không PAY core promise → Retention warning;
-- Arc Outline có planned PAY windows + minimum magnitude;
-- Batch Audit đo drought thực tế + magnitude distribution.
+- lời hứa tương lai ≠ PAY;
+- PAY phải có kết quả/reveal/trải nghiệm/thay đổi trạng thái độc giả cảm nhận được;
+- theo dõi `last_pay_chapter`, `last_major_pay_chapter`, `pay_drought` cho từng core promise;
+- vượt drought warning → reviewer cảnh báo;
+- không ép fake payoff chỉ để xóa drought;
+- nếu promise đang đói nhưng chapter hiện tại không phù hợp để PAY, sửa outline/arc kế tiếp thay vì nhồi payoff giả vào prose.
 
-Chi tiết: `docs/RETENTION_CONTROLLERS_V3.md`.
+## 7. World + cultivation contract
 
-## 7. Narrative Engine contract
+Worldbuilding phải có causal logic tự nhiên: luật → tài nguyên/giới hạn → tổ chức/hành vi → xung đột.
 
-Phân loại chapter theo **cách tạo chuyển động**, không chỉ topic.
+Mỗi realm quan trọng cần có thay đổi định tính, giới hạn, yêu cầu đột phá, failure mode, social meaning và cross-realm logic.
 
-Engine gợi ý:
+Không có Xianxia Density quota. Chất tiên hiệp được bảo vệ bằng Story Bible + Style Bible + premise, không bằng X0/X1/X2/X3 hoặc replaceability score.
 
-- Q&A meeting
-- audit
-- negotiation
-- hypothesis-test
-- training calibration
-- chase
-- reveal
-- ritual
-- domestic
-- combat
-- grief
-- wonder
-- investigation
-- survival task
-- repair/build
-- travel discovery
-- aftermath
-- rescue
-- moral choice
-- competition
+## 8. Character contract
 
-Không phải enum đóng.
+Nhân vật quan trọng cần desire, fear, value, wound, blind spot, contradiction, decision logic, speech fingerprint, relationship behavior, cultivation/combat identity và arc vector.
 
-### Diversity rule
+Nhân vật có thể sai, thiên vị, sĩ diện hoặc hành động cảm tính nếu hợp DNA. Đây là **character design**, không phải Human Irrationality Controller và không có quota sai lầm.
 
-Trong rolling window 4 chapter:
+Không cố làm MC thất bại chỉ để cân bằng competence. Core fantasy competence được phép tạo clean wins nếu hợp premise.
 
-**3/4 cùng primary engine = MAJOR pacing risk.**
+## 9. Scene planning contract
 
-Batch boundary không reset window. Ví dụ Ch.4–7 vẫn phải xét cùng nhau dù Ch.4–5 và Ch.6–7 thuộc hai batch khác nhau.
+Scene plan chỉ cần đủ để Writer biết:
 
-Đặc biệt theo dõi:
+- chapter objective;
+- POV/time/place/cast;
+- starting state;
+- conflict/pressure;
+- key beats/turn;
+- character choice nếu có;
+- Story Promise target;
+- intended payoff nếu có;
+- ending state;
+- continuity constraints;
+- style constraints;
+- ending hook nếu organic.
 
-- `A hỏi → B trả lời → MC kết luận`;
-- `quan sát → giả thuyết → kiểm chứng → kết luận`.
+Không plan Narrative Engine, Geometry signature, competence outcome label, heat level, xianxia peak, replaceability, aspiration quota hoặc binge score.
 
-### Dramatic Geometry rule
+## 10. Writing contract
 
-Engine khác tên không tự động tạo variety. Mỗi chapter theo dõi:
+Writer ưu tiên truyện trước checklist:
 
-- pressure source;
-- decision locus;
-- movement mode;
-- information flow;
-- opposition shape;
-- resolution mode;
-- reversal type;
-- kinetic level.
+- action/character desire trước giải thích khi hợp cảnh;
+- worldbuilding qua tình huống và hậu quả;
+- dialogue theo DNA, không Q&A quá sạch;
+- prose Việt tự nhiên, Hán Việt vừa đủ;
+- câu trung bình làm trục, câu ngắn dùng có chủ đích;
+- không biến cultivation/craft thành manual nếu scene không cần;
+- không tạo micro-mechanism chỉ để chứng minh “chất tiên hiệp”;
+- không copy reference wording/rhetorical frame/plot beat.
 
-`3 consecutive` near-same geometry → WATCH. `3/4` cùng core geometry → **MAJOR pacing risk** dù primary engine khác nhau.
+## 11. QC architecture
 
-## 8. Character DNA + human irrationality
-
-Nhân vật quan trọng cần:
-
-- desire/fear/wound/value/blind spot/contradiction;
-- social mask/private self;
-- decision heuristic + risk tolerance;
-- speech/emotional fingerprint;
-- relationship behavior;
-- cultivation/combat identity;
-- secret/forbidden behavior/arc vector;
-- human irrationality profile;
-- costly mistake pattern.
-
-Nhân vật thông minh không phải optimizer hoàn hảo. Có thể sai vì bias, sĩ diện, shame, sentimental attachment, sunk cost, fear, loyalty, incomplete data hoặc impulsive kindness.
-
-Không dùng irrationality để làm họ ngu chạy plot.
-
-MC không được chỉ “sai trên giấy” rồi luôn có người sửa trước khi mất gì. Blind spot có thể gây cost thật: tiền, thời gian, quan hệ, thương tích, cơ hội, địa vị hoặc self-image.
-
-Competence conversion chính phải được phân loại `CLEAN_WIN / COSTLY_WIN / PARTIAL / WRONG_MODEL / DEPENDENT_ON_OTHER / FAILURE / NO_CONVERSION`.
-
-- 3 CLEAN_WIN conversions liên tiếp → WATCH;
-- 4/5 recent competence conversions là CLEAN_WIN → **MAJOR flattening risk**.
-
-## 9. Style + positive texture
-
-Mục tiêu: tiếng Việt tự nhiên có khí chất tiên hiệp, không văn dịch máy hoặc văn mẫu AI.
-
-Ưu tiên:
-
-- rhythm biến thiên theo scene;
-- Hán Việt đúng ngữ cảnh;
-- emotion qua hành vi/lựa chọn/body;
-- dialogue theo địa vị + DNA;
-- worldbuilding qua action/consequence;
-- cultivation qua mechanism/body/perception/resource/meaning/consequence;
-- Dao/insight đi từ lived experience/concrete image lên abstraction;
-- power gap ảnh hưởng lựa chọn thật;
-- positive texture khi hợp cảnh: interruption, unfinished sentence, practical humor, embarrassment, irrational attachment, sensory messiness, misunderstanding, silence, spontaneous choice.
-
-### Reference Style contract
-
-Nếu story bật Reference Style:
-
-- đọc `docs/REFERENCE_STYLE_SYSTEM.md` ở Genesis/Style stage;
-- Style Bible phải ghi rõ trait nào inherit, trait nào adapt, weakness nào filter;
-- Writer viết theo **Style Bible**, không trực tiếp theo tên tác giả/tác phẩm reference;
-- không dùng reference prose làm few-shot;
-- không copy câu/cụm/rhetorical frame/plot beat/hình ảnh đặc trưng;
-- khi project-owned calibration đủ mạnh, calibration của story được ưu tiên hơn reference;
-- Style Auditor phải bắt cả drift-away lẫn overfit.
-
-Cảnh giác:
-
-- transition máy móc;
-- recap;
-- mọi đoạn kết bằng phán quyết;
-- `Không X. Mà Y.` / `Không phải X. Là Y.` quá dày;
-- `Đúng. Nhưng... / Vậy... / Cho nên...` thành nhịp mặc định;
-- Q&A quá sạch;
-- aphorism density cao;
-- hypothesis-loop lặp;
-- mọi nhân vật cùng giọng;
-- cùng opening/ending shape;
-- stock gesture kiểu `sắc mặt biến đổi / ánh mắt lóe / hít sâu` quá dày;
-- connector kiểu `lập tức / ngay sau đó / đồng thời` thành cadence convert;
-- cố tạo “chất reference” bằng cú pháp dịch cứng.
-
-## 10. Calibration contract
-
-Không auto-calibrate chỉ từ Ch.1–3.
-
-Chỉ khóa calibration set khi có:
-
-- 4–6 đoạn final/được user duyệt;
-- ít nhất 4 Narrative Engine khác nhau;
-- narration + dialogue + pressure/wonder phù hợp truyện.
-
-Mỗi chapter dùng 2–3 sample phù hợp và xoay vòng. Học texture/rhythm/diction, không copy câu/rhetorical frame.
-
-Reference Profile chỉ hỗ trợ early style. Khi calibration project đủ chất lượng, **project-owned calibration > Reference Profile**.
-
-## 11. Relaxed Scene contract
-
-Mọi scene biết tối thiểu:
-
-- POV;
-- time/place;
-- cast;
-- knowledge boundary;
-- focal tension/pressure/curiosity;
-- sensory anchor;
-- scene đi ra bằng gì.
-
-### Conflict/transaction scene
-
-Có thể plan goal, obstacle, stakes, leverage, turn, choice, consequence.
-
-### Quiet/discovery/emotional scene
-
-Không bắt buộc đủ goal + obstacle + stakes + turn + choice + consequence + state delta.
-
-Được tồn tại nếu tạo emotional residue, relationship texture, wonder, character revelation, meaningful decompression, meaning change hoặc unresolved movement.
-
-## 12. Emotional Residue contract
-
-Không ép emotional climax mỗi chapter.
-
-Nhưng rolling 3–5 chapter cần có thay đổi có bằng chứng về ít nhất một:
-
-- emotional state;
-- relationship meaning;
-- self-image;
-- attachment/grief/joy/shame/fear;
-- object/memory meaning;
-- costly mistake scar.
-
-Nếu chỉ knowledge/inventory/cultivation đổi, Reader Retention Editor cảnh báo.
-
-## 13. Three-mode Quality Gate
-
-Mỗi chapter trong enforcement window phải có:
-
-1. `continuity_report.md`;
-2. `reader_retention_report.md`;
-3. `style_fingerprint_report.md`;
-4. `quality_report.md` aggregate.
-
-Aggregate không PASS nếu reviewer còn BLOCKER/MAJOR.
+Ba reviewer độc lập:
 
 ### Continuity Auditor
+Kiểm canon, timeline, geography, power/cultivation, item, injury, knowledge, relationship, POV.
 
-Canon, timeline, geography, cultivation/power, techniques/items, injury/fatigue, knowledge, relationship/faction state, POV boundary, hard DNA/runtime contradiction.
-
-### Reader Retention Editor
-
-Story Promise magnitude/drought, Narrative Engine + 3/4 rule, Dramatic Geometry, Competence Friction, Aspiration, Heat Curve, Binge Test, Xianxia Density, opening/movement/drag, agency/humanity, costly mistakes, Xianxia Experience, Emotional Residue, ending/reason-to-continue.
-
-Binge Test bắt buộc trả lời:
-
-1. **Khoảnh khắc sướng nhất chương là gì?**
-2. **Nếu bỏ ending hook, bản thân chương này có đủ đáng đọc không?** (`YES / WEAK / NO`)
-
-`NONE` ở câu 1 hoặc `NO` ở câu 2 là MAJOR trừ explicit structural waiver hợp lệ theo spec v3.
-
-Xianxia Density Gate bắt buộc kiểm `X0–X3`, Replaceability, rolling 3 và rolling 5 theo `docs/XIANXIA_DENSITY_CONTROLLER.md`.
+### Story Promise Reviewer
+Chỉ kiểm Story Promise: target có đúng không, ADVANCE/PAY có thật không, magnitude có bị phóng đại không, drought có vượt contract không.
 
 ### Style Fingerprint Auditor
+Kiểm dấu AI, nhịp câu/đoạn, rhetorical tics, dialogue sameness, exposition, calibration và Reference Style drift/overfit nếu bật.
 
-Rhetorical tics, Q&A cleanliness, hypothesis-loop, aphorism density, paragraph/cadence repetition, dialogue sameness, positive texture, calibration drift.
+Aggregate gate chỉ tổng hợp ba reviewer này. Không có Reader-Reward/Xianxia Density/Heat/Binge/Engine gate.
 
-Nếu Reference Style bật, bắt buộc thêm:
+## 12. Rewrite discipline
 
-- high-level alignment với Style Bible;
-- drift-away sang prose AI/generic;
-- overfit/imitation risk;
-- reference weakness leakage;
-- project-owned calibration priority.
+Rewrite sửa findings cụ thể, ưu tiên:
 
-## 14. Rolling 3-Chapter Audit
+`CUT > COMPRESS > REORDER > REPLACE > ADD`.
 
-Trước final các chapter chia hết cho 3: `3, 6, 9, 12, 15...`
+Không thêm lore, cơ chế, faction, scene hoặc explanation chỉ để “clear” một metric.
 
-Đọc full final N-2 + final N-1 + rewrite candidate N, rồi tạo:
+Mặc định final không nên dài hơn draft quá khoảng **25%**. Nếu lỗi cấu trúc không sửa được trong budget này, quay lại scene plan và tạo draft mới thay vì vá dài.
 
-`chapters/NNNN/rolling_3_chapter_audit.md`
-
-Kiểm opening, engine, Dramatic Geometry, dialogue geometry, conflict solution, ending, rhetorical tics, Story Promise magnitude, Competence Friction, Aspiration, Heat trend, Binge Test trend, Xianxia Density/Replaceability, Xianxia Experience, Emotional Residue, costly mistake pattern và style consistency.
-
-Batch size 5 **không thay cadence này**.
-
-Nếu candidate gây MAJOR, rewrite candidate; không retcon hai final trước chỉ để tạo variety.
-
-## 15. Rewrite contract
-
-Rewrite phải:
-
-1. sửa toàn bộ BLOCKER/MAJOR từ ba reviewer + rolling audit nếu có;
-2. giữ canon đúng;
-3. không thêm twist lớn ngoài outline để cứu prose;
-4. sửa structure nếu lỗi là Narrative Engine/geometry, không synonym-spin;
-5. sửa root cause nếu lỗi là friction/aspiration/heat/binge, không chỉ thêm một câu hook;
-6. nếu thiếu Xianxia Density, sửa supernatural causality/constraint/consequence, không rắc thêm vocabulary;
-7. nếu style drift-away, quay về trait cấp cao trong story Style Bible;
-8. nếu overfit reference, de-reference câu/cú pháp/frame và giữ Character DNA/story voice;
-9. re-check vùng sửa và continuity liên quan.
-
-## 16. Memory contract
-
-Sau mỗi final, cập nhật story memory trước chapter tiếp.
-
-Bắt buộc nếu thay đổi:
-
-- time/location;
-- character state/injury/emotion/goal;
-- cultivation;
-- inventory;
-- relationship;
-- knowledge;
-- faction;
-- promises/debts/tasks in-world;
-- foreshadowing/unresolved;
-- canon fact.
-
-`memory/reader_experience.md` phải ghi:
-
-- promise `UNTOUCHED/ADVANCE/PAY_MINOR/PAY_MAJOR/PAY_ARC`;
-- pay drought + major payoff debt;
-- last_major_payoff;
-- last_wonder_beat;
-- last_emotional_hit;
-- last_costly_mistake;
-- recent engines;
-- Dramatic Geometry signatures;
-- competence outcomes;
-- aspiration beats;
-- peak heat;
-- `xianxia_peak` sequence;
-- Ambient / Active / Aspirational Xianxia summary;
-- replaceability sequence;
-- last `X2+`, last `X3`, genre_density_debt;
-- Binge Test result;
-- dialogue geometries;
-- ending shapes;
-- rhetorical tics;
-- Xianxia Experience;
-- reader appetite/payoff debt.
-
-Không lưu prose reference vào memory. Chỉ lưu tic/drift/calibration metadata của **story hiện tại** nếu relevant.
-
-## 17. Batch 5 contract
-
-**Default batch size = 5.**
-
-Lệnh “viết batch tiếp theo” mà user không nêu số khác được hiểu là **5 chapter**.
-
-Transaction:
+## 13. Atomic chapter transaction
 
 ```text
-Ch.N: plan → draft → 3-mode QC → rewrite → rolling audit if due → final → story+reader memory
-Ch.N+1: đọc memory mới → lặp lại
-...
-đến đủ 5 chapter
-→ batch audit
+READ
+→ PLAN
+→ DRAFT
+→ CONTINUITY AUDIT
+→ STORY PROMISE REVIEW
+→ STYLE AUDIT
+→ AGGREGATE
+→ REWRITE IF NEEDED
+→ CRITICAL RE-QC
+→ FINAL
+→ UPDATE STORY MEMORY
+→ UPDATE PROMISE MEMORY
 ```
 
-Không plan/draft 5 chapter song song rồi update memory cuối batch.
+Không có Rolling 3-Chapter Audit bắt buộc.
 
-Các range mặc định:
+## 14. Batch 5
 
-- 1–5
-- 6–10
-- 11–15
-- 16–20
-- ...
+Mặc định viết 5 chương tuần tự. Sau mỗi chương phải update memory trước khi sang chương kế.
 
-Cuối batch tạo:
+Cuối batch tạo `batch_NNNN_NNNN_audit.md` để kiểm:
 
-`chapters/batch_NNNN_NNNN_audit.md`
+- artifact completeness;
+- continuity handoff;
+- Story Promise delivery/drought;
+- style problems đáng chú ý;
+- next-batch priorities.
 
-Audit: artifact completion, arc progress, Story Promise magnitude/drought, Narrative Engine, Dramatic Geometry, Competence Friction, Aspiration coverage, Heat Curve rolling-5, Xianxia Density peak sequence/replaceability/Active+Strong counts, Binge Test health, Xianxia/Emotional experience, continuity, character agency/irrationality, power/resource economy, style fingerprint, Reference Style drift/overfit khi enabled, threads/setup/payoff, Reader Experience consistency, next-batch handoff.
+Batch Audit không chạy controller khác.
 
-Nếu technical gate sạch nhưng retention hoặc Xianxia Density controller còn MAJOR → `REPAIR_REQUIRED`, không PASS.
+## 15. Completion semantics
 
-Nếu user explicit yêu cầu range/batch size khác, ưu tiên yêu cầu user cho lần chạy đó.
+Chapter chỉ COMPLETE khi có scene plan, draft, continuity report, Story Promise review, style report, aggregate report, rewrite nếu cần, final và memory hiện tại.
 
-## 18. Orchestration completion gate
+Batch chỉ COMPLETE khi đủ requested finals, memory qua chapter cuối và batch audit tồn tại.
 
-Không báo stage/batch complete chỉ vì final đã viết.
-
-### Per chapter v3 artifacts
-
-- scene plan;
-- draft;
-- 3 reviewer reports;
-- aggregate quality report;
-- rewrite nếu required;
-- rolling audit nếu N%3==0;
-- final;
-- story memory + reader experience update.
-
-### Genesis style gate when Reference Style enabled
-
-- seed/manifest trỏ tới profile hợp lệ;
-- Style Bible có `Reference Style Adaptation Contract`;
-- đã ghi traits inherit/adapt/filter;
-- không dùng prose reference làm calibration;
-- lock `reference_style_adapted: true` chỉ sau khi hoàn tất các mục trên.
-
-### Per batch artifacts
-
-- đủ 5 final mặc định hoặc đủ requested range;
-- memory phản ánh last chapter;
-- `batch_NNNN_NNNN_audit.md`;
-- arc revision nếu cần;
-- next-batch handoff.
-
-Thiếu artifact bắt buộc → `INCOMPLETE`.
-
-### Legacy batch-size compatibility
-
-Existing `batch_0001_0010_audit.md` không invalid khi default đổi 10 → 5.
-
-Khi migrate story:
-
-- set manifest `pipeline.batch_size: 5`;
-- giữ audit lịch sử;
-- next batch bắt đầu tại `next_chapter` và lấy 5 chapter;
-- không fake retroactive split audit.
-
-## 19. Final file contract
-
-Final UTF-8 plain text:
-
-`stories/<slug>/final/Chương X: <Tiêu đề>.txt`
-
-Chỉ chứa title + story prose. Không QC note/metadata/prompt/markdown report.
-
-## 20. Automation discipline
-
-“Tự động” nghĩa ChatGPT tự chạy đầy đủ stage **trong lượt làm việc hiện tại**. Không bỏ kiểm tra, không bịa missing data, không giả có background process, không làm song song stage phụ thuộc nhau.
-
-## 21. Retention Controllers v3 contract
-
-Sáu controller dưới đây là **binding**, không phải suggestion:
-
-1. Dramatic Geometry Controller;
-2. Payoff Magnitude;
-3. Competence Friction Meter;
-4. Aspiration Controller;
-5. Heat Curve;
-6. Binge Test.
-
-Rule chi tiết và severity mặc định nằm tại `docs/RETENTION_CONTROLLERS_V3.md`.
-
-Không được kết luận batch/chapter PASS chỉ vì continuity, style và artifact completion đều sạch nếu một retention controller còn `MAJOR`.
-
-Core principle:
-
-**PASS kỹ thuật ≠ PASS trải nghiệm đọc.**
-
-## 22. Xianxia Density Controller v3 contract
-
-Controller này là **binding cho truyện mới framework v3**.
-
-Nó kiểm:
-
-1. Ambient Xianxia;
-2. Active Xianxia causality;
-3. Aspirational Xianxia;
-4. `xianxia_peak X0–X3`;
-5. Replaceability Test;
-6. rolling 3 Active requirement;
-7. rolling 5 `2×X2+ + 1×X3` requirement;
-8. genre_density_debt.
-
-Rule chi tiết và severity tại `docs/XIANXIA_DENSITY_CONTROLLER.md`.
-
-Không được coi việc có nhiều danh từ “linh khí / linh thạch / công pháp / pháp bảo” là đủ density nếu supernatural law không thay đổi lựa chọn hoặc hậu quả.
-
-Core principle:
-
-**Truyện phải có nhân quả tu tiên, không chỉ skin tu tiên.**
-
-## 23. Reference Style System contract
-
-Reference Style là **binding ở Genesis/Style stage khi story bật profile**, nhưng chỉ ở cấp high-level Style DNA.
-
-Flow:
-
-`reference → high-level decomposition → Reference Profile → story Style Bible → project-owned calibration → Style QC`.
-
-Rules:
-
-1. Không lệnh Writer “viết giống tác giả X”.
-2. Không copy câu chữ, đoạn văn, rhetorical frame, hình ảnh đặc trưng, plot/character từ reference.
-3. Style Bible phải adapt reference theo premise + Character DNA + Reader Retention + Xianxia Density.
-4. Reference weakness phải được lọc rõ.
-5. Writer dùng Style Bible làm direct contract.
-6. Style Fingerprint Auditor bắt cả `drift-away` và `overfit`.
-7. Khi đủ calibration do chính story tạo, project calibration có ưu tiên cao hơn Reference Profile.
-8. Story cũ không tự nhận default profile nếu user không yêu cầu.
-
-Chi tiết: `docs/REFERENCE_STYLE_SYSTEM.md`.
-
-Core principle:
-
-**Học cấu trúc văn phong, không sao chép dấu vân tay của tác phẩm tham chiếu.**
+Thiếu artifact → `INCOMPLETE`, không verbal-pass.
