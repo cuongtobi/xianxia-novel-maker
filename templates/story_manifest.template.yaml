@@ -13,6 +13,7 @@ pipeline:
   batch_size: 5
   batch_workflow: "docs/BATCH_5_WORKFLOW.md"
   retention_spec: "docs/RETENTION_CONTROLLERS_V3.md"
+  xianxia_density_spec: "docs/XIANXIA_DENSITY_CONTROLLER.md"
   current_stage: "seed"
   last_finalized_chapter: 0
   current_arc: "arc_001"
@@ -26,6 +27,7 @@ pipeline:
   rewrite_required: true
   reader_experience_required: true
   retention_v3_required: true
+  xianxia_density_required: true
   retention_controllers:
     dramatic_geometry: true
     payoff_magnitude: true
@@ -33,6 +35,7 @@ pipeline:
     aspiration: true
     heat_curve: true
     binge_test: true
+    xianxia_density: true
 
 artifacts:
   seed: "seed/seed.yaml"
@@ -54,6 +57,7 @@ locks:
   memory_initialized: false
   reader_experience_initialized: false
   retention_v3_initialized: false
+  xianxia_density_initialized: false
 
 production:
   target_chapters: null
@@ -68,6 +72,7 @@ completion_gate:
   require_reader_experience_update: true
   require_rolling_audit_when_due: true
   require_reader_reward_gate: true
+  require_xianxia_density_gate: true
   v3_enforced_from_chapter: 1
 
 migration:
