@@ -1,6 +1,6 @@
 # Batch Audit Template
 
-> Default range = 5 chapters.
+> Default range = 5 chapters. Persist this file in the same atomic commit as the last chapter of the requested batch.
 
 # Metadata
 
@@ -10,44 +10,47 @@
 - Arc(s):
 - Audit result: PASS / ACTION_REQUIRED / INCOMPLETE
 
-# 1. Artifact Completion
+# 1. Atomic Chapter Completion
 
-| Ch | Scene plan | Draft | Continuity | Promise review | Style | Quality | Rewrite if needed | Final | Memory current |
-|---|---|---|---|---|---|---|---|---|---|
+| Ch | Atomic commit | Scene plan | Draft | Combined QC PASS | Final | Memory+manifest same commit |
+|---|---|---|---|---|---|---|
+
+All five requested chapters must be complete.
 
 # 2. Continuity Handoff
 
 - Canon issues:
 - Timeline/power/resource inconsistencies:
 - Threads carried correctly?:
+- Memory current through last chapter?:
 
 # 3. Story Promise Controller
 
 | Promise ID | Ch1 | Ch2 | Ch3 | Ch4 | Ch5 | Last PAY | Drought | Next planned PAY |
 |---|---|---|---|---|---|---|---:|---|
 
-Statuses use `UNTOUCHED / ADVANCE / PAY_MINOR / PAY_MAJOR / PAY_ARC`.
+Statuses: `UNTOUCHED / ADVANCE / PAY_MINOR / PAY_MAJOR / PAY_ARC`.
 
 Evaluate:
 
 - concrete PAYs delivered:
 - false PAYs found:
-- core promise beyond/near drought:
-- promise priority for next batch:
+- core promise near/beyond drought:
+- next-batch promise priority:
 
 # 4. Style Summary
 
-- Cross-chapter AI-like fingerprints worth fixing next batch:
-- Reference style drift/overfit if enabled:
+- Cross-chapter AI-like fingerprints worth watching:
+- Reference Style drift/overfit if enabled:
 - Calibration notes:
 
-Không biến phần này thành Narrative Engine/Geometry controller.
+# 5. Transaction Efficiency
 
-# 5. Rewrite Discipline Check
-
-- Any rewrite expanded draft >~25%?:
-- If yes, was expansion justified by a missing mandatory scene?:
-- Any evidence QC added lore/mechanism merely to pass checks?:
+- Separate QC artifacts accidentally created?: yes/no
+- Rewrite artifact accidentally created?: yes/no
+- Any chapter required rewrite?:
+- If rewrite ran, was it triggered by BLOCKER/MAJOR?:
+- Any partial Git writes before atomic commit?:
 
 # 6. Next-Batch Handoff
 
@@ -60,9 +63,10 @@ Không biến phần này thành Narrative Engine/Geometry controller.
 
 # 7. Gate
 
-- Required artifacts complete?:
+- 5 atomic chapter commits complete?:
+- Combined QC PASS for all?:
 - Memory current through last chapter?:
 - Unresolved BLOCKER/MAJOR?:
-- Batch audit ready?:
+- Batch audit included in last chapter commit?:
 
-No retired controller audit is required.
+No checkpoint at chapter 3. No rolling audit or retired controller audit.

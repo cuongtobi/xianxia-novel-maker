@@ -1,5 +1,5 @@
 # Story Manifest Template
-# File đích: stories/<slug>/manifest.yaml
+# File: stories/<slug>/manifest.yaml
 
 story:
   slug: ""
@@ -9,7 +9,7 @@ story:
   language: "vi"
 
 pipeline:
-  version: "3.1"
+  version: "3.2"
   batch_size: 5
   batch_workflow: "docs/BATCH_5_WORKFLOW.md"
   story_promise_spec: "docs/READER_EXPERIENCE_SYSTEM.md"
@@ -17,20 +17,27 @@ pipeline:
   reference_style_profile: "docs/reference_profiles/TIEN_NGHICH_HIGH_LEVEL_STYLE.md"
   controllers:
     - story_promise
+  qc_mode: "combined_qc"
+  chapter_transaction: "atomic_git_commit"
+  rewrite_mode: "on_qc_failure"
+  persist_rewrite_artifact: false
+  batch_audit_in_last_chapter_commit: true
   current_stage: "seed"
   last_finalized_chapter: 0
   current_arc: "arc_001"
   next_chapter: 1
-  qc_required: true
-  qc_modes:
-    - continuity
-    - story_promise
-    - style_fingerprint
-  rewrite_required: true
-  story_promise_required: true
   reader_experience_required: true
   reference_style_enabled: true
   reference_style_mode: "high_level_style_dna_only"
+
+chapter_artifacts:
+  required:
+    - "scene_plan.md"
+    - "draft.txt"
+    - "combined_qc_report.md"
+  final_required: true
+  separate_qc_reports: false
+  rewrite_artifact_required: false
 
 artifacts:
   seed: "seed/seed.yaml"
@@ -58,12 +65,15 @@ production:
   chapter_words_target: null
   last_batch_audit: null
   next_batch_start: 1
+  last_atomic_chapter_commit: null
 
 completion_gate:
   verify_artifacts_before_reporting_complete: true
+  require_combined_qc_pass: true
+  require_atomic_chapter_commit: true
+  require_memory_in_same_commit: true
   require_batch_audit: true
   require_reader_experience_update: true
-  require_story_promise_review: true
   require_reference_style_adaptation_when_enabled: true
 
 migration:
@@ -74,6 +84,7 @@ migration:
   prior_batch_size: null
   batch_size_migrated_at_chapter: null
   retired_controller_artifacts_preserved: true
+  retired_separate_qc_artifacts_preserved: true
 
 notes:
   framework_migration: ""

@@ -1,29 +1,51 @@
-# Framework v3.1 Migration — Promise-Only
+# Framework v3.2 Migration — Atomic Combined QC
 
-Framework v3.1 đơn giản hóa v3: **chỉ Story Promise Controller còn active**.
+v3.2 giữ kiến trúc promise-only của v3.1 nhưng tối ưu transaction để Batch 5 nhẹ hơn.
 
-## Retired controller state
+## Changes
 
-Các field/report liên quan Narrative Engine, Dramatic Geometry, Competence Friction, Aspiration, Heat, Binge, Xianxia Experience/Density, Emotional Residue và Human Irrationality Controller là historical data. Không cần xóa khỏi final cũ, nhưng không tiếp tục enforce/update.
+1. Controller active duy nhất vẫn là Story Promise Controller.
+2. Ba report QC + aggregate được thay bằng một `combined_qc_report.md`.
+3. `rewrite.txt` không còn là artifact mặc định.
+4. Rewrite chỉ chạy khi Combined QC có BLOCKER/MAJOR cần sửa.
+5. Mỗi chapter persist bằng one Git tree/commit + one branch ref update.
+6. Batch audit được đưa vào commit của chapter cuối requested batch.
+7. Không có rolling audit/checkpoint Ch.3.
 
-## Migration steps
+## Retired active artifacts
 
-1. giữ nguyên canon/final;
-2. cập nhật manifest `version: 3.1`;
-3. `controllers: [story_promise]`;
-4. `qc_modes: [continuity, story_promise, style_fingerprint]`;
-5. bỏ requirement `rolling_audit_every`, `retention_v3_required`, `xianxia_density_required` và các controller flags;
-6. rút `memory/reader_experience.md` về Story Promise state;
-7. rút current/future arc về Promise PAY windows + story beats bình thường;
-8. không backfill/xóa historical controller reports;
-9. production tiếp theo dùng `docs/BATCH_5_WORKFLOW.md`.
+Không tạo mới:
+
+- `continuity_report.md`
+- `reader_retention_report.md`
+- `style_fingerprint_report.md`
+- `quality_report.md`
+- `rewrite.txt`
+- `rolling_3_chapter_audit.md`
+
+Historical copies được giữ nguyên trên story cũ.
+
+## Migration steps for a story branch
+
+1. giữ nguyên canon/finals/history;
+2. update manifest `version: 3.2`;
+3. set `qc_mode: combined_qc`;
+4. set `chapter_transaction: atomic_git_commit`;
+5. set `rewrite_mode: on_qc_failure`;
+6. set `persist_rewrite_artifact: false`;
+7. giữ `controllers: [story_promise]`;
+8. bỏ requirement separate QC/rolling audit;
+9. từ `next_chapter` trở đi dùng BATCH_5_WORKFLOW v3.2;
+10. không backfill Combined QC cho final cũ như thể nó đã chạy pre-final.
+
+## Atomicity rule
+
+Mỗi future chapter phải được chuẩn bị đầy đủ trước khi write GitHub. Tất cả chapter artifacts, final, changed memory và manifest nằm trong cùng một commit.
+
+Nếu lỗi trước branch `update_ref`, chapter chưa complete và có thể chạy lại từ HEAD cũ.
 
 ## Compatibility
 
-Filename `reader_retention_report.md` được giữ để không phá story/tooling cũ, nhưng nội dung native v3.1 là **Story Promise Review**.
+Historical report files có thể tồn tại nhưng không phải completion requirement của v3.2.
 
-`rolling_3_chapter_audit.md` cũ vẫn có giá trị lịch sử nhưng không còn artifact bắt buộc.
-
-## Goal
-
-Giảm cognitive load cho Writer và tránh tình trạng prose được tạo để chứng minh compliance với nhiều metric thay vì phục vụ câu chuyện.
+Batch audit cũ vẫn có giá trị historical. Không cần rewrite/chia lại audit cũ.

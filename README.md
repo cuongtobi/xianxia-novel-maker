@@ -1,8 +1,10 @@
 # Xianxia Novel Maker
 
-Pipeline viết truyện dài tập **tiên hiệp / tu tiên / huyền huyễn bằng tiếng Việt** bằng ChatGPT Web + GitHub.
+Pipeline viết truyện dài tập **tiên hiệp / tu tiên / huyền huyễn bằng tiếng Việt** trên ChatGPT Web + GitHub.
 
-Framework hiện hành dùng triết lý **promise-first, controller-light**: chỉ giữ **Story Promise Controller**. Continuity và Style vẫn được QC bằng auditor, nhưng không phải controller sáng tác.
+Framework hiện hành: **v3.2 — Promise-Only + Atomic Combined QC**.
+
+Controller duy nhất: **Story Promise Controller**.
 
 ## Pipeline
 
@@ -12,148 +14,116 @@ Seed
 → Style Bible
 → Characters Bible
 → Master Outline + 3–5 Story Promises
-→ Arc Outline + Promise PAY windows
-→ Story Memory + Promise Memory
-→ Scene Plan
-→ Draft
-→ Continuity Auditor
-→ Story Promise Reviewer
-→ Style Fingerprint Auditor
-→ Aggregate Quality Gate
-→ Rewrite if needed
-→ Final TXT
-→ Update Memory
-→ Next chapter
+→ Arc Outline
+→ Story + Promise Memory
+→ Batch 5
 ```
 
-Default batch = **5 chương**, viết tuần tự.
-
-## Controller duy nhất
-
-### Story Promise Controller
-
-Mỗi truyện khóa 3–5 lời hứa độc giả. Mỗi promise có:
-
-- ID;
-- promise;
-- lý do reader quan tâm;
-- PAY definition;
-- ADVANCE definition;
-- false pay;
-- drought warning;
-- escalation path.
-
-Per chapter dùng:
-
-`UNTOUCHED / ADVANCE / PAY_MINOR / PAY_MAJOR / PAY_ARC`.
-
-Payoff magnitude là một phần của Story Promise, không phải controller riêng.
-
-## Đã loại bỏ khỏi pipeline
-
-Không còn controller/gate/quota bắt buộc cho:
-
-- Narrative Engine;
-- Dramatic Geometry;
-- Competence Friction;
-- Aspiration;
-- Heat Curve;
-- Binge Test;
-- Xianxia Experience;
-- Xianxia Density;
-- Emotional Residue;
-- Human Irrationality.
-
-Các yếu tố như nhịp, cảm xúc, wonder, sai lầm hay chất tiên hiệp vẫn được Writer/Story Bible/Style Bible xử lý tự nhiên, nhưng không bị đo thành rolling metric.
-
-## Quick start
+Mỗi chapter:
 
 ```text
-@GitHub làm việc với repo cuongtobi/xianxia-novel-maker
+READ
+→ SCENE PLAN
+→ DRAFT
+→ COMBINED QC
+→ FINAL
+→ MEMORY UPDATE
+→ ONE ATOMIC GIT COMMIT
 ```
 
-Tạo truyện:
+`combined_qc_report.md` gồm ba phần:
+
+- Continuity
+- Story Promise
+- Style
+
+## Rewrite
+
+Rewrite **không còn là stage mặc định**.
+
+Nếu Combined QC = PASS:
 
 ```text
-Dùng seed này tạo story branch mới và chạy toàn bộ Genesis đến khi sẵn sàng viết chương 1.
+draft → final
 ```
 
-Viết batch:
+Nếu Combined QC = REWRITE_REQUIRED:
+
+- sửa candidate trong working memory;
+- quick recheck finding fail;
+- ghi recheck vào cùng Combined QC report;
+- chỉ persist final đã pass.
+
+Không tạo `rewrite.txt` cho chapter mới.
+
+## Atomic chapter commit
+
+Không write từng artifact bằng nhiều commit.
+
+Sau khi toàn bộ chapter đã sẵn sàng:
+
+```text
+create_blob(all changed files)
+→ create_tree(base_tree=chapter-start tree)
+→ create_commit(parent=chapter-start HEAD)
+→ update_ref once
+```
+
+Một chapter commit chứa tối thiểu:
+
+```text
+chapters/NNNN/scene_plan.md
+chapters/NNNN/draft.txt
+chapters/NNNN/combined_qc_report.md
+final/Chương N: <title>.txt
+memory/* changed files
+manifest.yaml
+```
+
+Nếu là chapter cuối requested batch, cùng commit thêm `batch_NNNN_NNNN_audit.md`.
+
+## Batch 5
+
+Lệnh chuẩn:
 
 ```text
 Viết batch 5 chương tiếp theo theo BATCH_5_WORKFLOW, tuần tự và cập nhật memory sau từng chương.
 ```
 
-## Branch model
+Mỗi chapter = một atomic commit. Không có checkpoint Ch.3 hoặc rolling audit. Batch audit chỉ tạo sau chapter thứ 5 của requested range.
 
-- Framework: `main`
-- Story: `story/<slug>`
+## Story Promise Controller
 
-Framework changes không tự áp vào story branch cũ; story cũ cần sync/migrate riêng.
+Mỗi story khóa 3–5 promises. Per chapter dùng:
 
-## Story tree
+- UNTOUCHED
+- ADVANCE
+- PAY_MINOR
+- PAY_MAJOR
+- PAY_ARC
+
+Theo dõi last PAY, major PAY, drought và planned payoff window. Setup/lời hứa tương lai không tự tính PAY.
+
+## Artifact structure
 
 ```text
 stories/<slug>/
 ├── manifest.yaml
 ├── seed/seed.yaml
 ├── bible/
-│   ├── story_bible.md
-│   ├── style_bible.md
-│   └── characters_bible.md
 ├── outline/
-│   ├── master_outline.md
-│   └── arcs/arc_001.md
 ├── chapters/
 │   ├── 0001/
 │   │   ├── scene_plan.md
 │   │   ├── draft.txt
-│   │   ├── continuity_report.md
-│   │   ├── reader_retention_report.md   # compatibility filename; content = Story Promise Review
-│   │   ├── style_fingerprint_report.md
-│   │   ├── quality_report.md
-│   │   └── rewrite.txt                  # only when needed/configured
+│   │   └── combined_qc_report.md
 │   └── batch_0001_0005_audit.md
 ├── final/
 │   └── Chương X: <Tiêu đề>.txt
 └── memory/
-    ├── current_state.md
-    ├── canon_ledger.md
-    ├── timeline.md
-    ├── character_states.md
-    ├── relationships.md
-    ├── cultivation_ledger.md
-    ├── inventory_artifacts.md
-    ├── factions_locations.md
-    ├── knowledge_ledger.md
-    ├── foreshadowing.md
-    ├── unresolved_threads.md
-    ├── chapter_summaries.md
-    └── reader_experience.md             # Promise runtime state only
 ```
 
-## Chapter transaction
-
-```text
-Context Assembly
-→ Scene Plan
-→ Draft
-→ Continuity Audit
-→ Story Promise Review
-→ Style Audit
-→ Aggregate Gate
-→ Rewrite if needed
-→ Critical Re-QC
-→ Final
-→ Story Memory
-→ Promise Memory
-```
-
-Không có Rolling 3-Chapter Audit bắt buộc.
-
-## Rewrite discipline
-
-Rewrite ưu tiên `CUT > COMPRESS > REORDER > REPLACE > ADD` và mặc định không làm final dài hơn draft quá khoảng 25%. Lỗi cấu trúc lớn nên re-plan/re-draft thay vì vá dài.
+Historical story branches có thể vẫn chứa report/rewrite/rolling-audit cũ; giữ làm lịch sử nhưng không tiếp tục sinh ở v3.2.
 
 ## Source of truth
 
@@ -165,28 +135,28 @@ Rewrite ưu tiên `CUT > COMPRESS > REORDER > REPLACE > ADD` và mặc định k
 5. Arc Outline
 6. Master Outline
 7. Seed
-8. Draft / Scene Plan
+8. Draft/Scene Plan
 ```
 
-## Tài liệu chính
+## Core docs
 
 - `AGENTS.md`
 - `docs/ARCHITECTURE.md`
 - `docs/BATCH_5_WORKFLOW.md`
-- `docs/READER_EXPERIENCE_SYSTEM.md`
-- `docs/REFERENCE_STYLE_SYSTEM.md`
 - `docs/GITHUB_CHATGPT_PROTOCOL.md`
-- `memory/MEMORY_SYSTEM.md`
+- `docs/READER_EXPERIENCE_SYSTEM.md`
 - `prompts/PIPELINE_PROMPTS.md`
-- `templates/*.template.*`
+- `templates/combined_qc_report.template.md`
 
-## Nguyên tắc cuối
+## Principle
 
 ```text
 GitHub giữ sự thật.
 Bible giữ luật.
 Character DNA giữ con người.
 Story Promise giữ lời hứa.
-QC bắt lỗi.
-Writer viết truyện, không viết để clear metric.
+Combined QC giữ chất lượng.
+Atomic commit giữ transaction sạch.
+Final giữ tác phẩm.
+Memory giữ continuity.
 ```

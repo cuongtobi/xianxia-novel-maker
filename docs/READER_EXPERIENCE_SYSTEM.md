@@ -1,123 +1,90 @@
 # Story Promise System
 
-File này định nghĩa **controller duy nhất** của framework: Story Promise Controller.
+Controller duy nhất của framework: **Story Promise Controller**.
 
-## 1. Mục tiêu
+## 1. Purpose
 
 Story Promise trả lời: **độc giả chọn và tiếp tục truyện này để nhận điều gì?**
 
-Mỗi truyện khóa 3–5 promises từ Genesis. Promise không phải topic; nó là cam kết trải nghiệm/kết quả dài hạn.
+Mỗi story khóa 3–5 promises từ Genesis.
 
 ## 2. Promise contract
 
 Mỗi promise có:
 
-- `Promise ID` ổn định;
-- `promise` — lời hứa cụ thể;
-- `reader_value` — vì sao độc giả quan tâm;
-- `PAY definition` — điều kiện thực sự được tính payoff;
-- `ADVANCE definition` — setup/pressure/clue/progress nhưng chưa trả;
-- `false pay` — thứ trông giống payoff nhưng không đủ;
-- `drought_warning` — số chương tối đa không PAY trước khi cảnh báo;
-- `escalation_path` — promise lớn dần thế nào qua saga/arc.
+- stable ID;
+- promise;
+- reader value;
+- PAY definition;
+- ADVANCE definition;
+- false pay;
+- drought warning;
+- escalation path.
 
-## 3. Per-chapter states
+## 3. Per-chapter status
 
-- `UNTOUCHED` — chapter không chạm promise;
-- `ADVANCE` — tăng setup/pressure/clue/progress;
-- `PAY_MINOR` — payoff thật phạm vi nhỏ;
-- `PAY_MAJOR` — payoff đáng kể, reader cảm thấy lời hứa được trả rõ;
-- `PAY_ARC` — payoff đóng/tái định nghĩa một objective/threshold cấp arc.
+- `UNTOUCHED`
+- `ADVANCE`
+- `PAY_MINOR`
+- `PAY_MAJOR`
+- `PAY_ARC`
 
-Magnitude là thuộc tính của Promise Controller, không phải controller riêng.
+Magnitude là thuộc tính của Story Promise, không phải controller riêng.
 
 ## 4. PAY rule
 
-Chỉ đánh PAY khi chapter tạo ít nhất một thứ hữu hình đối với reader:
+Chỉ đánh PAY khi chapter tạo result/reveal/acquisition/loss/progression/relationship/status/state change hoặc trải nghiệm trung tâm mà promise đã cam kết.
 
-- kết quả;
-- reveal;
-- acquisition/loss;
-- chiến thắng/thất bại có hậu quả;
-- progression có bằng chứng;
-- relationship/status/state change;
-- trải nghiệm trung tâm mà promise đã cam kết.
-
-Không tính PAY cho:
-
-- nói về điều sẽ làm;
-- setup chưa convert thành result;
-- hook cuối hứa chương sau;
-- đổi wording nhưng state không đổi;
-- một chi tiết quá nhỏ so với PAY definition.
+Không tính PAY cho setup, lời hứa tương lai, hook chưa thành result hoặc state change quá nhỏ so với PAY definition.
 
 ## 5. Drought
 
-Theo dõi cho từng core promise:
+Theo dõi:
 
 - `last_touch_chapter`;
 - `last_pay_chapter`;
 - `last_major_pay_chapter`;
 - `pay_drought`;
-- `drought_warning`.
+- `drought_warning`;
+- next planned payoff window.
 
-Vượt drought warning → finding. Severity tùy mức độ core của promise và arc context.
+Không ép fake payoff để reset drought. Nếu chapter hiện tại không organic cho PAY, sửa future arc/window.
 
-Không ép fake payoff chỉ để reset drought. Nếu current chapter không organic cho PAY, sửa future outline/window.
-
-## 6. Planning locations
+## 6. Pipeline integration
 
 Story Promise được dùng tại:
 
-1. Genesis → master outline khóa contract;
+1. Genesis → master outline;
 2. Arc → planned PAY windows;
-3. Chapter plan → target trạng thái;
-4. Story Promise Review → xác nhận thực tế;
-5. Memory → lưu last touch/pay/drought;
-6. Batch Audit → xem balance và debt.
+3. Scene plan → Promise target;
+4. **Combined QC / Story Promise section** → xác nhận actual status;
+5. Memory → update runtime promise state;
+6. Batch Audit → xem payoff/drought.
+
+Không có Story Promise report riêng trong v3.2.
 
 ## 7. Writer boundary
 
-Writer chỉ cần biết:
+Writer chỉ cần biết promise chapter phục vụ, target ADVANCE/PAY và concrete payoff nếu có. Không expose metric/controller đã retire.
 
-- promise nào chapter này phục vụ;
-- chapter dự kiến ADVANCE hay PAY;
-- payoff cụ thể nếu có.
+## 8. Promise memory
 
-Writer không cần biết rolling metrics/controller khác. Story Promise không được biến thành checklist nhồi vào prose.
-
-## 8. Memory schema
-
-`memory/reader_experience.md` được giữ tên để tương thích story cũ, nhưng nội dung runtime chỉ cần:
+`memory/reader_experience.md` giữ tên để tương thích nhưng chỉ cần:
 
 ```text
-Story Promise State
-- Promise ID
-- Last status
-- Last touch chapter
-- Last pay chapter
-- Last major pay chapter
-- Current pay drought
-- Drought warning
-- Next planned payoff window
-- Notes
+Promise ID
+Last status
+Last touch chapter
+Last pay chapter
+Last major pay chapter
+Current pay drought
+Drought warning
+Next planned payoff window
+Notes
 ```
-
-Có thể lưu recent 5–10 promise events để audit, không cần lưu Engine/Geometry/Heat/Density/Binge/etc.
 
 ## 9. Retired systems
 
-Các hệ thống sau không còn active controller/gate/quota:
+Không còn active controller/gate/quota cho Narrative Engine, Dramatic Geometry, Competence Friction, Aspiration, Heat, Binge, Xianxia Experience/Density, Emotional Residue hay Human Irrationality Controller.
 
-- Narrative Engine;
-- Dramatic Geometry;
-- Competence Friction;
-- Aspiration;
-- Heat Curve;
-- Binge Test;
-- Xianxia Experience;
-- Xianxia Density;
-- Emotional Residue;
-- Human Irrationality Controller.
-
-Không migrate dữ liệu cũ của chúng thành yêu cầu mới. Artifact cũ giữ nguyên như historical evidence.
+Historical artifacts được giữ làm lịch sử nhưng không tiếp tục enforce.

@@ -1,153 +1,113 @@
-# Architecture — Promise-Only Controller
+# Architecture — Atomic Promise-Only
 
 ## 1. Overview
 
-Xianxia Novel Maker chạy trên ChatGPT Web + GitHub connector. GitHub là persistent state; ChatGPT là execution engine.
+Framework chạy trên ChatGPT Web + GitHub. GitHub giữ persistent state; ChatGPT thực thi pipeline.
 
-Framework hiện hành chỉ có **Story Promise Controller**.
+Controller duy nhất: **Story Promise Controller**.
 
 ```text
-Human Seed
-↓
-Genesis
-  ├─ Story Bible
-  ├─ Style Bible
-  ├─ Characters Bible
-  ├─ Master Outline + 3–5 Story Promises
-  ├─ Arc Outline + Promise PAY windows
-  └─ Story Memory + Promise Memory
-↓
-Sequential Chapter Transaction
-  ├─ Context Assembly
-  ├─ Scene Plan
-  ├─ Draft
-  ├─ Continuity Auditor
-  ├─ Story Promise Reviewer
-  ├─ Style Fingerprint Auditor
-  ├─ Aggregate Quality Gate
-  ├─ Rewrite if needed + critical re-QC
-  ├─ Final TXT
-  └─ Memory Commit
-↓
-Batch Audit every 5 default chapters
+Seed
+→ Bibles
+→ Master Outline + Story Promises
+→ Arc Outline
+→ Story + Promise Memory
+→ Batch 5
+    ├─ Ch.N atomic transaction
+    ├─ Ch.N+1 atomic transaction
+    ├─ ...
+    └─ Ch.N+4 atomic transaction + batch audit
 ```
 
-## 2. Controller boundary
+## 2. Minimal chapter transaction
 
-Controller duy nhất: `Story Promise Controller`.
+```text
+READ
+→ PLAN
+→ DRAFT
+→ COMBINED QC
+→ FINAL
+→ MEMORY UPDATE
+→ ATOMIC COMMIT
+```
 
-Không có active controller/gate/quota cho Narrative Engine, Dramatic Geometry, Competence Friction, Aspiration, Heat, Binge, Xianxia Experience, Xianxia Density, Emotional Residue hay Human Irrationality.
+Persisted chapter artifacts:
 
-Continuity Auditor và Style Fingerprint Auditor là reviewer kỹ thuật, không phải controller sáng tác.
+- `scene_plan.md`
+- `draft.txt`
+- `combined_qc_report.md`
+- final TXT
+- memory/manifest updates
 
-## 3. Data layers
+`rewrite.txt` không phải artifact mặc định. Rewrite chỉ thực hiện trong working memory khi Combined QC yêu cầu.
 
-### Canon / slow-changing
+## 3. Combined QC
 
-- bibles;
-- canon ledger;
-- Character DNA;
-- Story Promise contract;
-- final chapters.
+Một report duy nhất có ba phần:
+
+- Continuity
+- Story Promise
+- Style
+
+Continuity/Style là technical review. Story Promise là controller duy nhất.
+
+## 4. Atomicity model
+
+Mỗi chapter bắt đầu từ một branch HEAD cố định.
+
+Toàn bộ output và memory updates được tạo trước. Sau đó GitHub write dùng:
+
+```text
+create_blob × changed files
+→ create_tree(base_tree=chapter_start_tree)
+→ create_commit(parent=chapter_start_HEAD)
+→ update_ref once
+```
+
+Không dùng nhiều sequential `update_file` để tiến state chapter.
+
+Nếu lỗi trước `update_ref`, branch vẫn ở chapter trước và transaction có thể chạy lại an toàn.
+
+## 5. Rewrite behavior
+
+Combined QC `PASS` → draft được dùng nguyên văn làm final.
+
+Combined QC `REWRITE_REQUIRED` → sửa candidate trong working memory, quick recheck findings fail, ghi recheck vào cùng report, rồi persist final đã pass.
+
+Ưu tiên `CUT > COMPRESS > REORDER > REPLACE > ADD`.
+
+## 6. Data layers
+
+### Canon
+Bibles, canon ledger, finals, Character DNA.
 
 ### Planning
+Master outline, arc outline, Story Promise PAY windows.
 
-- master outline;
-- arc outlines;
-- planned Promise PAY windows;
-- chapter intents.
+### Runtime
+Current state, timeline, characters, relationships, cultivation, inventory, factions/locations, knowledge, foreshadowing, unresolved threads, summaries.
 
-### Runtime story state
+### Promise runtime
+`reader_experience.md` chỉ giữ Story Promise state/payoff/drought.
 
-- current state;
-- timeline;
-- character states;
-- relationships;
-- cultivation;
-- inventory;
-- faction/location;
-- knowledge;
-- foreshadowing;
-- unresolved threads;
-- chapter summaries.
+## 7. Batch 5
 
-### Promise runtime state
+Batch là 5 atomic chapter commits tuần tự. Không có checkpoint chapter 3.
 
-`memory/reader_experience.md` giữ:
+Batch audit được tạo sau chapter thứ 5 và đưa vào cùng commit chapter thứ 5.
 
-- status của 3–5 promises;
-- last ADVANCE/PAY;
-- last major PAY;
-- pay drought;
-- recent payoff notes;
-- next expected payoff window.
+## 8. Completion semantics
 
-## 4. Story branch lifecycle
+Chapter COMPLETE khi commit của nó đã được update vào branch và chứa:
 
-Framework ở `main`; mỗi truyện ở `story/<slug>`.
+- scene plan;
+- draft;
+- Combined QC PASS;
+- final;
+- memory/manifest current.
 
-Genesis:
-
-1. validate seed;
-2. story bible;
-3. style bible;
-4. characters bible;
-5. master outline + Story Promises;
-6. opening arc + Promise PAY windows;
-7. story memory;
-8. promise memory.
-
-## 5. Context Assembly
-
-Always read seed, bibles, Story Promises, current arc, current state, promise memory, canon và recent summaries.
-
-Đọc thêm final/ledger khi continuity hoặc style cần bằng chứng trực tiếp.
-
-## 6. Scene architecture
-
-Scene planning có chủ đích nhưng nhẹ:
-
-- objective;
-- conflict/pressure;
-- POV/time/place/cast;
-- start/end state;
-- key beats/turn;
-- choice/consequence nếu có;
-- Story Promise target;
-- intended payoff nếu có;
-- continuity/style constraints.
-
-Không expose metric labels của controller đã loại bỏ cho Writer.
-
-## 7. QC architecture
-
-### Continuity Auditor
-Canon/state/knowledge/power/POV.
-
-### Story Promise Reviewer
-Kiểm target, ADVANCE/PAY, false pay, magnitude và drought.
-
-### Style Fingerprint Auditor
-Kiểm rhetorical patterns, cadence, dialogue sameness, AI-like prose, calibration, Reference Style drift/overfit.
-
-Aggregate Gate chỉ nhận findings từ ba reviewer này.
-
-## 8. Rewrite
-
-Rewrite là sửa chữa, không phải stage mở rộng worldbuilding.
-
-Ưu tiên `CUT > COMPRESS > REORDER > REPLACE > ADD`; mặc định final:draft <= khoảng 1.25. Structural failure → re-plan/re-draft.
-
-## 9. Batch 5
-
-Chapter transactions chạy tuần tự. Cuối 5 chương tạo batch audit kiểm artifact completion, continuity handoff, Promise delivery/drought, style risk và next-batch priorities.
-
-Batch boundary là operational, không phải arc boundary.
-
-## 10. Completion semantics
-
-`PASS/READY` là artifact state. Thiếu artifact hoặc memory stale → `INCOMPLETE`.
+Batch COMPLETE khi đủ 5 commits/finals và batch audit tồn tại.
 
 Framework tối ưu cho:
 
-**continuity + promise delivery + prose quality + writer freedom**.
+**continuity + promise delivery + prose quality + low tool overhead + recoverable atomic execution**.

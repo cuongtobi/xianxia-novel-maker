@@ -1,92 +1,52 @@
-# Batch 5 Chapters Workflow — Promise-Only
+# Batch 5 Chapters Workflow — Atomic Combined QC
 
 ## 1. Mục tiêu
 
-Batch mặc định = **5 chương**. Mỗi chương là một transaction độc lập và chạy tuần tự.
+Default batch = **5 chapters**. Chạy tuần tự, mỗi chapter là **một atomic Git transaction**.
 
-Controller duy nhất của framework: **Story Promise Controller**.
+Controller duy nhất: **Story Promise Controller**.
 
-Đọc bắt buộc:
-
-- `AGENTS.md`;
-- `docs/READER_EXPERIENCE_SYSTEM.md`;
-- `docs/REFERENCE_STYLE_SYSTEM.md` nếu story bật Reference Style.
-
-Không đọc/chạy các controller v3 đã retire.
-
-## 2. Chapter transaction
+## 2. Chapter flow
 
 ```text
 assemble context
 → scene plan
 → draft
-→ Continuity Auditor
-→ Story Promise Reviewer
-→ Style Fingerprint Auditor
-→ aggregate quality gate
-→ rewrite if needed
-→ critical re-QC
+→ combined QC
+→ rewrite only if required
 → final
-→ story memory update
-→ promise memory update
+→ memory/manifest updates
+→ one Git tree/commit
 ```
 
-Không plan/draft cả 5 trước rồi mới QC/memory.
+Không tạo report QC tách rời.
 
-## 3. Preflight
+## 3. Preflight batch
 
-Trước chapter đầu batch:
+Trước chapter đầu:
 
-1. xác nhận repo + branch + slug;
-2. đọc `AGENTS.md`;
-3. đọc manifest;
-4. verify `batch_size: 5`;
-5. đọc seed + bibles;
-6. đọc 3–5 Story Promises trong master outline;
-7. đọc arc hiện tại + planned PAY windows;
-8. đọc `memory/current_state.md`;
-9. đọc `memory/reader_experience.md`;
-10. đọc ledgers/summaries/final gần nhất cần thiết;
-11. verify previous batch audit nếu range trước đã hoàn tất;
-12. xác định start/end range.
+1. xác nhận repo/branch/slug;
+2. đọc `AGENTS.md` + manifest;
+3. verify `batch_size: 5` và transaction mode `atomic_git_commit`;
+4. đọc seed + bibles + Story Promises + current arc;
+5. đọc current state + promise memory + ledgers/summaries cần thiết;
+6. xác định exact range `start ... start+4` nếu user không override;
+7. verify batch audit trước nếu range trước đã hoàn tất.
 
-Preflight chỉ cần biết về controller:
+## 4. Per-chapter context
 
-- core promises;
-- last PAY/magnitude;
-- pay drought;
-- planned payoff window.
+Đọc đủ để viết đúng nhưng không reread dư thừa:
 
-Các dữ liệu continuity/style khác được đọc vì công việc viết/QC, không phải controller metric.
-
-## 4. Story Promise Controller
-
-Per chapter, với từng promise ghi:
-
-- `UNTOUCHED`;
-- `ADVANCE`;
-- `PAY_MINOR`;
-- `PAY_MAJOR`;
-- `PAY_ARC`.
-
-`ADVANCE ≠ PAY`.
-
-PAY cần có kết quả/reveal/trải nghiệm/thay đổi trạng thái hữu hình. Setup hoặc lời hứa tương lai không được tự tính PAY.
-
-Theo dõi:
-
-- `last_touch_chapter`;
-- `last_pay_chapter`;
-- `last_major_pay_chapter`;
-- `pay_drought`;
-- `drought_warning`;
-- next planned payoff window.
-
-Nếu vượt drought warning, Story Promise Reviewer tạo finding. Không sửa bằng fake payoff; nếu chapter hiện tại không phù hợp thì điều chỉnh arc/future beat.
+- current state;
+- Story Promise state;
+- arc beat;
+- relevant character/cultivation/relationship/knowledge ledgers;
+- 3 recent summaries;
+- full final gần nhất khi continuity/style thực sự cần.
 
 ## 5. Scene plan
 
-Planner chỉ cần:
+Plan gọn:
 
 - chapter objective;
 - POV/time/place/cast;
@@ -98,96 +58,123 @@ Planner chỉ cần:
 - end state;
 - continuity constraints;
 - style constraints;
-- hook nếu organic.
-
-Không lập Engine/Geometry/Heat/Xianxia/Competence/Aspiration/Binge target.
+- ending hook nếu organic.
 
 ## 6. Draft
 
-Writer viết theo scene plan, Character DNA, canon và Style Bible.
+Viết complete chapter theo Style Bible/Character DNA/canon. Không viết cho metric đã retire.
 
-Writer không được nhìn hoặc tự tối ưu rolling metrics đã retire. Chất tiên hiệp, nhịp, cảm xúc, wonder, sai lầm và competence phải đến tự nhiên từ premise/world/character/scene.
+## 7. Combined QC
 
-## 7. QC
+Tạo đúng một file:
 
-### Continuity Auditor
+`chapters/NNNN/combined_qc_report.md`
 
-Kiểm canon, timeline, power/cultivation, knowledge, injury, item, relationship, POV.
+Ba section:
 
-### Story Promise Reviewer
+### A. Continuity
+Canon, timeline, geography, cultivation/power, resource/item/injury, knowledge, relationship/faction, POV, hard DNA contradiction.
 
-Kiểm:
+### B. Story Promise
+Promise target, `UNTOUCHED/ADVANCE/PAY_MINOR/PAY_MAJOR/PAY_ARC`, concrete payoff, false pay, magnitude, drought.
 
-- promise target có được chạm thật không;
-- ADVANCE/PAY classification có đúng không;
-- magnitude có bị phóng đại không;
-- false pay;
-- drought;
-- promise có bị đổi nghĩa so với contract không.
+### C. Style
+AI-like fingerprints, cadence/fragments, dialogue sameness, exposition/recap, lexical tics, house-style/reference drift.
 
-### Style Fingerprint Auditor
+Decision:
 
-Kiểm AI-like fingerprints, câu/đoạn, rhetorical tics, dialogue sameness, exposition, house style và reference drift/overfit nếu bật.
+- `PASS`: không BLOCKER/MAJOR cần sửa;
+- `REWRITE_REQUIRED`: có BLOCKER/MAJOR cần sửa trong chapter hiện tại.
 
-## 8. Aggregate gate
+MINOR/NOTE không tự động kích hoạt rewrite.
 
-`quality_report.md` tổng hợp ba reviewer.
+## 8. Rewrite only on failure
 
-- continuity BLOCKER/MAJOR → không final;
-- Story Promise MAJOR → re-plan/rewrite nếu finding liên quan chapter hiện tại, hoặc cập nhật future plan nếu là drought cần payoff sắp tới;
-- style MAJOR → rewrite;
-- không có gate cho controller đã retire.
+Nếu `PASS`:
 
-## 9. Rewrite discipline
+```text
+draft → final
+```
 
-Ưu tiên:
+Không tạo `rewrite.txt`; final giữ nguyên prose draft.
 
-`CUT > COMPRESS > REORDER > REPLACE > ADD`.
+Nếu `REWRITE_REQUIRED`:
 
-Không thêm lore/mechanism/scene chỉ để làm chapter “có vẻ đạt metric”.
+1. sửa candidate trong working memory;
+2. ưu tiên `CUT > COMPRESS > REORDER > REPLACE > ADD`;
+3. quick recheck chỉ các finding đã fail;
+4. ghi kết quả recheck vào cuối cùng file `combined_qc_report.md`;
+5. candidate pass trở thành final.
 
-Mặc định rewrite không làm final dài hơn draft quá khoảng **25%**. Nếu cần thay cấu trúc lớn, tạo scene plan/draft mới rồi QC lại.
+Không persist report/rewrite trung gian riêng.
 
-## 10. Final + memory
+## 9. Prepare memory before Git write
 
-Sau PASS:
+Sau khi final đã pass, tính toàn bộ thay đổi:
 
-1. tạo `final/Chương X: <title>.txt`;
-2. update story memory/ledgers;
-3. update chapter summary;
-4. update `memory/reader_experience.md` với Story Promise states;
-5. update manifest `last_finalized_chapter` + `next_chapter`.
+- current state;
+- canon/timeline/character/relationship/cultivation/inventory/faction/knowledge/foreshadowing/unresolved ledgers nếu affected;
+- chapter summaries;
+- promise memory;
+- manifest `last_finalized_chapter`, `next_chapter`, batch pointers.
 
-Không sang chapter kế trước khi memory cập nhật.
+Không write từng file ngay.
 
-## 11. Batch audit
+## 10. One atomic Git commit
 
-Sau chapter thứ 5 của requested range tạo:
+Lấy branch HEAD/tree tại đầu chapter và giữ làm parent/base.
 
-`chapters/batch_NNNN_NNNN_audit.md`
+Sau khi tất cả nội dung đã sẵn sàng:
 
-Audit gồm:
+1. create blobs cho scene plan, draft, combined QC, final và mọi file memory/manifest changed;
+2. nếu chapter đóng batch, create blob batch audit;
+3. `create_tree(base_tree=<start tree>, tree_elements=[all changed paths])`;
+4. `create_commit(parent=<start HEAD>, tree_sha=<new tree>)`;
+5. `update_ref(branch, new commit)` đúng một lần;
+6. verify branch HEAD.
 
-- 5 finals/artifacts có đủ không;
-- memory có current không;
+Commit message gợi ý:
+
+`story: finalize chapter N atomically`
+
+Nếu chapter đóng batch:
+
+`story: finalize chapter N and batch A-B`
+
+Nếu fail trước `update_ref`, không coi chapter complete. Không tạo partial state trên branch.
+
+## 11. Sequential guarantee
+
+Chỉ bắt đầu chapter N+1 sau khi:
+
+- commit N đã update ref thành công;
+- manifest/memory trong commit N trỏ đúng `next_chapter`;
+- combined QC result = PASS;
+- final tồn tại.
+
+## 12. Batch audit
+
+Sau chapter thứ 5 của requested range, tạo `chapters/batch_NNNN_NNNN_audit.md` và **đưa vào cùng atomic commit của chapter thứ 5**.
+
+Audit chỉ kiểm:
+
+- 5 chapter commits/finals complete;
+- combined QC PASS;
+- memory current;
 - continuity handoff;
-- Story Promise table và drought;
-- payoff distribution;
-- style issues xuyên batch nếu có;
-- next-batch promise priorities;
-- next chapter/arc handoff.
+- Story Promise payoff/drought;
+- style caution xuyên batch;
+- next-batch handoff.
 
-Không chạy rolling 3 audit hoặc controller khác.
+Không có checkpoint Ch.3 và không có rolling audit.
 
-## 12. Completion gate
+## 13. Completion gate
 
 Batch READY khi:
 
-- đủ requested finals;
-- per-chapter required artifacts đầy đủ;
+- đủ 5 requested finals;
+- mỗi chapter có scene plan + draft + combined QC + final;
+- mỗi chapter đã được atomic commit;
 - memory current through last chapter;
-- batch audit tồn tại;
-- không còn BLOCKER/MAJOR chưa xử lý;
-- next-batch handoff rõ.
-
-Thiếu → `INCOMPLETE`.
+- batch audit có trong commit cuối;
+- không còn BLOCKER/MAJOR unresolved.

@@ -1,116 +1,132 @@
-# ChatGPT Web + GitHub Protocol — Promise-Only
+# ChatGPT Web + GitHub Protocol — Atomic Combined QC
 
-## 1. Purpose
+## 1. Defaults
 
-Framework chạy qua ChatGPT + GitHub connector. Framework ở `main`; mỗi story ở `story/<slug>`; default batch = 5.
+Framework branch: `main`.
+Story branch: `story/<slug>`.
+Default batch: 5 chapters.
+Controller duy nhất: Story Promise Controller.
 
-Controller duy nhất: **Story Promise Controller**.
-
-## 2. New Story Protocol
-
-1. resolve slug;
-2. create `story/<slug>` from `main`;
-3. create manifest/seed/bibles/outlines/memory tree;
-4. Genesis: Seed → Story Bible → Style Bible → Characters Bible → Master Outline + 3–5 Story Promises → Arc 1 + Promise PAY windows → Story Memory + Promise Memory;
-5. mark READY_TO_WRITE.
-
-## 3. Framework defaults
+Native framework:
 
 ```yaml
 pipeline:
-  version: "3.1"
+  version: "3.2"
   batch_size: 5
-  batch_workflow: "docs/BATCH_5_WORKFLOW.md"
   controllers:
     - story_promise
-  qc_modes:
-    - continuity
-    - story_promise
-    - style_fingerprint
+  qc_mode: combined_qc
+  chapter_transaction: atomic_git_commit
+  rewrite_mode: on_qc_failure
 ```
 
-## 4. Read Protocol
+## 2. New story
 
-Đọc framework contract và exact story branch. Không dùng chat memory làm source of truth khi GitHub artifact đã tồn tại.
+1. resolve slug;
+2. create story branch from `main`;
+3. build seed/bibles/master outline/arc/memory;
+4. lock 3–5 Story Promises;
+5. initialize promise memory;
+6. mark READY_TO_WRITE.
 
-Story session tối thiểu đọc manifest, seed, current state, promise memory, current arc, Story Promises, bibles/ledgers liên quan, recent summaries/finals khi cần.
+## 3. Read protocol
 
-## 5. Write Protocol
+Đọc exact story branch. Không dùng chat memory thay GitHub source of truth.
 
-Framework changes → `main`. Story artifacts → matching `story/<slug>`.
+Trước chapter đọc manifest, seed, current state, promise memory, arc, Story Promises, bibles/ledgers liên quan, recent summaries/final khi cần.
 
-## 6. Atomic Chapter Transaction
+## 4. Atomic chapter protocol
+
+Không persist intermediate artifacts trong quá trình xử lý.
+
+In-session:
 
 1. scene plan;
 2. draft;
-3. continuity report;
-4. Story Promise review (`reader_retention_report.md` giữ tên vì compatibility);
-5. style fingerprint report;
-6. aggregate quality report;
-7. rewrite nếu cần;
-8. critical re-QC;
-9. final;
-10. update story memory;
-11. update promise memory.
+3. combined QC;
+4. rewrite only if QC requires;
+5. final;
+6. calculate memory/ledger/summary/manifest updates;
+7. prepare batch audit nếu đây là chapter cuối batch.
 
-Không có mandatory rolling audit.
+Persist once:
 
-## 7. Batch Protocol
+1. read chapter-start branch HEAD/tree;
+2. create blobs for every new/changed file;
+3. create one tree from chapter-start base tree;
+4. create one commit with chapter-start HEAD as parent;
+5. update story branch ref once;
+6. verify HEAD.
 
-`Viết batch tiếp theo` mặc định = `next_chapter ... next_chapter+4`.
+## 5. Required persisted files
 
-Run tuần tự. Sau chapter cuối tạo `chapters/batch_NNNN_NNNN_audit.md`.
-
-## 8. State Machine
+Per chapter:
 
 ```text
-NO_STORY
-→ SEED_SAVED
-→ STORY_BIBLE_READY
-→ STYLE_BIBLE_READY
-→ CHARACTERS_BIBLE_READY
-→ MASTER_OUTLINE_READY
-→ ARC_READY
-→ MEMORY_READY
-→ READY_TO_WRITE
-→ SCENE_PLANNED
-→ DRAFTED
-→ THREE_QC_COMPLETE
-→ AGGREGATE_GATE
-→ REWRITTEN_IF_NEEDED
-→ FINALIZED
-→ MEMORY_COMMITTED
+chapters/NNNN/scene_plan.md
+chapters/NNNN/draft.txt
+chapters/NNNN/combined_qc_report.md
+final/Chương N: <title>.txt
+memory/* changed files
+manifest.yaml
+```
+
+Nếu chapter đóng requested batch, cùng commit thêm:
+
+`chapters/batch_NNNN_NNNN_audit.md`.
+
+Không tạo active:
+
+- continuity_report.md
+- reader_retention_report.md
+- style_fingerprint_report.md
+- quality_report.md
+- rewrite.txt
+
+## 6. Combined QC
+
+`combined_qc_report.md` gồm:
+
+- Continuity;
+- Story Promise;
+- Style;
+- Decision;
+- Rewrite Recheck nếu có.
+
+`PASS` → draft trở thành final nguyên văn.
+
+`REWRITE_REQUIRED` → sửa trong working memory, quick recheck và chỉ persist candidate cuối đã pass.
+
+## 7. State machine
+
+```text
+READY_TO_WRITE
+→ WORKING_IN_MEMORY
+→ QC_PASS
+→ ATOMIC_COMMIT_PREPARED
+→ BRANCH_REF_UPDATED
+→ CHAPTER_COMPLETE
 → READY_TO_WRITE
 ```
 
-## 9. Resume Rules
+Intermediate in-memory stages không phải persistent story state.
 
-Resume từ artifact thiếu gần nhất. Final có nhưng memory stale → update memory trước chapter mới. Không fake report lịch sử.
+## 8. Resume rules
 
-## 10. Completion Gate
+Nếu branch chưa có commit chapter N hoàn chỉnh, coi N chưa hoàn tất và chạy lại transaction từ source of truth hiện tại.
 
-Chapter native v3.1 cần scene plan, draft, continuity report, Story Promise review, style report, aggregate report, rewrite nếu required, final và memory current.
+Không resume dựa trên orphan blob hoặc verbal statement.
 
-Batch cần requested finals + required artifacts + memory through last chapter + batch audit.
+Nếu final tồn tại nhưng manifest/memory không cùng commit/state, transaction chưa hợp lệ và phải repair trước chapter tiếp.
 
-## 11. Legacy migration
+## 9. Batch protocol
 
-Story branch không tự inherit framework. Khi sync, giữ final/canon/historical audits, không fake retroactive QC. Retired controller data có thể giữ historical nhưng không tiếp tục track.
+`Viết batch tiếp theo` = 5 chapters nếu user không override.
 
-## 12. Standard Commands
+Chạy 5 atomic chapter commits tuần tự. Không dừng ở Ch.3. Chỉ tạo batch audit ở chapter cuối requested range.
 
-Genesis:
+## 10. Completion gate
 
-`Dùng seed này tạo story branch mới và chạy toàn bộ Genesis đến khi sẵn sàng viết chương 1.`
+Chapter complete khi branch HEAD history chứa atomic chapter commit với scene plan, draft, combined QC PASS, final và current memory/manifest.
 
-Batch:
-
-`Viết batch 5 chương tiếp theo theo BATCH_5_WORKFLOW, tuần tự và cập nhật memory sau từng chương.`
-
-Audit:
-
-`Audit continuity, Story Promises và style fingerprint cho các chương gần nhất.`
-
-Migration:
-
-`Sync story này lên framework promise-only hiện tại, không retcon final.`
+Batch complete khi đủ 5 chapter commits + batch audit trong commit cuối.
