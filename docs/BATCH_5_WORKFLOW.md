@@ -10,13 +10,16 @@ Lệnh chuẩn:
 
 Batch chỉ là đơn vị điều phối + audit. Mỗi chương vẫn là một transaction độc lập và bắt buộc chạy tuần tự.
 
-Framework v3 còn bắt buộc đọc:
+Framework v3 bắt buộc đọc:
 
-- `docs/RETENTION_CONTROLLERS_V3.md`.
+- `docs/RETENTION_CONTROLLERS_V3.md`;
+- `docs/XIANXIA_DENSITY_CONTROLLER.md`.
 
-Core rule:
+Core rules:
 
 **PASS kỹ thuật ≠ PASS trải nghiệm đọc.**
+
+**PASS retention ≠ PASS genre density.**
 
 ## 2. Chapter transaction
 
@@ -27,9 +30,9 @@ assemble context
 → scene plan
 → draft
 → Continuity Auditor
-→ Reader Retention Editor + Retention Controllers v3
+→ Reader Retention Editor + Retention Controllers v3 + Xianxia Density
 → Style Fingerprint Auditor
-→ aggregate quality gate: Technical Gate + Reader-Reward Gate
+→ aggregate quality gate: Technical Gate + Reader-Reward Gate + Xianxia Density Gate
 → rewrite
 → critical re-QC
 → Rolling 3-Chapter Audit nếu N % 3 == 0
@@ -59,18 +62,19 @@ Trước chương đầu batch:
 1. xác nhận repo + `story/<slug>`;
 2. đọc `AGENTS.md`;
 3. đọc `docs/RETENTION_CONTROLLERS_V3.md`;
-4. đọc manifest và xác nhận `pipeline.batch_size: 5` + retention v3 nếu story đã sync framework;
-5. đọc seed + ba bible;
-6. đọc Story Promises trong master outline;
-7. đọc arc hiện tại;
-8. đọc `memory/current_state.md`;
-9. đọc `memory/reader_experience.md`;
-10. đọc ledgers liên quan;
-11. đọc summaries gần nhất;
-12. đọc full final gần nhất;
-13. đọc thêm 2–3 full final nếu cần kiểm repetition/style/geometry;
-14. verify batch audit trước tồn tại nếu range trước đã hoàn tất;
-15. xác định start/end chapter của 5 chương tiếp theo.
+4. đọc `docs/XIANXIA_DENSITY_CONTROLLER.md` nếu story là truyện mới v3 hoặc manifest bật `xianxia_density_required`;
+5. đọc manifest và xác nhận `pipeline.batch_size: 5` + các controller bắt buộc;
+6. đọc seed + ba bible;
+7. đọc Story Promises trong master outline;
+8. đọc arc hiện tại;
+9. đọc `memory/current_state.md`;
+10. đọc `memory/reader_experience.md`;
+11. đọc ledgers liên quan;
+12. đọc summaries gần nhất;
+13. đọc full final gần nhất;
+14. đọc thêm 2–3 full final nếu cần kiểm repetition/style/geometry/density;
+15. verify batch audit trước tồn tại nếu range trước đã hoàn tất;
+16. xác định start/end chapter của 5 chương tiếp theo.
 
 Preflight phải biết:
 
@@ -81,6 +85,9 @@ Preflight phải biết:
 - recent competence outcomes;
 - recent aspiration beats;
 - recent heat sequence + last H2+;
+- recent `xianxia_peak` sequence + last X2+/X3;
+- recent replaceability sequence;
+- current `genre_density_debt`;
 - recent Binge Test results;
 - recent dialogue geometries;
 - recent ending shapes;
@@ -157,7 +164,7 @@ Hard warning toàn cục:
 
 **Trong rolling window 4 chapter, 3/4 cùng primary engine = MAJOR pacing risk.**
 
-Batch boundary không reset rule này. Ví dụ Ch.4–7 vẫn phải được xét cùng nhau dù cắt qua hai batch.
+Batch boundary không reset rule này.
 
 ## 7. Dramatic Geometry Controller
 
@@ -207,15 +214,7 @@ Rules:
 - nếu người khác sửa MC trước khi hậu quả thật xảy ra, không được giả đó là costly mistake;
 - chosen cost biết trước không tự động là mistake.
 
-Không làm MC ngu để giảm meter. Friction phải đến từ:
-
-- kiến thức lỗi thời;
-- consent/timing;
-- politics;
-- resource constraint;
-- incomplete data;
-- supporting-cast expertise;
-- thắng local nhưng tạo cost mới.
+Không làm MC ngu để giảm meter. Friction phải đến từ knowledge/world/consent/politics/resource/other-character agency.
 
 ## 9. Aspiration Controller
 
@@ -244,17 +243,7 @@ Resource chỉ được tính aspiration nếu prose làm nó đáng thèm, khô
 
 Heat không chỉ là combat.
 
-Heat có thể đến từ:
-
-- danger;
-- wonder;
-- power display;
-- emotional rupture;
-- reversal;
-- threshold crossing;
-- high-stakes choice;
-- reveal mạnh;
-- chase/combat/survival.
+Heat có thể đến từ danger, wonder, power display, emotional rupture, reversal, threshold crossing, high-stakes choice, reveal mạnh, chase/combat/survival.
 
 Mỗi chapter ghi `peak_heat`:
 
@@ -269,9 +258,54 @@ Rule:
 
 Không ép mọi chapter H2/H3. Quiet chapter vẫn hợp lệ nếu tạo contrast, emotion, meaning hoặc decompression có chức năng.
 
-Cũng cảnh báo saturation nếu quá nhiều H3 liên tiếp.
+## 11. Xianxia Density Controller
 
-## 11. Scene planning — không over-plan
+Controller này **binding mặc định cho truyện mới framework v3**. Không tự áp/migrate story branch cũ nếu user không yêu cầu.
+
+Mục tiêu: tránh truyện chỉ có “skin tu tiên”.
+
+### Ba tầng
+
+- `Ambient Xianxia`: môi trường sống vận hành như tu tiên giới;
+- `Active Xianxia`: supernatural law/state trực tiếp đổi constraint, choice hoặc consequence;
+- `Aspirational Xianxia`: cảnh giới/tài nguyên/năng lực/địa điểm khiến độc giả thật sự muốn đạt tới.
+
+### Peak
+
+Mỗi chapter ghi:
+
+- `X0` skin only;
+- `X1` ambient;
+- `X2` active;
+- `X3` strong memorable xianxia beat.
+
+### Replaceability Test
+
+Hỏi:
+
+> Nếu đổi `linh thạch→tiền`, `linh điền→ruộng`, `công pháp→kỹ thuật`, `tông môn→tổ chức phàm`, causal logic còn gần nguyên vẹn không?
+
+Ghi `LOW / MEDIUM / HIGH_REPLACEABILITY`.
+
+### Rolling rules
+
+- rolling 3 phải có ít nhất **1 chapter X2+**;
+- 3 consecutive `HIGH_REPLACEABILITY` → **MAJOR genre dilution risk**;
+- rolling 5 phải có ít nhất **2 chapter X2+**;
+- rolling 5 phải có ít nhất **1 chapter X3**;
+- rolling 5 phải có aspiration/wonder desire đủ rõ.
+
+Waiver chỉ dùng cho intentional decompression/grief/aftermath window có lý do rõ và không được kéo dài vô hạn.
+
+### Fix rule
+
+Không clear finding bằng cách thêm danh từ `linh khí / đạo vận / pháp bảo`.
+
+Phải sửa causal structure:
+
+`supernatural law/state → constraint/opportunity → decision → observable consequence`.
+
+## 12. Scene planning — không over-plan
 
 Planner xác định chapter-level:
 
@@ -281,12 +315,20 @@ Planner xác định chapter-level:
 - intended competence outcome nếu relevant;
 - Aspiration target nếu rolling debt yêu cầu;
 - peak heat target;
+- `xianxia_peak` + replaceability target;
+- Ambient/Active/Aspirational Xianxia target;
 - POV + knowledge boundary;
 - Xianxia Experience target nếu organic;
 - Emotional movement nếu có;
 - human irrationality/blind spot nếu relevant;
 - intrinsic reward trước ending hook;
 - ending shape.
+
+Planner bắt buộc hỏi:
+
+1. **Yếu tố nào khiến chapter này chỉ có thể tồn tại trong tu tiên giới?**
+2. **Supernatural law/state nào có causal consequence?**
+3. **Nếu chapter là X0/X1, rolling 3/5 có còn hợp lệ không?**
 
 Conflict/transaction scene có thể dùng goal/obstacle/stakes/turn/choice/consequence.
 
@@ -299,7 +341,7 @@ Pre-check Binge Test trước draft:
 
 Nếu không có concrete intrinsic reward và không có valid structural waiver, redesign plan.
 
-## 12. Three-mode QC
+## 13. Three-mode QC
 
 Mỗi chapter trong v3 enforcement window phải có:
 
@@ -324,6 +366,8 @@ Bắt buộc kiểm:
 - Competence Friction;
 - Aspiration;
 - Heat Curve;
+- Xianxia Density;
+- Replaceability Test;
 - Binge Test;
 - drag;
 - agency;
@@ -341,11 +385,12 @@ Rhetorical tics, Q&A cleanliness, hypothesis-loop, aphorism density, paragraph/s
 Phải tách:
 
 - **Technical Gate**;
-- **Reader-Reward Gate**.
+- **Reader-Reward Gate**;
+- **Xianxia Density Gate**.
 
-Technical Gate PASS không override Reader-Reward Gate MAJOR.
+Technical Gate PASS không override Reader-Reward/Xianxia Density MAJOR.
 
-## 13. Binge Test — bắt buộc
+## 14. Binge Test — bắt buộc
 
 Ở cuối Reader Retention QC phải trả lời riêng:
 
@@ -355,11 +400,7 @@ Technical Gate PASS không override Reader-Reward Gate MAJOR.
 
 Phải là concrete moment đã xảy ra trong chapter.
 
-Không được dùng:
-
-- hook chapter sau;
-- setup chưa có result;
-- “worldbuilding tốt” chung chung.
+Không được dùng hook chapter sau, setup chưa có result hoặc “worldbuilding tốt” chung chung.
 
 Nếu không có: `NONE` → ít nhất MAJOR trừ decompression chapter có emotional payoff rất rõ.
 
@@ -367,17 +408,13 @@ Nếu không có: `NONE` → ít nhất MAJOR trừ decompression chapter có em
 
 **Nếu bỏ ending hook, bản thân chương này có đủ đáng đọc không?**
 
-Kết quả:
-
-- `YES`;
-- `WEAK`;
-- `NO`.
+Kết quả `YES / WEAK / NO`.
 
 `NO` → MAJOR + rewrite, trừ explicit structural waiver trong Arc Outline. Waiver không dùng hai chapter liên tiếp.
 
 Bingeability không đồng nghĩa cliffhanger.
 
-## 14. Rolling 3-Chapter Audit
+## 15. Rolling 3-Chapter Audit
 
 Vẫn chạy **trước final mọi chapter chia hết cho 3**:
 
@@ -398,18 +435,19 @@ Audit:
 - competence friction trend;
 - aspiration trend;
 - heat trend;
+- Xianxia Density + Replaceability;
 - Binge Test trend;
 - Xianxia Experience;
 - Emotional Residue;
 - costly mistakes.
 
-Heat official rule vẫn rolling 5; rolling-3 dùng để cảnh báo sớm.
+Heat official rule vẫn rolling 5. Xianxia Density có rolling 3 hard rule và rolling 5 hard rule.
 
 Batch size 5 không thay đổi cadence này.
 
 Nếu audit phát hiện MAJOR ở candidate N, rewrite N rồi rerun reviewer/aggregate/rolling audit cần thiết trước final.
 
-## 15. Xianxia Experience + Emotional Residue
+## 16. Xianxia Experience + Emotional Residue
 
 Theo dõi xuyên batch:
 
@@ -428,18 +466,11 @@ Theo dõi xuyên batch:
 
 ### Emotional Residue
 
-Trong rolling 3–5 chapter cần có thay đổi có bằng chứng về một hoặc nhiều:
-
-- emotional state;
-- relationship meaning;
-- self-image;
-- attachment/grief/joy/shame/fear;
-- object/memory meaning;
-- costly mistake scar.
+Trong rolling 3–5 chapter cần có thay đổi có bằng chứng về emotional state, relationship meaning, self-image, attachment/grief/joy/shame/fear, object/memory meaning hoặc costly mistake scar.
 
 Không tạo melodrama giả để tick checklist.
 
-## 16. Dynamic outline adaptation
+## 17. Dynamic outline adaptation
 
 Sau mỗi final + memory update:
 
@@ -452,23 +483,18 @@ Sau mỗi final + memory update:
 - cập nhật competence-friction need;
 - cập nhật Aspiration debt;
 - cập nhật Heat Curve;
+- cập nhật Xianxia Density peak/replaceability + genre_density_debt;
 - cập nhật Binge risk;
 - cập nhật Xianxia/Emotional debt;
 - ghi revision log khi deviation đáng kể.
 
 Nếu arc kết thúc giữa batch 5, phải tạo/đọc arc tiếp theo trước chapter vượt boundary. Không kéo/kết arc chỉ để khớp batch.
 
-## 17. End-of-Batch Audit
+## 18. End-of-Batch Audit
 
 Sau chapter thứ 5 của requested batch, tạo:
 
 `stories/<slug>/chapters/batch_NNNN_NNNN_audit.md`
-
-Ví dụ:
-
-- `batch_0001_0005_audit.md`
-- `batch_0006_0010_audit.md`
-- `batch_0011_0015_audit.md`
 
 Audit dùng `templates/batch_audit.template.md` và kiểm:
 
@@ -480,6 +506,10 @@ Audit dùng `templates/batch_audit.template.md` và kiểm:
 - Competence Friction distribution;
 - Aspiration coverage;
 - rolling-5 Heat Curve;
+- Xianxia Density peak sequence;
+- Active `X2+` count + Strong `X3` count;
+- Replaceability distribution;
+- genre_density_debt;
 - Binge Test health;
 - Xianxia Experience;
 - Emotional Residue;
@@ -491,7 +521,7 @@ Audit dùng `templates/batch_audit.template.md` và kiểm:
 - Reader Experience Memory consistency;
 - next-batch handoff.
 
-## 18. Completion gate
+## 19. Completion gate
 
 Batch 5 chỉ được báo `PASS/READY` khi:
 
@@ -503,43 +533,46 @@ Batch 5 chỉ được báo `PASS/READY` khi:
 - batch audit tồn tại;
 - không còn BLOCKER/MAJOR chưa xử lý;
 - **Reader-Reward Gate sạch**;
+- **Xianxia Density Gate sạch** đối với story bật controller này;
 - next-batch handoff rõ.
 
-Thiếu bất kỳ artifact bắt buộc nào → `INCOMPLETE`.
+Thiếu artifact bắt buộc → `INCOMPLETE`.
 
-Retention-controller MAJOR còn tồn tại → `REPAIR_REQUIRED`.
+Retention/Xianxia-Density MAJOR còn tồn tại → `REPAIR_REQUIRED`.
 
-## 19. Legacy / migration
+## 20. Legacy / migration
 
 Các story cũ có batch 10 không cần xóa hoặc chia lại audit lịch sử.
 
-Ví dụ `batch_0001_0010_audit.md` cũ vẫn hợp lệ historical checkpoint.
+**Không tự migrate story cũ sang Xianxia Density.** Chỉ áp controller cho story mới v3 theo manifest, hoặc khi user explicit yêu cầu migrate một story cũ.
 
-Khi sync sang batch 5/v3:
+Nếu user yêu cầu sync story cũ sang batch 5/v3:
 
 - đặt `pipeline.batch_size: 5`;
 - đặt `pipeline.version: 3.0` khi migration hoàn tất;
-- bật `retention_v3_required`;
+- bật `retention_v3_required` theo phạm vi migration;
+- bật `xianxia_density_required` chỉ khi user yêu cầu controller này cho story đó;
 - không retroactively fake per-chapter v3 QC;
-- có thể dựng v3 baseline từ recent finals + Reader Experience thật;
+- có thể dựng baseline từ recent finals + Reader Experience thật;
 - batch kế tiếp bắt đầu tại `next_chapter` hiện tại và lấy 5 chapter;
 - historical audit cũ vẫn giữ nguyên.
 
-## 20. Resume ở chat mới
+## 21. Resume ở chat mới
 
 Đọc tối thiểu:
 
 1. `AGENTS.md`;
 2. `docs/BATCH_5_WORKFLOW.md`;
 3. `docs/RETENTION_CONTROLLERS_V3.md`;
-4. manifest;
-5. seed;
-6. current state;
-7. reader experience;
-8. batch audit gần nhất;
-9. arc hiện tại;
-10. bible/ledgers liên quan;
-11. recent summaries/final.
+4. `docs/XIANXIA_DENSITY_CONTROLLER.md` nếu manifest bật controller;
+5. manifest;
+6. seed;
+7. current state;
+8. reader experience;
+9. batch audit gần nhất;
+10. arc hiện tại;
+11. bible/ledgers liên quan;
+12. recent summaries/final.
 
 Lệnh ngắn hợp lệ:
 
