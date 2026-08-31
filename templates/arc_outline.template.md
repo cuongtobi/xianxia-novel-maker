@@ -2,7 +2,7 @@
 
 > File đích: `stories/<slug>/outline/arcs/arc_NNN.md`
 > Arc phải quản cả state/canon direction **và reader experience**.
-> Bắt buộc tương thích `docs/RETENTION_CONTROLLERS_V3.md`.
+> Bắt buộc tương thích `docs/RETENTION_CONTROLLERS_V3.md` và `docs/XIANXIA_DENSITY_CONTROLLER.md`.
 
 # Arc Metadata
 
@@ -67,6 +67,9 @@ Không dùng chuỗi PAY_MINOR để che major payoff debt.
 - Recent competence outcomes:
 - Recent aspiration beat:
 - Recent heat sequence:
+- Recent xianxia peak sequence:
+- Recent replaceability sequence:
+- Current genre_density_debt:
 - Recent Binge Test health:
 - Recent ending shapes:
 - Reader appetite / payoff debt:
@@ -88,6 +91,7 @@ Không dùng chuỗi PAY_MINOR để che major payoff debt.
 - World layer opened:
 - Core Story Promise PAY achieved:
 - Required payoff magnitude:
+- Xianxia threshold/world-layer change achieved:
 - Emotional residue carried onward:
 
 # 5. Conflict Ladder
@@ -159,7 +163,33 @@ Chọn trải nghiệm phù hợp arc, không quota cứng.
 - Longest acceptable xianxia drought in this arc:
 - What must NOT be mistaken for xianxia payoff (e.g. only discussing cultivation):
 
-# 10. Aspiration Controller
+# 10. Xianxia Density Controller
+
+Arc phải pre-check genre density trước khi viết.
+
+## 10.1 Density identity this arc
+
+- Ambient Xianxia focus:
+- Active supernatural causal sources:
+- Aspirational Xianxia focus:
+- Strong `X3` moments expected:
+- High-realm/ancient POV aura if relevant:
+- Mundane conflict types most likely to become HIGH_REPLACEABILITY:
+
+## 10.2 Density map
+
+| Ch/Window | Peak target X0–X3 | Ambient | Active causal beat | Aspirational beat | Replaceability target | Why this cannot be purely mundane |
+|---|---|---|---|---|---|---|
+
+Rules:
+
+- rolling 3 phải có ít nhất 1 `X2+`;
+- 3 consecutive HIGH_REPLACEABILITY → MAJOR;
+- rolling 5 phải có ít nhất 2 `X2+` + ít nhất 1 `X3`;
+- rolling 5 phải có aspiration/wonder desire;
+- nếu intentional decompression window vi phạm tạm thời, ghi waiver + chapter dự kiến phục hồi density.
+
+# 11. Aspiration Controller
 
 Tách fantasy desire khỏi scarcity.
 
@@ -174,7 +204,7 @@ Tách fantasy desire khỏi scarcity.
 
 Rolling 5 chỉ scarcity/admin/problem-fixing, không aspiration/wonder đủ mạnh → `MAJOR appetite risk`.
 
-# 11. Heat Curve
+# 12. Heat Curve
 
 Heat enum:
 
@@ -195,17 +225,17 @@ Heat enum:
 
 Rolling 5 không có H2+ → `MAJOR flatness risk` trừ explicit valid exception.
 
-# 12. Mystery / Reveal
+# 13. Mystery / Reveal
 
 | ID | Setup | Reinforcement | Reveal | Who learns | Consequence | Promise PAY/advance | Magnitude |
 |---|---|---|---|---|---|---|---|
 
-# 13. Setup / Payoff Ledger for Arc
+# 14. Setup / Payoff Ledger for Arc
 
 | ID | Setup Chapter Window | Payoff Window | Type | Required magnitude | Status |
 |---|---|---|---|---|---|
 
-# 14. Emotional Residue Plan
+# 15. Emotional Residue Plan
 
 Không cần emotional climax mỗi chương.
 
@@ -214,23 +244,23 @@ Không cần emotional climax mỗi chương.
 
 Rule: rolling 3–5 chapters không nên chỉ đổi inventory/knowledge/cultivation trong khi con người đứng yên.
 
-# 15. Faction Moves
+# 16. Faction Moves
 
 Antagonists và factions hành động ngay cả khi ngoài POV.
 
 | Actor | Goal | Move | Trigger | Bias/attachment | Effect visible to MC | Hidden effect |
 |---|---|---|---|---|---|---|
 
-# 16. Chapter Beat Table
+# 17. Chapter Beat Table
 
 Mỗi row là **intent**, không phải scene plan cố định.
 
-| Ch | Primary Engine | Dramatic Geometry shorthand | POV | Immediate pressure/question | Story Promise target + magnitude | Competence outcome target | Aspiration target | Peak Heat target | Xianxia target | Emotional movement | Intrinsic reward before hook | Hook/bridge |
-|---:|---|---|---|---|---|---|---|---|---|---|---|---|
+| Ch | Primary Engine | Dramatic Geometry shorthand | POV | Immediate pressure/question | Story Promise target + magnitude | Competence outcome target | Aspiration target | Peak Heat target | Xianxia Peak target | Active Xianxia causal beat | Replaceability target | Emotional movement | Intrinsic reward before hook | Hook/bridge |
+|---:|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 
-Không ép chapter nào cũng có tất cả target. Nhưng bảng phải làm lộ drought, frictionless competence, flat heat, weak aspiration và repetition trước khi viết.
+Không ép chapter nào cũng có tất cả target. Nhưng bảng phải làm lộ drought, frictionless competence, flat heat, weak aspiration, low Xianxia Density và repetition trước khi viết.
 
-# 17. Narrative Engine Map
+# 18. Narrative Engine Map
 
 ## Vocabulary gợi ý
 
@@ -253,7 +283,7 @@ Có thể dùng engine khác nếu mô tả chính xác hơn.
 - Stationary/table scenes clustered?:
 - Action/movement/wonder relief points:
 
-# 18. Dramatic Geometry Map
+# 19. Dramatic Geometry Map
 
 Geometry phải ghi ít nhất:
 
@@ -269,7 +299,7 @@ Rules:
 - engine khác tên không tự động tạo variety;
 - nếu geometry lặp, đổi structure/conflict operation, không synonym-spin.
 
-# 19. Binge Test Risk Map
+# 20. Binge Test Risk Map
 
 Binge Test runtime vẫn phải chấm final candidate, nhưng Arc có thể pre-identify bridge/quiet risk.
 
@@ -283,7 +313,7 @@ Rules:
 - waiver không dùng hai chapter liên tiếp;
 - hook không thay thế intrinsic chapter value.
 
-# 20. Ending Shape Map
+# 21. Ending Shape Map
 
 Theo dõi để không chapter nào cũng kết bằng cùng cấu trúc.
 
@@ -292,13 +322,15 @@ Theo dõi để không chapter nào cũng kết bằng cùng cấu trúc.
 
 Gợi ý: consequence / decision / reveal / arrival / emotional turn / quiet resolution / image shift / threshold / new question.
 
-# 21. Arc Ending
+# 22. Arc Ending
 
 - Immediate resolution:
 - Emotional resolution:
 - Story Promise PAY:
 - Payoff magnitude achieved:
 - Xianxia Experience payoff:
+- Xianxia Density peak/result:
+- Replaceability reduced by what mechanism?:
 - Aspiration acquired/advanced:
 - Heat peak paid:
 - Competence lesson/cost:
@@ -307,7 +339,7 @@ Gợi ý: consequence / decision / reveal / arrival / emotional turn / quiet res
 - Reader appetite carried forward:
 - Memory items that must be carried forward:
 
-# 22. Adaptation Rules
+# 23. Adaptation Rules
 
 Nếu final chapter làm arc lệch kế hoạch:
 
@@ -319,9 +351,10 @@ Nếu final chapter làm arc lệch kế hoạch:
 6. sửa các beat tương lai thay vì ép nhân vật quay lại outline;
 7. nếu engine/geometry distribution bị lệch, sửa các chapter tương lai chưa final;
 8. nếu major payoff debt/aspiration/heat/friction bị lệch, rebalance future beats có causal support;
-9. ghi revision log.
+9. nếu Xianxia Density rolling window bị lệch, sửa future supernatural causality/active beats, không thêm lore giả;
+10. ghi revision log.
 
-# 23. Revision Log
+# 24. Revision Log
 
 - After chapter:
 - Change:
@@ -333,5 +366,7 @@ Nếu final chapter làm arc lệch kế hoạch:
 - Dramatic geometry impact:
 - Competence-friction impact:
 - Aspiration/heat impact:
+- Xianxia Density impact:
+- Replaceability impact:
 - Binge-risk impact:
 - Xianxia/emotional impact:
