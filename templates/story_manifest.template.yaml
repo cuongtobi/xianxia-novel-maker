@@ -9,8 +9,9 @@ story:
   language: "vi"
 
 pipeline:
-  version: "2.0"
-  batch_size: 10
+  version: "2.1"
+  batch_size: 5
+  batch_workflow: "docs/BATCH_5_WORKFLOW.md"
   current_stage: "seed"
   last_finalized_chapter: 0
   current_arc: "arc_001"
@@ -65,6 +66,8 @@ migration:
   v2_enforced_from_chapter: 1
   migration_baseline: null
   legacy_batch_audits_backfilled: false
+  prior_batch_size: null
+  batch_size_migrated_at_chapter: null
 
 notes:
   framework_migration: ""
