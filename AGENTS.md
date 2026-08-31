@@ -50,6 +50,17 @@ Outline là kế hoạch, không phải canon. Final chapter và canon ledger m�
 - Mọi thao tác trên truyện phải chỉ rõ branch trước khi ghi file.
 - Framework change phải ghi trên `main`; story branch cũ không tự động được coi là đã nhận framework mới nếu chưa sync.
 
+### Legacy framework migration
+
+Nếu story branch được tạo trước pipeline v2 hoặc thiếu các artifact như `memory/reader_experience.md` / 3-mode QC:
+
+- không áp v2 gate ngược về chapter đã final;
+- không tạo retroactive QC report rồi giả vờ chúng đã chạy pre-final;
+- đọc và làm theo `docs/FRAMEWORK_V2_MIGRATION.md` khi user yêu cầu migrate/sync story;
+- migration phải dựng Story Promise baseline + Reader Experience baseline;
+- completed legacy batch thiếu batch audit phải được backfill dưới mode `LEGACY_MIGRATION_BASELINE` trước khi resume production;
+- full v2 per-chapter gate bắt đầu từ `migration.v2_enforced_from_chapter` trong manifest.
+
 ## 4. Read-before-write contract
 
 Trước khi viết một chương, bắt buộc đọc tối thiểu:
@@ -73,7 +84,9 @@ Trước khi viết một chương, bắt buộc đọc tối thiểu:
 
 Reader Retention / Style Fingerprint / Rolling Audit có thể cần đọc full 2–3 chương gần nhất, không được chỉ dựa summary nếu đang kiểm repetition.
 
-Nếu dữ liệu thiếu, phải bổ sung stage tương ứng trước khi viết.
+Nếu story là legacy chưa migrate và thiếu reader memory, không được tự bịa file rồi viết tiếp; phải migrate theo contract hoặc dùng framework version của story theo user directive.
+
+Nếu dữ liệu khác thiếu, phải bổ sung stage tương ứng trước khi viết.
 
 ## 5. Xianxia / cultivation world contract
 
@@ -337,45 +350,15 @@ Một chapter chỉ được final khi ba reviewer mode độc lập đã chạy
 
 ### Continuity Auditor
 
-Kiểm:
-
-- canon;
-- timeline;
-- geography;
-- cultivation/power;
-- skill/item;
-- injury/fatigue;
-- knowledge;
-- relationship/faction state;
-- POV information boundary;
-- hard Character DNA/state contradiction.
+Kiểm canon, timeline, geography, cultivation/power, skill/item, injury/fatigue, knowledge, relationship/faction state, POV information boundary và hard Character DNA/state contradiction.
 
 ### Reader Retention Editor
 
-Kiểm:
-
-- Story Promise ADVANCE/PAY/drought;
-- Narrative Engine + 3/4 rule;
-- opening/movement/drag;
-- character agency/humanity;
-- costly mistake realism;
-- Xianxia Experience;
-- Emotional Residue;
-- ending/reason-to-continue.
+Kiểm Story Promise ADVANCE/PAY/drought, Narrative Engine + 3/4 rule, opening/movement/drag, character agency/humanity, costly mistake realism, Xianxia Experience, Emotional Residue và ending/reason-to-continue.
 
 ### Style Fingerprint Auditor
 
-Kiểm:
-
-- rhetorical tics;
-- `Không X. Mà Y.` density;
-- Q&A cleanliness;
-- hypothesis-loop;
-- aphorism density;
-- paragraph/cadence repetition;
-- dialogue sameness;
-- positive texture;
-- calibration drift.
+Kiểm rhetorical tics, `Không X. Mà Y.` density, Q&A cleanliness, hypothesis-loop, aphorism density, paragraph/cadence repetition, dialogue sameness, positive texture và calibration drift.
 
 Không được cho aggregate PASS nếu một reviewer còn BLOCKER/MAJOR.
 
@@ -388,18 +371,7 @@ Trước final các chapter chia hết cho 3 (`3, 6, 9, 12...`):
 - đọc full rewrite candidate N;
 - tạo `chapters/NNNN/rolling_3_chapter_audit.md`.
 
-Kiểm:
-
-- opening shape;
-- Narrative Engine;
-- dialogue geometry;
-- conflict solution;
-- ending shape;
-- rhetorical tic;
-- Story Promise PAY;
-- Xianxia Experience;
-- Emotional Residue;
-- human irrationality/costly mistake pattern.
+Kiểm opening shape, Narrative Engine, dialogue geometry, conflict solution, ending shape, rhetorical tic, Story Promise PAY, Xianxia Experience, Emotional Residue và human irrationality/costly mistake pattern.
 
 Nếu current candidate làm phát sinh MAJOR repetition, rewrite current chapter trước final. Không retcon hai final trước để tạo variety.
 
@@ -453,27 +425,15 @@ Không ghi suy đoán model thành canon.
 
 ## 17. Batch 10 contract
 
-Batch 10 là một transaction logic gồm 10 vòng chương liên tiếp:
+Batch 10 là transaction logic gồm 10 vòng chapter liên tiếp:
 
 `plan → draft → 3-mode QC → rewrite → rolling audit if N%3=0 → final → memory + reader experience update`
 
-rồi mới chuyển chương kế tiếp.
+rồi mới chuyển chapter tiếp theo.
 
 Không viết 10 draft song song rồi mới cập nhật memory.
 
-Cuối batch phải tạo `chapters/batch_XXXX_XXXX_audit.md` và audit:
-
-- continuity xuyên chương;
-- Story Promise PAY/drought;
-- Narrative Engine distribution;
-- Xianxia Experience;
-- Emotional Residue;
-- power progression;
-- repetition/style fingerprints;
-- character drift + human irrationality;
-- plot thread balance;
-- setup/payoff ledger;
-- trạng thái cho batch tiếp theo.
+Cuối batch phải tạo `chapters/batch_XXXX_XXXX_audit.md` và audit continuity, Story Promise PAY/drought, Narrative Engine distribution, Xianxia Experience, Emotional Residue, power progression, repetition/style fingerprints, character drift + human irrationality, plot thread balance, setup/payoff ledger và handoff.
 
 ## 18. Orchestration completion gate
 
@@ -481,7 +441,14 @@ Orchestrator **không được báo một stage/batch đã hoàn tất chỉ vì
 
 Trước khi báo completion phải verify artifact thật trên branch.
 
-### Per chapter required artifacts
+### Native v2 / migrated enforcement window
+
+- Story tạo trực tiếp bằng v2: `v2_enforced_from_chapter = 1`.
+- Story migrate từ legacy: đọc `manifest.yaml`; full per-chapter v2 artifacts chỉ bắt buộc từ `migration.v2_enforced_from_chapter`.
+- Legacy finals trước cutoff không cần retroactive 3-mode QC/rolling artifact giả lịch sử.
+- Nhưng migration baseline + Reader Experience baseline + completed legacy batch audits còn thiếu **phải** được tạo trước resume.
+
+### Per chapter required artifacts trong v2 enforcement window
 
 - `scene_plan.md`;
 - `draft.txt`;
@@ -502,7 +469,7 @@ Trước khi báo completion phải verify artifact thật trên branch.
 - arc revision đã ghi nếu cần;
 - next-batch handoff rõ.
 
-Nếu thiếu một artifact bắt buộc, trạng thái phải là **INCOMPLETE**, không được nói PASS/ready.
+Nếu thiếu artifact bắt buộc trong enforcement window, trạng thái phải là **INCOMPLETE**, không được nói PASS/ready.
 
 ## 19. Final file contract
 
