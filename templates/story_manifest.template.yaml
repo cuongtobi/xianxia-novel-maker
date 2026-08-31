@@ -14,6 +14,8 @@ pipeline:
   batch_workflow: "docs/BATCH_5_WORKFLOW.md"
   retention_spec: "docs/RETENTION_CONTROLLERS_V3.md"
   xianxia_density_spec: "docs/XIANXIA_DENSITY_CONTROLLER.md"
+  reference_style_spec: "docs/REFERENCE_STYLE_SYSTEM.md"
+  reference_style_profile: "docs/reference_profiles/TIEN_NGHICH_HIGH_LEVEL_STYLE.md"
   current_stage: "seed"
   last_finalized_chapter: 0
   current_arc: "arc_001"
@@ -28,6 +30,8 @@ pipeline:
   reader_experience_required: true
   retention_v3_required: true
   xianxia_density_required: true
+  reference_style_enabled: true
+  reference_style_mode: "high_level_style_dna_only"
   retention_controllers:
     dramatic_geometry: true
     payoff_magnitude: true
@@ -58,6 +62,7 @@ locks:
   reader_experience_initialized: false
   retention_v3_initialized: false
   xianxia_density_initialized: false
+  reference_style_adapted: false
 
 production:
   target_chapters: null
@@ -73,6 +78,7 @@ completion_gate:
   require_rolling_audit_when_due: true
   require_reader_reward_gate: true
   require_xianxia_density_gate: true
+  require_reference_style_adaptation_when_enabled: true
   v3_enforced_from_chapter: 1
 
 migration:
