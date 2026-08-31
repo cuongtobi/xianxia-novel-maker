@@ -56,6 +56,15 @@ completion_gate:
   require_batch_audit: true
   require_reader_experience_update: true
   require_rolling_audit_when_due: true
+  v2_enforced_from_chapter: 1
+
+migration:
+  from_version: null
+  migrated_to: null
+  legacy_cutoff_chapter: 0
+  v2_enforced_from_chapter: 1
+  migration_baseline: null
+  legacy_batch_audits_backfilled: false
 
 notes:
   framework_migration: ""
