@@ -2,6 +2,7 @@
 
 > File đích: `stories/<slug>/outline/master_outline.md`
 > Master Outline khóa hướng dài hạn, không vi mô hóa hàng trăm chương quá sớm.
+> Bắt buộc tương thích `docs/RETENTION_CONTROLLERS_V3.md`.
 
 # 1. Story Promise Controller
 
@@ -31,20 +32,36 @@ Rules:
 - Nếu 2–3 chương không PAY bất kỳ core promise nào, Reader Retention Editor phải cảnh báo.
 - Nếu một promise dài hạn cố ý có drought dài, phải có sub-payoff thay thế được ghi rõ.
 
-## 1.3 Promise priority
+## 1.3 Payoff Magnitude Contract
+
+Mỗi promise phải xác định rõ thế nào là:
+
+- `PAY_MINOR` — payoff thật nhưng scope nhỏ;
+- `PAY_MAJOR` — payoff đáng kể, trả rõ lý do độc giả theo promise;
+- `PAY_ARC` — đóng/tái định nghĩa objective hoặc threshold cấp arc.
+
+| Promise ID | PAY_MINOR example | PAY_MAJOR example | PAY_ARC example | Max major payoff debt | Typical major-pay windows |
+|---|---|---|---|---|---|
+
+Reward score dùng trong audit: `MINOR=1 / MAJOR=2 / ARC=3`.
+
+Không dùng chuỗi PAY_MINOR để che việc core promise thiếu PAY_MAJOR.
+
+## 1.4 Promise priority
 
 - Core promises:
 - Secondary promises:
 - Promise that must appear in opening 3 chapters:
 - Promise that must PAY in opening 3 chapters:
 - Promise most at risk of being crowded out by worldbuilding/administration:
+- Core promise most likely to accumulate major payoff debt:
 
 # 2. Long-range Structure
 
 Chia truyện thành Saga / Era / Major Phase.
 
-| Saga | Chapter Range (ước tính) | World Layer | External Goal | Internal Change | Cultivation Range | Main Opposition | Irreversible Turn | Promise PAY focus |
-|---|---|---|---|---|---|---|---|---|
+| Saga | Chapter Range (ước tính) | World Layer | External Goal | Internal Change | Cultivation Range | Main Opposition | Irreversible Turn | Promise PAY focus | Expected major payoff |
+|---|---|---|---|---|---|---|---|---|---|
 
 # 3. Protagonist Trajectory
 
@@ -58,6 +75,23 @@ Chia truyện thành Saga / Era / Major Phase.
 - Core misconception:
 - Blind spot most likely to cause a costly mistake:
 
+## 3.1 Competence Friction Contract
+
+MC không cần giả ngu. Xác định trước những nguồn friction hợp DNA:
+
+- knowledge likely to become outdated:
+- social/consent blind spot:
+- political cost of competence:
+- resource constraint competence cannot bypass:
+- domain where supporting cast knows more:
+- kind of problem MC can solve only partially:
+- kind of CLEAN_WIN acceptable for genre promise:
+- compensation if story intentionally has frequent clean wins:
+
+Các competence conversion sẽ được runtime gắn nhãn:
+
+`CLEAN_WIN / COSTLY_WIN / PARTIAL / WRONG_MODEL / DEPENDENT_ON_OTHER / FAILURE / NO_CONVERSION`.
+
 ## Major transformation gates
 
 Mỗi gate:
@@ -69,6 +103,7 @@ Mỗi gate:
 - New responsibility:
 - What is lost forever:
 - Which Story Promise pays here:
+- Payoff magnitude:
 
 ## End direction
 
@@ -86,8 +121,8 @@ Antagonistic force có thể là người, tông môn, hệ thống xã hội, t
 
 # 5. Cultivation Progression Map
 
-| Phase | Realm Start | Realm End | Required Insight | Required Resource | Cost | Narrative Meaning | Reader-facing payoff |
-|---|---|---|---|---|---|---|---|
+| Phase | Realm Start | Realm End | Required Insight | Required Resource | Cost | Narrative Meaning | Reader-facing payoff | Payoff magnitude |
+|---|---|---|---|---|---|---|---|---|
 
 Không đặt breakthrough chỉ theo số chương. Mỗi breakthrough phải gắn với tích lũy và biến chuyển truyện.
 
@@ -112,36 +147,74 @@ World logic không thay thế fantasy experience. Xác định các loại trả
 
 Không dùng quota cứng; dùng map này để tránh hàng chục chương chỉ có logic/logistics mà thiếu cảm giác tu tiên.
 
-# 7. World Reveal Map
+# 7. Aspiration Controller — Long-range
+
+Scarcity và aspiration phải tách riêng.
+
+- Dominant scarcity pressures:
+- Core fantasy desires the story should repeatedly awaken:
+- Signature desirable resources/places/powers/status:
+- What should make reader think “muốn có cái này”:
+- Resource/power that should be glimpsed long before acquisition:
+
+| Window | Object of desire | Why desirable | Sensory/status proof | Distance to acquire | Gate/cost | Planned status change |
+|---|---|---|---|---|---|---|
+
+Progression xianxia không nên có rolling 5 chapter chỉ problem-fixing/scarcity/admin mà không aspiration/wonder đủ mạnh.
+
+# 8. Heat Identity / Long-range Curve
+
+Heat không chỉ là combat; gồm danger, wonder, power display, emotional rupture, reversal, threshold, high-stakes choice và reveal mạnh.
+
+Heat enum:
+
+- `H0` quiet/setup/decompression;
+- `H1` active tension;
+- `H2` strong memorable beat;
+- `H3` batch/arc peak.
+
+- Typical baseline heat:
+- Typical peak heat:
+- What H2 looks like in this story:
+- What H3 looks like in this story:
+- What kind of quiet chapter is valid:
+- Saturation risk to avoid:
+
+| Saga/window | Expected heat shape | Planned H2+ anchors | Why these peaks matter |
+|---|---|---|---|
+
+Rolling 5 không có H2+ là flatness risk trừ explicit structural exception.
+
+# 9. World Reveal Map
 
 | Reveal | Reader Learns | Character Learns | Earliest Setup | Target Reveal | Consequence |
 |---|---|---|---|---|---|
 
-# 8. Core Relationships
+# 10. Core Relationships
 
 | Relationship | Start | Major Turn 1 | Major Turn 2 | Crisis | End Direction |
 |---|---|---|---|---|---|
 
-# 9. Emotional Spine
+# 11. Emotional Spine
 
 Không outline cảm xúc như quota. Chỉ xác định các thay đổi dài hạn phải để lại residue.
 
 | Window | Character/relationship | Emotional or self-image change | Cost/trigger | Residue carried forward |
 |---|---|---|---|---|
 
-# 10. Mystery / Secret Architecture
+# 12. Mystery / Secret Architecture
 
-| Secret ID | Truth | Surface Belief | Holder | Setup | Reveal Window | Payoff | Promise supported |
-|---|---|---|---|---|---|---|---|
+| Secret ID | Truth | Surface Belief | Holder | Setup | Reveal Window | Payoff | Promise supported | Magnitude |
+|---|---|---|---|---|---|---|---|---|
 
-# 11. Foreshadowing Spine
+# 13. Foreshadowing Spine
 
 Chỉ ghi setup/payoff cấp truyện, không ghi mọi chi tiết nhỏ.
 
 | ID | Setup Window | Reinforcement | Payoff Window | Type | Must Pay? |
 |---|---|---|---|---|---|
 
-# 12. Saga Template
+# 14. Saga Template
 
 ## Saga N — [Tên]
 
@@ -158,12 +231,16 @@ Chỉ ghi setup/payoff cấp truyện, không ghi mọi chi tiết nhỏ.
 - Major reveal:
 - Irreversible event:
 - Story Promise focus:
+- Minimum major payoff expected:
 - Xianxia Experience focus:
+- Aspiration focus:
+- Heat shape:
 - Likely costly mistake / human pressure:
+- Competence friction mode:
 - Seeds for later sagas:
 - Arc list:
 
-# 13. Ending Architecture
+# 15. Ending Architecture
 
 Không cần khóa chi tiết sớm, nhưng cần biết:
 
@@ -172,10 +249,11 @@ Không cần khóa chi tiết sớm, nhưng cần biết:
 - What protagonist must sacrifice / reject / accept:
 - Which early setup must pay off:
 - Which Story Promises must receive final PAY:
+- Required final payoff magnitude:
 - Which mystery must resolve:
 - Desired emotional aftertaste:
 
-# 14. Flex Zones
+# 16. Flex Zones
 
 Các vùng được phép thay đổi dựa trên diễn biến viết thật:
 
@@ -185,8 +263,9 @@ Các vùng được phép thay đổi dựa trên diễn biến viết thật:
 - Minor faction routes:
 - Optional romance progression:
 - Exact Narrative Engine distribution:
+- Exact heat values when organic causality requires change:
 
-# 15. Non-negotiables
+# 17. Non-negotiables
 
 Các mốc không được đổi nếu chưa được người dùng chấp thuận:
 
@@ -194,12 +273,15 @@ Các mốc không được đổi nếu chưa được người dùng chấp thu
 2.
 3.
 
-# 16. Outline Revision Log
+# 18. Outline Revision Log
 
 - Date / after chapter:
 - Changed section:
 - Why:
 - Canon impact:
 - Story Promise impact:
+- Payoff magnitude impact:
 - Reader Experience impact:
+- Aspiration/heat impact:
+- Competence-friction impact:
 - Future arcs affected:
