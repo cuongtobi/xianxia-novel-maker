@@ -10,13 +10,10 @@
 - Candidate reviewed: draft / rewritten candidate
 - Style Bible:
 - Reference Style enabled: yes/no
-- Reference profile if enabled:
-- Relevant selected reference traits for this chapter:
+- Reference mode: `prose_mechanics_only` / NA
 - Result: PASS / REWRITE_REQUIRED
 
 # A. Continuity
-
-Kiểm chỉ những gì có thể làm sai canon/state.
 
 | ID | Severity | Location | Finding | Required fix |
 |---|---|---|---|---|
@@ -41,57 +38,99 @@ Statuses:
 
 `UNTOUCHED / ADVANCE / PAY_MINOR / PAY_MAJOR / PAY_ARC`
 
-Check:
+Check target, concrete PAY, magnitude, false pay và drought. Không ép fake payoff.
 
-- target có được chạm thật không?;
-- PAY có result/reveal/state change hữu hình không?;
-- magnitude có bị phóng đại không?;
-- có false pay không?;
-- drought có vượt contract không?;
-- nếu drought là vấn đề của future plan chứ không phải chapter hiện tại, ghi NOTE/ACTION cho arc thay vì ép fake payoff.
-
-# C. Style
+# C. Style — Prose Mechanics Only
 
 | ID | Severity | Location | Finding | Required fix |
 |---|---|---|---|---|
 
-## C1. Core house-style checks
+## C1. Sentence architecture
 
-- repeated rhetorical frames;
-- fragment/cadence abuse;
-- Q&A quá sạch;
-- hypothesis-loop lặp;
-- aphorism/recap/exposition;
-- lexical/stock tics;
-- dialogue sameness;
-- story Style Bible drift;
-- Reference Style overfit/imitation nếu enabled.
+- Câu trung bình có làm trục hay prose bị vỡ thành fragment?:
+- Câu ngắn có dùng cho impact hay bị spam?:
+- Câu dài có syntax Việt rõ hay kéo mệnh đề kiểu convert?:
+- Có cấu trúc câu lặp thành dấu vân tay không?:
 
-## C2. Tiên Nghịch High-Level Style DNA — only if selected in Story Style Bible
+## C2. Clause flow / transitions
 
-Không chapter nào phải pass đủ toàn bộ trait. Chỉ kiểm trait đã được Style Bible chọn và relevant với scene.
+- Connector có bị lặp (`lập tức / ngay sau đó / đồng thời / nhưng / cho nên...`)?:
+- Quan hệ nguyên nhân/thời gian/đối lập có rõ mà không over-explain?:
+- Có literal Chinese-convert clause order không?:
 
-- **Grounded concrete event:** prose có bám người/vật/hành động/quyết định cụ thể hay trôi thành generic xianxia abstraction?:
-- **Mortal anchor:** nếu scene cần ordinary-life contrast, nó có cụ thể và có meaning không?:
-- **Pressure/release:** nếu chapter là conflict lớn, pressure có tích lũy bằng thay đổi risk/leverage hay chỉ kéo dài?:
-- **Qualitative cultivation:** nếu cultivation là payoff chính, progression có đổi capability/perception/status/choice hay chỉ tăng số?:
-- **Expert compression:** experienced MC có bị log quá nhiều suy luận/mechanism không?:
-- **Power gap:** chênh lệch cảnh giới có đổi lựa chọn/resource/tactics thật không?:
-- **Dao/insight:** câu triết lý có lived event/concrete image phía dưới không? insight có consequence không?:
-- **Emotion:** peak có concrete attachment/action/body/silence và hậu quả kéo dài không?:
-- **World scale:** reveal có revalue điều đã biết/stakes hiện tại hay chỉ thêm map/bigger number?:
-- **Wonder:** có concrete impossible proof trước khi adjective hóa không?:
+## C3. Diction
 
-## C3. Weakness / imitation filter
+- Động từ/danh từ có đủ cụ thể?:
+- Adjective/Hán Việt có bị chồng quá dày?:
+- Có stock phrase/gesture không?:
+- Xưng hô và tiếng Việt có tự nhiên không?:
 
-- translation/convert syntax?:
-- exposition/recap dài không đổi scene?:
-- spectator shock quá dày?:
-- stock gestures/connectors?:
-- repeated combat/tournament shape?:
-- unsupported aphorism/Dao lecture?:
-- artificial cliffhanger?:
-- direct imitation of reference wording/rhetorical frame/scene?:
+## C4. Paragraph rhythm
+
+- Paragraph length có quá đều?:
+- Có quá nhiều one-sentence paragraph cùng chức năng?:
+- Mỗi đoạn có một movement tương đối rõ?:
+- Có thói quen kết mọi đoạn bằng narrator verdict không?:
+
+## C5. Narration / internal monologue
+
+- Narrator có rõ và trực diện hay cố bí hiểm giả?:
+- Có recap điều reader vừa thấy?:
+- Experienced MC có log toàn bộ reasoning không?:
+- Internal monologue có giọng riêng hay giống report kỹ thuật?:
+
+## C6. Dialogue
+
+- Dialogue có quá sạch như Q&A?:
+- Mọi nhân vật có cùng cadence/mức logic?:
+- Dialogue tag/action beat có thừa?:
+- Có lecture dump không?:
+
+## C7. Description / exposition
+
+- Miêu tả có chọn chi tiết có chức năng hay thành catalog?:
+- Exposition có dài hơn nhu cầu scene?:
+- Sau exposition có quay lại action/person/object không?:
+- Có giải thích cùng cơ chế nhiều lần không?:
+
+## C8. Action / combat prose
+
+- Không gian/hành động có dễ theo?:
+- Động từ có rõ?:
+- Có skill-log hoặc exposition chen giữa từng đòn?:
+- Spectator reaction/adjective shock có quá dày?:
+
+## C9. Reference prose alignment
+
+Chỉ kiểm **các prose mechanics đã được Style Bible chọn**:
+
+- directness;
+- sentence rhythm;
+- clause flow;
+- diction restraint;
+- paragraph rhythm;
+- narration stance;
+- reasoning compression;
+- dialogue prose;
+- description/action/exposition handling.
+
+**Không được chấm**:
+
+- plot/arc;
+- mortal anchor;
+- Dao/insight architecture;
+- emotional arc;
+- progression structure;
+- world-scale reveal;
+- protagonist temperament.
+
+## C10. Originality / imitation filter
+
+- Có copy/tái tạo sát wording hoặc rhetorical frame dễ nhận diện từ reference không?:
+- Có scene/plot pattern bị kéo theo reference không?:
+- Có convert syntax do học bản dịch không?:
+
+Nếu có, de-reference bằng cách quay lại house Style Bible và tiếng Việt tự nhiên.
 
 # D. Decision
 
@@ -105,18 +144,15 @@ Rule:
 
 - không BLOCKER/MAJOR cần sửa trong chapter → `PASS`;
 - có BLOCKER/MAJOR → `REWRITE_REQUIRED`;
-- MINOR/NOTE không tự động kích hoạt rewrite;
-- không tạo MAJOR chỉ vì chapter không biểu diễn một reference trait không relevant.
+- MINOR/NOTE không tự kích hoạt rewrite.
 
-Nếu `PASS`, draft đi thẳng thành final và không tạo rewrite artifact.
+Nếu PASS, draft đi thẳng final.
 
 # E. Rewrite Recheck — only if rewrite ran
 
 - Original failing finding IDs:
 - Fix summary:
-- Recheck result for each finding:
+- Recheck result:
 - New BLOCKER/MAJOR introduced?:
-- Reference imitation risk introduced by rewrite?:
+- Imitation risk introduced?:
 - Final decision: PASS / REWRITE_REQUIRED
-
-Không tạo report re-QC riêng. Recheck được ghi ngay trong file này trước atomic commit.

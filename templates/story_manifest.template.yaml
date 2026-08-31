@@ -28,7 +28,8 @@ pipeline:
   next_chapter: 1
   reader_experience_required: true
   reference_style_enabled: true
-  reference_style_mode: "high_level_style_dna_only"
+  reference_style_mode: "prose_mechanics_only"
+  reference_style_affects_story_dna: false
 
 chapter_artifacts:
   required:

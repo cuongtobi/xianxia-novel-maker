@@ -21,7 +21,6 @@ creative_intent:
   one_sentence_premise: ""
   core_hook: ""
   reading_experience:
-    # Ví dụ: nhiệt huyết, trầm tĩnh, hiểm ác, hài nhẹ, bi tráng, phiêu lưu...
     primary_mood: ""
     secondary_moods: []
   what_makes_this_story_different: ""
@@ -107,13 +106,14 @@ tone_and_style_seed:
     enabled: true
     system_spec: "docs/REFERENCE_STYLE_SYSTEM.md"
     profile: "docs/reference_profiles/TIEN_NGHICH_HIGH_LEVEL_STYLE.md"
-    usage: "high_level_style_dna_only"
-    adapt_to_story_dna: true
+    usage: "prose_mechanics_only"
+    adapt_to_story_house_style: true
+    affects_plot_or_story_dna: false
     copy_specific_phrasing: false
     copy_specific_rhetorical_frames: false
     copy_plot_or_characters: false
     project_owned_calibration_takes_over_later: true
-    notes: "Default xianxia baseline; user may disable or replace per story."
+    notes: "Default prose-mechanics reference only; does not influence plot, arc, Character DNA or world design."
 
 content_boundaries:
   prohibited_content: []
@@ -130,6 +130,5 @@ production:
   branch_format: "story/{slug}"
 
 open_questions:
-  # AI phải giải quyết sáng tạo nếu người dùng không bắt buộc duyệt.
   user_wants_ai_to_decide: []
   user_must_decide: []

@@ -1,6 +1,6 @@
 # Style Bible Template
 
-> Direct writing contract cho story. Không phải checklist metric.
+> Direct writing contract cho story. Reference Style nếu bật chỉ áp **prose mechanics**, không áp Story DNA.
 
 # 1. Style Identity
 
@@ -12,29 +12,32 @@
 - Darkness/brutality:
 - Romance tone:
 
-## 1.1 Reference Style Adaptation Contract
+## 1.1 Reference Prose Adaptation Contract
 
 Nếu bật Reference Style:
 
 - Reference profile:
-- `reference_traits_selected` (chọn 3–6 trait thật sự phù hợp premise):
-- `reference_traits_softened_or_omitted`:
-- `reference_weaknesses_filtered`:
-- `story_specific_expression` — story này biến các trait đó thành chất riêng như thế nào?:
-- `do_not_imitate` — wording/rhetorical/scene patterns tuyệt đối không bắt chước:
-- `calibration_takeover_condition`:
+- Reference mode: `prose_mechanics_only`
+- Sentence architecture to inherit:
+- Sentence-length rhythm to inherit:
+- Clause/transition behavior to inherit:
+- Diction/Hán Việt balance to inherit:
+- Paragraph rhythm to inherit:
+- Narration stance to inherit:
+- Internal monologue compression rule:
+- Dialogue prose traits:
+- Description density:
+- Action/combat prose traits:
+- Exposition handling:
+- Emotional understatement preference:
+- Repetition limits:
+- Vietnamese adaptation filter:
+- Traits to soften/omit:
+- Reference weaknesses filtered:
+- Story-specific expression:
+- Calibration takeover condition:
 
-Nếu dùng default Tiên Nghịch profile, cân nhắc chọn từ các trait:
-
-- mortal anchor before immortal scale;
-- accumulated pressure → decisive release;
-- cultivation as qualitative transformation;
-- lived experience → Dao/insight → consequence;
-- power gap constrains decisions;
-- restrained emotion → rupture → persistent scar;
-- layered world-scale reveal.
-
-Không bắt buộc dùng đủ. Không copy câu chữ, rhetorical frame, plot beat, character/world identity hoặc convert syntax.
+**Không điền plot/arc/theme/Dao/mortal-anchor/world-scale/emotional-arc traits ở mục này.**
 
 # 2. POV
 
@@ -43,193 +46,183 @@ Không bắt buộc dùng đủ. Không copy câu chữ, rhetorical frame, plot 
 - Head-hopping rules:
 - Scene breaks:
 - Narrator knowledge boundary:
-- Khi nào narrator được zoom-out cho cultivation/history/world scale?:
-- Quy tắc quay lại concrete person/object/decision sau zoom-out:
+- Khi nào narrator được zoom-out:
+- Quy tắc quay lại person/object/action sau zoom-out:
 
-# 3. Vietnamese Prose
+# 3. Sentence Architecture
 
-- Câu trung bình làm trục.
-- Câu ngắn dành cho impact/reversal, không spam fragment.
-- Câu dài chỉ khi accumulation/lore/emotion cần.
-- Hán Việt đúng ngữ cảnh; cảm giác thân thể/đời sống ưu tiên tiếng Việt tự nhiên.
-- Miêu tả phục vụ không gian, nhân vật, danger, setup/payoff, atmosphere hoặc scale proof.
-- Ưu tiên `concrete fact/perception → needed interpretation → action → consequence` khi hợp scene.
-- Experienced MC không cần in toàn bộ hypothesis ra prose.
+- Default sentence length:
+- Short-sentence function:
+- Long-sentence function:
+- Preferred clause order:
+- Transition density:
+- Fragment policy:
+- Repetition policy:
 
-# 4. Grounded Xianxia Flavor
+Default guidance:
 
-Khóa cách truyện này thể hiện:
+- câu trung bình làm trục;
+- câu ngắn dành cho impact/reversal/chốt trạng thái;
+- câu dài dùng cho accumulation hoặc quan hệ nhân quả cần liền mạch;
+- không spam isolated fragments;
+- không dùng connector ở mọi câu.
 
-- cultivation/body/perception;
-- power gap;
-- magical craft;
-- resources/artifacts;
-- sect/faction hierarchy;
-- wonder/world scale;
-- Dao/insight;
-- mortal/immortal contrast nếu relevant.
+# 4. Diction
 
-Chất tiên hiệp phải đến từ consequence và lived world, không adjective spam.
+- Hán Việt dành cho:
+- Thuần Việt dành cho:
+- Adjective density:
+- Preferred verb texture:
+- Terms/tics to avoid:
 
-# 5. Mortal Anchor
+Ưu tiên động từ và danh từ cụ thể; hạn chế adjective stack kiểu `kinh thiên / tuyệt thế / vô thượng / khủng bố` nếu chưa có proof.
 
-Điền nếu phù hợp story:
+# 5. Paragraph Rhythm
 
-- ordinary-life anchors quan trọng:
-- family/work/food/money/age/travel details có thể giữ nhân vật grounded:
-- objects/places có emotional memory:
-- cách ordinary life later revalues cultivation:
+- Typical paragraph movement:
+- Khi nào xuống đoạn:
+- One-sentence paragraph policy:
+- Dialogue paragraph policy:
+- Long paragraph limit/conditions:
 
-Không bắt buộc có “Hóa Phàm arc”. Chỉ giữ nguyên lý: đời thường có thể là vật liệu của tu hành và cảm xúc.
+Không cố định số câu mỗi đoạn. Mỗi đoạn nên có một movement chính và nhịp phải thay đổi theo scene.
 
-# 6. Dialogue
+# 6. Narration
 
-- Speech fingerprint theo Characters Bible.
-- Tránh Q&A quá sạch.
-- Cho phép ngập ngừng/cắt lời/né tránh khi organic.
-- Không để mọi nhân vật cùng mức logic và cadence.
-- Không dùng dialogue để dump điều cả hai đều biết.
-- Power/status gap phải ảnh hưởng độ trực tiếp và lựa chọn từ ngữ.
-- Trong lethal combat, hạn chế banter dài nếu không hợp DNA.
+- Narrator directness:
+- Explanatory tolerance:
+- Mystery withholding style:
+- Recap policy:
+- Emotional labeling policy:
+
+Narrator được nói thẳng khi clarity cần. Không bắt mọi lore phải giả thành dialogue hoặc internal monologue.
 
 # 7. Internal Monologue
 
-- Không log mọi hypothesis.
-- Experienced MC có thể reason nhanh mà prose chỉ giữ phần ảnh hưởng quyết định.
-- Sau block suy luận dài nên có decision/action/consequence.
-- Nhân vật được phép nghĩ sai nếu hợp DNA, nhưng không có quota sai.
-- Triết lý chỉ nên mở rộng khi có concrete lived material hỗ trợ.
+- Reasoning density:
+- Expert compression rule:
+- What thoughts deserve prose:
+- What reasoning may be omitted:
+- Self-explanation to avoid:
 
-# 8. Cultivation / Craft Prose
+Với MC có kinh nghiệm, chỉ giữ suy luận ảnh hưởng quyết định; không log toàn bộ `observe → hypothesis → test → conclusion`.
 
-Khi cultivation/craft là trọng tâm, chọn những lớp cần thiết:
+# 8. Dialogue Prose
 
-- current state;
-- constraint/failure risk;
-- mechanism;
-- resource/cost;
-- decision;
-- bodily/sensory/environment proof;
-- consequence.
+- Average line length:
+- Directness by status:
+- Dialogue tag density:
+- Action-beat usage:
+- Banter tolerance:
+- Lecture tolerance:
+- Silence/interruption handling:
 
-Không bắt buộc đủ tất cả. Không biến scene thành manual.
+Không để mọi nhân vật cùng cadence và cùng cách kết luận.
 
-Khóa cho story:
+# 9. Description
 
-- Qualitative progression proof — mỗi major breakthrough nên thay đổi capability/perception/status/choice thế nào?:
-- Expert-compression rule — khi MC rất giỏi, chi tiết nào cần nói và chi tiết nào bỏ?:
+- Description density:
+- Detail selection rule:
+- Visual vs sensory balance:
+- Character-description policy:
+- Environment-description policy:
 
-# 9. Dao / Insight Contract
+Miêu tả ưu tiên ít chi tiết có chức năng hơn catalog toàn bộ cảnh vật.
 
-Nếu story có Dao/ý cảnh mạnh:
+# 10. Action / Combat Prose
 
-Preferred movement:
+- Sentence compression under pressure:
+- Verb intensity:
+- Spatial clarity:
+- Skill-name density:
+- Exposition during action:
+- Impact/result timing:
 
-`lived event → concrete image/action/object → contradiction/association → partial insight → later consequence`
+Default:
 
-Rules:
-
-- không mở bằng slogan rồi mới tìm scene minh họa;
-- insight có thể chưa hoàn chỉnh;
-- câu triết lý phải có trải nghiệm đỡ phía dưới;
-- insight phải đổi một hành động, technique, cultivation path, worldview hoặc relationship về sau.
-
-Story-specific Dao material:
-
-- recurring ordinary images/activities:
-- emotional contradictions:
-- experiences likely to mature into insight:
-
-# 10. Combat
-
-- rõ objective, distance, power gap, resource, terrain, injury;
-- power gap phải đổi quyết định;
-- action/counter/consequence dễ theo;
+- action nhanh → câu ngắn hơn, động từ rõ hơn;
+- giảm exposition giữa đòn;
 - không skill-log;
-- không đối thủ quên năng lực để MC thắng;
-- combat có thể kết thúc ngắn nếu decisive advantage hợp lý;
-- spectator reactions dùng tiết chế; strength proof ưu tiên consequence.
+- spectator reaction tiết chế;
+- kết quả vật lý xuất hiện sớm.
 
-# 11. Accumulated Pressure & Release
+# 11. Cultivation / Craft Exposition Prose
 
-Cho các conflict lớn, có thể dùng:
+- Technical detail level:
+- Expert MC compression:
+- Mechanism explanation order:
+- Sensory proof preference:
 
-`constraint → worsening pressure → narrowing options → decision → decisive release → lasting consequence`
+Khi cần giải thích:
 
-Không kéo dài chỉ để tạo suspense. Mỗi beat tích lũy phải đổi risk, information, leverage hoặc emotion.
+`state → relevant difference → action → result`
 
-# 12. Exposition
+Không biến scene thành manual nếu reader chỉ cần hiểu một thay đổi.
 
-- worldbuilding qua situation/action/consequence;
-- narrator được nói thẳng khi clarity cần;
-- không recap điều reader vừa biết;
-- không giải thích một cơ chế nhiều lần;
-- sau lore block quay lại con người/decision/event;
-- world-scale reveal phải revalue kiến thức/stakes cũ, không chỉ thêm bigger names/numbers.
+# 12. Emotional Prose Mechanics
 
-# 13. Emotional Prose
+- Narrator labeling tolerance:
+- Body/action preference:
+- Silence/gesture preference:
+- Dialogue restraint:
 
-Preferred architecture khi có emotional arc lớn:
+Đây chỉ là cách viết khoảnh khắc cảm xúc; **không quyết định emotional arc của truyện**.
 
-`concrete attachment → accumulated pressure → rupture → simple action/line/silence → persistent scar`
+# 13. Exposition
 
-Rules:
+- Narrator exposition allowed?:
+- Max comfortable block before return to scene:
+- Lore delivery preference:
+- Repeated explanation policy:
 
-- ưu tiên attachment, body, action, object, silence và consequence hơn narrator labeling;
-- không bắt mỗi chapter phải có emotional beat;
-- major emotional event phải ảnh hưởng later behavior nếu hợp logic;
-- romance/family tone phải theo seed, không imitate reference relationship patterns.
+Sau exposition nên quay lại person/object/action/decision/consequence.
 
-# 14. Wonder / World Scale
+# 14. Vietnamese Adaptation Filter
 
-Preferred movement:
+- Avoid Chinese-convert syntax:
+- Avoid repeated connectors:
+- Pronoun/name repetition rule:
+- Preferred Vietnamese clause order:
+- Address/pronoun consistency:
 
-`known scale → impossible evidence → revised understanding → new strategic/emotional horizon`
+Giữ độ trực diện và tiết chế của reference; không giữ literal syntax của bản dịch/convert.
 
-- cho reader thấy proof trước khi giải thích hết;
-- tránh adjective stacks;
-- new layer phải đổi cách nhân vật hiểu mục tiêu/nguy hiểm/tài nguyên hiện tại.
-
-# 15. Opening / Ending
-
-- Preferred openings:
-- Openings to avoid:
-- Preferred endings:
-- Hooks must be organic, không bắt buộc cliffhanger.
-- Quiet ending được phép nếu emotional/meaning consequence đủ mạnh.
-
-# 16. Anti-AI + Reference Weakness Filter
+# 15. Anti-AI + Reference Weakness Filter
 
 Cảnh giác:
 
 - `Không X. Mà Y.` dày;
 - isolated fragments liên tiếp;
-- ba nhịp ngắn lặp như công thức;
+- ba nhịp ngắn thành công thức;
 - `Đúng. Nhưng... / Vậy... / Cho nên...` thành cadence;
 - Q&A sạch như transcript;
-- hypothesis-test loop;
-- aphorism/triết lý đóng gói thiếu lived support;
+- hypothesis-loop;
+- aphorism đóng gói;
 - paragraph length quá đều;
-- stock gesture/connector lặp;
-- mọi scene cùng giọng narrator;
-- exposition/recap dài không đổi scene;
-- spectator shock quá dày;
-- combat/tournament lặp pattern;
-- translation/convert syntax;
-- world escalation chỉ là đổi map + bigger number;
-- cliffhanger nhân tạo.
+- stock gesture;
+- connector lặp;
+- adjective spam;
+- spectator shock;
+- convert syntax;
+- exposition/recap lặp;
+- direct imitation wording/rhetorical frame.
 
-# 17. Calibration Policy
+# 16. Calibration Policy
 
 Chỉ dùng project-owned final/user-approved samples khi đủ chất lượng.
 
-Chọn đa dạng narration/dialogue/action/quiet/cultivation/combat/wonder/Dao tùy story. Không quota.
+Học:
 
-Học rhythm/diction/POV texture; không copy câu/rhetorical frame.
+- rhythm;
+- diction;
+- POV texture;
+- paragraph shape;
+- dialogue texture;
+- description/action/exposition handling.
 
-Khi calibration đủ mạnh, project-owned samples được ưu tiên hơn reference profile.
+Không học plot hoặc scene pattern từ reference/sample.
 
-# 18. Story-Specific Do / Don't
+# 17. Story-Specific Do / Don't
 
 ## Do
 -

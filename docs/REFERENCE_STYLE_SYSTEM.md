@@ -1,127 +1,139 @@
-# Reference Style System
+# Reference Style System — Prose Mechanics Only
 
-Reference Style là lớp hỗ trợ **high-level house style**, không phải controller sáng tác và không phải lệnh bắt chước tác giả/tác phẩm.
+Reference Style chỉ là lớp **prose mechanics**. Nó không phải Story DNA, không phải controller và không được tác động plot/world/character/arc.
 
-## 1. Hierarchy
+## 1. Scope
 
-`Reference Profile → Story Style Bible adaptation → Writer → project-owned calibration → Combined QC / Style section`.
+Reference Style chỉ được dùng cho:
+
+- sentence architecture;
+- sentence-length variation;
+- clause flow / transitions;
+- diction / Hán Việt balance;
+- paragraph rhythm;
+- narration stance;
+- internal monologue compression;
+- dialogue prose;
+- description density;
+- action/combat prose;
+- exposition handling;
+- emotional understatement ở cấp câu chữ;
+- repetition limits;
+- Vietnamese adaptation filter.
+
+Không được dùng cho:
+
+- premise;
+- plot/arc;
+- Character DNA;
+- worldbuilding;
+- cultivation design;
+- payoff design;
+- Dao/insight architecture;
+- emotional arc;
+- progression structure;
+- world-scale reveal strategy.
+
+## 2. Hierarchy
+
+`Reference Prose Profile → Story Style Bible adaptation → Writer → project-owned calibration → Combined QC/Style`
 
 Direct writing source luôn là `bible/style_bible.md`.
 
-## 2. Allowed adaptation
+Reference profile không đi trực tiếp vào Writer prompt ngoài các rule đã được Style Bible chọn và chuyển hóa.
 
-Có thể học ở mức cao:
+## 3. Default profile
 
-- prose density/rhythm;
-- narrative distance;
-- mức trực diện vs trữ tình;
-- cách nối trải nghiệm đời sống với cultivation/Dao;
-- cách power gap chi phối quyết định;
-- emotional restraint/rupture;
-- ordinary/immortal contrast;
-- world-scale reveal;
-- cultivation/combat/exposition handling.
+Default xianxia prose reference:
+
+`docs/reference_profiles/TIEN_NGHICH_HIGH_LEVEL_STYLE.md`
+
+Mode bắt buộc:
+
+`prose_mechanics_only`
+
+Tên file lịch sử được giữ để compatibility, nhưng nội dung hiện tại chỉ là prose mechanics.
+
+## 4. Adaptation rule
+
+Style Director chỉ chọn các thuộc tính câu chữ phù hợp story, ví dụ:
+
+- directness;
+- câu trung bình làm trục;
+- câu ngắn dùng tại impact;
+- narration rõ;
+- expert reasoning được nén;
+- thoại gọn theo địa vị;
+- miêu tả chọn lọc;
+- action prose ưu tiên động từ;
+- exposition ngắn rồi trở về action;
+- adjective/repetition restraint.
+
+Không chuyển bất kỳ đặc trưng cốt truyện/chủ đề nào từ reference sang story.
+
+## 5. Contemporary-author safety / originality
+
+Không yêu cầu Writer “viết giống Nhĩ Căn” hoặc tái tạo sát phong cách cá nhân của tác giả.
 
 Không copy:
 
 - câu/cụm;
 - rhetorical frame dễ nhận diện;
-- plot/scene beat;
+- đoạn văn;
+- scene/plot beat;
 - character/world identity;
-- convert/translation syntax;
-- stock gesture của nguồn.
+- translation/convert syntax.
 
-## 3. Default Tiên Nghịch profile
+Chỉ dùng đặc điểm cấp cao đủ chung để tạo house style riêng.
 
-Nếu story bật default profile:
+## 6. Translation caveat
 
-`docs/reference_profiles/TIEN_NGHICH_HIGH_LEVEL_STYLE.md`
+Tiên Nghịch tồn tại qua nguyên tác Hoa ngữ và nhiều bản dịch/convert. Không suy ra sentence pattern tiếng Việt từ một bản convert.
 
-Profile này ưu tiên 7 structural traits:
+Pipeline phải ưu tiên:
 
-1. mortal anchor before immortal scale;
-2. accumulated pressure before decisive release;
-3. cultivation as qualitative transformation;
-4. lived experience → Dao/insight → later consequence;
-5. power gap constrains choices;
-6. restrained emotion → concrete rupture → persistent scar;
-7. layered world-scale reveal that revalues old knowledge.
+- cú pháp Việt tự nhiên;
+- xưng hô tự nhiên;
+- giảm connector dịch máy;
+- không bê trật tự mệnh đề Hoa ngữ;
+- giữ tinh thần trực diện/tiết chế thay vì literal syntax.
 
-Style Director phải chọn trait phù hợp premise, không inherit toàn bộ.
+## 7. Project-owned calibration
 
-## 4. Translation caveat
+Khi story có final/user-approved samples tốt, calibration của chính story được ưu tiên hơn reference.
 
-Không học sentence-level phrasing từ bản dịch/converter như thể đó là prose nguyên tác.
+Calibration học:
 
-Khi reference tồn tại ở nhiều ngôn ngữ, chỉ lấy những đặc điểm bền vững xuyên phiên bản và xuyên nhiều loại scene. Diction tiếng Việt cuối cùng phải đến từ story Style Bible + project-owned calibration.
+- rhythm;
+- diction;
+- paragraph shape;
+- narration distance;
+- dialogue texture;
+- action/exposition handling.
 
-## 5. Weakness filter
+Không copy nguyên câu hoặc rhetorical frame từ sample.
 
-Không học các nhược điểm của long-form serialization hoặc translation layer:
+## 8. Combined QC
 
-- exposition/recap dài không đổi scene;
-- transitional pacing trì trệ;
-- repeated emotional beat không có consequence mới;
-- combat/tournament lặp;
-- spectator shock quá dày;
-- stock gesture/connector;
-- Dao lecture tách khỏi lived experience;
-- cliffhanger nhân tạo;
-- cú pháp dịch/convert cứng.
+Phần Style của `combined_qc_report.md` chỉ kiểm prose mechanics mà Style Bible đã chọn.
 
-Modernize bằng **compression, consequence và scene clarity**, không thêm controller/quota.
+Không được tạo finding vì story không có:
 
-## 6. Story adaptation contract
+- Hóa Phàm;
+- Dao arc;
+- mortal anchor;
+- emotional scar;
+- layered world reveal;
+- một kiểu progression nào đó.
 
-Trong mỗi `bible/style_bible.md`, nếu Reference Style bật phải ghi:
+Các thứ đó không thuộc Reference Style.
 
-- selected high-level traits: 3–6;
-- traits to soften/omit;
-- weaknesses filtered;
-- story-specific expression;
-- explicit do-not-imitate boundary;
-- calibration takeover condition.
+## 9. Principle
 
-Priority:
+Reference Style trả lời:
 
-`user intent > Story Promise > Character DNA > story Style Bible > project calibration > reference profile`.
+> **viết câu và đoạn như thế nào để prose trực diện, tiết chế, rõ và có nhịp.**
 
-## 7. Writer boundary
+Nó không trả lời:
 
-Writer không nhận prompt kiểu `viết giống Nhĩ Căn/Tiên Nghịch`.
-
-Writer chỉ nhận các rule đã được Style Bible chuyển hóa, ví dụ:
-
-- bắt đầu từ sự kiện/chi tiết cụ thể;
-- power phải đổi lựa chọn/hậu quả;
-- expert reasoning được nén;
-- insight phải có trải nghiệm phía dưới;
-- emotion gắn attachment cụ thể;
-- world scale mở bằng revaluation, không adjective spam.
-
-## 8. Project-owned calibration
-
-Chỉ dùng final/user-approved samples của chính story.
-
-Sample nên đa dạng theo scene type: narration, dialogue, cultivation/craft, combat/action, quiet/emotional, wonder/Dao khi relevant.
-
-Học rhythm/diction/POV texture; không copy câu/rhetorical frame.
-
-Khi calibration đủ mạnh và user không phản đối, project-owned samples trở thành style source thực tế chính; reference chỉ còn là architectural backstop.
-
-## 9. Combined QC style checks
-
-Trong `combined_qc_report.md`, phần Style kiểm:
-
-- drift-away khỏi story Style Bible;
-- overfit/imitation reference;
-- translation-like syntax;
-- repeated cadence/fragments/rhetorical tics;
-- cultivation biến thành manual hoặc number-only progression;
-- Dao/philosophy thiếu lived-scene support;
-- emotional peak chỉ narrator-label mà không có attachment/consequence;
-- power gap không ảnh hưởng quyết định;
-- world-scale reveal chỉ đổi tên/bigger number mà không revalue stakes;
-- weakness leakage từ old-school serialization.
-
-Đây là diagnostics, không phải controller hoặc quota. Không chapter nào bắt buộc phải chứa đủ các trait.
+> **câu chuyện nên xảy ra chuyện gì.**
