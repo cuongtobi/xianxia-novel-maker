@@ -55,7 +55,8 @@ Miêu tả phải phục vụ ít nhất một việc:
 - báo trước nguy hiểm;
 - mang thông tin worldbuilding;
 - tạo setup/payoff;
-- thay đổi nhịp.
+- thay đổi nhịp;
+- tạo wonder hoặc emotional residue.
 
 Nếu không phục vụ gì, cắt hoặc rút.
 
@@ -68,9 +69,23 @@ Khí chất tiên hiệp đến từ:
 - địa vị và chênh lệch quyền lực có hệ quả;
 - thế giới tu luyện ăn sâu vào kinh tế, xã hội và lựa chọn đời sống;
 - cảnh giới không chỉ là số mạnh hơn;
-- ngôn ngữ trang trọng đúng lúc, đời thường đúng lúc.
+- ngôn ngữ trang trọng đúng lúc, đời thường đúng lúc;
+- khoảnh khắc wonder, threshold crossing và tài nguyên khiến độc giả cũng muốn có.
 
 Không tạo “khí chất” bằng cách nhồi liên tục: thiên địa, thương khung, vạn cổ, nghịch thiên, vô thượng, tuyệt thế.
+
+## 4.1 Xianxia experience preferences
+
+Điền cho truyện cụ thể:
+
+- Cultivation payoff nên có cảm giác:
+- Wonder nên đến từ:
+- Power gap nên được cảm nhận qua:
+- Mystical discovery texture:
+- Magical craft texture:
+- Desirable resource examples/category:
+- Threshold crossing nên được kể theo:
+- World-scale glimpse nên dùng tiết chế thế nào:
 
 # 5. Dialogue Bible
 
@@ -78,13 +93,16 @@ Mỗi nhân vật quan trọng có speech fingerprint riêng trong Characters Bi
 
 Quy tắc chung:
 
-- hội thoại phải có mục tiêu;
+- hội thoại phải có mục tiêu hoặc emotional pressure;
 - nhân vật không nói điều cả hai đều biết chỉ để giải thích cho độc giả;
 - địa vị ảnh hưởng cách xưng hô;
 - thân sơ ảnh hưởng độ trực tiếp;
 - người nói dối không nhất thiết nói như phản diện;
 - câu ngắn không mặc định là “lạnh lùng”;
-- cho phép ngập ngừng, né tránh, cắt lời khi hợp tính cách.
+- cho phép ngập ngừng, né tránh, cắt lời khi hợp tính cách;
+- không cần mọi câu trả lời đúng trọng tâm;
+- cho phép một người hiểu sai, nghe sót hoặc cố tình lờ đi;
+- không để hội thoại liên tục thành `A hỏi → B trả lời → MC kết luận`.
 
 # 6. Internal Monologue
 
@@ -92,8 +110,57 @@ Quy tắc chung:
 - Chỉ dùng khi quyết định, mâu thuẫn hoặc quan sát cần chiều sâu.
 - Tránh nhân vật tự kể lại biography của chính mình.
 - Suy nghĩ phải mang dấu vân tay nhân vật, không phải giọng narrator chung.
+- Nhân vật được phép nghĩ sai, giữ bias, tự bào chữa hoặc không muốn nhìn thẳng vào điều hiển nhiên.
+- Không biến “cẩn trọng” thành loop bắt buộc `giả thuyết → kiểm chứng → kết luận` ở mọi chương.
 
-# 7. Combat Style
+# 7. Positive Prose Texture
+
+Anti-AI blacklist chỉ loại dấu xấu. Phần này định nghĩa **texture tích cực** để prose có ma sát người thật.
+
+Không dùng như quota. Chỉ chọn khi hợp scene và Character DNA.
+
+## 7.1 Human conversational texture
+
+- awkward conversation;
+- interruption;
+- unfinished sentence;
+- trả lời lệch câu hỏi vì ngại/sợ/giận;
+- practical humor;
+- failed joke;
+- embarrassment;
+- silence that changes meaning;
+- một người muốn nói tiếp nhưng người kia đã đổi việc;
+- cùng một câu nhưng hai người hiểu khác.
+
+## 7.2 Human behavioral texture
+
+- irrational attachment;
+- sentimental object;
+- sĩ diện;
+- sunk-cost hesitation;
+- impulsive kindness;
+- spontaneous choice;
+- wrong first impression;
+- physical inconvenience;
+- thói quen nhỏ làm hỏng hình ảnh trang trọng;
+- asymmetrical emotion: một người thấy chuyện rất lớn, người kia coi bình thường.
+
+## 7.3 Sensory messiness
+
+Cho phép đời sống không quá sạch:
+
+- tay ướt khiến cầm giấy khó;
+- đồ ăn nguội;
+- áo vướng;
+- mùi lẫn nhau;
+- bụi dính mép chén;
+- tiếng người khác cắt vào khoảnh khắc riêng;
+- thân thể mỏi khiến suy nghĩ ngắn đi;
+- cảnh đẹp bị phá bởi một chi tiết rất đời.
+
+Mục tiêu không phải “thêm chi tiết”. Mục tiêu là phá cảm giác mọi scene được dựng trong phòng sạch.
+
+# 8. Combat Style
 
 Mỗi trận phải rõ:
 
@@ -111,6 +178,8 @@ Mỗi trận phải rõ:
 
 `quan sát → quyết định → hành động → phản ứng → hậu quả → thích nghi`
 
+Nhưng không dùng chuỗi này như prose formula lặp lại ở mọi trận.
+
 Tránh:
 
 - spam tên chiêu;
@@ -119,7 +188,7 @@ Tránh:
 - “nhanh đến không thể tưởng tượng” lặp lại;
 - nhân vật đứng giải thích chiêu thức giữa sinh tử.
 
-# 8. Exposition Strategy
+# 9. Exposition Strategy
 
 Worldbuilding được phát qua:
 
@@ -130,18 +199,20 @@ Worldbuilding được phát qua:
 - hậu quả;
 - tranh luận;
 - quan sát cụ thể;
-- nhu cầu tức thời.
+- nhu cầu tức thời;
+- wonder hoặc sự lệch giữa điều nhân vật tưởng và điều họ trải nghiệm.
 
 Không dump lore dài chỉ vì thông tin đã có trong bible.
 
-# 9. Chapter Structure Preference
+# 10. Chapter Structure Preference
 
-- Opening: bắt đầu bằng motion, tension, question hoặc chi tiết có lực; không bắt buộc action.
-- Middle: escalation hoặc complication rõ.
-- End: thay đổi trạng thái, decision, reveal, consequence hoặc câu hỏi mới.
+- Opening: bắt đầu bằng motion, tension, question, human friction hoặc chi tiết có lực; không bắt buộc action.
+- Middle: escalation, complication, discovery, emotional movement hoặc wonder.
+- End: thay đổi trạng thái, decision, reveal, consequence, emotional residue hoặc hình ảnh đổi nghĩa.
 - Cliffhanger: chỉ dùng khi organic, không bắt buộc mỗi chương.
+- Quiet chapter được phép nếu nó làm relationship/self-image/meaning đổi thật.
 
-# 10. Naturalness / Anti-AI Checklist
+# 11. Naturalness / Anti-AI Checklist
 
 Phát hiện và sửa nếu xuất hiện quá dày:
 
@@ -158,27 +229,33 @@ Phát hiện và sửa nếu xuất hiện quá dày:
 - ẩn dụ chung chung không gắn POV;
 - câu văn phô trương hơn mức quan trọng của sự kiện;
 - mở chapter bằng mô tả thời tiết vô nghĩa;
-- kết chapter bằng kiểu “nhưng hắn không biết rằng...” quá thường xuyên.
+- kết chapter bằng kiểu “nhưng hắn không biết rằng...” quá thường xuyên;
+- `Không X. Mà Y.` / `Không phải X. Là Y.` dùng như nhịp mặc định;
+- `Đúng. Nhưng... / Vậy... / Cho nên...` xuất hiện như dialogue engine lặp;
+- quá nhiều aphorism / câu đóng gói chân lý;
+- hypothesis-loop `quan sát → giả thuyết → kiểm chứng → kết luận` lặp xuyên chương.
 
-# 11. Repetition Control
+# 12. Repetition Control
 
-Theo dõi ở ba mức:
+Theo dõi ở bốn mức:
 
 - lexical: từ/cụm từ;
 - syntactic: cấu trúc câu;
-- narrative: cùng một kiểu scene/beat/reaction.
+- rhetorical: kiểu kết luận, aphorism, phủ định đối xứng;
+- narrative: cùng một engine/scene geometry/reaction.
 
-Không chỉ dùng synonym để chữa repetition; thay cách quan sát hoặc hành động.
+Không chỉ dùng synonym để chữa repetition; thay cách conflict vận hành, cách nhân vật chú ý hoặc cách scene tạo chuyển động.
 
-# 12. Sensory Palette
+# 13. Sensory Palette
 
 - Default dominant senses:
 - Rare senses:
 - Body sensations:
 - Cultivation-specific sensations:
+- Everyday messiness:
 - Avoided clichés:
 
-# 13. Naming & Address Rules
+# 14. Naming & Address Rules
 
 - Cách gọi cảnh giới:
 - Danh xưng sư môn:
@@ -188,7 +265,7 @@ Không chỉ dùng synonym để chữa repetition; thay cách quan sát hoặc 
 - Hán Việt vs thuần Việt:
 - Viết hoa:
 
-# 14. Formatting
+# 15. Formatting
 
 Final chapter:
 
@@ -203,7 +280,7 @@ Nội dung...
 - Paragraph vừa phải; tránh một khối quá dài trừ dụng ý.
 - Dấu câu tiếng Việt tự nhiên.
 
-# 15. Story-specific Do / Don't
+# 16. Story-specific Do / Don't
 
 ## Do
 
@@ -217,13 +294,37 @@ Nội dung...
 -
 -
 
-# 16. Calibration Samples
+# 17. Calibration Samples & Rotation Policy
 
 Dùng các đoạn **do chính dự án tạo ra và người dùng duyệt**, không copy văn của tác giả sống hoặc tác phẩm cụ thể.
 
-- Sample A — narration:
-- Sample B — dialogue:
-- Sample C — combat:
-- Sample D — quiet scene:
+## 17.1 Valid calibration set
 
-Các sample này là reference cho nhịp và chất giọng, không phải câu để tái sử dụng.
+Chỉ khóa calibration set khi có:
+
+- 4–6 đoạn đã final/được duyệt;
+- đến từ ít nhất **4 narrative engine khác nhau**;
+- có narration;
+- có dialogue;
+- có ít nhất một scene pressure/wonder/cultivation/combat phù hợp truyện;
+- không lấy toàn bộ từ Chương 1–3 chỉ vì đó là chương đầu.
+
+## 17.2 Sample metadata
+
+| Sample | Chapter | Narrative engine | What to learn | What NOT to copy |
+|---|---:|---|---|---|
+| A | | | | |
+| B | | | | |
+| C | | | | |
+| D | | | | |
+| E | | | | |
+| F | | | | |
+
+## 17.3 Rotation
+
+- Mỗi batch/chapter chỉ kích hoạt 2–3 sample phù hợp engine hiện tại.
+- Xoay vòng sample; không để cùng sample chi phối mọi loại scene.
+- Học nhịp, POV distance, dialogue roughness, sensory density, diction balance và paragraph cadence.
+- Không tái sử dụng câu chữ, rhetorical frame hoặc cách kết đoạn đặc trưng của sample.
+
+Nếu chưa đủ 4 engine khác nhau, **chưa khóa calibration**. Dùng style rules thay vì tự học quá mạnh từ early finals.
