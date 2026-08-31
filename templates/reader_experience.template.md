@@ -2,6 +2,7 @@
 
 > File đích: `stories/<slug>/memory/reader_experience.md`
 > Đây là production memory về trải nghiệm đọc gần đây, **không phải canon**.
+> Bắt buộc tương thích `docs/RETENTION_CONTROLLERS_V3.md`.
 
 - Last updated: Ch. 0
 - Current arc: arc_001
@@ -9,18 +10,30 @@
 - Last wonder beat: none
 - Last emotional hit: none
 - Last costly mistake: none
+- Last H2+ heat beat: none
 - Current reader appetite:
 - Current payoff debt:
+- Current major payoff debt:
 
-# 1. Story Promise State
+# 1. Story Promise State + Payoff Magnitude
 
 Copy 3–5 promise đã khóa từ Master Outline. Không sửa PAY definition tại memory chỉ để hợp chapter mới.
 
-| Promise ID | Promise | Core? | PAY definition | Last ADVANCE | Last PAY | Drought warning | Current drought | Status |
-|---|---|---|---|---:|---:|---:|---:|---|
-| PR001 | | yes | | 0 | 0 | | 0 | FRESH |
-| PR002 | | yes | | 0 | 0 | | 0 | FRESH |
-| PR003 | | yes/no | | 0 | 0 | | 0 | FRESH |
+| Promise ID | Promise | Core? | PAY definition | Min planned magnitude | Last ADVANCE | Last PAY | Last PAY magnitude | Pay drought | Major payoff debt | Status |
+|---|---|---|---|---|---:|---:|---|---:|---:|---|
+| PR001 | | yes | | | 0 | 0 | none | 0 | 0 | FRESH |
+| PR002 | | yes | | | 0 | 0 | none | 0 | 0 | FRESH |
+| PR003 | | yes/no | | | 0 | 0 | none | 0 | 0 | FRESH |
+
+Magnitude enum:
+
+`UNTOUCHED / ADVANCE / PAY_MINOR / PAY_MAJOR / PAY_ARC`
+
+Reward score:
+
+- PAY_MINOR = 1
+- PAY_MAJOR = 2
+- PAY_ARC = 3
 
 Suggested status:
 
@@ -28,14 +41,15 @@ Suggested status:
 - HEALTHY
 - WATCH
 - DROUGHT
+- MAJOR_PAYOFF_HUNGRY
 - PAID_RECENTLY
 
 # 2. Recent Chapter Experience
 
 Giữ chi tiết khoảng 8–10 chương gần nhất.
 
-| Ch | Primary Engine | Secondary Engine | Dialogue Geometry | Promise ADVANCE/PAY | Xianxia Experience | Emotional Residue | Ending Shape |
-|---:|---|---|---|---|---|---|---|
+| Ch | Primary Engine | Geometry short sig | Promise magnitude | Competence outcome | Aspiration beat | Peak Heat | Xianxia Experience | Emotional Residue | Binge YES/WEAK/NO | Ending Shape |
+|---:|---|---|---|---|---|---|---|---|---|---|
 
 # 3. Narrative Engine Window
 
@@ -43,9 +57,73 @@ Giữ chi tiết khoảng 8–10 chương gần nhất.
 - Same-engine count:
 - 3/4 same-engine risk: no
 - Engine to rest next:
-- Geometry to avoid repeating:
 
-# 4. Recent Rhetorical Tics
+# 4. Dramatic Geometry Window
+
+Giữ signature đủ để so rolling 4:
+
+| Ch | Pressure source | Decision locus | Movement | Information flow | Opposition | Resolution | Reversal | Kinetic |
+|---:|---|---|---|---|---|---|---|---|
+
+- 3 consecutive near-same geometry?:
+- 3/4 same core geometry?:
+- Geometry to avoid repeating next:
+- Root pattern currently at risk:
+
+# 5. Competence Friction Window
+
+| Ch | Main competence conversion | Outcome | Real cost | Dependency/other agency |
+|---:|---|---|---|---|
+
+Outcome:
+
+`CLEAN_WIN / COSTLY_WIN / PARTIAL / WRONG_MODEL / DEPENDENT_ON_OTHER / FAILURE / NO_CONVERSION`
+
+- Consecutive CLEAN_WIN count:
+- CLEAN_WIN count in last 5 conversions:
+- MC repeatedly corrected before consequence?:
+- Competence mode to avoid next:
+- Friction opportunity currently live:
+
+# 6. Aspiration Window
+
+| Ch | Object of desire | Why desirable | Proof/image | Distance | Gate/cost | Status |
+|---:|---|---|---|---|---|---|
+
+- Last memorable aspiration beat:
+- Chapters since aspiration/wonder beat:
+- Current scarcity pressure:
+- Current fantasy desire:
+- 5-chapter scarcity/admin-only risk:
+- Desired object/resource to keep alive next:
+
+# 7. Heat Curve
+
+| Ch | Peak Heat | Strongest beat | Heat source |
+|---:|---|---|---|
+
+- Recent sequence:
+- Last H2+:
+- Rolling 5 has H2+?:
+- Flatness risk:
+- Saturation risk:
+- Desired next heat contrast:
+
+Heat enum:
+
+`H0 / H1 / H2 / H3`
+
+# 8. Binge Test Window
+
+| Ch | Best reward moment | Intrinsic value without hook | Result YES/WEAK/NO | Waiver? |
+|---:|---|---|---|---|
+
+- Consecutive WEAK/NO risk:
+- Recent chapter with no concrete reward:
+- Hook dependence risk:
+- What intrinsic reward should next chapter deliver?:
+
+# 9. Recent Rhetorical Tics
 
 | Tic | Chapters seen | Density/risk | Avoid next? | Notes |
 |---|---|---|---|---|
@@ -61,12 +139,12 @@ Theo dõi khi relevant:
 - repeated sensory motif;
 - other story-specific tic.
 
-# 5. Recent Ending Shapes
+# 10. Recent Ending Shapes
 
 | Chapter | Shape | Final function/image | Repetition risk |
 |---:|---|---|---|
 
-# 6. Recent Xianxia Beats
+# 11. Recent Xianxia Beats
 
 - cultivation payoff:
 - wonder/awe:
@@ -79,7 +157,7 @@ Theo dõi khi relevant:
 - magical craft:
 - world-scale glimpse:
 
-# 7. Emotional Residue Window
+# 12. Emotional Residue Window
 
 - Last relationship shift:
 - Last self-image shift:
@@ -88,7 +166,7 @@ Theo dõi khi relevant:
 - Chapters since meaningful emotional change:
 - Emotional flatness risk:
 
-# 8. Human Irrationality / Cost Window
+# 13. Human Irrationality / Cost Window
 
 - Last in-character non-optimal choice:
 - Last costly mistake:
@@ -96,16 +174,19 @@ Theo dõi khi relevant:
 - MC repeatedly corrected before consequence?:
 - Supporting cast currently too optimizer-like?:
 
-# 9. Reader Appetite / Payoff Debt
+# 14. Reader Appetite / Payoff Debt
 
 - What the premise currently makes reader expect next:
 - Core promise currently most hungry:
+- Major payoff currently most hungry:
 - Xianxia experience currently most hungry:
+- Aspiration currently most hungry:
+- Heat currently most hungry:
 - Emotional question currently alive:
 - Mystery question currently alive:
 - What should NOT be paid too early:
 
-# 10. Calibration Rotation
+# 15. Calibration Rotation
 
 Calibration chỉ hợp lệ khi set có 4–6 approved/final samples từ ít nhất 4 Narrative Engine khác nhau.
 
@@ -115,14 +196,20 @@ Calibration chỉ hợp lệ khi set có 4–6 approved/final samples từ ít n
 - Samples to rest next:
 - Rhetorical shape at risk of copying:
 
-# 11. Compacted Historical Patterns
+# 16. Compacted Historical Patterns
 
 Dùng khi >10 chương. Không cần giữ mọi chapter row cũ.
 
 ## Previous batch/arc pattern
 
 - Dominant engines:
-- Promise PAY distribution:
+- Dominant dramatic geometries:
+- Promise PAY magnitude distribution:
+- Major payoff cadence:
+- Competence outcome distribution:
+- Aspiration distribution:
+- Heat curve:
+- Binge Test health:
 - Xianxia experience distribution:
 - Emotional pattern:
 - Style fingerprints that recurred:
