@@ -14,7 +14,7 @@ Nếu `N % 3 == 0`, trước final còn phải có:
 
 - `rolling_3_chapter_audit.md`.
 
-Bắt buộc đọc `docs/RETENTION_CONTROLLERS_V3.md` và `docs/XIANXIA_DENSITY_CONTROLLER.md`.
+Bắt buộc đọc `docs/RETENTION_CONTROLLERS_V3.md` và `docs/XIANXIA_DENSITY_CONTROLLER.md`. Nếu story bật Reference Style, Style reviewer phải đọc `docs/REFERENCE_STYLE_SYSTEM.md` + profile được manifest chỉ định.
 
 # Metadata
 
@@ -24,6 +24,7 @@ Bắt buộc đọc `docs/RETENTION_CONTROLLERS_V3.md` và `docs/XIANXIA_DENSITY
 - Continuity report:
 - Reader retention report:
 - Style fingerprint report:
+- Reference style enabled: yes/no
 - Rolling audit required: yes/no
 - Rolling audit path if required:
 - Result: PASS / REWRITE_REQUIRED
@@ -31,7 +32,7 @@ Bắt buộc đọc `docs/RETENTION_CONTROLLERS_V3.md` và `docs/XIANXIA_DENSITY
 # Severity
 
 - `BLOCKER`: phá canon, logic nền, timeline, knowledge, power system hoặc release contract; không được final.
-- `MAJOR`: làm hỏng nhân vật, reader promise, payoff magnitude, nhịp, Narrative Engine/Dramatic Geometry diversity, competence friction, aspiration, heat, bingeability, Xianxia Density/genre identity, causal logic hoặc tạo style fingerprint rõ; phải sửa.
+- `MAJOR`: làm hỏng nhân vật, reader promise, payoff magnitude, nhịp, Narrative Engine/Dramatic Geometry diversity, competence friction, aspiration, heat, bingeability, Xianxia Density/genre identity, causal logic hoặc tạo style fingerprint/reference overfit rõ; phải sửa.
 - `MINOR`: nên sửa nếu không gây tác dụng phụ.
 - `NOTE`: theo dõi, không bắt buộc sửa ngay.
 
@@ -84,7 +85,14 @@ Không được hạ severity chỉ vì một reviewer khác PASS. Ba reviewer c
 - Paragraph/sentence fingerprint:
 - Positive prose texture present:
 - Calibration drift:
+- Reference high-level alignment healthy?: yes/no/NA
+- Reference drift-away?:
+- Reference overfit/imitation risk?:
+- Reference weakness leakage?:
+- Project-owned calibration respected?: yes/no/NA
 - MAJOR findings:
+
+Reference alignment chỉ ở trait cấp cao. Không dùng yêu cầu “giống reference hơn” làm lý do copy câu/cú pháp/rhetorical frame.
 
 # 4. Rolling 3-Chapter Audit Summary
 
@@ -105,6 +113,7 @@ Chỉ điền nếu `N % 3 == 0`.
 - Binge Test trend:
 - Xianxia drought:
 - Emotional residue drought:
+- Style consistency / reference overfit trend:
 - BLOCKER/MAJOR findings:
 
 # 5. Technical Gate vs Reader-Reward vs Xianxia Density Gate
@@ -114,6 +123,7 @@ Chỉ điền nếu `N % 3 == 0`.
 - continuity/canon clean?:
 - knowledge/POV clean?:
 - style fingerprint acceptable?:
+- Reference Style drift/overfit clean if enabled?:
 - required artifacts present?:
 
 ## Reader-Reward Gate
@@ -151,6 +161,7 @@ Ví dụ:
 - Chapter có PAY_MINOR nhưng major payoff debt vượt planned window → không được coi là healthy chỉ vì có PAY.
 - Ending hook mạnh nhưng Binge Test `NO` → rewrite nội dung chapter, không chỉ sửa hook.
 - Chapter có nhiều từ “linh khí/pháp bảo/công pháp” nhưng Replaceability HIGH và không có Active causal beat → Xianxia Density finding vẫn giữ.
+- Reference high-level trait phù hợp nhưng prose đang copy cú pháp/stock gesture nguồn → Style overfit MAJOR vẫn giữ; de-reference chứ không tăng độ giống.
 
 Findings:
 
@@ -171,11 +182,11 @@ Mỗi BLOCKER/MAJOR phải có vị trí và directive sửa cụ thể.
 4. MAJOR Narrative Engine / Dramatic Geometry;
 5. MAJOR Xianxia Density / Replaceability;
 6. MAJOR Competence Friction / Aspiration / Heat / Binge Test;
-7. MAJOR Style Fingerprint;
+7. MAJOR Style Fingerprint / Reference drift-overfit;
 8. Xianxia Experience / Emotional Residue thiếu kéo dài;
 9. MINOR có lợi rõ.
 
-Rewrite không được chữa repetition bằng synonym-spin. Nếu issue là engine/geometry, phải sửa cấu trúc hoặc cách conflict vận hành. Nếu issue là aspiration/heat/binge, không được chỉ thêm một câu hook cuối. Nếu issue là Xianxia Density, phải sửa supernatural causality/constraint/consequence, không rắc thêm vocabulary.
+Rewrite không được chữa repetition bằng synonym-spin. Nếu issue là engine/geometry, phải sửa cấu trúc hoặc cách conflict vận hành. Nếu issue là aspiration/heat/binge, không được chỉ thêm một câu hook cuối. Nếu issue là Xianxia Density, phải sửa supernatural causality/constraint/consequence, không rắc thêm vocabulary. Nếu issue là reference overfit, phải loại cú pháp/cụm/frame dễ nhận diện và quay về story Style Bible.
 
 # 9. Critical Re-QC
 
@@ -184,6 +195,7 @@ Sau rewrite:
 - Continuity issues fixed?:
 - Retention issues fixed?:
 - Style fingerprint issues fixed?:
+- Reference drift/overfit fixed if enabled?:
 - Payoff magnitude issues fixed?:
 - Dramatic geometry issues fixed?:
 - Competence friction issues fixed?:
@@ -207,6 +219,7 @@ Nếu sửa lớn ở structure, chạy lại reviewer bị ảnh hưởng; khô
 - Technical Gate: PASS / FAIL
 - Reader-Reward Gate: PASS / FAIL
 - Xianxia Density Gate: PASS / FAIL
+- Reference Style health if enabled: PASS / FAIL / NA
 - Rewrite required: yes/no
 - Ready for final: yes/no
 
