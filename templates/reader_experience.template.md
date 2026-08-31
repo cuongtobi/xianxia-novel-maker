@@ -2,7 +2,7 @@
 
 > File đích: `stories/<slug>/memory/reader_experience.md`
 > Đây là production memory về trải nghiệm đọc gần đây, **không phải canon**.
-> Bắt buộc tương thích `docs/RETENTION_CONTROLLERS_V3.md`.
+> Bắt buộc tương thích `docs/RETENTION_CONTROLLERS_V3.md` và `docs/XIANXIA_DENSITY_CONTROLLER.md`.
 
 - Last updated: Ch. 0
 - Current arc: arc_001
@@ -11,9 +11,12 @@
 - Last emotional hit: none
 - Last costly mistake: none
 - Last H2+ heat beat: none
+- Last X2+ Active Xianxia: none
+- Last X3 Strong Xianxia: none
 - Current reader appetite:
 - Current payoff debt:
 - Current major payoff debt:
+- Current genre density debt:
 
 # 1. Story Promise State + Payoff Magnitude
 
@@ -48,8 +51,8 @@ Suggested status:
 
 Giữ chi tiết khoảng 8–10 chương gần nhất.
 
-| Ch | Primary Engine | Geometry short sig | Promise magnitude | Competence outcome | Aspiration beat | Peak Heat | Xianxia Experience | Emotional Residue | Binge YES/WEAK/NO | Ending Shape |
-|---:|---|---|---|---|---|---|---|---|---|---|
+| Ch | Primary Engine | Geometry short sig | Promise magnitude | Competence outcome | Aspiration beat | Peak Heat | Xianxia Peak | Replaceability | Emotional Residue | Binge YES/WEAK/NO | Ending Shape |
+|---:|---|---|---|---|---|---|---|---|---|---|---|
 
 # 3. Narrative Engine Window
 
@@ -157,7 +160,24 @@ Theo dõi khi relevant:
 - magical craft:
 - world-scale glimpse:
 
-# 12. Emotional Residue Window
+# 12. Xianxia Density Window
+
+| Ch | Xianxia Peak X0–X3 | Ambient | Active causal beat | Aspirational beat | Replaceability LOW/MEDIUM/HIGH |
+|---:|---|---|---|---|---|
+
+- Recent 5 peak sequence:
+- Chapters since last X2+:
+- Chapters since last X3:
+- Active `X2+` count in rolling 3:
+- Active `X2+` count in rolling 5:
+- Strong `X3` count in rolling 5:
+- Consecutive HIGH_REPLACEABILITY:
+- Strongest recent genre-defining moment:
+- High-realm aura last used:
+- Current genre_density_debt:
+- Xianxia mechanism to prioritize next:
+
+# 13. Emotional Residue Window
 
 - Last relationship shift:
 - Last self-image shift:
@@ -166,7 +186,7 @@ Theo dõi khi relevant:
 - Chapters since meaningful emotional change:
 - Emotional flatness risk:
 
-# 13. Human Irrationality / Cost Window
+# 14. Human Irrationality / Cost Window
 
 - Last in-character non-optimal choice:
 - Last costly mistake:
@@ -174,19 +194,20 @@ Theo dõi khi relevant:
 - MC repeatedly corrected before consequence?:
 - Supporting cast currently too optimizer-like?:
 
-# 14. Reader Appetite / Payoff Debt
+# 15. Reader Appetite / Payoff Debt
 
 - What the premise currently makes reader expect next:
 - Core promise currently most hungry:
 - Major payoff currently most hungry:
 - Xianxia experience currently most hungry:
+- Xianxia density currently most hungry:
 - Aspiration currently most hungry:
 - Heat currently most hungry:
 - Emotional question currently alive:
 - Mystery question currently alive:
 - What should NOT be paid too early:
 
-# 15. Calibration Rotation
+# 16. Calibration Rotation
 
 Calibration chỉ hợp lệ khi set có 4–6 approved/final samples từ ít nhất 4 Narrative Engine khác nhau.
 
@@ -196,7 +217,7 @@ Calibration chỉ hợp lệ khi set có 4–6 approved/final samples từ ít n
 - Samples to rest next:
 - Rhetorical shape at risk of copying:
 
-# 16. Compacted Historical Patterns
+# 17. Compacted Historical Patterns
 
 Dùng khi >10 chương. Không cần giữ mọi chapter row cũ.
 
@@ -209,6 +230,8 @@ Dùng khi >10 chương. Không cần giữ mọi chapter row cũ.
 - Competence outcome distribution:
 - Aspiration distribution:
 - Heat curve:
+- Xianxia Density peak distribution:
+- Replaceability distribution:
 - Binge Test health:
 - Xianxia experience distribution:
 - Emotional pattern:
