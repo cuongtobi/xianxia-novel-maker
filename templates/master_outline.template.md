@@ -2,7 +2,7 @@
 
 > File đích: `stories/<slug>/outline/master_outline.md`
 > Master Outline khóa hướng dài hạn, không vi mô hóa hàng trăm chương quá sớm.
-> Bắt buộc tương thích `docs/RETENTION_CONTROLLERS_V3.md`.
+> Bắt buộc tương thích `docs/RETENTION_CONTROLLERS_V3.md` và `docs/XIANXIA_DENSITY_CONTROLLER.md`.
 
 # 1. Story Promise Controller
 
@@ -147,7 +147,47 @@ World logic không thay thế fantasy experience. Xác định các loại trả
 
 Không dùng quota cứng; dùng map này để tránh hàng chục chương chỉ có logic/logistics mà thiếu cảm giác tu tiên.
 
-# 7. Aspiration Controller — Long-range
+# 7. Xianxia Density Spine
+
+Khóa bản sắc tu tiên theo **causal structure**, không theo vocabulary.
+
+## 7.1 Xianxia identity
+
+- What makes this story impossible to translate cleanly into a mundane/non-cultivation setting?:
+- Signature Ambient Xianxia:
+- Signature Active Xianxia causal sources:
+- Signature Aspirational Xianxia:
+- Strong Xianxia (`X3`) identity:
+- High-realm/ancient POV aura if relevant:
+
+## 7.2 Active causal sources
+
+| Source | Supernatural law/state | Constraint/opportunity created | Typical decision impact | Observable consequence |
+|---|---|---|---|---|
+
+Có thể dùng: linh mạch, công pháp, cảnh giới, thần thức, injury, trận/phù/đan/khí, yêu thú, linh triều, bí cảnh, thiên tượng, huyết mạch, địa mạch, đạo ý, power hierarchy...
+
+## 7.3 Aspirational ladder
+
+| Saga/window | Object/threshold of desire | Why reader should want it | Proof of desire | Gate/cost | Future-use image |
+|---|---|---|---|---|---|
+
+## 7.4 Density risk map
+
+- Conflicts most likely to become `HIGH_REPLACEABILITY`:
+- How to keep economy/admin/family politics rooted in supernatural causality:
+- Opening window first X2 target:
+- Opening window first X3 target:
+- Longest intended X0/X1 decompression window:
+- Strong Xianxia windows that must NOT be backloaded too far:
+
+Runtime rule vẫn theo spec:
+
+- rolling 3 có ít nhất 1 `X2+`;
+- rolling 5 có ít nhất 2 `X2+` + 1 `X3`;
+- 3 consecutive HIGH_REPLACEABILITY = MAJOR.
+
+# 8. Aspiration Controller — Long-range
 
 Scarcity và aspiration phải tách riêng.
 
@@ -162,7 +202,7 @@ Scarcity và aspiration phải tách riêng.
 
 Progression xianxia không nên có rolling 5 chapter chỉ problem-fixing/scarcity/admin mà không aspiration/wonder đủ mạnh.
 
-# 8. Heat Identity / Long-range Curve
+# 9. Heat Identity / Long-range Curve
 
 Heat không chỉ là combat; gồm danger, wonder, power display, emotional rupture, reversal, threshold, high-stakes choice và reveal mạnh.
 
@@ -185,36 +225,36 @@ Heat enum:
 
 Rolling 5 không có H2+ là flatness risk trừ explicit structural exception.
 
-# 9. World Reveal Map
+# 10. World Reveal Map
 
 | Reveal | Reader Learns | Character Learns | Earliest Setup | Target Reveal | Consequence |
 |---|---|---|---|---|---|
 
-# 10. Core Relationships
+# 11. Core Relationships
 
 | Relationship | Start | Major Turn 1 | Major Turn 2 | Crisis | End Direction |
 |---|---|---|---|---|---|
 
-# 11. Emotional Spine
+# 12. Emotional Spine
 
 Không outline cảm xúc như quota. Chỉ xác định các thay đổi dài hạn phải để lại residue.
 
 | Window | Character/relationship | Emotional or self-image change | Cost/trigger | Residue carried forward |
 |---|---|---|---|---|
 
-# 12. Mystery / Secret Architecture
+# 13. Mystery / Secret Architecture
 
 | Secret ID | Truth | Surface Belief | Holder | Setup | Reveal Window | Payoff | Promise supported | Magnitude |
 |---|---|---|---|---|---|---|---|---|
 
-# 13. Foreshadowing Spine
+# 14. Foreshadowing Spine
 
 Chỉ ghi setup/payoff cấp truyện, không ghi mọi chi tiết nhỏ.
 
 | ID | Setup Window | Reinforcement | Payoff Window | Type | Must Pay? |
 |---|---|---|---|---|---|
 
-# 14. Saga Template
+# 15. Saga Template
 
 ## Saga N — [Tên]
 
@@ -233,6 +273,9 @@ Chỉ ghi setup/payoff cấp truyện, không ghi mọi chi tiết nhỏ.
 - Story Promise focus:
 - Minimum major payoff expected:
 - Xianxia Experience focus:
+- Xianxia Density shape (`X0–X3` anchors):
+- Active Xianxia causal source focus:
+- Aspirational Xianxia focus:
 - Aspiration focus:
 - Heat shape:
 - Likely costly mistake / human pressure:
@@ -240,7 +283,7 @@ Chỉ ghi setup/payoff cấp truyện, không ghi mọi chi tiết nhỏ.
 - Seeds for later sagas:
 - Arc list:
 
-# 15. Ending Architecture
+# 16. Ending Architecture
 
 Không cần khóa chi tiết sớm, nhưng cần biết:
 
@@ -251,9 +294,10 @@ Không cần khóa chi tiết sớm, nhưng cần biết:
 - Which Story Promises must receive final PAY:
 - Required final payoff magnitude:
 - Which mystery must resolve:
+- Desired final Xianxia threshold/wonder:
 - Desired emotional aftertaste:
 
-# 16. Flex Zones
+# 17. Flex Zones
 
 Các vùng được phép thay đổi dựa trên diễn biến viết thật:
 
@@ -264,8 +308,9 @@ Các vùng được phép thay đổi dựa trên diễn biến viết thật:
 - Optional romance progression:
 - Exact Narrative Engine distribution:
 - Exact heat values when organic causality requires change:
+- Exact Xianxia peak placement if rolling density remains healthy:
 
-# 17. Non-negotiables
+# 18. Non-negotiables
 
 Các mốc không được đổi nếu chưa được người dùng chấp thuận:
 
@@ -273,7 +318,7 @@ Các mốc không được đổi nếu chưa được người dùng chấp thu
 2.
 3.
 
-# 18. Outline Revision Log
+# 19. Outline Revision Log
 
 - Date / after chapter:
 - Changed section:
@@ -283,5 +328,7 @@ Các mốc không được đổi nếu chưa được người dùng chấp thu
 - Payoff magnitude impact:
 - Reader Experience impact:
 - Aspiration/heat impact:
+- Xianxia Density impact:
+- Replaceability impact:
 - Competence-friction impact:
 - Future arcs affected:
