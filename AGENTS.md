@@ -36,7 +36,7 @@ Writer không được biến state thành report; state là reality của scene
 
 ### Example-driven — how good project prose feels
 
-Writer nhận 1–3 style examples phù hợp scene. Examples calibrate rhythm, narrative distance, dialogue texture, descriptive density, action/exposition handling và Vietnamese prose feel.
+Writer nhận style example phù hợp scene. Examples calibrate rhythm, narrative distance, dialogue texture, descriptive density, action/exposition handling và Vietnamese prose feel.
 
 Không copy wording, image, rhetorical frame, scene structure hoặc plot move từ example.
 
@@ -145,31 +145,60 @@ Không feed toàn bộ response-rule matrix của character vào Writer mỗi ch
 
 ## 9. Style Examples
 
-Mỗi story có example bank, ưu tiên project-owned/user-approved prose. Khi chưa có đủ sample, dùng original bootstrap examples của framework.
+Framework calibration mặc định:
 
-Scene chọn 1–3 examples gần nhất theo function, ví dụ:
+- profile: `examples/calibration/PROFILE.md`;
+- calibrated-original index: `examples/calibration/index.md`.
 
-- quiet/narration;
-- dialogue/relationship;
-- combat/action;
-- cultivation/craft;
-- mystery/tension;
-- emotional aftermath.
+Mỗi story vẫn có `examples/style/index.md` riêng và dần thay framework examples bằng prose tốt của chính project.
+
+Selection priority:
+
+1. user-approved project final đúng function;
+2. project-owned curated example;
+3. calibrated original từ `examples/calibration/`;
+4. generic bootstrap từ `examples/default/`.
+
+Thông thường chỉ load **1 primary example**. Chỉ thêm example thứ hai khi scene thật sự có hai prose functions ngang nhau; tối đa 3 cho chapter mixed-mode dài.
+
+Current calibrated functions:
+
+- tactical/survival reasoning;
+- cultivation/artifact discovery;
+- combat escalation;
+- pragmatic negotiation/dialogue;
+- world consequence / scale transition.
 
 Examples là demonstration, không phải template.
 
+## 9.1 External sample calibration boundary
+
+Khi user cung cấp prose sample ngoài project:
+
+- đọc sample để distill high-level prose mechanics;
+- tách mechanics tốt khỏi lỗi dịch/convert/format;
+- tạo `PROFILE.md` trừu tượng;
+- tạo **original synthetic examples** để Writer dùng;
+- không đưa raw external corpus vào Writer;
+- không copy wording, image, rhetorical frame, scene sequence, plot beat, character/world identity;
+- không học Chinese-convert clause order, punctuation lỗi, connector spam, spectator spam hoặc onomatopoeia spam.
+
+Raw external samples không cần persist trong repo. Framework dùng derived profile + original calibrated examples.
+
 ## 10. Writer boundary
 
-Writer nhận **state + selected examples**, không nhận QC checklist.
+Writer nhận **state + selected example(s)**, không nhận QC checklist hay full calibration profile.
 
 Writer phải:
 
 - coi supplied state là reality;
 - để hành động, thoại, perception và consequence mang scene;
-- chỉ explicate reasoning khi POV tự nhiên sẽ nghĩ thành lời;
+- chỉ explicate reasoning khi nó tự nhiên với POV và có ảnh hưởng đến decision/tactic;
 - giữ nhân vật trong knowledge/relationship/body/resource state hiện tại;
 - viết fiction, không viết plan, analysis hoặc report;
 - không copy example.
+
+Current calibration ưu tiên causal prose movement và decision-bound reasoning, nhưng không expose chúng như per-paragraph formula.
 
 Không expose retired controller/metric/style-check list vào Writer prompt.
 
@@ -195,18 +224,20 @@ Continuity Checker không chấm literary quality, pacing, payoff quota hay pros
 
 ## 12. Prose Edit
 
-Sau Continuity PASS, chạy một prose edit nhẹ dựa trên selected examples.
+Sau Continuity PASS, chạy một prose edit nhẹ dựa trên cùng selected examples.
 
 Editor:
 
 - preserve event, decision, dialogue intent và scene shape;
 - ưu tiên để prose tốt nguyên trạng;
 - cắt explanation mà scene đã thể hiện;
-- nén reasoning mang giọng report;
+- nén reasoning mang giọng report nhưng giữ suy luận thật sự đổi quyết định;
 - sửa tiếng Việt gượng/convert-like;
+- cải thiện local causal/spatial clarity khi cần;
 - không đồng nhất paragraph length/cadence;
 - không manufacture punchline/aphorism;
-- không thêm plot hoặc state mới.
+- không thêm plot hoặc state mới;
+- không tái tạo lỗi dịch/convert, connector spam, spectator spam hoặc sound-effect spam từ source samples.
 
 Không cần persist prose-edit report; edited candidate trở thành final.
 
