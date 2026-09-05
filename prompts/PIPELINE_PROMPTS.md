@@ -164,7 +164,17 @@ Current calibrated mapping:
 - cultivation/artifact/formation discovery → `CAL-DISC-01`;
 - high-intensity duel/combat escalation → `CAL-COMB-01`;
 - pragmatic negotiation/status dialogue → `CAL-DIAL-01`;
-- local event → wider world consequence → `CAL-WORLD-01`.
+- local event → wider world consequence → `CAL-WORLD-01`;
+- family/close relationship/personal emotional stakes → `CAL-REL-01`;
+- quiet life/training/recovery/travel companionship → `CAL-QUIET-01`;
+- faction council/resource politics/second-order faction reaction → `CAL-POL-01`.
+
+Boundary guidance:
+
+- choose `CAL-REL-01`, not `CAL-DIAL-01`, when the scene's main value is affection, vulnerability or family bond;
+- choose `CAL-QUIET-01`, not `CAL-TACT-01`, when no urgent decision is required and the scene is about ordinary rhythm, training or companionship;
+- choose `CAL-POL-01`, not `CAL-WORLD-01`, when deliberate faction decisions cause the chain of reactions;
+- choose `CAL-WORLD-01` when the main subject is consequence propagating outward from an event rather than negotiation/strategy itself.
 
 Select by function/tempo/POV distance/dialogue-action-exposition balance, not plot resemblance.
 

@@ -1,6 +1,6 @@
 # User Calibration Profile — v4.0
 
-> Distilled from 3 user-supplied prose samples. Raw source text is intentionally **not persisted** in this repository.
+> Distilled from 6 user-supplied prose samples. Raw source text is intentionally **not persisted** in this repository.
 > This file stores only high-level prose mechanics and selection guidance. It is not a plot/style imitation contract.
 
 ## 1. Core reading feel
@@ -10,7 +10,9 @@
 - clarity and momentum are more important than decorative sentence craft;
 - characters feel intelligent because they notice relevant facts and act on them, not because narration explains every thought;
 - technical/cultivation information is allowed when it materially changes risk, value, choice or tactic;
-- intensity comes from concrete state change, physical effect, resource loss, danger and positional reversal.
+- quiet scenes may remain quiet when they deepen relationship, routine, motivation or contrast;
+- political/faction scenes should move through decisions and reactions, not strategic-report narration;
+- intensity comes from concrete state change, physical effect, resource loss, danger, relationship pressure and positional reversal.
 
 ## 2. Narrative movement
 
@@ -22,11 +24,14 @@ A paragraph does not need to sound aphoristic or self-contained. Do not polish e
 
 Prefer medium sentences as the working body of prose. Use short sentences naturally for impact, realization, interruption or irreversible state change. Longer sentences are acceptable when carrying one coherent chain of action/cause.
 
+Quiet scenes may move more slowly through practical action, simple dialogue, environment and routine. Do not force a threat, revelation or hook into every scene.
+
 ## 3. POV and narration
 
 - default: third-person close/limited around the active POV;
 - narrator may state simple facts and simple emotional reactions directly;
-- brief zoom-out is allowed for world-scale consequence, battlefield scale or external witness reaction;
+- brief zoom-out is allowed for world-scale consequence, battlefield scale, faction reaction or external witness reaction;
+- multi-location faction scenes may cut between viewpoints only at clear scene boundaries;
 - after zoom-out, return quickly to a character, object, action, decision or concrete consequence;
 - avoid abstract essaying about theme, fate or psychology unless the story itself requires it.
 
@@ -40,7 +45,9 @@ Preferred pattern:
 
 Good reasoning may take several paragraphs when each new fact changes the character's assessment. Do not log every hypothesis, rejected branch or internal checklist.
 
-Characters may be cautious, suspicious, greedy, proud, frightened or excited without narrating a full psychological report.
+Characters may be cautious, suspicious, greedy, proud, frightened, affectionate or excited without narrating a full psychological report.
+
+For personal relationships, motivation is often clearer through what a character protects, gives up, notices, hides, remembers or chooses to do next than through explicit emotional analysis.
 
 ## 5. Exposition and discovery
 
@@ -84,23 +91,63 @@ Sound/impact lines and witness reactions may punctuate a major exchange, but sho
 - dialogue is functional, status-aware and usually direct;
 - characters do not need witty or polished lines;
 - short reply + action/reaction is often enough;
+- familiar characters may tease, repeat shared language or use practical complaints to carry affection;
 - exposition in dialogue is acceptable when a character naturally knows something another character needs;
+- in political/faction scenes, each speaker should have a concrete interest, risk or constraint behind the line;
 - silence, hesitation, a changed expression or a practical action can carry subtext without narrator explanation.
 
-## 8. Emotion
+## 8. Emotion and relationship
 
 Prefer concrete signals:
 
 - expression changes;
 - body reaction;
 - pause/hesitation;
+- practical care;
 - choice under pressure;
 - change in speech;
+- what the character gives up or protects;
 - what the character does next.
 
-Simple direct labels such as fear, relief, excitement or irritation are allowed when useful. Do not force every emotion into metaphor or body-language indirection.
+Simple direct labels such as fear, relief, excitement, affection or irritation are allowed when useful. Do not force every emotion into metaphor or body-language indirection.
 
-## 9. Scene transitions
+For family/close relationship scenes, allow ordinary gestures, shared routines and small jokes to carry emotional weight. Do not turn every bond into a speech about loyalty or love.
+
+## 9. Quiet scenes and training
+
+Quiet scenes may combine:
+
+`routine/practical action → light dialogue or observation → small internal shift → return to ordinary action`
+
+Training scenes work best when anchored in:
+
+- fatigue/body feedback;
+- one concrete improvement or limitation;
+- a next goal;
+- ordinary life around the training.
+
+Do not convert training into stat-report prose. Do not require every quiet scene to end in danger.
+
+## 10. Faction and political motion
+
+Faction scenes should stay state-driven.
+
+Preferred motion:
+
+`proposal/information → interest/risk assessment → decision → another actor reacts → world/resource position changes`
+
+Useful political consequences include:
+
+- alliance posture;
+- trade/resource movement;
+- institutional reputation;
+- mobilization of personnel;
+- public signal versus private intent;
+- uncertainty caused by incomplete information.
+
+Avoid omniscient strategic summaries that explain every faction at once. Show important decisions through meetings, messages, observable reactions and concrete changes in resources or position.
+
+## 11. Scene transitions
 
 Transitions may be blunt and efficient:
 
@@ -108,11 +155,12 @@ Transitions may be blunt and efficient:
 - character leaves/arrives;
 - attention moves to a new object/person;
 - consequence propagates to another location;
+- a new faction reacts;
 - a new threat interrupts.
 
 Do not manufacture hooks at every paragraph boundary.
 
-## 10. Diction
+## 12. Diction
 
 - natural Vietnamese first;
 - xianxia/Hán-Việt terminology is welcome where domain-appropriate;
@@ -120,7 +168,7 @@ Do not manufacture hooks at every paragraph boundary.
 - directness over ornate literary display;
 - grandeur should be earned by scale/effect, not repeated superlatives.
 
-## 11. What to inherit from the three samples
+## 13. What to inherit from the six samples
 
 ### Sample 1 signal
 
@@ -155,7 +203,40 @@ Use for:
 - brief observer reaction to establish scale;
 - momentum shift and sustained advantage.
 
-## 12. Translation/convert filter — DO NOT INHERIT
+### Sample 4 signal
+
+Use for:
+
+- family/close-relationship stakes;
+- injustice/status conflict felt through a specific relationship;
+- protective instinct expressed through immediate action;
+- emotional aftermath after public conflict;
+- private vulnerability revealed only after the external confrontation;
+- personal motivation that creates a concrete future goal.
+
+### Sample 5 signal
+
+Use for:
+
+- sibling/familiar banter;
+- warm everyday interaction without plot pressure;
+- training shown through fatigue, repetition and a concrete next target;
+- rest as part of progression rather than filler;
+- travel/landscape as a natural widening of the character's world;
+- small class/status friction that emerges from ordinary interaction.
+
+### Sample 6 signal
+
+Use for:
+
+- team planning with distinct voices;
+- institutional responsibility and allocation of work/resources;
+- political negotiation where both sides have visible interests;
+- cautious evaluation of incomplete information;
+- faction decisions creating second-order reactions elsewhere;
+- clear scene-boundary zoom-outs that broaden the conflict without becoming a report.
+
+## 14. Translation/convert filter — DO NOT INHERIT
 
 The supplied samples contain translation/convert artifacts. Do **not** learn or reproduce:
 
@@ -166,10 +247,12 @@ The supplied samples contain translation/convert artifacts. Do **not** learn or 
 - repeated superlative/exclamation patterns;
 - spectator commentary after every exchange;
 - onomatopoeia spam;
+- one-line slogan spam;
+- repetitive reaction sentences that merely restate what is already obvious;
 - source-specific names, terms, objects, cultivation systems or plot structure;
 - distinctive metaphors, wording or rhetorical frames from the source texts.
 
-## 13. Calibration rule for Writer
+## 15. Calibration rule for Writer
 
 The Writer should not receive this file as a giant checklist. The Orchestrator/Example Selector uses it to choose 1–3 **original calibrated examples** that best fit the scene.
 
