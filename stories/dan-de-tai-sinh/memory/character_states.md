@@ -1,4 +1,4 @@
-# Character States — Genesis Handoff
+# Character States — Current through Chapter 1
 
 > Runtime conditions only. Stable identity lives in `bible/characters_bible.md`.
 
@@ -6,57 +6,59 @@
 
 ### Current Position
 - Location: outer disciple room, Thanh Huyền Tông.
-- Status/role: injured outer disciple; consciousness just stabilized after rebirth.
-- Immediate goal: stop further meridian damage and identify an executable treatment.
-- Medium goal: pass the assessment in 20 days while acquiring a furnace/herb channel.
+- Status/role: injured outer disciple; completed first Medicine Hall work/treatment exchange.
+- Immediate goal: rest today, then complete the second sorting session tomorrow morning and receive the second treatment portion.
+- Medium goal: stabilize meridians enough to resume controlled cultivation before the day-27 assessment, while building access to a usable low-rank furnace.
 
 ### Emotional State
-- Dominant: controlled shock compressed into diagnostic focus.
-- Secondary: anger when old assassination memory surfaces.
-- Unresolved: discomfort inhabiting a life with obligations not originally his.
-- Hiding: fear that the same enemy may still exist.
+- Dominant: controlled focus.
+- Secondary: guarded curiosity about lot 17 and the Cửu Phương route.
+- Unresolved: anger/fear around old assassination; discomfort inhabiting current-body obligations.
+- What he is trying not to show: the scale of his alchemy knowledge and how strongly the old processing trace affects him.
 
 ### Beliefs / Bias
-- Driving belief: facts and constraints should be established before revenge or disclosure.
-- Bias under pressure: old-life signatures feel more meaningful because they touch his death trauma.
-- Evidence that could disturb it: proof the residue is a common modern processing by-product.
+- Current belief driving action: verify local facts before turning an old-life resemblance into an enemy model.
+- Current blind spot/bias: old-life signatures still carry disproportionate emotional weight.
+- Evidence that could disturb belief: same trace appearing across independent lots/routes, or proof it is merely a common modern processing by-product.
 
 ### Knowledge
-- Knows: old-life alchemy; most old-life history to year 4105; current body’s basic personal memories are available in fragments sufficient for name, sect, family and recent dispute; own current Luyện Khí 3 condition.
-- Suspects: suspicious powder shares a processing lineage with something old.
-- Wrong about: nothing canonically fixed yet; many current-world assumptions may be stale.
-- Unknowns: why reincarnated; modern political landscape; Tịch Đăng name/structure; who altered old formation; exact cause current body died/collapsed.
+- Knows: old-life alchemy; opening injury; low-rank three-herb treatment is partially effective; his Hồi Khí Tán is lot 17, imported through Cửu Phương Nam kho seven days before Ch.1 and repacked by Medicine Hall; Mộc Tủy Căn is currently scarce.
+- Suspects: the trace may come from a shared processing/supply route; shortage and lot source may or may not connect.
+- Wrong about: nothing locked; many assumptions about the modern world remain stale.
+- Important unknowns: rebirth cause; modern high-level faction layout; Tịch Đăng name/structure; who altered old formation; why Mộc Tủy Căn is being bought in bulk.
 
 ### Body
-- Injuries: rib/chest bruising; two inflamed side meridians; one damaged Hand Shaoyang segment.
-- Fatigue: high.
-- Other limitation: body/soul unfamiliarity; high-rank fine control unsafe.
+- Injuries: rib/chest bruising remains; two side meridians still damaged but acute inflammation is slightly reduced; damaged Hand Shaoyang segment remains.
+- Fatigue: medium-high after morning walking/sorting/treatment.
+- Other physical limitations: only very low-intensity circulation is safe; high-rank fine control remains unsafe.
 
 ### Resources / Leverage
-- Resources: 7 low-grade spirit stones, 2 impure Dẫn Khí Đan, 1 suspicious Hồi Khí Tán packet.
-- Artifacts: outer token, worn short sword; no meaningful combat treasure.
-- Status/leverage: almost none publicly.
-- Scarcity: safe medicine, furnace access, money, time.
+- Resources: 6 low-grade spirit stones; 2 impure Dẫn Khí Đan unused; suspicious Hồi Khí Tán packet retained with a tiny test amount removed.
+- Artifacts: outer token, worn short sword; no personal furnace/spirit fire.
+- Status/leverage: Cố Tùng Niên now considers him worth a small reproducible work test; two future treatment portions and two bếp-dược sessions are available only if he completes the remaining two sorting mornings.
+- Current scarcity: safe medicine, money, time, furnace access.
 
 ### Relationship Context
 | Target | Current state | Active tension | Unspoken issue | Recent change |
 |---|---|---|---|---|
-| Tạ family | inherited kin bond | debt/obligation | he is not the same consciousness | rebirth just occurred |
-| Cố Tùng Niên | distant institutional | none | possible gatekeeper to medicine access | none |
-| Lục Thanh Nghi | strangers | none | none | none |
+| Tạ family | inherited kin bond | debt/obligation | he is not the same consciousness | unchanged |
+| Cố Tùng Niên | small transactional test | two work sessions owed | MC hides true expertise; Cố wants reproducibility | Cố accepted a one-stone + labor bargain after MC sorted a problematic herb batch accurately |
+| Lục Thanh Nghi | strangers | none | none | no contact in Ch.1 |
 
 ### Recent Consequential Memories
 - old-life protective formation failing during Hợp Đạo attempt;
-- current-body memory of being hurt in an outer resource dispute and later taking cheap recovery powder.
+- the trace smell in current Hồi Khí Tán resembling an old poison-processing precursor;
+- Cố confirming lot 17 came through Cửu Phương Nam kho;
+- first low-rank treatment allowing a small extra circulation distance without removing the injury.
 
 ### Current Behavioral Pressure
-- Likely pull: privately diagnose everything before asking for help.
-- Counter-pressure: body cannot execute ideal treatment alone.
-- Surprise possibility: accept a small transparent bargain if it reduces uncertainty more than secrecy does.
+- Likely pull: solve the body first, keep lot 17 as an evidence object, disclose only enough skill to earn practical access.
+- Counter-pressure: Medicine Hall work consumes time, and repeated competence may attract more scrutiny.
+- What could surprise even this character: evidence that the trace is ordinary modern contamination rather than connected to old-life danger.
 
 ### Last Update
-- Through chapter: 0
-- Main change: rebirth runtime initialized.
+- Updated through chapter: 1
+- Main state change: first treatment partially stabilizes inflammation; resources 7→6 spirit stones; Cửu Phương lot-17 lead acquired; transactional relationship with Cố begins.
 
 ---
 
@@ -103,7 +105,7 @@
 - Counter-pressure: official duties and fear of false accusation.
 
 ### Last Update
-- Through chapter: 0.
+- Through chapter: 0 (no Ch.1 appearance/state change).
 
 ---
 
@@ -112,30 +114,43 @@
 ### Current Position
 - Location: Outer Medicine Hall.
 - Status: steward, Trúc Cơ hậu, rank-2 alchemist.
-- Immediate goal: reconcile a shortage of Mộc Tủy Căn without triggering another procurement dispute.
-- Medium goal: keep the next assessment medicine quota within budget.
+- Immediate goal: continue separating compromised Thanh Tức Thảo and manage Mộc Tủy Căn shortage.
+- Medium goal: keep assessment medicine quota within budget while determining whether the new outer disciple’s herb appraisal is reproducible.
 
 ### Emotional State
-- Dominant: irritated pragmatism.
-- Hiding: concern that shortages are becoming patterned.
+- Dominant: irritated pragmatism softened by cautious professional interest.
+- Secondary: concern that stock problems are patterned.
+- What he is trying not to show: curiosity about how Tạ Trường An learned to distinguish moisture damage from over-smoked insect contamination.
+
+### Beliefs / Bias
+- Current belief: craft claims deserve only small tests until repeated.
+- Bias: still assumes supply shortage is commercial coordination unless evidence forces a deeper model.
+- Evidence that could disturb belief: repeated non-commercial anomalies across lots/routes.
 
 ### Knowledge
-- Knows: several common herbs have risen in price; Triệu Kính’s paperwork is technically clean.
-- Suspects: merchants are coordinating bulk purchases.
-- Wrong about: assumes motive is ordinary profit unless evidence says otherwise.
-- Unknowns: MC’s true capability; Tịch Đăng.
+- Knows: several herbs have risen in price; Mộc Tủy Căn is short; Hồi Khí Tán lot 17 came through Cửu Phương Nam kho; Tạ Trường An can accurately sort a mixed low-rank herb batch and chose a conservative external meridian treatment.
+- Suspects: merchants are coordinating bulk purchases; Tạ Trường An has more practical herb knowledge than his status suggests.
+- Wrong about: still assumes broader motive is ordinary profit.
+- Unknowns: MC’s reborn identity/Alchemy Emperor memories; Tịch Đăng; source of MC’s skill.
 
 ### Body
-- Old soul-fire meridian injury limits prolonged alchemy/combat.
+- Old soul-fire meridian injury limits prolonged alchemy/combat; unchanged.
 
-### Resources
-- Medicine Hall access and reputation; not free authority over sealed inner resources.
+### Resources / Leverage
+- Medicine Hall access/reputation; controls the small work-for-material bargain and can later rent an old rank-1 furnace if MC completes the test period.
 
-### Behavioral Pressure
-- Likely pull: demand small reproducible tests before trust.
+### Relationship Context
+| Target | Current state | Active tension | Unspoken issue | Recent change |
+|---|---|---|---|---|
+| Tạ Trường An | transactional test | two sorting mornings remain | source of MC’s skill | moved from ordinary disciple to “worth testing again” after Ch.1 |
+
+### Current Behavioral Pressure
+- Likely pull: give no large favor; watch whether MC repeats accurate work tomorrow.
+- Counter-pressure: Medicine Hall shortage needs labor now, so the bargain is useful even if MC is only moderately skilled.
 
 ### Last Update
-- Through chapter: 0.
+- Updated through chapter: 1
+- Main state change: entered a three-morning labor/resource bargain with MC; cautious respect/interest increased slightly.
 
 ---
 
@@ -156,7 +171,7 @@
 - Knows: which herb lots were diverted and which records can be explained by normal wastage.
 - Suspects: Cố Tùng Niên may question repeated shortages.
 - Wrong about: assumes hidden buyer’s motive is high-margin production, not a larger ideological network.
-- Unknowns: Tịch Đăng leadership; MC rebirth; MC alchemy knowledge.
+- Unknowns: Tịch Đăng leadership; MC rebirth; MC alchemy knowledge; Ch.1 Medicine Hall bargain is not yet salient to him.
 
 ### Resources
 - Allocation schedules, clerk loyalty bought by favors, access to low-level disciple duty records.
@@ -166,7 +181,7 @@
 - Counter-pressure: cannot create a scandal that costs his office.
 
 ### Last Update
-- Through chapter: 0.
+- Through chapter: 0 (no direct Ch.1 state change).
 
 ---
 
@@ -180,7 +195,7 @@
 - Body: healthy.
 - Resources: standard top-outer stipend, spear, earth-body technique.
 - Behavioral pressure: ignores MC until results make him relevant.
-- Updated through chapter 0.
+- Updated through chapter 0; no Ch.1 contact.
 
 ---
 
@@ -199,7 +214,7 @@
 - Knows: old Tạ Trường An died 68 years ago; Quy Nhất Vấn Đạo principle remains incomplete in captured notes.
 - Suspects: no reason to suspect reincarnation.
 - Wrong about: believes the missing principle is permanently lost unless an old collaborator preserved it.
-- Unknowns: MC exists as reborn Tạ Trường An; exact local contamination incident.
+- Unknowns: MC exists as reborn Tạ Trường An; exact local contamination incident; Ch.1 creates no signal reaching him.
 
 ### Resources
 - distributed cells, institutional contacts, Hợp Đạo cultivation, archived risk data.
@@ -209,4 +224,4 @@
 - Counter-pressure: network segmentation means local truth may not reach him quickly.
 
 ### Last Update
-- Through chapter: 0.
+- Through chapter: 0; no Ch.1 change.
