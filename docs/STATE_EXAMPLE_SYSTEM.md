@@ -161,7 +161,61 @@ A chapter does not need a fixed dramatic formula, but it should normally change 
 
 This is an observation for state extraction, not a quota enforced by Writer.
 
-## 9. Example Bank
+## 9. Example layers
+
+Framework uses three example layers:
+
+```text
+user-approved project finals
+        ↓
+project-owned curated examples
+        ↓
+user-calibrated framework originals
+        ↓
+generic framework bootstrap
+```
+
+The current framework calibration profile is:
+
+`examples/calibration/PROFILE.md`
+
+Its curated originals are indexed at:
+
+`examples/calibration/index.md`
+
+The profile was distilled from three user-supplied samples. Raw source text is intentionally not persisted. Only high-level prose mechanics are retained.
+
+## 10. User-sample calibration protocol
+
+When a user supplies external prose samples for calibration:
+
+1. read enough of every sample to identify repeated prose mechanics;
+2. separate **mechanics to inherit** from translation/format/source-specific artifacts;
+3. write a compact derived `PROFILE.md`;
+4. create new original examples for useful prose functions;
+5. do not copy sample wording, imagery, scene structure, plot beats, character/world identity or distinctive rhetorical frames;
+6. do not commit raw external samples unless the user explicitly owns them and asks for storage;
+7. Writer normally sees selected original calibrated examples, not the raw sample corpus and not the whole calibration profile.
+
+## 11. Current calibration mechanics
+
+The current user calibration emphasizes:
+
+- event-first causal movement;
+- `action/fact → immediate effect → response → changed situation`;
+- decision-bound reasoning rather than thought logging;
+- technical exposition attached to live objects/problems;
+- discovery that changes benefit/risk/choice;
+- combat loop `attack → counter → collision → physical result → tactical consequence`;
+- escalation by new capability, position, injury, resource or terrain;
+- pragmatic status-aware dialogue;
+- brief world-scale zoom-out followed by return to local action;
+- simple direct emotional labeling when useful;
+- natural Vietnamese rather than translated clause order.
+
+Do not inherit convert syntax, punctuation errors, repeated connector tics, spectator spam, onomatopoeia spam or source-specific terminology.
+
+## 12. Example Bank
 
 Recommended story structure:
 
@@ -176,11 +230,9 @@ examples/style/
 └── aftermath_emotion_*.txt
 ```
 
-Each example should be project-owned or explicitly approved for calibration.
+Each example should be project-owned, framework-original or explicitly approved for calibration.
 
-Framework bootstrap examples are original samples and may be copied into a new story only until project-owned examples take over.
-
-## 10. Example metadata
+## 13. Example metadata
 
 `index.md` should describe each example by function rather than plot:
 
@@ -192,12 +244,14 @@ Tempo
 Dialogue density
 Description density
 Reason to select
-Source: framework_original / project_final / user_approved
+Source: project_final / project_original / user_calibration_derived_original / framework_original
 ```
 
-## 11. Dynamic example selection
+## 14. Dynamic example selection
 
-Normally select 1–3 examples.
+Normally load **one primary example**.
+
+Add a second only if the scene genuinely combines two prose functions. Use three only for a long mixed-mode chapter.
 
 Select by:
 
@@ -208,21 +262,29 @@ Select by:
 
 Do not select by matching character names, plot event or exact scene shape.
 
-## 12. Calibration takeover
+Preferred calibrated mapping:
+
+- survival/tactical reasoning → `CAL-TACT-01`;
+- artifact/cultivation discovery → `CAL-DISC-01`;
+- high-intensity duel → `CAL-COMB-01`;
+- pragmatic negotiation → `CAL-DIAL-01`;
+- local event causing wider consequence → `CAL-WORLD-01`.
+
+## 15. Calibration takeover
 
 As project finals improve:
 
 ```text
-framework bootstrap examples
+calibrated framework originals
         ↓
 project-owned examples
         ↓
 user-approved/high-quality project finals
 ```
 
-Older bootstrap examples should stop being loaded once project examples cover the needed prose functions.
+Once project-owned examples cover a prose function well, stop loading the framework calibration example for that function.
 
-## 13. Originality boundary
+## 16. Originality boundary
 
 Examples may inform high-level execution only.
 
@@ -236,7 +298,7 @@ Never copy or closely reproduce:
 - plot beat;
 - character identity.
 
-## 14. Writer contract
+## 17. Writer contract
 
 The Writer should receive a short instruction:
 
@@ -251,7 +313,7 @@ Write fiction, not analysis.
 
 Everything else should come from state and examples.
 
-## 15. Anti-report principle
+## 18. Anti-report principle
 
 If prose starts reading like analysis, the solution is usually not more rules.
 
@@ -260,4 +322,5 @@ Prefer:
 - removing unnecessary explanatory state from Writer context;
 - tightening local state;
 - selecting a better prose example;
+- loading only one primary example instead of a style bundle;
 - light prose editing after continuity passes.
