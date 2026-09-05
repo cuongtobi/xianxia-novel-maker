@@ -60,11 +60,22 @@ Style Bible should stay compact and stable. Record only:
 - prose density;
 - content/style boundaries;
 - originality policy;
-- example-selection policy.
+- example-selection policy;
+- active calibration profile path.
 
-Build `examples/style/index.md` and curate project-owned/user-approved examples.
+Default framework calibration profile:
 
-If insufficient, use framework original bootstrap examples. Never use an example as a plot template.
+`examples/calibration/PROFILE.md`
+
+Default calibrated-original index:
+
+`examples/calibration/index.md`
+
+If the user supplies prose samples, distill only high-level mechanics and create original calibration examples. Do not store or feed the raw corpus to Writer by default. Filter translation/convert artifacts separately from useful narrative mechanics.
+
+Build `examples/style/index.md` for the story. As strong project finals appear, promote them into the story example bank and let them replace framework calibration examples by prose function.
+
+Never use an example as a plot template.
 
 ## P5 — Master Outline Architect
 
@@ -136,38 +147,55 @@ Scene State is reality, not a literary checklist.
 
 ## P9 — Style Example Selector
 
-Select normally 1–3 examples by prose function:
+Read `examples/calibration/PROFILE.md` as curator guidance, **not** as Writer checklist.
 
-- quiet narration;
-- dialogue/relationship;
-- combat/action;
-- cultivation/craft;
-- mystery/tension;
-- aftermath/emotion.
+Normally select **one primary example**. Add a second only if the scene genuinely mixes two functions. Use three only for a long mixed-mode chapter.
 
 Selection priority:
 
-1. user-approved project samples;
-2. strong project-owned finals;
-3. curated project examples;
-4. framework original bootstrap examples.
+1. user-approved project final matching the current prose function;
+2. strong project-owned curated example;
+3. calibrated original from `examples/calibration/`;
+4. generic framework bootstrap example.
 
-Select by function/tempo/POV distance/dialogue density, not plot resemblance.
+Current calibrated mapping:
+
+- survival/tactical reasoning → `CAL-TACT-01`;
+- cultivation/artifact/formation discovery → `CAL-DISC-01`;
+- high-intensity duel/combat escalation → `CAL-COMB-01`;
+- pragmatic negotiation/status dialogue → `CAL-DIAL-01`;
+- local event → wider world consequence → `CAL-WORLD-01`.
+
+Select by function/tempo/POV distance/dialogue-action-exposition balance, not plot resemblance.
+
+Do not load every sample because the chapter contains multiple minor functions. Choose the dominant prose task.
 
 ## P10 — Vietnamese Xianxia Writer
 
 Use this short contract:
 
-> Write the next fiction from the supplied state. Treat state as reality, not an outline checklist. Characters act from their current desire, knowledge, emotion, relationship, body and limitations. Let action, dialogue, perception and consequence carry the scene. Explain reasoning only when the POV would naturally think it. Use the supplied examples only to calibrate project prose feel: rhythm, narrative distance, dialogue texture and density. Do not copy wording, imagery, rhetorical frames, paragraph sequence or scene structure. Write fiction, not analysis or report.
+> Write the next fiction from the supplied state. Treat state as reality, not an outline checklist. Characters act from their current desire, knowledge, emotion, relationship, body and limitations. Let action, dialogue, perception and consequence carry the scene. Explain reasoning only when the POV would naturally think it and when that reasoning changes a decision. Use the supplied example only to calibrate project prose feel: causal movement, rhythm, narrative distance, dialogue texture, action/exposition balance and density. Do not copy wording, imagery, rhetorical frames, paragraph sequence or scene structure. Write fiction, not analysis or report.
 
 Writer input should be limited to:
 
 - Chapter/Scene State;
 - relevant Character State;
 - minimal canon anchors;
-- selected Style Examples.
+- selected Style Example(s), normally one.
 
-Do not attach old Combined QC, Story Promise status matrix or anti-AI checklist.
+Do not attach:
+
+- old Combined QC;
+- Story Promise status matrix;
+- anti-AI checklist;
+- full calibration profile;
+- raw user reference corpus.
+
+For the current calibration, let prose naturally favor:
+
+`fact/action → effect → response → changed situation`
+
+but do not expose that as a mandatory per-paragraph formula.
 
 Output destined for `chapters/NNNN/draft.txt`, not yet persisted.
 
@@ -205,7 +233,7 @@ No full literary rewrite.
 
 ## P13 — Prose Editor
 
-Input: continuity-safe draft + selected examples.
+Input: continuity-safe draft + the same selected example(s) used by Writer.
 
 Edit only where prose materially benefits.
 
@@ -215,15 +243,17 @@ Preserve:
 - character decisions;
 - dialogue intent;
 - scene shape;
-- state consequences.
+- state consequences;
+- useful irregularity in sentence/paragraph rhythm.
 
 Legitimate edits:
 
 - remove explanation the scene already demonstrates;
-- compress report-like reasoning;
+- compress reasoning that has become a report instead of a decision process;
 - repair unnatural Vietnamese/convert-like clauses;
 - trim obvious repetition;
-- improve local clarity.
+- improve local spatial/causal clarity;
+- restore concrete consequence when a sentence becomes abstract.
 
 Prefer leaving good prose untouched.
 
@@ -234,7 +264,8 @@ Do not:
 - add aphorisms;
 - make every character equally articulate;
 - add plot/state;
-- copy examples.
+- copy examples;
+- imitate translation errors, connector tics, spectator spam or onomatopoeia spam from source samples.
 
 No prose-edit report required. Candidate becomes Final.
 
@@ -273,6 +304,7 @@ After fifth requested chapter, verify:
 - knowledge/resource/relationship handoff coherent;
 - unresolved obligations preserved;
 - example usage has not collapsed into repeated copied scene patterns;
+- project-owned finals are being promoted when they outperform framework calibration;
 - next-batch handoff is clear.
 
 No style score, payoff quota or rolling checkpoint.
