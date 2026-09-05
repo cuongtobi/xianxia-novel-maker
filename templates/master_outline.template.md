@@ -1,6 +1,6 @@
-# Master Outline Template
+# Master Outline Template — v4.0
 
-> Khóa hướng dài hạn + Story Promises. Không vi mô hóa hàng trăm chapter.
+> Long-range direction only. Do not micro-script hundreds of chapters.
 
 # 1. Story Core
 
@@ -11,54 +11,49 @@
 - Ending direction:
 - Target length:
 
-# 2. Story Promise Controller
+# 2. Reader Expectations
 
-Khóa 3–5 promises.
+Reader Expectations describe what readers came for. They are **soft planning signals**, not controllers or per-chapter quotas.
 
-## PR001 — <name>
+## RE001 — <name>
 
-- Promise:
+- Expectation:
 - Reader value:
-- Core / secondary:
-- PAY definition:
-- ADVANCE definition:
-- False pay:
-- Drought warning:
-- Escalation path:
-- PAY_MINOR examples:
-- PAY_MAJOR examples:
-- PAY_ARC examples:
+- What meaningful delivery looks like:
+- What would feel like false delivery:
+- Natural escalation path:
+- Long-range opportunities:
 
-Lặp cho các promise còn lại.
+Repeat only for truly important expectations, normally 3–5.
 
-# 3. Protagonist Long Arc
+# 3. Protagonist Long Direction
 
 - Start state/worldview:
 - Surface goal:
 - Deeper need:
 - Major transformations:
-- End state:
+- End state direction:
 
 # 4. Cultivation / Power Progression
 
-| Phase/Saga | Realm/capability target | Resource/requirement | Consequence |
+| Phase/Saga | Realm/capability direction | Resource/requirement | Consequence |
 |---|---|---|---|
 
 # 5. Antagonistic Forces
 
-| Force | Goal | Intelligence/resources | Escalation | Defeat/change condition |
+| Force | Goal | Intelligence/resources | Escalation direction | Defeat/change condition |
 |---|---|---|---|---|
 
 # 6. Saga Map
 
-Cho từng saga:
+For each saga:
 
 - Range estimate:
 - Main question:
-- Start/end state:
+- Start/end direction:
 - Main conflict:
 - Major cultivation/resource change:
-- Promise PAYs:
+- Reader-expectation opportunities:
 - Reveals:
 - Relationship turns:
 - New world layer:
@@ -71,7 +66,7 @@ Cho từng saga:
 
 # 8. Relationship Spine
 
-| Relationship | Start | Major turns | Crisis | Intended end |
+| Relationship | Start | Major turns | Crisis direction | Intended end |
 |---|---|---|---|---|
 
 # 9. Major Set Pieces
@@ -83,13 +78,25 @@ Cho từng saga:
 - craft/reveal/romance scenes;
 - user-mandated scenes.
 
+These are destinations/opportunities, not compulsory beat scripts.
+
 # 10. Flex Zones
 
 - arcs that may expand/contract:
 - optional subplots:
-- elements not to lock too early:
+- elements not to lock early:
+- places where runtime state should decide direction:
 
 # 11. Hard Foreshadowing Obligations
 
-| Setup | Earliest pay | Latest sensible pay | Intended payoff |
+| Setup | Earliest sensible resolution | Latest sensible resolution | Intended consequence |
 |---|---|---|---|
+
+# 12. Genesis Handoff
+
+- Initial arc question:
+- Initial major pressures:
+- Initial relationship tensions:
+- Initial cultivation/resource pressure:
+- Initial mysteries:
+- Reader expectations worth carrying into Story/Arc State:

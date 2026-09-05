@@ -1,180 +1,215 @@
-# Batch 5 Chapters Workflow — Atomic Combined QC
+# Batch 5 Chapters Workflow — v4.0 State + Example Driven
 
-## 1. Mục tiêu
+## 1. Goal
 
-Default batch = **5 chapters**. Chạy tuần tự, mỗi chapter là **một atomic Git transaction**.
+Default batch = **5 chapters**. Run sequentially; each chapter is one atomic Git transaction.
 
-Controller duy nhất: **Story Promise Controller**.
+Creative generation is state-driven and example-driven. Do not reintroduce retired creative controllers/checklists.
 
-## 2. Chapter flow
+## 2. Preflight batch
 
-```text
-assemble context
-→ scene plan
-→ draft
-→ combined QC
-→ rewrite only if required
-→ final
-→ memory/manifest updates
-→ one Git tree/commit
-```
+Before first chapter:
 
-Không tạo report QC tách rời.
+1. confirm repo / exact story branch / slug;
+2. read `AGENTS.md` + manifest;
+3. verify `pipeline.version: 4.0`, `batch_size: 5`, `creative_mode: state_example` and `chapter_transaction: atomic_git_commit`;
+4. read seed, Story Bible, Character Baselines, minimal Style Bible and Master Outline;
+5. read current Story State, Arc State, relevant Character States and continuity ledgers;
+6. read recent summaries/final only as needed;
+7. resolve exact requested range `start ... start+4` unless user overrides;
+8. verify prior batch audit if previous requested range is complete.
 
-## 3. Preflight batch
+## 3. Per-chapter context
 
-Trước chapter đầu:
+Read enough reality to derive the next chapter without rereading everything:
 
-1. xác nhận repo/branch/slug;
-2. đọc `AGENTS.md` + manifest;
-3. verify `batch_size: 5` và transaction mode `atomic_git_commit`;
-4. đọc seed + bibles + Story Promises + current arc;
-5. đọc current state + promise memory + ledgers/summaries cần thiết;
-6. xác định exact range `start ... start+4` nếu user không override;
-7. verify batch audit trước nếu range trước đã hoàn tất.
+- current story state;
+- current arc state;
+- relevant character states;
+- relevant timeline/knowledge/relationship/cultivation/inventory/faction/foreshadowing/unresolved ledgers;
+- recent 3 chapter summaries;
+- latest full final when direct continuity needs it;
+- master direction only for long-range orientation.
 
-## 4. Per-chapter context
+## 4. Derive Chapter State
 
-Đọc đủ để viết đúng nhưng không reread dư thừa:
+Create `chapters/NNNN/chapter_state.md` in working memory.
 
-- current state;
-- Story Promise state;
-- arc beat;
-- relevant character/cultivation/relationship/knowledge ledgers;
-- 3 recent summaries;
-- full final gần nhất khi continuity/style thực sự cần.
+It should capture:
 
-## 5. Scene plan
+- entry reality;
+- active pressures;
+- relevant cast/knowledge/body/resource/relationship conditions;
+- unresolved tensions currently ripe;
+- plausible meaningful state changes;
+- continuity anchors;
+- any long-direction signal currently relevant.
 
-Plan gọn:
+Do not prescribe a beat-by-beat route unless a hard canon obligation requires it.
 
-- chapter objective;
-- POV/time/place/cast;
-- start state;
-- conflict/pressure;
-- key beats/turn;
-- important choice/consequence;
-- Story Promise target + intended payoff nếu có;
-- end state;
-- continuity constraints;
-- style constraints;
-- ending hook nếu organic.
+## 5. Derive Scene State
 
-## 6. Draft
+Create `chapters/NNNN/scene_state.md` in working memory.
 
-Viết complete chapter theo Style Bible/Character DNA/canon. Không viết cho metric đã retire.
+For each scene capture:
 
-## 7. Combined QC
+- POV / time / place / cast;
+- what just happened;
+- immediate desires;
+- emotional/body/relationship state;
+- knowledge/suspicion/wrong belief;
+- pressure/resources/limitations;
+- possible directions if useful;
+- exit expectation as meaningful **state change**.
 
-Tạo đúng một file:
+Scene State is reality, not prose instruction.
 
-`chapters/NNNN/combined_qc_report.md`
+## 6. Select Style Examples
 
-Ba section:
+Choose 1–3 examples by scene function.
 
-### A. Continuity
-Canon, timeline, geography, cultivation/power, resource/item/injury, knowledge, relationship/faction, POV, hard DNA contradiction.
+Priority:
 
-### B. Story Promise
-Promise target, `UNTOUCHED/ADVANCE/PAY_MINOR/PAY_MAJOR/PAY_ARC`, concrete payoff, false pay, magnitude, drought.
+1. user-approved project examples/finals;
+2. strong project-owned finals;
+3. curated project examples;
+4. framework bootstrap examples.
 
-### C. Style
-AI-like fingerprints, cadence/fragments, dialogue sameness, exposition/recap, lexical tics, house-style/reference drift.
+Do not choose examples because their plot resembles the target scene. Choose by prose function: dialogue, quiet narration, combat, cultivation/craft, mystery/tension, aftermath, etc.
+
+## 7. Draft
+
+Writer receives:
+
+- Chapter/Scene State;
+- relevant Character State;
+- minimal canon anchors;
+- selected Style Examples.
+
+Writer does **not** receive the old Combined QC checklist, Story Promise status matrix or long Style Bible rule list.
+
+Write fiction naturally from current state.
+
+## 8. Continuity Check
+
+Create one factual report:
+
+`chapters/NNNN/continuity_check.md`
+
+Check only:
+
+- canon;
+- timeline/geography;
+- cultivation/power;
+- item/resource/injury;
+- knowledge boundary;
+- relationship/faction state;
+- POV identity;
+- hard character-baseline contradiction.
 
 Decision:
 
-- `PASS`: không BLOCKER/MAJOR cần sửa;
-- `REWRITE_REQUIRED`: có BLOCKER/MAJOR cần sửa trong chapter hiện tại.
+- `PASS`;
+- `FIX_REQUIRED`.
 
-MINOR/NOTE không tự động kích hoạt rewrite.
+If FIX_REQUIRED, patch only contradictions and recheck them. Do not rewrite prose for taste.
 
-## 8. Rewrite only on failure
+## 9. Prose Edit
 
-Nếu `PASS`:
+After Continuity PASS, run a light example-driven edit.
 
-```text
-draft → final
-```
+Input: continuity-safe draft + selected examples.
 
-Không tạo `rewrite.txt`; final giữ nguyên prose draft.
+Editor must:
 
-Nếu `REWRITE_REQUIRED`:
+- preserve event/decision/dialogue intent/scene shape;
+- leave good prose untouched;
+- remove redundant explanation;
+- compress report-like reasoning;
+- repair unnatural Vietnamese or convert-like clause order;
+- trim obvious repetition;
+- avoid standardizing cadence/paragraph shape;
+- avoid adding aphorisms/punchlines/plot.
 
-1. sửa candidate trong working memory;
-2. ưu tiên `CUT > COMPRESS > REORDER > REPLACE > ADD`;
-3. quick recheck chỉ các finding đã fail;
-4. ghi kết quả recheck vào cuối cùng file `combined_qc_report.md`;
-5. candidate pass trở thành final.
+No separate prose-edit report is required. Edited candidate becomes final.
 
-Không persist report/rewrite trung gian riêng.
+## 10. Prepare state updates
 
-## 9. Prepare memory before Git write
+Read final as truth, then calculate:
 
-Sau khi final đã pass, tính toàn bộ thay đổi:
+- canon changes if new facts are locked;
+- story state;
+- arc state;
+- relevant character states;
+- timeline;
+- relationships;
+- cultivation;
+- inventory/artifacts;
+- factions/locations;
+- knowledge;
+- foreshadowing;
+- unresolved threads;
+- chapter summary;
+- manifest pointers.
 
-- current state;
-- canon/timeline/character/relationship/cultivation/inventory/faction/knowledge/foreshadowing/unresolved ledgers nếu affected;
-- chapter summaries;
-- promise memory;
-- manifest `last_finalized_chapter`, `next_chapter`, batch pointers.
+Never persist state inferred from draft text removed during prose edit.
 
-Không write từng file ngay.
+## 11. One atomic Git commit
 
-## 10. One atomic Git commit
+Hold chapter-start HEAD/tree as parent/base.
 
-Lấy branch HEAD/tree tại đầu chapter và giữ làm parent/base.
+After all content is ready:
 
-Sau khi tất cả nội dung đã sẵn sàng:
+1. create blobs for Chapter State, Scene State, Draft, Continuity Check, Final and all changed state/memory/manifest files;
+2. if chapter closes requested batch, include batch audit blob;
+3. `create_tree(base_tree=<chapter-start tree>)`;
+4. `create_commit(parent=<chapter-start HEAD>)`;
+5. `update_ref` story branch exactly once;
+6. verify HEAD + manifest/state.
 
-1. create blobs cho scene plan, draft, combined QC, final và mọi file memory/manifest changed;
-2. nếu chapter đóng batch, create blob batch audit;
-3. `create_tree(base_tree=<start tree>, tree_elements=[all changed paths])`;
-4. `create_commit(parent=<start HEAD>, tree_sha=<new tree>)`;
-5. `update_ref(branch, new commit)` đúng một lần;
-6. verify branch HEAD.
+Suggested commit:
 
-Commit message gợi ý:
+`story: finalize chapter N with state-driven pipeline`
 
-`story: finalize chapter N atomically`
-
-Nếu chapter đóng batch:
+Batch close:
 
 `story: finalize chapter N and batch A-B`
 
-Nếu fail trước `update_ref`, không coi chapter complete. Không tạo partial state trên branch.
+If failure happens before `update_ref`, chapter is not complete.
 
-## 11. Sequential guarantee
+## 12. Sequential guarantee
 
-Chỉ bắt đầu chapter N+1 sau khi:
+Start N+1 only after:
 
-- commit N đã update ref thành công;
-- manifest/memory trong commit N trỏ đúng `next_chapter`;
-- combined QC result = PASS;
-- final tồn tại.
+- commit N is branch HEAD/history;
+- final exists;
+- Continuity result = PASS;
+- Story/Arc/Character State reflects final N;
+- manifest points to N+1.
 
-## 12. Batch audit
+## 13. Batch audit
 
-Sau chapter thứ 5 của requested range, tạo `chapters/batch_NNNN_NNNN_audit.md` và **đưa vào cùng atomic commit của chapter thứ 5**.
+After fifth requested chapter, create `chapters/batch_NNNN_NNNN_audit.md` in that same atomic commit.
 
-Audit chỉ kiểm:
+Audit only:
 
-- 5 chapter commits/finals complete;
-- combined QC PASS;
-- memory current;
-- continuity handoff;
-- Story Promise payoff/drought;
-- style caution xuyên batch;
+- five chapter commits/finals complete;
+- continuity checks PASS;
+- story/arc/character states current;
+- continuity handoff clean;
+- unresolved obligations/knowledge/resource state coherent;
+- example selection not collapsing into copied scene patterns;
 - next-batch handoff.
 
-Không có checkpoint Ch.3 và không có rolling audit.
+No per-chapter payoff quota, style score, rolling audit or chapter-3 checkpoint.
 
-## 13. Completion gate
+## 14. Completion gate
 
-Batch READY khi:
+Batch READY when:
 
-- đủ 5 requested finals;
-- mỗi chapter có scene plan + draft + combined QC + final;
-- mỗi chapter đã được atomic commit;
-- memory current through last chapter;
-- batch audit có trong commit cuối;
-- không còn BLOCKER/MAJOR unresolved.
+- all 5 requested finals exist;
+- each chapter has Chapter State + Scene State + Draft + Continuity Check + Final;
+- every Continuity Check = PASS;
+- each chapter has one atomic commit;
+- runtime state is current through last chapter;
+- batch audit is present in the fifth commit.

@@ -1,132 +1,163 @@
-# ChatGPT Web + GitHub Protocol — Atomic Combined QC
+# ChatGPT Web + GitHub Protocol — v4.0 State + Example Driven
 
 ## 1. Defaults
 
 Framework branch: `main`.
 Story branch: `story/<slug>`.
 Default batch: 5 chapters.
-Controller duy nhất: Story Promise Controller.
 
 Native framework:
 
 ```yaml
 pipeline:
-  version: "3.2"
-  batch_size: 5
-  controllers:
-    - story_promise
-  qc_mode: combined_qc
-  chapter_transaction: atomic_git_commit
-  rewrite_mode: on_qc_failure
+  version: "4.0"
+  creative_mode: "state_example"
+  style_mode: "dynamic_examples"
+  continuity_mode: "factual_only"
+  prose_edit_mode: "light_example_driven"
+  chapter_transaction: "atomic_git_commit"
 ```
 
 ## 2. New story
 
 1. resolve slug;
 2. create story branch from `main`;
-3. build seed/bibles/master outline/arc/memory;
-4. lock 3–5 Story Promises;
-5. initialize promise memory;
-6. mark READY_TO_WRITE.
+3. build seed, Story Bible, Character Baselines, minimal Style Bible and Master Outline;
+4. build project Style Example Bank or bootstrap from framework originals;
+5. initialize Story State, Arc State, Character States and continuity ledgers;
+6. run Genesis Consistency Audit;
+7. mark `READY_TO_WRITE`.
 
 ## 3. Read protocol
 
-Đọc exact story branch. Không dùng chat memory thay GitHub source of truth.
+Read exact story branch. GitHub is source of truth; chat recollection is not.
 
-Trước chapter đọc manifest, seed, current state, promise memory, arc, Story Promises, bibles/ledgers liên quan, recent summaries/final khi cần.
+Before a chapter, read current state first, then only relevant canon/ledgers and recent finals/summaries needed to resolve ambiguity.
 
-## 4. Atomic chapter protocol
+Do not feed the Writer every Bible, every ledger or every style document by default.
 
-Không persist intermediate artifacts trong quá trình xử lý.
+## 4. In-session chapter protocol
 
-In-session:
+Do not persist intermediate chapter state while generation is incomplete.
 
-1. scene plan;
-2. draft;
-3. combined QC;
-4. rewrite only if QC requires;
-5. final;
-6. calculate memory/ledger/summary/manifest updates;
-7. prepare batch audit nếu đây là chapter cuối batch.
+In working memory:
 
-Persist once:
+1. derive Chapter State;
+2. derive Scene State;
+3. select 1–3 Style Examples;
+4. draft;
+5. factual Continuity Check;
+6. patch contradictions only if needed;
+7. light example-driven Prose Edit;
+8. create final;
+9. extract Story/Arc/Character State + ledger/summary/manifest updates;
+10. prepare batch audit if closing requested batch.
 
-1. read chapter-start branch HEAD/tree;
-2. create blobs for every new/changed file;
-3. create one tree from chapter-start base tree;
-4. create one commit with chapter-start HEAD as parent;
-5. update story branch ref once;
-6. verify HEAD.
-
-## 5. Required persisted files
+## 5. Persisted files
 
 Per chapter:
 
 ```text
-chapters/NNNN/scene_plan.md
+chapters/NNNN/chapter_state.md
+chapters/NNNN/scene_state.md
 chapters/NNNN/draft.txt
-chapters/NNNN/combined_qc_report.md
+chapters/NNNN/continuity_check.md
 final/Chương N: <title>.txt
 memory/* changed files
 manifest.yaml
 ```
 
-Nếu chapter đóng requested batch, cùng commit thêm:
+If chapter closes requested batch:
 
 `chapters/batch_NNNN_NNNN_audit.md`.
 
-Không tạo active:
+No active requirement for:
 
-- continuity_report.md
-- reader_retention_report.md
-- style_fingerprint_report.md
-- quality_report.md
-- rewrite.txt
+- `combined_qc_report.md`;
+- `continuity_report.md` legacy format;
+- `reader_retention_report.md`;
+- `style_fingerprint_report.md`;
+- `quality_report.md`;
+- `rewrite.txt`;
+- `rolling_3_chapter_audit.md`.
 
-## 6. Combined QC
+## 6. Writer isolation
 
-`combined_qc_report.md` gồm:
+Writer sees only what helps fiction generation:
 
-- Continuity;
-- Story Promise;
-- Style;
-- Decision;
-- Rewrite Recheck nếu có.
+- local state;
+- relevant character state;
+- minimal canon anchors;
+- selected examples.
 
-`PASS` → draft trở thành final nguyên văn.
+Do not attach old QC rubrics, payoff matrices, anti-AI checklists or reviewer reasoning to Writer context.
 
-`REWRITE_REQUIRED` → sửa trong working memory, quick recheck và chỉ persist candidate cuối đã pass.
+## 7. Continuity isolation
 
-## 7. State machine
+Continuity Checker sees canon/state + draft and checks factual contradictions only.
+
+It does not make taste judgments or prose rewrites.
+
+## 8. Prose Editor isolation
+
+Prose Editor sees continuity-safe draft + selected examples + minimal edit contract.
+
+It does not see old QC findings or hidden Writer reasoning. It may leave the draft unchanged when prose already works.
+
+## 9. Atomic chapter protocol
+
+At chapter start, capture exact story branch HEAD/tree.
+
+Persist once:
+
+1. create blobs for every new/changed file;
+2. create one tree from chapter-start base tree;
+3. create one commit with chapter-start HEAD as parent;
+4. update exact story branch ref once;
+5. verify HEAD and state pointers.
+
+## 10. State machine
 
 ```text
 READY_TO_WRITE
-→ WORKING_IN_MEMORY
-→ QC_PASS
+→ STATE_DERIVED
+→ DRAFTED
+→ CONTINUITY_PASS
+→ PROSE_EDITED
+→ FINAL_READY
+→ STATE_UPDATE_READY
 → ATOMIC_COMMIT_PREPARED
 → BRANCH_REF_UPDATED
 → CHAPTER_COMPLETE
 → READY_TO_WRITE
 ```
 
-Intermediate in-memory stages không phải persistent story state.
+Intermediate states are session states, not persistent story truth.
 
-## 8. Resume rules
+## 11. Resume rules
 
-Nếu branch chưa có commit chapter N hoàn chỉnh, coi N chưa hoàn tất và chạy lại transaction từ source of truth hiện tại.
+If branch does not contain a complete atomic chapter commit, treat that chapter as incomplete and regenerate from current persistent state.
 
-Không resume dựa trên orphan blob hoặc verbal statement.
+Do not resume from orphan blobs, verbal claims or partial local state.
 
-Nếu final tồn tại nhưng manifest/memory không cùng commit/state, transaction chưa hợp lệ và phải repair trước chapter tiếp.
+If Final exists without matching current Story/Arc/Character State and manifest in the same logical commit, repair before continuing.
 
-## 9. Batch protocol
+## 12. Batch protocol
 
-`Viết batch tiếp theo` = 5 chapters nếu user không override.
+`Viết batch tiếp theo` = five chapters unless user overrides.
 
-Chạy 5 atomic chapter commits tuần tự. Không dừng ở Ch.3. Chỉ tạo batch audit ở chapter cuối requested range.
+Run five sequential atomic chapter commits. Batch audit exists only in fifth requested chapter commit.
 
-## 10. Completion gate
+## 13. Completion gate
 
-Chapter complete khi branch HEAD history chứa atomic chapter commit với scene plan, draft, combined QC PASS, final và current memory/manifest.
+Chapter complete when branch history contains:
 
-Batch complete khi đủ 5 chapter commits + batch audit trong commit cuối.
+- Chapter State;
+- Scene State;
+- Draft;
+- Continuity PASS;
+- Final;
+- state/memory current through that final;
+- manifest pointer advanced.
+
+Batch complete when five requested chapter commits exist and batch audit is present in the final commit.

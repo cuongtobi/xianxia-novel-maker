@@ -1,38 +1,15 @@
-# Promise Runtime Memory Template
+# DEPRECATED — Reader Experience Runtime Template
 
-> File đích giữ tên `memory/reader_experience.md` để compatibility.
-> Native v3.1: chỉ lưu state của Story Promise Controller.
+This template belongs to the v3.x Story Promise runtime model.
 
-# Metadata
+For v4.0, reader expectations are soft planning signals stored inside:
 
-- Story:
-- Updated through chapter:
-- Current arc:
+- `memory/story_state.md`
+- `memory/arc_state.md`
 
-# Story Promise State
+Use:
 
-| Promise ID | Core? | Last status | Last touch ch. | Last PAY ch. | Last MAJOR/ARC ch. | Pay drought | Warning | Next planned PAY |
-|---|---|---|---:|---:|---:|---:|---:|---|
+- `templates/story_state.template.md`
+- `templates/arc_state.template.md`
 
-# Recent Promise Events
-
-Giữ khoảng 5–10 event gần nhất.
-
-| Chapter | Promise ID | Status | Concrete result/reveal/state change | Notes |
-|---|---|---|---|---|
-
-# Current Promise Risks
-
-- Promise nearing drought:
-- Promise beyond drought:
-- False-pay risk:
-- Promise overused at expense of others, if obvious:
-
-# Next Chapter / Batch Priorities
-
-- Promise likely to advance:
-- Promise likely to pay:
-- Planned magnitude:
-- Notes:
-
-Không lưu Engine/Geometry/Competence/Aspiration/Heat/Binge/Xianxia Density/Xianxia Experience/Emotional Residue metrics.
+Do not maintain per-chapter PAY status or drought quotas for native v4 stories.

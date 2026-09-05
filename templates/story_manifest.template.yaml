@@ -1,4 +1,4 @@
-# Story Manifest Template
+# Story Manifest Template — v4.0
 # File: stories/<slug>/manifest.yaml
 
 story:
@@ -9,35 +9,37 @@ story:
   language: "vi"
 
 pipeline:
-  version: "3.2"
+  version: "4.0"
   batch_size: 5
-  batch_workflow: "docs/BATCH_5_WORKFLOW.md"
-  story_promise_spec: "docs/READER_EXPERIENCE_SYSTEM.md"
-  reference_style_spec: "docs/REFERENCE_STYLE_SYSTEM.md"
-  reference_style_profile: "docs/reference_profiles/TIEN_NGHICH_HIGH_LEVEL_STYLE.md"
-  controllers:
-    - story_promise
-  qc_mode: "combined_qc"
+  creative_mode: "state_example"
+  style_mode: "dynamic_examples"
+  continuity_mode: "factual_only"
+  prose_edit_mode: "light_example_driven"
   chapter_transaction: "atomic_git_commit"
-  rewrite_mode: "on_qc_failure"
-  persist_rewrite_artifact: false
   batch_audit_in_last_chapter_commit: true
   current_stage: "seed"
   last_finalized_chapter: 0
-  current_arc: "arc_001"
   next_chapter: 1
-  reader_experience_required: true
-  reference_style_enabled: true
-  reference_style_mode: "prose_mechanics_only"
-  reference_style_affects_story_dna: false
+  current_arc: "arc_001"
+
+writer_context:
+  use_chapter_state: true
+  use_scene_state: true
+  use_character_state: true
+  dynamic_style_examples: true
+  style_examples_min: 1
+  style_examples_max: 3
+  expose_old_qc_checklists: false
+  expose_story_promise_matrix: false
 
 chapter_artifacts:
   required:
-    - "scene_plan.md"
+    - "chapter_state.md"
+    - "scene_state.md"
     - "draft.txt"
-    - "combined_qc_report.md"
+    - "continuity_check.md"
   final_required: true
-  separate_qc_reports: false
+  prose_edit_report_required: false
   rewrite_artifact_required: false
 
 artifacts:
@@ -46,20 +48,22 @@ artifacts:
   style_bible: "bible/style_bible.md"
   characters_bible: "bible/characters_bible.md"
   master_outline: "outline/master_outline.md"
-  current_arc_outline: "outline/arcs/arc_001.md"
-  current_state: "memory/current_state.md"
-  reader_experience: "memory/reader_experience.md"
+  story_state: "memory/story_state.md"
+  arc_state: "memory/arc_state.md"
+  character_states: "memory/character_states.md"
+  style_examples_index: "examples/style/index.md"
 
 locks:
   canon_initialized: false
-  style_initialized: false
   characters_initialized: false
-  story_promises_initialized: false
+  style_minimal_initialized: false
   master_outline_initialized: false
-  opening_arc_initialized: false
-  memory_initialized: false
-  reader_experience_initialized: false
-  reference_style_adapted: false
+  story_state_initialized: false
+  arc_state_initialized: false
+  character_states_initialized: false
+  continuity_ledgers_initialized: false
+  style_examples_initialized: false
+  genesis_consistency_passed: false
 
 production:
   target_chapters: null
@@ -68,24 +72,27 @@ production:
   next_batch_start: 1
   last_atomic_chapter_commit: null
 
+memory:
+  compaction_mode: "hierarchical"
+  detailed_recent_chapters: 15
+  keep_batch_summaries: true
+  keep_arc_summaries: true
+  keep_saga_summaries: true
+
 completion_gate:
   verify_artifacts_before_reporting_complete: true
-  require_combined_qc_pass: true
+  require_continuity_pass: true
   require_atomic_chapter_commit: true
-  require_memory_in_same_commit: true
+  require_state_in_same_commit: true
   require_batch_audit: true
-  require_reader_experience_update: true
-  require_reference_style_adaptation_when_enabled: true
+  require_genesis_consistency_before_chapter_1: true
 
 migration:
   from_version: null
   migrated_to: null
-  legacy_cutoff_chapter: 0
   migration_baseline: null
-  prior_batch_size: null
-  batch_size_migrated_at_chapter: null
-  retired_controller_artifacts_preserved: true
-  retired_separate_qc_artifacts_preserved: true
+  legacy_cutoff_chapter: 0
+  preserve_legacy_artifacts: true
 
 notes:
   framework_migration: ""

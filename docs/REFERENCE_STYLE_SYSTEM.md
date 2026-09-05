@@ -1,139 +1,80 @@
-# Reference Style System — Prose Mechanics Only
+# Reference Style System — v4.0 Compatibility Note
 
-Reference Style chỉ là lớp **prose mechanics**. Nó không phải Story DNA, không phải controller và không được tác động plot/world/character/arc.
+## 1. Status
 
-## 1. Scope
+Reference Style is no longer the primary active style mechanism.
 
-Reference Style chỉ được dùng cho:
+v4.0 uses **dynamic project prose examples** as the main calibration signal.
 
-- sentence architecture;
-- sentence-length variation;
-- clause flow / transitions;
-- diction / Hán Việt balance;
-- paragraph rhythm;
-- narration stance;
-- internal monologue compression;
-- dialogue prose;
-- description density;
-- action/combat prose;
-- exposition handling;
-- emotional understatement ở cấp câu chữ;
-- repetition limits;
-- Vietnamese adaptation filter.
+Historical high-level reference profiles may remain in the repository for compatibility, but they should not be loaded into Writer by default.
 
-Không được dùng cho:
+## 2. Active hierarchy
 
-- premise;
-- plot/arc;
-- Character DNA;
-- worldbuilding;
-- cultivation design;
-- payoff design;
-- Dao/insight architecture;
-- emotional arc;
-- progression structure;
-- world-scale reveal strategy.
+```text
+Minimal Story Style Bible
+        ↓
+Project Style Example Bank
+        ↓
+Dynamic 1–3 Example Selection
+        ↓
+Writer / Prose Editor
+```
 
-## 2. Hierarchy
+Project-owned/user-approved examples outrank framework bootstrap examples.
 
-`Reference Prose Profile → Story Style Bible adaptation → Writer → project-owned calibration → Combined QC/Style`
-
-Direct writing source luôn là `bible/style_bible.md`.
-
-Reference profile không đi trực tiếp vào Writer prompt ngoài các rule đã được Style Bible chọn và chuyển hóa.
-
-## 3. Default profile
-
-Default xianxia prose reference:
-
-`docs/reference_profiles/TIEN_NGHICH_HIGH_LEVEL_STYLE.md`
-
-Mode bắt buộc:
-
-`prose_mechanics_only`
-
-Tên file lịch sử được giữ để compatibility, nhưng nội dung hiện tại chỉ là prose mechanics.
-
-## 4. Adaptation rule
-
-Style Director chỉ chọn các thuộc tính câu chữ phù hợp story, ví dụ:
-
-- directness;
-- câu trung bình làm trục;
-- câu ngắn dùng tại impact;
-- narration rõ;
-- expert reasoning được nén;
-- thoại gọn theo địa vị;
-- miêu tả chọn lọc;
-- action prose ưu tiên động từ;
-- exposition ngắn rồi trở về action;
-- adjective/repetition restraint.
-
-Không chuyển bất kỳ đặc trưng cốt truyện/chủ đề nào từ reference sang story.
-
-## 5. Contemporary-author safety / originality
-
-Không yêu cầu Writer “viết giống Nhĩ Căn” hoặc tái tạo sát phong cách cá nhân của tác giả.
-
-Không copy:
-
-- câu/cụm;
-- rhetorical frame dễ nhận diện;
-- đoạn văn;
-- scene/plot beat;
-- character/world identity;
-- translation/convert syntax.
-
-Chỉ dùng đặc điểm cấp cao đủ chung để tạo house style riêng.
-
-## 6. Translation caveat
-
-Tiên Nghịch tồn tại qua nguyên tác Hoa ngữ và nhiều bản dịch/convert. Không suy ra sentence pattern tiếng Việt từ một bản convert.
-
-Pipeline phải ưu tiên:
-
-- cú pháp Việt tự nhiên;
-- xưng hô tự nhiên;
-- giảm connector dịch máy;
-- không bê trật tự mệnh đề Hoa ngữ;
-- giữ tinh thần trực diện/tiết chế thay vì literal syntax.
-
-## 7. Project-owned calibration
-
-Khi story có final/user-approved samples tốt, calibration của chính story được ưu tiên hơn reference.
-
-Calibration học:
+## 3. What examples may calibrate
 
 - rhythm;
-- diction;
-- paragraph shape;
-- narration distance;
+- narrative distance;
 - dialogue texture;
-- action/exposition handling.
+- descriptive density;
+- paragraph movement;
+- action/exposition balance;
+- level of explicitness;
+- Vietnamese prose feel.
 
-Không copy nguyên câu hoặc rhetorical frame từ sample.
+## 4. What examples may not transfer
 
-## 8. Combined QC
+- wording;
+- distinctive images/metaphors;
+- rhetorical frames;
+- paragraph sequence;
+- scene structure;
+- plot beats;
+- character/world identity.
 
-Phần Style của `combined_qc_report.md` chỉ kiểm prose mechanics mà Style Bible đã chọn.
+## 5. Historical reference profile
 
-Không được tạo finding vì story không có:
+`docs/reference_profiles/TIEN_NGHICH_HIGH_LEVEL_STYLE.md` is historical/optional calibration material only.
 
-- Hóa Phàm;
-- Dao arc;
-- mortal anchor;
-- emotional scar;
-- layered world reveal;
-- một kiểu progression nào đó.
+Do not use it as:
 
-Các thứ đó không thuộc Reference Style.
+- Writer prompt;
+- plot model;
+- character model;
+- story-DNA model;
+- mandatory prose checklist.
 
-## 9. Principle
+If a migrated story already has a good project-owned style bank, do not load the historical profile at all.
 
-Reference Style trả lời:
+## 6. Bootstrap behavior
 
-> **viết câu và đoạn như thế nào để prose trực diện, tiết chế, rõ và có nhịp.**
+A new v4 story may begin with original framework examples under `examples/default/`.
 
-Nó không trả lời:
+As soon as strong project finals/user-approved passages cover the required prose functions, promote those into `examples/style/` and retire matching bootstrap examples from active selection.
 
-> **câu chuyện nên xảy ra chuyện gì.**
+## 7. Prose Editor
+
+Prose Editor should use examples only as calibration and should prefer leaving strong draft prose unchanged.
+
+The editor is not a rule-enforcement pass.
+
+## 8. Principle
+
+Examples answer:
+
+> What does good prose in this project feel like in practice?
+
+They do not answer:
+
+> What plot should happen, or what exact sentence pattern must be reproduced?

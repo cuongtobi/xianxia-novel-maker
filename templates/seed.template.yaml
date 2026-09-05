@@ -1,6 +1,5 @@
-# Story Seed Template
-# Người dùng chỉ cần điền những gì mình biết. Có thể để null cho phần muốn AI đề xuất.
-# Không dùng seed này như story bible; seed là ý định sáng tác ban đầu.
+# Story Seed Template — v4.0
+# Seed captures user creative intent. It is not runtime state and not a writing checklist.
 
 meta:
   working_title: ""
@@ -30,6 +29,7 @@ creative_intent:
   originality_constraints:
     do_not_copy_specific_plot: true
     do_not_copy_specific_characters: true
+    do_not_copy_specific_prose: true
     notes: ""
 
 protagonist_seed:
@@ -93,27 +93,22 @@ romance_seed:
   constraints: []
   notes: ""
 
-tone_and_style_seed:
+tone_seed:
   narration_pov: "third_limited"
   preferred_pacing: ""
   preferred_dialogue_density: ""
   humor_level: ""
   brutality_level: ""
   philosophical_depth: ""
-  prose_notes: ""
+  prose_feel_notes: ""
   phrases_or_tics_to_avoid: []
-  reference_style:
-    enabled: true
-    system_spec: "docs/REFERENCE_STYLE_SYSTEM.md"
-    profile: "docs/reference_profiles/TIEN_NGHICH_HIGH_LEVEL_STYLE.md"
-    usage: "prose_mechanics_only"
-    adapt_to_story_house_style: true
-    affects_plot_or_story_dna: false
-    copy_specific_phrasing: false
-    copy_specific_rhetorical_frames: false
-    copy_plot_or_characters: false
-    project_owned_calibration_takes_over_later: true
-    notes: "Default prose-mechanics reference only; does not influence plot, arc, Character DNA or world design."
+
+example_calibration:
+  mode: "dynamic_examples"
+  use_framework_bootstrap_until_project_examples_exist: true
+  prefer_user_approved_project_examples: true
+  max_examples_per_scene: 3
+  notes: "Examples calibrate prose feel only; they never define plot or scene structure."
 
 content_boundaries:
   prohibited_content: []
@@ -124,8 +119,8 @@ content_boundaries:
 production:
   batch_size: 5
   auto_run_batch: true
-  require_qc: true
-  require_rewrite: true
+  require_continuity_check: true
+  prose_edit_mode: "light_example_driven"
   final_filename_format: "Chương {chapter}: {title}.txt"
   branch_format: "story/{slug}"
 

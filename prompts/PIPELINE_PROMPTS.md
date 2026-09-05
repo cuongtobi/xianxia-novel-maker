@@ -1,201 +1,278 @@
-# Pipeline Prompts — Atomic Combined QC + Prose Mechanics Reference
-
-Controller duy nhất: **Story Promise Controller**.
-
-Reference Style chỉ là **prose mechanics**. Không được ảnh hưởng plot, arc, Character DNA, worldbuilding, cultivation design hoặc payoff design.
+# Pipeline Prompts — v4.0 State + Example Driven
 
 ## P0 — Orchestrator
 
-1. Xác định exact repo/branch/slug.
-2. Đọc manifest/source of truth.
-3. Resolve requested range; `batch tiếp theo` mặc định = 5 chapters.
-4. Với từng chapter, giữ intermediate work trong session memory.
-5. Chỉ persist khi scene plan + draft + combined QC + final + memory/manifest đều sẵn sàng.
-6. Persist chapter bằng one tree/commit + one branch ref update.
-7. Không sang chapter mới trước khi commit chapter hiện tại verify thành công.
-8. Không tạo retired QC artifacts/controllers.
+1. Resolve exact repo / branch / slug.
+2. Read manifest and current persistent state.
+3. Resolve requested range; `batch tiếp theo` defaults to 5 chapters.
+4. Keep chapter intermediate work in session memory.
+5. Do not expose retired creative-controller checklists to Writer.
+6. Persist only after Chapter State + Scene State + Draft + Continuity PASS + Final + state/memory/manifest are ready.
+7. Persist chapter using one Git tree/commit + one branch ref update.
+8. Do not start next chapter until current commit verifies.
 
 ## P1 — Seed Validator
 
-Validate premise, protagonist, world/cultivation intent, tone, boundaries, target length và user decisions.
+Validate user intent:
 
-Nếu Reference Style bật, verify:
+- premise/hook;
+- protagonist;
+- world/cultivation direction;
+- target length;
+- required/forbidden elements;
+- romance/content boundaries;
+- ending direction;
+- any examples the user explicitly wants used for project calibration.
 
-- profile path;
-- `reference_style_mode: prose_mechanics_only`;
-- reference không được dùng như plot/story template.
+Seed is intent, not runtime state.
 
 ## P2 — Story Bible Architect
 
-Build world bằng causal logic tự nhiên: `law → resource/limit → institution/behavior → conflict`. Khóa cultivation, factions, history, geography, crafts, economy, social order, hard rules và mystery foundations.
+Build stable world/cultivation canon through causal logic:
 
-**Không đọc Reference Prose Profile để quyết định world/story.**
+`law → resource/limit → institution/behavior → conflict`
 
-## P3 — Style Bible Director
+Lock only facts that need stability. Avoid turning Story Bible into chapter-writing instructions.
 
-Đây là stage duy nhất được phép chuyển hóa Reference Prose Profile vào house style.
+## P3 — Character Baseline Architect
 
-Nếu dùng `TIEN_NGHICH_HIGH_LEVEL_STYLE.md`, chỉ chọn prose mechanics:
+Create stable baselines for important characters:
 
-- sentence architecture;
-- sentence-length rhythm;
-- clause flow/transitions;
-- diction/Hán Việt balance;
-- paragraph rhythm;
-- narration stance;
-- internal monologue compression;
-- dialogue prose;
-- description density;
-- action/combat prose;
-- cultivation/craft exposition prose;
-- emotional understatement ở cấp câu chữ;
-- repetition limits;
-- Vietnamese adaptation filter.
+- identity/status;
+- core desire/need/fear/blind spot;
+- contradiction/value;
+- voice anchors;
+- relationship baselines;
+- cultivation/combat identity;
+- secrets;
+- hard contradiction boundaries.
 
-Không lấy từ reference:
+Do not create a giant deterministic `if situation → behavior` matrix for Writer.
 
-- mortal anchor;
-- Dao/insight architecture;
-- emotional arc;
-- progression structure;
-- world-scale reveal;
-- protagonist temperament;
-- plot/scene pattern.
+## P4 — Minimal Style + Example Curator
 
-Style Bible là direct writing contract.
+Style Bible should stay compact and stable. Record only:
 
-## P4 — Character DNA Architect
+- POV/distance;
+- broad tone;
+- diction range;
+- dialogue directness;
+- prose density;
+- content/style boundaries;
+- originality policy;
+- example-selection policy.
 
-Khóa desire, need, fear, wound, value, blind spot, contradiction, decision logic, speech, relationships, cultivation/combat identity, secrets và arc vector.
+Build `examples/style/index.md` and curate project-owned/user-approved examples.
 
-Reference prose không override Character DNA.
+If insufficient, use framework original bootstrap examples. Never use an example as a plot template.
 
-## P5 — Master Outline + Story Promise Architect
+## P5 — Master Outline Architect
 
-Khóa 3–5 Story Promises. Build saga map, protagonist/antagonist progression, cultivation progression, reveals, relationships, ending direction và flex zones.
+Build long direction, not a 500-chapter script:
 
-**Không dùng Reference Prose Profile ở stage này.**
+- story core;
+- protagonist transformation direction;
+- cultivation/power progression;
+- antagonist/faction escalation;
+- saga map;
+- mystery/reveal spine;
+- relationship spine;
+- major set pieces;
+- soft reader expectations;
+- flex zones;
+- hard foreshadowing obligations.
 
-## P6 — Arc Outline Architect
+Reader expectations are planning signals, not per-chapter quotas.
 
-Build arc question, start/end state, conflict ladder, character/faction moves, cultivation/resources, reveals, setup/payoff, Story Promise PAY windows, chapter intents và flex points.
+## P6 — Initial State Builder
 
-**Không dùng Reference Prose Profile ở stage này.**
+From Genesis artifacts create:
 
-## P7 — Chapter Scene Planner
+- `memory/story_state.md`;
+- `memory/arc_state.md`;
+- `memory/character_states.md`;
+- continuity ledgers;
+- initial summaries if needed.
 
-Plan gọn:
+Run Genesis Consistency Audit across world, cultivation, character baselines, master direction and initial state.
 
-- chapter objective;
+Only then mark `READY_TO_WRITE`.
+
+## P7 — Chapter State Deriver
+
+Input: current Story/Arc/Character State + relevant continuity ledgers + recent summaries/final + long direction when relevant.
+
+Output destined for `chapters/NNNN/chapter_state.md`.
+
+Capture:
+
+- entry reality;
+- active pressures;
+- relevant cast;
+- knowledge asymmetry;
+- body/resource/relationship conditions;
+- tensions/opportunities currently ripe;
+- plausible meaningful state changes;
+- hard continuity anchors.
+
+Do not prescribe beat order unless canon requires it.
+
+## P8 — Scene State Deriver
+
+Output destined for `chapters/NNNN/scene_state.md`.
+
+For each scene capture:
+
 - POV/time/place/cast;
-- start state;
-- conflict/pressure;
-- key beats/turn;
-- choice/consequence nếu có;
-- Story Promise target;
-- concrete payoff nếu target = PAY;
-- end state;
-- continuity constraints;
-- style constraints;
-- hook nếu organic.
+- what just happened;
+- immediate desires;
+- emotional/body/relationship state;
+- knowledge/suspicion/wrong belief;
+- pressure/resources/limitations;
+- possible directions if useful;
+- exit expectation as state change type.
 
-Style reminder chỉ được là **prose reminder**, tối đa 1–2 dòng, ví dụ:
+Scene State is reality, not a literary checklist.
 
-- giữ câu trung bình làm trục, impact mới rút ngắn;
-- nén expert reasoning;
-- giảm adjective, ưu tiên động từ;
-- exposition ngắn rồi quay lại action.
+## P9 — Style Example Selector
 
-Không thêm story-DNA reminder từ reference.
+Select normally 1–3 examples by prose function:
 
-Output destined for `chapters/NNNN/scene_plan.md`, chưa persist.
+- quiet narration;
+- dialogue/relationship;
+- combat/action;
+- cultivation/craft;
+- mystery/tension;
+- aftermath/emotion.
 
-## P8 — Vietnamese Xianxia Writer
+Selection priority:
 
-Direct style contract = story `bible/style_bible.md`.
+1. user-approved project samples;
+2. strong project-owned finals;
+3. curated project examples;
+4. framework original bootstrap examples.
 
-Không tự prompt `viết giống Nhĩ Căn/Tiên Nghịch`; không copy wording, rhetorical frame, đoạn văn, scene shape hoặc translation syntax.
+Select by function/tempo/POV distance/dialogue density, not plot resemblance.
 
-Core prose rules:
+## P10 — Vietnamese Xianxia Writer
 
-- prose Việt tự nhiên;
-- câu trung bình làm trục;
-- câu ngắn chỉ dùng khi cần impact/chốt trạng thái;
-- câu dài giữ syntax Việt rõ;
-- ưu tiên động từ/danh từ cụ thể hơn adjective stack;
-- narrator được nói thẳng khi clarity cần;
-- experienced MC chỉ nghĩ thành lời những gì ảnh hưởng quyết định;
-- dialogue gọn, theo địa vị và DNA;
-- miêu tả chọn chi tiết có chức năng;
-- action/combat giảm exposition giữa đòn;
-- cultivation/craft exposition: `state → relevant difference → action → result` khi phù hợp;
-- cảm xúc ưu tiên body/action/silence hơn narrator labeling;
-- tránh convert syntax, connector lặp, stock gesture, spectator shock, fragment spam.
+Use this short contract:
 
-Reference Prose Profile **không quyết định chuyện gì xảy ra trong chapter**.
+> Write the next fiction from the supplied state. Treat state as reality, not an outline checklist. Characters act from their current desire, knowledge, emotion, relationship, body and limitations. Let action, dialogue, perception and consequence carry the scene. Explain reasoning only when the POV would naturally think it. Use the supplied examples only to calibrate project prose feel: rhythm, narrative distance, dialogue texture and density. Do not copy wording, imagery, rhetorical frames, paragraph sequence or scene structure. Write fiction, not analysis or report.
 
-Output destined for `chapters/NNNN/draft.txt`, chưa persist.
+Writer input should be limited to:
 
-## P9 — Combined QC Reviewer
+- Chapter/Scene State;
+- relevant Character State;
+- minimal canon anchors;
+- selected Style Examples.
 
-Đọc draft và tạo một report với ba phần.
+Do not attach old Combined QC, Story Promise status matrix or anti-AI checklist.
 
-### A. Continuity
-Kiểm canon, timeline/geography, power/cultivation, items/resources/injury, knowledge, relationship/faction, POV, hard DNA contradiction.
+Output destined for `chapters/NNNN/draft.txt`, not yet persisted.
 
-### B. Story Promise
-Kiểm promise target, `UNTOUCHED/ADVANCE/PAY_MINOR/PAY_MAJOR/PAY_ARC`, concrete payoff, false pay, magnitude, drought.
+## P11 — Continuity Checker
 
-### C. Style
-Kiểm:
+Read canon/state + draft.
 
-- sentence architecture/rhythm;
-- fragment/cadence abuse;
-- clause/connector repetition;
-- diction/adjective density;
-- paragraph rhythm;
-- narration directness/recap;
-- internal-monologue overlogging;
-- dialogue sameness/Q&A cleanliness;
-- description bloat;
-- action/combat readability;
-- exposition bloat;
-- stock tics;
-- Vietnamese convert syntax;
-- Style Bible drift;
-- direct imitation risk.
+Check only factual contradiction:
 
-**Không chấm plot/Dao/emotional arc/world-scale/progression theo reference.**
+- canon/facts;
+- timeline/geography;
+- cultivation/power;
+- item/resource/injury;
+- knowledge boundary;
+- relationship/faction state;
+- POV identity;
+- hard Character Baseline contradiction.
 
 Decision:
 
-- `PASS` nếu không có BLOCKER/MAJOR cần sửa trong chapter;
-- `REWRITE_REQUIRED` nếu có.
+- `PASS`;
+- `FIX_REQUIRED`.
 
-## P10 — Rewrite + Quick Recheck
+If FIX_REQUIRED, identify the smallest factual fix. Do not make prose-style recommendations.
 
-Chỉ chạy khi P9 = `REWRITE_REQUIRED`.
+Output destined for `chapters/NNNN/continuity_check.md`.
 
-Sửa candidate trong working memory. Ưu tiên `CUT > COMPRESS > REORDER > REPLACE > ADD`.
+## P12 — Factual Fix
 
-Không “sửa cho giống reference”; chỉ sửa finding prose cụ thể theo Style Bible.
+Run only if P11 = `FIX_REQUIRED`.
 
-Nếu P9 = PASS, bỏ qua hoàn toàn rewrite và dùng draft nguyên văn làm final.
+Patch contradictions with the smallest change that preserves scene intent. Recheck failed facts only.
 
-## P11 — Final + Memory Builder
+No full literary rewrite.
 
-Chuẩn bị final TXT, memory/ledger/summary, promise memory, manifest và batch audit nếu chapter đóng batch. Chưa write GitHub.
+## P13 — Prose Editor
 
-## P12 — Atomic Git Committer
+Input: continuity-safe draft + selected examples.
 
-1. create_blob cho mọi changed/new file;
-2. create_tree từ chapter-start base tree;
-3. create_commit với chapter-start HEAD làm parent;
-4. update_ref exact story branch đúng một lần;
-5. verify branch HEAD.
+Edit only where prose materially benefits.
 
-## P13 — Batch Auditor
+Preserve:
 
-Sau chapter cuối requested batch, kiểm artifact completeness, Combined QC PASS, memory current, continuity handoff, Story Promise payoff/drought và style caution.
+- events;
+- character decisions;
+- dialogue intent;
+- scene shape;
+- state consequences.
 
-Không có rolling audit/checkpoint Ch.3.
+Legitimate edits:
+
+- remove explanation the scene already demonstrates;
+- compress report-like reasoning;
+- repair unnatural Vietnamese/convert-like clauses;
+- trim obvious repetition;
+- improve local clarity.
+
+Prefer leaving good prose untouched.
+
+Do not:
+
+- standardize paragraph length;
+- manufacture punchy fragments;
+- add aphorisms;
+- make every character equally articulate;
+- add plot/state;
+- copy examples.
+
+No prose-edit report required. Candidate becomes Final.
+
+## P14 — State Extractor
+
+Read Final as truth and prepare:
+
+- canon updates if stable facts were created;
+- Story State;
+- Arc State;
+- affected Character States;
+- affected continuity ledgers;
+- compact Chapter Summary;
+- batch/arc/saga summary at boundaries;
+- manifest pointers.
+
+Do not import events removed during edit.
+
+## P15 — Atomic Git Committer
+
+1. use chapter-start HEAD/tree as parent/base;
+2. create blobs for all new/changed chapter/state/final/manifest files;
+3. include batch audit when closing requested batch;
+4. create one tree;
+5. create one commit;
+6. update exact story branch ref once;
+7. verify HEAD + manifest/state.
+
+## P16 — Batch Auditor
+
+After fifth requested chapter, verify:
+
+- all five atomic chapter commits/finals;
+- all Continuity Checks PASS;
+- Story/Arc/Character State current;
+- knowledge/resource/relationship handoff coherent;
+- unresolved obligations preserved;
+- example usage has not collapsed into repeated copied scene patterns;
+- next-batch handoff is clear.
+
+No style score, payoff quota or rolling checkpoint.

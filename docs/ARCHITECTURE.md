@@ -1,61 +1,196 @@
-# Architecture — Atomic Promise-Only
+# Architecture — v4.0 State + Example Driven
 
 ## 1. Overview
 
-Framework chạy trên ChatGPT Web + GitHub. GitHub giữ persistent state; ChatGPT thực thi pipeline.
+Framework chạy trên ChatGPT Web + GitHub. GitHub giữ persistent truth; ChatGPT derive state, viết fiction và update state.
 
-Controller duy nhất: **Story Promise Controller**.
-
-```text
-Seed
-→ Bibles
-→ Master Outline + Story Promises
-→ Arc Outline
-→ Story + Promise Memory
-→ Batch 5
-    ├─ Ch.N atomic transaction
-    ├─ Ch.N+1 atomic transaction
-    ├─ ...
-    └─ Ch.N+4 atomic transaction + batch audit
-```
-
-## 2. Minimal chapter transaction
+Creative model:
 
 ```text
-READ
-→ PLAN
+SEED
+→ STORY BIBLE
+→ CHARACTER BASELINES
+→ MASTER OUTLINE
+→ STORY STATE
+→ ARC STATE
+→ CHAPTER STATE
+→ SCENE STATE
+→ CHARACTER STATE + STYLE EXAMPLES
+→ WRITER
 → DRAFT
-→ COMBINED QC
+→ CONTINUITY CHECK
+→ PROSE EDIT
 → FINAL
-→ MEMORY UPDATE
+→ STATE UPDATE
 → ATOMIC COMMIT
 ```
 
-Persisted chapter artifacts:
+Không có creative controller bắt Writer thỏa checklist. Reader expectation/payoff chỉ là planning signal trong state.
 
-- `scene_plan.md`
-- `draft.txt`
-- `combined_qc_report.md`
-- final TXT
-- memory/manifest updates
+## 2. Design principle
 
-`rewrite.txt` không phải artifact mặc định. Rewrite chỉ thực hiện trong working memory khi Combined QC yêu cầu.
+### State-driven
 
-## 3. Combined QC
+State trả lời: **hiện tại chuyện gì là thật?**
 
-Một report duy nhất có ba phần:
+- who is where;
+- what just happened;
+- what each character wants/knows/believes;
+- injury/fatigue/resource status;
+- relationship tension;
+- faction positions;
+- arc pressure;
+- unresolved obligations;
+- likely directions now ripe.
 
-- Continuity
-- Story Promise
-- Style
+### Example-driven
 
-Continuity/Style là technical review. Story Promise là controller duy nhất.
+Examples trả lời: **prose tốt của project này có cảm giác thế nào?**
 
-## 4. Atomicity model
+Examples calibrate execution, không quyết định plot.
 
-Mỗi chapter bắt đầu từ một branch HEAD cố định.
+### Rule-driven
 
-Toàn bộ output và memory updates được tạo trước. Sau đó GitHub write dùng:
+Rules chỉ bảo vệ:
+
+- canon;
+- continuity;
+- originality;
+- content boundaries;
+- persistence protocol.
+
+Rules không trở thành prose recipe.
+
+## 3. Data layers
+
+### Stable canon
+
+- Story Bible;
+- Character Baselines;
+- Canon Ledger;
+- Final Chapters.
+
+### Long direction
+
+- Master Outline;
+- saga direction;
+- major reveals/relationships/progression;
+- reader expectations.
+
+### Runtime state
+
+- `memory/story_state.md`;
+- `memory/arc_state.md`;
+- `memory/character_states.md`;
+- timeline/knowledge/relationship/cultivation/inventory/faction/foreshadowing/unresolved ledgers.
+
+### Local generation state
+
+- Chapter State;
+- Scene State;
+- selected Style Examples.
+
+Local generation state snapshots are evidence of what Writer received, but Final remains higher truth.
+
+## 4. State derivation
+
+```text
+Final + Current Runtime State + Master Direction
+                    ↓
+                Arc State
+                    ↓
+              Chapter State
+                    ↓
+                Scene State
+```
+
+Derivation should compress reality, not invent a beat checklist.
+
+A state may expose several plausible directions. Writer chooses through character desire + pressure + circumstance.
+
+## 5. Character model
+
+Character Bible stores stable baseline: identity, core motive, blind spots, voice anchors, relationship baselines, cultivation identity and forbidden contradictions.
+
+Runtime Character State stores transient facts: immediate goal, emotion, belief, bias, knowledge, body, resources, relationships and recent consequential memories.
+
+Writer receives only relevant baseline anchors + runtime state, not a full situation-response matrix.
+
+## 6. Style model
+
+Minimal Style Bible stores project-level boundaries only. Primary style signal is selected prose examples.
+
+Selection priority:
+
+1. user-approved project finals;
+2. strong project-owned finals;
+3. project curated examples;
+4. framework original bootstrap examples.
+
+Select by scene function, normally 1–3 examples. Avoid loading an entire style corpus.
+
+## 7. Writer
+
+Writer input:
+
+```text
+SCENE/CHAPTER STATE
++ RELEVANT CHARACTER STATE
++ CANON ANCHORS
++ 1–3 STYLE EXAMPLES
+```
+
+Writer is not given continuity/style/payoff checklists.
+
+State is reality, not a command list. Writer lets characters act from current desire, knowledge, emotion, relationship and limitation.
+
+## 8. Continuity Check
+
+Continuity Check is factual only:
+
+```text
+canon / timeline / geography / power / resources /
+injury / knowledge / relationship / faction / POV /
+hard baseline contradiction
+```
+
+It does not review prose quality, pacing, emotional arc or reader payoff.
+
+`PASS` or `FIX_REQUIRED`.
+
+## 9. Prose Edit
+
+After factual continuity passes, a light editor uses the same or nearby style examples.
+
+The editor should preserve variation and leave good prose untouched. Main legitimate edits:
+
+- remove redundant explanation;
+- compress report-like reasoning;
+- repair unnatural Vietnamese;
+- repair awkward translation-like clauses;
+- trim obvious repetition;
+- improve local clarity without changing scene state.
+
+No style report is required.
+
+## 10. Atomicity model
+
+Each chapter starts from fixed branch HEAD/tree.
+
+All outputs are prepared before Git write:
+
+```text
+chapter_state
+scene_state
+draft
+continuity_check
+final
+state/ledger updates
+manifest
+batch audit if needed
+```
+
+Then:
 
 ```text
 create_blob × changed files
@@ -64,50 +199,38 @@ create_blob × changed files
 → update_ref once
 ```
 
-Không dùng nhiều sequential `update_file` để tiến state chapter.
+If failure occurs before `update_ref`, branch state remains at the prior complete chapter.
 
-Nếu lỗi trước `update_ref`, branch vẫn ở chapter trước và transaction có thể chạy lại an toàn.
+## 11. Batch 5
 
-## 5. Rewrite behavior
+Batch = five sequential atomic chapter commits. No checkpoint at chapter 3. Batch audit is included in the fifth requested chapter commit.
 
-Combined QC `PASS` → draft được dùng nguyên văn làm final.
+## 12. Completion semantics
 
-Combined QC `REWRITE_REQUIRED` → sửa candidate trong working memory, quick recheck findings fail, ghi recheck vào cùng report, rồi persist final đã pass.
+Chapter COMPLETE when its branch history contains an atomic commit with:
 
-Ưu tiên `CUT > COMPRESS > REORDER > REPLACE > ADD`.
+- Chapter State;
+- Scene State;
+- Draft;
+- Continuity PASS;
+- Final;
+- current runtime state/manifest.
 
-## 6. Data layers
+Batch COMPLETE when all five commits/finals exist, runtime state is current through the fifth chapter and batch audit exists.
 
-### Canon
-Bibles, canon ledger, finals, Character DNA.
+## 13. Long-story scaling
 
-### Planning
-Master outline, arc outline, Story Promise PAY windows.
+Memory uses hierarchical compaction:
 
-### Runtime
-Current state, timeline, characters, relationships, cultivation, inventory, factions/locations, knowledge, foreshadowing, unresolved threads, summaries.
+```text
+recent chapter detail
+→ batch summaries
+→ completed arc summary
+→ completed saga summary
+```
 
-### Promise runtime
-`reader_experience.md` chỉ giữ Story Promise state/payoff/drought.
+Never compact away canon facts, unresolved obligations, active knowledge boundaries, resource ownership or relationship consequences.
 
-## 7. Batch 5
+Framework optimizes for:
 
-Batch là 5 atomic chapter commits tuần tự. Không có checkpoint chapter 3.
-
-Batch audit được tạo sau chapter thứ 5 và đưa vào cùng commit chapter thứ 5.
-
-## 8. Completion semantics
-
-Chapter COMPLETE khi commit của nó đã được update vào branch và chứa:
-
-- scene plan;
-- draft;
-- Combined QC PASS;
-- final;
-- memory/manifest current.
-
-Batch COMPLETE khi đủ 5 commits/finals và batch audit tồn tại.
-
-Framework tối ưu cho:
-
-**continuity + promise delivery + prose quality + low tool overhead + recoverable atomic execution**.
+**natural fiction + continuity + state coherence + prose calibration + low creative-rule pressure + recoverable atomic execution**.

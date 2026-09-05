@@ -1,90 +1,71 @@
-# Story Promise System
+# Reader Experience System — v4.0 Compatibility Note
 
-Controller duy nhất của framework: **Story Promise Controller**.
+## 1. Status
 
-## 1. Purpose
+The old **Story Promise Controller** is retired as an active controller in v4.0.
 
-Story Promise trả lời: **độc giả chọn và tiếp tục truyện này để nhận điều gì?**
+Reader expectations are still useful, but they now live as **soft planning state** rather than a per-chapter scoring/enforcement system.
 
-Mỗi story khóa 3–5 promises từ Genesis.
+## 2. New role
 
-## 2. Promise contract
+Reader expectation answers:
 
-Mỗi promise có:
+> What did the reader come to this story to experience over time?
 
-- stable ID;
-- promise;
-- reader value;
-- PAY definition;
-- ADVANCE definition;
-- false pay;
-- drought warning;
-- escalation path.
+Examples:
 
-## 3. Per-chapter status
+- cultivation ascent;
+- alchemy competence;
+- rivalry/payback;
+- mystery/reveal;
+- romance/relationship growth.
 
-- `UNTOUCHED`
-- `ADVANCE`
-- `PAY_MINOR`
-- `PAY_MAJOR`
-- `PAY_ARC`
+These signals help Story/Arc State notice what has been neglected or what is naturally ripe. They do not command Writer to produce a specific payoff.
 
-Magnitude là thuộc tính của Story Promise, không phải controller riêng.
+## 3. Suggested state fields
 
-## 4. PAY rule
-
-Chỉ đánh PAY khi chapter tạo result/reveal/acquisition/loss/progression/relationship/status/state change hoặc trải nghiệm trung tâm mà promise đã cam kết.
-
-Không tính PAY cho setup, lời hứa tương lai, hook chưa thành result hoặc state change quá nhỏ so với PAY definition.
-
-## 5. Drought
-
-Theo dõi:
-
-- `last_touch_chapter`;
-- `last_pay_chapter`;
-- `last_major_pay_chapter`;
-- `pay_drought`;
-- `drought_warning`;
-- next planned payoff window.
-
-Không ép fake payoff để reset drought. Nếu chapter hiện tại không organic cho PAY, sửa future arc/window.
-
-## 6. Pipeline integration
-
-Story Promise được dùng tại:
-
-1. Genesis → master outline;
-2. Arc → planned PAY windows;
-3. Scene plan → Promise target;
-4. **Combined QC / Story Promise section** → xác nhận actual status;
-5. Memory → update runtime promise state;
-6. Batch Audit → xem payoff/drought.
-
-Không có Story Promise report riêng trong v3.2.
-
-## 7. Writer boundary
-
-Writer chỉ cần biết promise chapter phục vụ, target ADVANCE/PAY và concrete payoff nếu có. Không expose metric/controller đã retire.
-
-## 8. Promise memory
-
-`memory/reader_experience.md` giữ tên để tương thích nhưng chỉ cần:
+In Master Outline or Story/Arc State:
 
 ```text
-Promise ID
-Last status
-Last touch chapter
-Last pay chapter
-Last major pay chapter
-Current pay drought
-Drought warning
-Next planned payoff window
+ID
+Expectation
+Reader value
+What meaningful delivery looks like
+Last meaningful delivery
+Current pressure
+Natural opportunity ahead
 Notes
 ```
 
-## 9. Retired systems
+No required `UNTOUCHED / ADVANCE / PAY_*` status in active v4 production.
 
-Không còn active controller/gate/quota cho Narrative Engine, Dramatic Geometry, Competence Friction, Aspiration, Heat, Binge, Xianxia Experience/Density, Emotional Residue hay Human Irrationality Controller.
+## 4. No drought-clearing behavior
 
-Historical artifacts được giữ làm lịch sử nhưng không tiếp tục enforce.
+Do not force a fake payoff because a numeric drought threshold was reached.
+
+If an expectation has been neglected, the Arc State may record that pressure and expose a future opportunity. The next chapter should still follow current character/world state naturally.
+
+## 5. Writer boundary
+
+Writer should not receive a reader-expectation matrix unless one short expectation is directly relevant to local state.
+
+Even then it should be represented as story reality/pressure, not as a metric target.
+
+## 6. Migration from v3.x
+
+Historical Story Promise data may remain.
+
+Useful conversion:
+
+- `Promise` → `Reader Expectation`;
+- `last_pay_chapter` → `last meaningful delivery`;
+- `next planned payoff window` → `natural opportunity ahead`;
+- `pay_drought` → optionally a qualitative note such as `neglected / active / recently delivered`.
+
+Do not continue status enforcement after migration.
+
+## 7. Principle
+
+Reader experience informs **where the story may want to move**.
+
+It does not dictate **how the Writer must manufacture a chapter**.

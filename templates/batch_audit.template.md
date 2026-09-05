@@ -1,72 +1,87 @@
-# Batch Audit Template
+# Batch Audit Template — v4.0 State + Example Driven
 
-> Default range = 5 chapters. Persist this file in the same atomic commit as the last chapter of the requested batch.
+> File: `chapters/batch_NNNN_NNNN_audit.md`
+> Included in the atomic commit of the fifth requested chapter.
 
 # Metadata
 
 - Story:
-- Branch:
 - Batch range:
-- Arc(s):
-- Audit result: PASS / ACTION_REQUIRED / INCOMPLETE
+- Last finalized chapter:
+- Next chapter:
 
-# 1. Atomic Chapter Completion
+# 1. Artifact Completeness
 
-| Ch | Atomic commit | Scene plan | Draft | Combined QC PASS | Final | Memory+manifest same commit |
+| Chapter | Chapter State | Scene State | Draft | Continuity PASS | Final | Atomic commit |
 |---|---|---|---|---|---|---|
 
-All five requested chapters must be complete.
+# 2. Runtime State Currency
 
-# 2. Continuity Handoff
+- `memory/story_state.md` current through last chapter?:
+- `memory/arc_state.md` current?:
+- affected Character States current?:
+- manifest pointer correct?:
 
-- Canon issues:
-- Timeline/power/resource inconsistencies:
-- Threads carried correctly?:
-- Memory current through last chapter?:
+# 3. Continuity Handoff
 
-# 3. Story Promise Controller
+Check only durable handoff:
 
-| Promise ID | Ch1 | Ch2 | Ch3 | Ch4 | Ch5 | Last PAY | Drought | Next planned PAY |
-|---|---|---|---|---|---|---|---:|---|
+- timeline/geography:
+- cultivation/power:
+- injuries/fatigue:
+- items/resources/ownership:
+- knowledge boundaries:
+- relationships/factions:
+- unresolved obligations:
+- foreshadowing still active:
 
-Statuses: `UNTOUCHED / ADVANCE / PAY_MINOR / PAY_MAJOR / PAY_ARC`.
+# 4. Arc Motion Snapshot
 
-Evaluate:
+- Arc phase at batch start:
+- Arc phase now:
+- Material state changes across batch:
+- Current pressures:
+- Likely pressure directions next:
 
-- concrete PAYs delivered:
-- false PAYs found:
-- core promise near/beyond drought:
-- next-batch promise priority:
+Do not score dramatic geometry or force a payoff count.
 
-# 4. Style Summary
+# 5. Character State Handoff
 
-- Cross-chapter AI-like fingerprints worth watching:
-- Reference Style drift/overfit if enabled:
-- Calibration notes:
+For major active characters:
 
-# 5. Transaction Efficiency
+| Character | Goal now | Emotional/body state | Knowledge change | Relationship change | Active pressure |
+|---|---|---|---|---|---|
 
-- Separate QC artifacts accidentally created?: yes/no
-- Rewrite artifact accidentally created?: yes/no
-- Any chapter required rewrite?:
-- If rewrite ran, was it triggered by BLOCKER/MAJOR?:
-- Any partial Git writes before atomic commit?:
+# 6. Example Calibration Check
 
-# 6. Next-Batch Handoff
+- Which example functions were used?:
+- Did project-owned/user-approved examples replace bootstrap examples where possible?:
+- Any suspicious repeated wording/rhetorical frame/scene shape from examples?:
+- Any single example becoming over-dominant?:
 
-- Next chapter:
-- Current arc objective:
-- Core story pressure:
-- Promise(s) needing PAY/ADVANCE:
-- Continuity constraints:
-- Style caution:
+This is an originality/calibration check, not a style score.
 
-# 7. Gate
+# 7. Memory Compaction
 
-- 5 atomic chapter commits complete?:
-- Combined QC PASS for all?:
-- Memory current through last chapter?:
-- Unresolved BLOCKER/MAJOR?:
-- Batch audit included in last chapter commit?:
+- Chapter summaries appended?:
+- Batch summary created/updated?:
+- Any old transient detail safe to compact?:
+- Any fact that must remain uncompressed?:
 
-No checkpoint at chapter 3. No rolling audit or retired controller audit.
+# 8. Next-Batch Handoff
+
+- Entry reality:
+- Current arc question:
+- Active pressures:
+- Important knowledge asymmetry:
+- Active resource/cultivation constraints:
+- Relationship tensions:
+- Unresolved obligations:
+- Suggested example functions likely useful next:
+
+# Decision
+
+- Missing artifact/state issue?:
+- Continuity issue?:
+- Migration/protocol issue?:
+- Batch READY / NOT READY:

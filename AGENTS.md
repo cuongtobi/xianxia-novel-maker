@@ -1,222 +1,277 @@
-# AGENTS.md — Operating Contract
+# AGENTS.md — v4.0 State + Example Driven Operating Contract
 
-## 1. Core architecture
+## 1. Creative architecture
 
-Framework hiện hành dùng **một controller duy nhất: Story Promise Controller**.
+Framework hiện hành dùng **state-driven generation + example-driven prose**.
 
-Mỗi chapter dùng transaction tối giản:
+Creative core:
 
 ```text
-READ CONTEXT
-→ SCENE PLAN
+SEED
+→ STORY BIBLE
+→ CHARACTER BASELINES
+→ MASTER OUTLINE
+→ INITIAL STORY/ARC STATE
+→ CHAPTER STATE
+→ SCENE STATE
+→ STYLE EXAMPLES + CHARACTER STATE
+→ WRITER
 → DRAFT
-→ COMBINED QC
+→ CONTINUITY CHECK
+→ PROSE EDIT
 → FINAL
-→ MEMORY UPDATE
+→ STATE UPDATE
 → ONE ATOMIC GIT COMMIT
 ```
 
-`combined_qc_report.md` chứa ba phần duy nhất:
+Rule-driven logic chỉ giữ ở lớp **hard guardrails**: canon precedence, factual continuity, file protocol, originality và Git safety. Không dùng checklist sáng tác để điều khiển Writer.
 
-1. Continuity;
-2. Story Promise;
-3. Style.
+## 2. Three-layer model
 
-Không tạo riêng `continuity_report.md`, `reader_retention_report.md`, `style_fingerprint_report.md`, `quality_report.md` hay `rewrite.txt` cho chapter mới.
+### State-driven — what is true now
 
-## 2. Controller boundary
+State quyết định tình hình hiện tại: vị trí, thời gian, mục tiêu, pressure, knowledge, injuries, resources, relationships, unresolved tensions, arc motion và character condition.
 
-Controller duy nhất: **Story Promise Controller**.
+Writer không được biến state thành report; state là reality của scene.
 
-Không chạy Narrative Engine, Dramatic Geometry, Competence Friction, Aspiration, Heat, Binge, Xianxia Experience, Xianxia Density, Emotional Residue hay Human Irrationality Controller.
+### Example-driven — how good project prose feels
 
-Continuity và Style là QC kỹ thuật, không phải controller sáng tác.
+Writer nhận 1–3 style examples phù hợp scene. Examples calibrate rhythm, narrative distance, dialogue texture, descriptive density, action/exposition handling và Vietnamese prose feel.
 
-## 3. Reference Prose boundary
+Không copy wording, image, rhetorical frame, scene structure hoặc plot move từ example.
 
-Reference Style mode hiện hành: **`prose_mechanics_only`**.
+### Rule-driven — hard boundary only
 
-Reference profile chỉ được ảnh hưởng:
+Rules không được trở thành creative checklist. Chỉ giữ:
 
-- sentence architecture/rhythm;
-- clause flow/transitions;
-- diction/Hán Việt balance;
-- paragraph rhythm;
-- narration stance;
-- internal monologue compression;
-- dialogue prose;
-- description density;
-- action/combat prose;
-- exposition handling;
-- emotional understatement ở cấp câu chữ;
-- repetition limits;
-- Vietnamese adaptation filter.
+- canon/source-of-truth precedence;
+- knowledge/timeline/power/resource consistency;
+- originality/content boundaries;
+- state/file schema tối thiểu;
+- atomic Git transaction.
 
-Reference profile **không được ảnh hưởng**:
-
-- premise;
-- plot/arc;
-- Character DNA;
-- worldbuilding;
-- cultivation design;
-- payoff design;
-- Dao/insight architecture;
-- emotional arc;
-- progression structure;
-- world-scale reveal strategy.
-
-Không yêu cầu Writer viết giống một tác giả cụ thể; không copy wording, rhetorical frame, scene/plot beat hoặc syntax bản dịch/convert.
-
-## 4. Roles
-
-- Orchestrator: xác định stage, assemble context, điều phối transaction và verify commit.
-- World Architect: tạo Story Bible **không dùng Reference Prose Profile**.
-- Story Architect: tạo Master/Arc Outline **không dùng Reference Prose Profile**.
-- Character Architect: tạo Character DNA **không dùng Reference Prose Profile**.
-- Style Director: stage duy nhất được adapt Reference Prose Profile vào Style Bible.
-- Story Promise Controller: khóa 3–5 promises và theo dõi payoff.
-- Scene Planner: plan gọn; chỉ nhận tối đa 1–2 prose reminder từ Style Bible nếu cần.
-- Writer: viết prose theo canon + Style Bible.
-- Combined QC Reviewer: kiểm Continuity + Story Promise + Style trong một report.
-- Memory Keeper: chuẩn bị memory/manifest updates trước atomic commit.
-
-## 5. Source of truth
+## 3. Source of truth
 
 1. `memory/canon_ledger.md`
 2. final chapters
 3. `bible/*.md`
-4. `memory/*.md`
-5. arc outline
+4. current story/arc/character state
+5. continuity ledgers
 6. master outline
 7. seed
-8. draft/scene plan
+8. chapter/scene state snapshots
+9. draft
 
-Outline = plan. Final + canon ledger = chuyện đã xảy ra.
+Master Outline là direction. State là present reality. Final + canon ledger là chuyện đã xảy ra.
 
-## 6. Read-before-write
+## 4. Genesis
 
-Trước chapter mới đọc tối thiểu:
+Genesis tạo:
 
-- manifest + seed;
-- Story/Style/Characters Bible phần liên quan;
-- Story Promises;
-- arc hiện tại;
-- current state + promise memory;
-- ledgers cần thiết;
-- 3 recent summaries;
-- full final gần nhất khi continuity trực tiếp cần.
+- seed;
+- story bible;
+- character baselines;
+- minimal style bible;
+- master outline;
+- project style example bank;
+- initial story state;
+- initial arc state;
+- initial character states;
+- continuity ledgers;
+- manifest.
 
-Writer dùng Style Bible làm direct style source. Không cần đọc reference profile mỗi chapter nếu Style Bible đã adapt đầy đủ.
+Trước `READY_TO_WRITE`, chạy **Genesis Consistency Audit** giữa world, cultivation, characters, master direction và initial state. Đây là consistency gate, không phải creative controller.
 
-## 7. Story Promise Controller
+## 5. Arc State
 
-Genesis khóa 3–5 promises. Mỗi promise có stable ID, reader value, PAY definition, ADVANCE definition, false pay, drought warning và escalation path.
+Arc State là runtime strategic state, không phải chapter script. Tối thiểu chứa:
 
-Per chapter dùng:
+- arc question;
+- current phase;
+- protagonist/antagonist/faction positions;
+- active pressures;
+- resource/cultivation pressure;
+- relationship motion;
+- mysteries/unresolved obligations;
+- reader expectations đáng chú ý;
+- likely pressure directions;
+- exit conditions.
 
-- `UNTOUCHED`
-- `ADVANCE`
-- `PAY_MINOR`
-- `PAY_MAJOR`
-- `PAY_ARC`
+Không bắt mọi expectation phải xuất hiện hoặc PAY theo quota.
 
-Theo dõi `last_pay_chapter`, `last_major_pay_chapter`, `pay_drought`, next planned payoff window. Không fake payoff chỉ để clear drought.
+## 6. Chapter State
 
-## 8. Scene plan
+Chapter State được derive từ current story + arc + character states. Nó mô tả:
 
-Chỉ cần:
+- chapter entry reality;
+- current pressures;
+- relevant characters and knowledge;
+- ripe tensions/opportunities;
+- plausible meaningful state changes;
+- continuity anchors.
 
-- objective;
+Không khóa beat sequence nếu không thật sự cần.
+
+## 7. Scene State
+
+Scene State là snapshot sống, không phải checklist plot. Tối thiểu:
+
 - POV/time/place/cast;
-- start state;
-- conflict/pressure;
-- key beats/turn;
-- choice/consequence nếu có;
-- Story Promise target + payoff nếu có;
-- end state;
-- continuity constraints;
-- style constraints;
-- hook nếu organic.
+- entry physical/emotional/relationship state;
+- immediate desires;
+- knowledge/suspicions/wrong beliefs;
+- pressure/resources/limitations;
+- what just happened;
+- possible directions nếu hữu ích;
+- exit expectation dưới dạng **state change**, không phải beat list.
 
-Reference-style reminder chỉ được là prose mechanics, không được là story-DNA instruction.
+Writer được phép tìm đường đi tự nhiên miễn không vi phạm canon và chapter/arc state.
 
-## 9. Draft
+## 8. Character State
 
-Writer ưu tiên truyện trước checklist. Prose Việt tự nhiên, POV nhất quán, dialogue theo DNA, worldbuilding qua tình huống, cultivation/craft/combat đủ rõ nhưng không thành manual/log.
+Character Bible giữ baseline ổn định. Writer ưu tiên runtime Character State:
 
-Reference prose chỉ ảnh hưởng **cách câu/đoạn được viết**, không quyết định chuyện gì xảy ra.
+- immediate/medium goals;
+- emotions;
+- beliefs and current bias;
+- knowledge/suspicions/errors;
+- body/injury/fatigue;
+- resources;
+- relationship context;
+- recent consequential memories;
+- behavioral pressure.
 
-## 10. Combined QC
+Không feed toàn bộ response-rule matrix của character vào Writer mỗi chapter.
 
-Một reviewer đọc draft và ghi một `combined_qc_report.md`.
+## 9. Style Examples
 
-### Continuity
-Kiểm canon, timeline, geography, cultivation/power, item/resource/injury, knowledge, relationship/faction, POV và hard DNA contradiction.
+Mỗi story có example bank, ưu tiên project-owned/user-approved prose. Khi chưa có đủ sample, dùng original bootstrap examples của framework.
 
-### Story Promise
-Kiểm target có chạm thật không, ADVANCE/PAY classification, magnitude, false pay, drought.
+Scene chọn 1–3 examples gần nhất theo function, ví dụ:
 
-### Style
-Kiểm sentence/paragraph rhythm, clause flow, diction, narrator directness, internal-monologue density, dialogue, description, action/exposition prose, convert syntax, stock tics, Style Bible drift và imitation risk.
+- quiet/narration;
+- dialogue/relationship;
+- combat/action;
+- cultivation/craft;
+- mystery/tension;
+- emotional aftermath.
 
-**Không chấm plot/Dao/emotional arc/world scale/progression theo reference.**
+Examples là demonstration, không phải template.
 
-Severity: `BLOCKER / MAJOR / MINOR / NOTE`.
+## 10. Writer boundary
 
-- còn BLOCKER/MAJOR cần sửa trong chapter → `REWRITE_REQUIRED`;
-- chỉ MINOR/NOTE hoặc không finding → `PASS`.
+Writer nhận **state + selected examples**, không nhận QC checklist.
 
-## 11. Rewrite policy
+Writer phải:
 
-Rewrite chỉ chạy khi Combined QC = REWRITE_REQUIRED.
+- coi supplied state là reality;
+- để hành động, thoại, perception và consequence mang scene;
+- chỉ explicate reasoning khi POV tự nhiên sẽ nghĩ thành lời;
+- giữ nhân vật trong knowledge/relationship/body/resource state hiện tại;
+- viết fiction, không viết plan, analysis hoặc report;
+- không copy example.
 
-Nếu draft PASS:
+Không expose retired controller/metric/style-check list vào Writer prompt.
 
-```text
-draft → final
-```
+## 11. Continuity Check
 
-Nếu cần rewrite, sửa trong memory làm việc, không persist `rewrite.txt`. Sau sửa, Combined QC ghi `Rewrite Recheck` và final dùng candidate đã pass.
+Sau draft chỉ kiểm factual/state contradiction:
 
-Ưu tiên `CUT > COMPRESS > REORDER > REPLACE > ADD`.
+- canon;
+- timeline/geography;
+- cultivation/power;
+- item/resource/injury;
+- knowledge boundary;
+- relationship/faction state;
+- POV identity;
+- hard character-baseline contradiction.
 
-## 12. Atomic Git chapter transaction
+Decision:
 
-Không ghi GitHub từng artifact trong lúc đang xử lý chapter.
+- `PASS` nếu không có contradiction phải sửa;
+- `FIX_REQUIRED` nếu có.
 
-1. lấy branch HEAD + base tree;
-2. assemble context;
-3. tạo scene plan, draft, combined QC;
-4. nếu cần, rewrite/recheck trong memory làm việc;
-5. tạo final;
-6. tính memory/ledger/summary/manifest updates;
-7. nếu chapter cuối batch, tạo batch audit;
-8. create_blob cho tất cả file mới/thay đổi;
-9. `create_tree(base_tree=<chapter-start tree>)`;
-10. `create_commit(parent=<chapter-start HEAD>)`;
-11. `update_ref` branch đúng một lần;
-12. verify HEAD + manifest/memory.
+Continuity Checker không chấm literary quality, pacing, payoff quota hay prose style.
+
+## 12. Prose Edit
+
+Sau Continuity PASS, chạy một prose edit nhẹ dựa trên selected examples.
+
+Editor:
+
+- preserve event, decision, dialogue intent và scene shape;
+- ưu tiên để prose tốt nguyên trạng;
+- cắt explanation mà scene đã thể hiện;
+- nén reasoning mang giọng report;
+- sửa tiếng Việt gượng/convert-like;
+- không đồng nhất paragraph length/cadence;
+- không manufacture punchline/aphorism;
+- không thêm plot hoặc state mới.
+
+Không cần persist prose-edit report; edited candidate trở thành final.
+
+## 13. State update
+
+Sau final:
+
+1. final là truth;
+2. update canon nếu có fact mới được khóa;
+3. update timeline/knowledge/inventory/cultivation/relationship ledgers nếu affected;
+4. update character states;
+5. update story state;
+6. update arc state;
+7. append compact chapter summary;
+8. update manifest pointers;
+9. verify state chỉ mô tả event tồn tại trong final.
+
+## 14. Atomic Git chapter transaction
+
+Không write GitHub từng artifact giữa chapter.
+
+1. lấy chapter-start branch HEAD + base tree;
+2. assemble state/context;
+3. tạo chapter state, scene state, draft, continuity result;
+4. fix factual contradiction nếu cần;
+5. prose edit;
+6. tạo final + toàn bộ state/memory updates;
+7. nếu chapter cuối requested batch, tạo batch audit;
+8. create blobs;
+9. create tree từ chapter-start tree;
+10. create commit với chapter-start HEAD làm parent;
+11. update branch ref đúng một lần;
+12. verify HEAD + manifest/state.
 
 Chapter commit tối thiểu chứa:
 
-- `chapters/NNNN/scene_plan.md`
+- `chapters/NNNN/chapter_state.md`
+- `chapters/NNNN/scene_state.md`
 - `chapters/NNNN/draft.txt`
-- `chapters/NNNN/combined_qc_report.md`
-- `final/Chương N: <title>.txt`
-- memory/ledger/summary thay đổi
+- `chapters/NNNN/continuity_check.md`
+- final TXT
+- changed state/ledgers/summary
 - manifest update
-- batch audit nếu N là chapter cuối requested batch.
+- batch audit nếu đóng requested batch.
 
-Nếu lỗi trước `update_ref`, chapter chưa hoàn tất.
+## 15. Batch 5
 
-## 13. Batch 5
+Default batch = 5 chapters. Mỗi chapter là một atomic commit tuần tự. Chỉ bắt đầu N+1 sau khi N verify thành công. Batch audit nằm trong commit chapter thứ 5 của requested range.
 
-Viết tuần tự 5 chapter; mỗi chapter = một atomic commit. Chapter N+1 chỉ bắt đầu sau khi commit N verify thành công.
+## 16. Completion
 
-Không có checkpoint Ch.3. Batch audit chỉ tạo sau chapter thứ 5 của requested range và nên nằm trong atomic commit của chapter đó.
+Chapter COMPLETE khi atomic commit chứa state snapshots, draft, Continuity PASS, final và current state/manifest.
 
-## 14. Completion
+Batch COMPLETE khi đủ 5 requested finals/commits, state current qua chapter cuối và batch audit tồn tại.
 
-Chapter COMPLETE khi atomic commit đã chứa scene plan, draft, combined QC PASS, final và memory/manifest current.
+## 17. Retired active mechanisms
 
-Batch COMPLETE khi đủ 5 requested finals/commits, memory current qua chapter cuối và batch audit tồn tại.
+Không còn active:
+
+- Story Promise Controller;
+- Combined QC;
+- separate style/retention/quality controllers;
+- mandatory rewrite stage;
+- Writer prose checklist;
+- per-chapter payoff quota;
+- `rewrite.txt`.
+
+Historical artifacts vẫn được giữ làm lịch sử.

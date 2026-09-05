@@ -1,17 +1,20 @@
-# Memory System — Promise-Only
+# Memory System — v4.0 State-Centric
 
-## 1. Mục tiêu
+## 1. Purpose
 
-Memory giữ continuity dài hạn và Story Promise runtime state. Memory không thay thế final/canon.
+Memory stores current runtime reality and continuity evidence. Memory does not replace Final or Canon Ledger.
 
-## 2. Files
+## 2. Active files
+
+Recommended structure:
 
 ```text
 memory/
-├── current_state.md
+├── story_state.md
+├── arc_state.md
+├── character_states.md
 ├── canon_ledger.md
 ├── timeline.md
-├── character_states.md
 ├── relationships.md
 ├── cultivation_ledger.md
 ├── inventory_artifacts.md
@@ -20,61 +23,156 @@ memory/
 ├── foreshadowing.md
 ├── unresolved_threads.md
 ├── chapter_summaries.md
-└── reader_experience.md
+├── batch_summaries.md
+├── arc_summaries.md
+└── saga_summaries.md
 ```
+
+Legacy `current_state.md` or `reader_experience.md` may remain in migrated stories but should not be the active v4 runtime source once migration is complete.
 
 ## 3. Source hierarchy
 
-Canon Ledger > Final > Bibles > Memory > Arc > Master Outline > Seed > Draft.
+```text
+Canon Ledger
+> Final Chapters
+> Bibles
+> Story/Arc/Character State
+> Continuity Ledgers
+> Master Outline
+> Seed
+> Chapter/Scene State snapshots
+> Draft
+```
 
-## 4. current_state.md
+## 4. story_state.md
 
-Lưu last finalized chapter, current time/location, current arc/objective, protagonist state, active injuries/resources/relationships/threads và next chapter pointer.
+Compact global runtime snapshot:
 
-## 5. Ledgers
+- last finalized chapter;
+- current time/location;
+- current arc;
+- protagonist global position;
+- major active pressures;
+- faction positions;
+- current cultivation/resource position;
+- major relationships;
+- active mysteries/obligations;
+- reader expectations currently alive;
+- next handoff.
 
-- timeline: event/time/order;
-- character_states: runtime emotion/goal/injury/status;
-- relationships: current relationship state;
-- cultivation: realm/progress/technique/bottleneck;
-- inventory: resources/artifacts/ownership;
-- factions_locations: faction/location facts;
-- knowledge: who knows what and since when;
-- foreshadowing: setup/payoff state;
-- unresolved_threads: open story obligations;
-- summaries: compact chapter truth.
+Do not turn it into a full novel summary.
 
-## 6. reader_experience.md
+## 5. arc_state.md
 
-Tên file được giữ vì compatibility, nhưng native v3.1 chỉ lưu **Story Promise runtime state**.
+Strategic state of current arc:
 
-Mỗi promise:
+- arc question;
+- current phase;
+- protagonist/antagonist/faction positions;
+- active pressures;
+- cultivation/resource pressure;
+- relationship motion;
+- mysteries/reveals in play;
+- unresolved obligations;
+- soft reader expectations;
+- likely pressure directions;
+- exit conditions.
 
-- ID;
-- current status;
-- last touch chapter;
-- last pay chapter;
-- last major pay chapter;
-- pay drought;
-- drought warning;
-- next planned payoff window;
-- recent promise events;
-- notes.
+Arc State reflects current reality, not merely old outline intention.
 
-Không lưu hoặc tiếp tục cập nhật Narrative Engine, Geometry, Competence outcome, Aspiration, Heat, Binge, Xianxia Experience/Density hay Emotional Residue metrics.
+## 6. character_states.md
 
-## 7. Update order after final
+Runtime state for active/recent characters:
 
-1. read final as truth;
-2. update canon if new locked facts;
-3. update timeline/state/ledgers;
-4. append summary;
-5. update Promise runtime state;
-6. update manifest pointers;
-7. verify no memory file describes draft-only events.
+- current goals;
+- emotions;
+- beliefs/bias;
+- knowledge/suspicions/errors;
+- injury/fatigue/body;
+- resources/status;
+- relationship context;
+- recent consequential memories;
+- current behavioral pressure.
 
-Không sang chapter kế nếu memory chưa current.
+Stable identity and deep baseline remain in Character Bible.
 
-## 8. Legacy data
+## 7. Continuity ledgers
 
-Retired controller fields trong story cũ có thể giữ làm historical evidence. Khi migrate, không cần xóa lịch sử; chỉ dừng update/enforcement và tạo khu vực `Current Promise State` rõ ràng.
+- `timeline.md`: event/time/order;
+- `relationships.md`: relationship changes and current durable state;
+- `cultivation_ledger.md`: realm/progress/technique/bottleneck;
+- `inventory_artifacts.md`: ownership/resources/artifacts;
+- `factions_locations.md`: faction and location facts;
+- `knowledge_ledger.md`: who knows/suspects what and since when;
+- `foreshadowing.md`: setup and resolution state;
+- `unresolved_threads.md`: open obligations and unresolved consequences.
+
+## 8. Update order after Final
+
+1. read Final as truth;
+2. update Canon Ledger if a new stable fact is locked;
+3. update timeline and affected ledgers;
+4. update affected Character States;
+5. update Story State;
+6. update Arc State;
+7. append compact Chapter Summary;
+8. update batch/arc/saga summary only when boundary is reached;
+9. update manifest pointers;
+10. verify no state describes draft-only or edited-out events.
+
+## 9. Memory compaction
+
+Long stories must not grow every runtime file indefinitely.
+
+Use hierarchy:
+
+```text
+recent chapter detail
+→ batch summary
+→ completed arc summary
+→ completed saga summary
+```
+
+Suggested behavior:
+
+- keep recent 10–15 chapter summaries detailed enough for local continuity;
+- after a batch, preserve batch-level consequences;
+- after an arc, compact old transient details into arc summary;
+- after a saga, compact completed arc summaries into saga-level consequences when safe.
+
+Never compact away:
+
+- canon facts;
+- active injuries/debts/resources;
+- unresolved promises/obligations;
+- knowledge boundaries still plot-relevant;
+- ownership;
+- relationship consequences;
+- foreshadowing still unpaid;
+- cultivation constraints still active.
+
+## 10. State quality rules
+
+State should be:
+
+- factual;
+- compact;
+- current;
+- consequence-oriented;
+- free of prose-style instructions;
+- free of speculative events not in Final.
+
+Avoid report bloat. Store only what future decisions/continuity actually need.
+
+## 11. Legacy v3 reader experience
+
+Old `reader_experience.md` Story Promise data may be preserved as historical evidence.
+
+If useful, migrate it into soft Story/Arc State fields such as:
+
+- reader expectation;
+- last meaningful delivery;
+- currently rising pressure;
+- likely future opportunity.
+
+Do not continue per-chapter PAY status/drought enforcement in v4.
