@@ -1,0 +1,236 @@
+# Story Seed — generated from templates/seed.template.yaml v4.0
+
+meta:
+  working_title: "Đan Đế Tái Sinh"
+  slug: "dan-de-tai-sinh"
+  language: "vi"
+  genres:
+    - "tiên hiệp"
+    - "tu tiên"
+  subgenres:
+    - "trọng sinh"
+    - "đan đạo"
+    - "tông môn tranh phong"
+    - "bí cảnh"
+    - "mưu đấu"
+  target_length_chapters: 500
+  chapter_length_words:
+    min: 2500
+    target: 3200
+    max: 4200
+  rating: "16+"
+
+creative_intent:
+  one_sentence_premise: "Một Đan Đế bị ám hại ngay lúc đột phá đại cảnh giới, trọng sinh vào thân xác một thiếu niên tư chất tầm thường và dùng ký ức luyện đan của kiếp trước để từng bước tu luyện, tranh cơ duyên, đấu thiên kiêu và truy ra thế lực đã giết mình."
+  core_hook: "Main sở hữu tri thức của Đan Đế nhưng không có tu vi tương xứng; mỗi lần vượt cấp đều phải biến kiến thức luyện đan, hiểu biết dược tính và khả năng chuẩn bị thành lợi thế chiến thuật thay vì nghiền ép đối thủ bằng cảnh giới."
+  reading_experience:
+    primary_mood: "sảng khoái có tính toán, căng thẳng khi tranh đấu"
+    secondary_moods:
+      - "bí ẩn"
+      - "mưu đấu"
+      - "nhiệt huyết tông môn"
+      - "sinh tử hiểm cảnh"
+      - "tình cảm phát triển chậm"
+  what_makes_this_story_different: "Trọng tâm không nằm ở việc main biết trước mọi thứ, mà ở việc tri thức Đan Đế phải được chuyển hóa thành tài nguyên, phương án và quyết định đúng trong điều kiện thiếu linh dược, thiếu lò tốt, thân thể yếu và đối thủ biết thích nghi. Phản diện chủ lực có năng lực suy luận, kiểm chứng thông tin và chủ động thay đổi kế hoạch khi main phá cục."
+  must_have_elements:
+    - "Arc thi đấu tông môn với nhiều đối thủ có phong cách chiến đấu khác nhau, main không được thắng chỉ nhờ chênh lệch cảnh giới."
+    - "Arc bí cảnh tranh cơ duyên, có khám phá di tích, tranh đoạt tài nguyên và ít nhất một lựa chọn đánh đổi thật sự."
+    - "Ít nhất một trận chiến thập tử nhất sinh khiến main phải dùng toàn bộ chuẩn bị, chịu thương tích nghiêm trọng và trả giá rõ ràng để sống sót."
+    - "Có nhiều thiên kiêu thuộc các tông phái khác nhau; một số là đối thủ, một số trở thành đồng minh hoặc người tôn trọng main sau va chạm."
+    - "Thế lực phản diện thông minh, có hệ thống tình báo, biết thử bẫy, tung thông tin giả, che dấu mục tiêu và rút lui khi bất lợi."
+    - "Main phải có lúc đoán sai, bị ép đổi kế hoạch hoặc chịu tổn thất vì đối thủ cũng biết suy luận."
+    - "Đan đạo phải tham gia trực tiếp vào progression: chữa thương, cải tạo căn cơ, đổi tài nguyên, phá độc, chuẩn bị chiến đấu và xây quan hệ."
+    - "Có một couple chính, tình cảm phát triển qua đồng hành, tin tưởng và cùng vượt hiểm cảnh."
+    - "Happy ending: âm mưu chính được giải quyết, main và nữ chính ở bên nhau, con đường tu hành vẫn rộng mở nhưng xung đột trung tâm đã khép lại."
+  avoid_elements:
+    - "Main vô địch ngay từ đầu hoặc liên tục nghiền ép đối thủ cao hơn nhiều đại cảnh giới mà không trả giá."
+    - "Phản diện ngu hóa chỉ để main thể hiện thông minh."
+    - "Lặp lại mô-típ thiếu gia kiêu ngạo gây sự, bị vả mặt rồi xuất hiện thiếu gia mạnh hơn."
+    - "Cơ duyên tự rơi vào tay main không cần lựa chọn, nguy hiểm hoặc cạnh tranh."
+    - "Luyện đan thành nút bấm giải quyết mọi vấn đề không cần linh dược, thời gian, lò, hỏa hoặc trình độ thần hồn."
+    - "Hậu cung."
+    - "Nữ chính chỉ tồn tại để được cứu hoặc làm phần thưởng tình cảm."
+    - "Đột phá liên tục không có tích lũy, bottleneck hoặc hậu quả."
+  inspiration_notes:
+    - "Giữ cảm giác tiên hiệp truyền thống: tông môn, bí cảnh, đan đạo, tranh cơ duyên, cảnh giới và thế lực đa tầng."
+    - "Ưu tiên đấu trí thực dụng trong chiến đấu và tranh tài nguyên hơn là mưu kế quá phức tạp chỉ để gây bất ngờ."
+  originality_constraints:
+    do_not_copy_specific_plot: true
+    do_not_copy_specific_characters: true
+    do_not_copy_specific_prose: true
+    notes: "Chỉ dùng trope Đan Đế trọng sinh như điểm xuất phát; nhân vật, thế lực, bí cảnh, công pháp, đan phương, âm mưu và diễn biến phải là sáng tạo riêng của project."
+
+protagonist_seed:
+  name: "Tạ Trường An"
+  gender: "nam"
+  starting_age: 17
+  origin: "Kiếp trước là Đan Đế đứng trên đỉnh đan đạo; kiếp này trọng sinh vào một đệ tử ngoại môn xuất thân từ tiểu gia tộc đang suy yếu."
+  starting_status: "Tu vi thấp, kinh mạch có ám thương, tài nguyên nghèo nàn, địa vị thấp trong tông môn và chưa ai biết thân phận kiếp trước."
+  surface_goal: "Khôi phục tu vi, chữa căn cơ, giành đủ tài nguyên để bước lên con đường tu luyện lần nữa và tìm manh mối về vụ ám hại kiếp trước."
+  deeper_need: "Học cách tin người và xây dựng quan hệ thật sự thay vì chỉ dựa vào năng lực cá nhân như kiếp trước; hiểu rằng sống sót và thành đạo không đồng nghĩa với cô độc."
+  personality_keywords:
+    - "điềm tĩnh"
+    - "thực dụng"
+    - "kiên nhẫn"
+    - "quan sát tốt"
+    - "có tự tôn"
+    - "không thích chịu thiệt vô nghĩa"
+  strengths:
+    - "Ký ức và kinh nghiệm luyện đan cấp Đan Đế."
+    - "Khả năng nhận biết dược tính, độc tính và sai lệch trong đan phương."
+    - "Kinh nghiệm sống lâu năm giúp giữ bình tĩnh khi gặp nguy hiểm."
+    - "Giỏi chuẩn bị phương án dự phòng và biến tài nguyên nhỏ thành lợi thế lớn."
+  flaws:
+    - "Có xu hướng đánh giá thấp giá trị của việc chia sẻ kế hoạch với người khác."
+    - "Quen nhìn vấn đề bằng kinh nghiệm kiếp trước nên đôi lúc áp dụng giả định đã lỗi thời."
+    - "Tự tôn cao, khó chấp nhận việc mình thực sự yếu trong giai đoạn đầu."
+    - "Ký ức về vụ ám sát khiến hắn dễ mất bình tĩnh khi gặp dấu vết liên quan."
+  special_trait_or_cheat: "Mang theo ký ức hoàn chỉnh về đan đạo, kinh nghiệm tu luyện và một phần tri thức thế lực của kiếp trước; không mang theo tu vi, pháp bảo hay kho tài nguyên."
+  cheat_constraints: "Ký ức không thể thay thế cảnh giới thần hồn, linh lực, lò luyện, linh hỏa và linh dược. Đan phương cấp cao thường không thể luyện ở cảnh giới thấp. Một số tri thức về thế giới đã thay đổi sau thời gian giữa hai kiếp, và ký ức quanh thời điểm bị ám hại có khoảng trống do thần hồn bị tổn thương. Mỗi lần cưỡng ép luyện đan hoặc dùng thủ đoạn vượt cấp đều có nguy cơ phản phệ thật sự."
+  initial_relationships:
+    - "Tiểu gia tộc kiếp này: còn tình thân nhưng đang chịu áp lực tài nguyên và địa vị."
+    - "Tông môn hiện tại: coi hắn là đệ tử ngoại môn bình thường, thậm chí có phần thất thế."
+    - "Nữ chính tương lai: ban đầu là một đối thủ/đồng hành có mục tiêu riêng, không biết bí mật trọng sinh."
+  notes: "Main có thể thắng thiên kiêu nhờ chuẩn bị, đọc trận, đan dược đúng lúc và khai thác điểm yếu, nhưng không được biến tri thức kiếp trước thành khả năng biết mọi bí mật hoặc đoán đúng mọi kế hoạch."
+
+world_seed:
+  world_scale: "Đại thế giới nhiều châu vực, tông môn và cổ địa; về sau mở rộng lên các thượng vực nơi thế lực kiếp trước của main từng hoạt động."
+  starting_region: "Một hạ vực có vài tông môn trung cấp cạnh tranh tài nguyên, đủ nhỏ để main khởi đầu yếu nhưng đủ nhiều thế lực để tạo tranh phong."
+  civilization_flavor: "Tu chân giới phân tầng rõ giữa gia tộc, tông môn, thương hội, đan minh và thế lực ngầm; tài nguyên và thông tin đều có giá."
+  cultivation_flavor: "Tiên hiệp cổ điển, trọng căn cơ, linh lực, thần hồn, công pháp và tài nguyên; đan dược mạnh nhưng có giới hạn hấp thu, tạp chất và kháng dược."
+  supernatural_density: "cao"
+  mortal_cultivator_relationship: "Phàm nhân tồn tại dưới quyền các quốc gia và gia tộc phụ thuộc tông môn; tu sĩ can thiệp có giới hạn nhưng ảnh hưởng sâu tới quyền lực và tài nguyên."
+  important_world_ideas:
+    - "Đan sư có địa vị cao nhưng bị ràng buộc bởi nguyên liệu, truyền thừa và quan hệ lợi ích."
+    - "Thông tin về bí cảnh, linh dược và công pháp là một loại tài nguyên chiến lược."
+    - "Các tông môn vừa cạnh tranh vừa phải hợp tác trước nguy cơ lớn hơn."
+    - "Thế lực ngầm có thể thao túng đấu giá, tin tức, nhiệm vụ và mâu thuẫn giữa các tông phái mà không trực tiếp lộ diện."
+  forbidden_world_ideas:
+    - "Hệ thống game, bảng nhiệm vụ hoặc điểm thưởng."
+    - "Công nghệ hiện đại lấn át mỹ học tiên hiệp."
+  notes: "Worldbuilding nên tạo đủ khoảng trống để Genesis thiết kế tông môn, đan minh, bí cảnh và thế lực phản diện có lịch sử riêng."
+
+cultivation_seed:
+  desired_feel: "Tiến bộ nhanh hơn thiên tài cùng thế hệ nhờ tri thức và luyện đan, nhưng từng đại cảnh giới vẫn có bottleneck và yêu cầu tích lũy thật."
+  known_realms:
+    - "Luyện Khí"
+    - "Trúc Cơ"
+    - "Kim Đan"
+    - "Nguyên Anh"
+    - "Hóa Thần"
+    - "Luyện Hư"
+    - "Hợp Đạo"
+    - "Độ Kiếp"
+  special_rules:
+    - "Căn cơ quyết định trần sức mạnh lâu dài; cưỡng ép đột phá để lại khuyết điểm có thể trở thành tử huyệt."
+    - "Đan dược có đan độc và hiệu ứng giảm dần nếu lạm dụng; đan phẩm và độ tương thích quan trọng hơn số lượng."
+    - "Thần hồn và khả năng khống hỏa giới hạn cấp bậc luyện đan."
+    - "Vượt cấp chiến đấu có thể xảy ra khi công pháp, chuẩn bị, môi trường và matchup thuận lợi, nhưng không được xem là mặc định."
+  protagonist_path: "Dùng đan đạo để sửa căn cơ, tối ưu từng tầng tu luyện, kiếm tài nguyên và mở ra một con đường kết hợp thân pháp, thần hồn và hỏa pháp phù hợp với kinh nghiệm luyện đan."
+  resource_pressure: "cao; linh dược quý, linh thạch, lò luyện và linh hỏa đều phải giành, đổi, kiếm hoặc đánh cược mới có được."
+  breakthrough_style: "Mỗi đột phá lớn cần tích lũy, lựa chọn tài nguyên và giải quyết bottleneck; những lần đột phá quan trọng nên gắn với thay đổi state hoặc hậu quả mới."
+  power_ceiling_hint: "Cuối truyện main vượt qua đỉnh cao kiếp trước bằng một con đường hoàn chỉnh hơn, nhưng chiến thắng cuối không chỉ dựa vào cảnh giới mà còn vào việc phá được mạng lưới và mục tiêu của phản diện."
+  notes: "Danh xưng Đan Đế ở kiếp trước phản ánh đỉnh cao đan đạo, không đồng nghĩa main từng bất khả chiến bại về chiến lực."
+
+plot_seed:
+  opening_situation: "Ở kiếp trước, Tạ Trường An chuẩn bị đột phá một đại cảnh giới quan trọng sau khi hoàn thành một loại đan dược đủ làm thay đổi cán cân giữa các thế lực. Trong thời khắc phòng bị yếu nhất, trận pháp hộ đạo bị người bên trong sửa một mắt trận và một nhóm sát thủ dùng thủ đoạn chuyên khắc thần hồn đánh úp."
+  inciting_incident: "Hắn tỉnh lại nhiều năm sau trong thân xác một thiếu niên cùng tên vừa bị thương nặng sau tranh chấp trong ngoại môn. Khi kiểm tra cơ thể, hắn phát hiện ám thương có dấu vết của một loại dược độc rất hiếm liên quan gián tiếp tới thủ pháp từng xuất hiện trước vụ ám sát kiếp trước."
+  first_major_goal: "Chữa ám thương, giữ vị trí trong tông môn, kiếm lò và linh dược đầu tiên, đồng thời che giấu trình độ đan đạo thật để tránh bị chú ý quá sớm."
+  early_antagonistic_force: "Một mạng lưới lợi ích trong tông môn cấu kết với thương hội bên ngoài để thao túng linh dược và suất vào bí cảnh; họ không biết main trọng sinh nhưng nhanh chóng nhận ra hắn đang phá hỏng các nguồn lợi của mình."
+  long_term_direction: "Từ ngoại môn, main bước qua thi đấu tông môn, tranh phong liên tông và bí cảnh; danh tiếng đan đạo tăng dần kéo hắn vào cuộc chơi giữa Đan Minh, đại tông và một tổ chức bí mật có liên hệ với cái chết kiếp trước. Càng điều tra, hắn càng phát hiện vụ ám sát không nhằm cướp một đan phương đơn lẻ mà để ngăn một bí mật về con đường vượt qua giới hạn cảnh giới bị công khai."
+  ending_direction: "Main và đồng minh phá được kế hoạch cuối của tổ chức phản diện bằng cách đánh sập mạng lưới tài nguyên, tình báo và trận pháp trước khi đối đầu thủ lĩnh. Main vượt qua giới hạn kiếp trước nhưng không trở thành kẻ cô độc; hắn cùng nữ chính lập một đạo thống/đan viện độc lập, giữ quan hệ với những bằng hữu từng đồng hành. Couple thành đôi và câu chuyện khép lại theo hướng viên mãn."
+  major_scenes_user_wants:
+    - "Main lần đầu luyện một lò đan bằng thiết bị tồi, phải sửa phương pháp theo điều kiện thực tế thay vì dùng kỹ thuật kiếp trước nguyên xi."
+    - "Thi đấu tông môn: main gặp một thiên kiêu khắc chế trực tiếp lối đánh của mình và phải thay đổi chiến thuật giữa trận."
+    - "Thi đấu liên tông: một đối thủ mạnh nhận ra main đang giấu bài và chủ động ép hắn lộ tài nguyên dự phòng trước trận quyết định."
+    - "Bí cảnh: main và nữ chính bị tách khỏi đội, buộc phải hợp tác qua khu vực nguy hiểm có độc chướng, trận pháp cổ và truy binh."
+    - "Bí cảnh: xuất hiện cơ duyên lớn nhưng lấy nó đồng nghĩa bỏ lỡ việc cứu một người hoặc mất lợi thế chiến lược; main phải lựa chọn và chịu hậu quả."
+    - "Trận thập tử nhất sinh: phản diện chuẩn bị một bẫy dựa trên chính thói quen dùng đan dược của main, khiến hắn trúng kế và gần chết."
+    - "Main thắng một thiên kiêu mạnh hơn bằng cách khiến đối phương tiêu hao sai tài nguyên và bước vào địa hình bất lợi, không phải bằng một chiêu bí mật áp đảo."
+    - "Một lần main cố tình thua hoặc nhường một lợi ích nhỏ để bảo toàn bí mật và đổi lấy vị thế tốt hơn về sau."
+    - "Đối đầu cuối: trước khi giao chiến, hai bên đã phá kế hoạch của nhau nhiều vòng; chiến thắng cần cả đồng minh, thông tin đúng và lựa chọn hy sinh lợi ích cá nhân."
+  twists_user_wants:
+    - "Người trực tiếp sửa trận pháp kiếp trước không phải thủ lĩnh phản diện mà là người bị ép bằng một con tin hoặc món nợ, khiến sự thật phức tạp hơn báo thù đơn tuyến."
+    - "Một nhân vật tưởng là phản diện ở tông môn đầu thực chất đang lần theo cùng mạng lưới nhưng dùng phương pháp tàn nhẫn hơn."
+    - "Thế lực phản diện sớm nhận ra có một đan sư bí ẩn đứng sau main, nhưng kết luận sai rằng đó là một lão quái ẩn cư; main tận dụng hiểu lầm này trong một giai đoạn rồi phải trả giá khi đối thủ kiểm chứng."
+    - "Một phần ký ức thiếu hụt của main chứa chính sai lầm chiến lược của hắn ở kiếp trước; hắn từng vô tình tạo điều kiện cho phản diện lớn mạnh."
+  twists_to_avoid:
+    - "Tất cả đồng minh đều phản bội."
+    - "Nữ chính là thủ lĩnh phản diện bí mật."
+    - "Main thực ra là thiên mệnh chi tử được thế giới sắp đặt mọi cơ duyên."
+    - "Kết thúc hóa ra toàn bộ hành trình là ảo cảnh hoặc giấc mơ."
+
+factions_seed:
+  must_have_factions:
+    - "Tông môn khởi đầu của main, nội bộ có phe phái nhưng không hoàn toàn mục nát."
+    - "Ít nhất ba tông phái đối thủ với hệ chiến đấu và văn hóa khác nhau để phục vụ arc thi đấu."
+    - "Một Đan Minh hoặc tổ chức đan sư vừa là nơi trao đổi tri thức vừa là chiến trường lợi ích."
+    - "Một thương hội lớn kiểm soát luồng linh dược và tin tức."
+    - "Một thế lực phản diện ngầm hoạt động theo mạng lưới phân tầng, các nhánh chỉ biết một phần kế hoạch để chống lộ bí mật."
+  faction_flavor: "Không có phe nào toàn thiện hoặc toàn ngu; mỗi thế lực có lợi ích, giới hạn thông tin và lý do hợp tác/xung đột riêng."
+  notes: "Phản diện chủ lực phải có người chỉ huy biết thu thập dữ kiện, xây giả thuyết, thử nghiệm phản ứng của main và thay chiến thuật khi giả thuyết sai."
+
+romance_seed:
+  enabled: true
+  importance: "secondary_but_meaningful"
+  pairing_direction: "Một nữ tu cùng thế hệ thiên về kiếm đạo hoặc trận đạo, lý trí, độc lập và có mục tiêu cá nhân. Ban đầu hai người cạnh tranh hoặc hợp tác vì lợi ích, sau nhiều lần cùng vượt nguy hiểm mới hình thành tin tưởng và tình cảm. Nữ chính phải có năng lực mà main thật sự cần, đồng thời có lúc cứu hoặc sửa sai cho main."
+  harem: false
+  constraints:
+    - "Một couple chính duy nhất."
+    - "Không yêu từ cái nhìn đầu tiên."
+    - "Không dùng hiểu lầm tình cảm kéo dài chỉ để tạo drama."
+    - "Không biến nữ chính thành người phụ thuộc vào tài nguyên của main."
+    - "Tình cảm phát triển qua hành động, lựa chọn và niềm tin, không qua lời tuyên bố đột ngột."
+    - "Happy ending rõ ràng cho couple."
+  notes: "Romance không được nuốt plot chính nhưng phải có progression thật qua các arc, đặc biệt trong bí cảnh và giai đoạn đối đầu thế lực lớn."
+
+tone_seed:
+  narration_pov: "third_limited"
+  preferred_pacing: "nhanh vừa, ưu tiên causal progression; có khoảng lắng sau các đoạn tranh đấu lớn để state và quan hệ thay đổi tự nhiên"
+  preferred_dialogue_density: "trung bình; thoại dùng để mặc cả, dò xét, bộc lộ quan hệ và tạo lựa chọn, tránh nhân vật giải thích kế hoạch cho nhau vô cớ"
+  humor_level: "thấp đến trung bình, đến từ tương tác nhân vật và chênh lệch nhận thức hơn là gag"
+  brutality_level: "trung bình đến cao trong sinh tử chiến; thương tích và hậu quả phải có trọng lượng"
+  philosophical_depth: "trung bình; tập trung vào cái giá của truy cầu đỉnh cao, niềm tin, cô độc và giá trị của việc truyền thừa"
+  prose_feel_notes: "Tiên hiệp Việt tự nhiên, có không khí cổ phong nhưng không convert-like. Chiến đấu rõ không gian, quyết định và hậu quả. Suy luận chiến thuật chỉ xuất hiện khi nó thay đổi hành động, không biến thành báo cáo phân tích."
+  phrases_or_tics_to_avoid:
+    - "không khỏi"
+    - "hiển nhiên"
+    - "phải biết rằng"
+    - "nói thì chậm mà xảy ra thì nhanh"
+    - "khóe miệng cong lên một độ cong"
+    - "hít sâu một hơi khí lạnh"
+    - "liên tục giải thích đối thủ ngu ở đâu sau khi đã thắng"
+
+example_calibration:
+  mode: "dynamic_examples"
+  use_framework_bootstrap_until_project_examples_exist: true
+  prefer_user_approved_project_examples: true
+  max_examples_per_scene: 3
+  notes: "Examples calibrate prose feel only; they never define plot or scene structure."
+
+content_boundaries:
+  prohibited_content:
+    - "tình dục miêu tả trực diện"
+    - "bạo lực tình dục"
+  violence_notes: "Cho phép chiến đấu sinh tử, thương tích nặng và cái chết khi cần cho plot, nhưng không sa vào gore kéo dài để gây sốc."
+  romance_notes: "Tình cảm trưởng thành, tập trung vào đồng hành, tin tưởng và lựa chọn; có thể có thân mật nhẹ nhưng không explicit."
+  other_boundaries:
+    - "Không dùng bi kịch với nữ chính chỉ để kích hoạt sức mạnh hoặc động lực báo thù cho main."
+
+production:
+  batch_size: 5
+  auto_run_batch: true
+  require_continuity_check: true
+  prose_edit_mode: "light_example_driven"
+  final_filename_format: "Chương {chapter}: {title}.txt"
+  branch_format: "story/{slug}"
+
+open_questions:
+  user_wants_ai_to_decide:
+    - "Tên chính thức cuối cùng của truyện."
+    - "Tên và chi tiết các tông môn, Đan Minh, thương hội và thế lực phản diện."
+    - "Tên nữ chính và hệ tu luyện cụ thể của nàng."
+    - "Chi tiết từng cảnh giới, công pháp, linh hỏa, đan phương và bí cảnh."
+    - "Cấu trúc arc cụ thể, số chương từng arc và thứ tự các lần reveal âm mưu."
+    - "Danh tính thủ lĩnh phản diện và động cơ cuối cùng, miễn tuân thủ hướng mưu đấu thông minh của seed."
+  user_must_decide: []
