@@ -29,8 +29,24 @@ writer_context:
   dynamic_style_examples: true
   style_examples_min: 1
   style_examples_max: 3
+  style_examples_default: 1
   expose_old_qc_checklists: false
   expose_story_promise_matrix: false
+  expose_full_calibration_profile: false
+  expose_raw_reference_samples: false
+
+style_calibration:
+  framework_profile: "examples/calibration/PROFILE.md"
+  calibrated_index: "examples/calibration/index.md"
+  generic_bootstrap_dir: "examples/default"
+  story_example_index: "examples/style/index.md"
+  selection_priority:
+    - "user_approved_project_final"
+    - "project_owned_curated"
+    - "user_calibration_derived_original"
+    - "framework_original"
+  retire_framework_example_when_project_equivalent_exists: true
+  filter_translation_convert_artifacts: true
 
 chapter_artifacts:
   required:
@@ -85,14 +101,15 @@ completion_gate:
   require_atomic_chapter_commit: true
   require_state_in_same_commit: true
   require_batch_audit: true
-  require_genesis_consistency_before_chapter_1: true
+  require_genesis_consistency_pass: true
+  require_style_examples_initialized: true
 
 migration:
   from_version: null
   migrated_to: null
-  migration_baseline: null
   legacy_cutoff_chapter: 0
-  preserve_legacy_artifacts: true
+  migration_baseline: null
+  retired_v3_artifacts_preserved: true
 
 notes:
   framework_migration: ""
