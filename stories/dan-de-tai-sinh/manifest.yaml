@@ -1,0 +1,133 @@
+# Story Manifest — Đan Đế Tái Sinh — v4.0
+
+story:
+  slug: "dan-de-tai-sinh"
+  title: "Đan Đế Tái Sinh"
+  branch: "story/dan-de-tai-sinh"
+  status: "READY_TO_WRITE"
+  language: "vi"
+
+pipeline:
+  version: "4.0"
+  batch_size: 5
+  creative_mode: "state_example"
+  style_mode: "dynamic_examples"
+  continuity_mode: "factual_only"
+  prose_edit_mode: "light_example_driven"
+  chapter_transaction: "atomic_git_commit"
+  batch_audit_in_last_chapter_commit: true
+  current_stage: "READY_TO_WRITE"
+  last_finalized_chapter: 0
+  next_chapter: 1
+  current_arc: "ARC001"
+
+writer_context:
+  use_chapter_state: true
+  use_scene_state: true
+  use_character_state: true
+  dynamic_style_examples: true
+  style_examples_min: 1
+  style_examples_max: 3
+  style_examples_default: 1
+  expose_old_qc_checklists: false
+  expose_story_promise_matrix: false
+  expose_full_calibration_profile: false
+  expose_raw_reference_samples: false
+
+style_calibration:
+  framework_profile: "examples/calibration/PROFILE.md"
+  calibrated_index: "examples/calibration/index.md"
+  generic_bootstrap_dir: "examples/default"
+  story_example_index: "examples/style/index.md"
+  selection_priority:
+    - "user_approved_project_final"
+    - "project_owned_curated"
+    - "user_calibration_derived_original"
+    - "framework_original"
+  retire_framework_example_when_project_equivalent_exists: true
+  filter_translation_convert_artifacts: true
+
+chapter_artifacts:
+  required:
+    - "chapter_state.md"
+    - "scene_state.md"
+    - "draft.txt"
+    - "continuity_check.md"
+  final_required: true
+  prose_edit_report_required: false
+  rewrite_artifact_required: false
+
+artifacts:
+  seed: "seed/seed.yaml"
+  story_bible: "bible/story_bible.md"
+  style_bible: "bible/style_bible.md"
+  characters_bible: "bible/characters_bible.md"
+  master_outline: "outline/master_outline.md"
+  story_state: "memory/story_state.md"
+  arc_state: "memory/arc_state.md"
+  character_states: "memory/character_states.md"
+  canon_ledger: "memory/canon_ledger.md"
+  timeline: "memory/timeline.md"
+  knowledge_ledger: "memory/knowledge_ledger.md"
+  cultivation_ledger: "memory/cultivation_ledger.md"
+  inventory_artifacts: "memory/inventory_artifacts.md"
+  relationships: "memory/relationships.md"
+  chapter_summaries: "memory/chapter_summaries.md"
+  batch_summaries: "memory/batch_summaries.md"
+  arc_summaries: "memory/arc_summaries.md"
+  saga_summaries: "memory/saga_summaries.md"
+  style_examples_index: "examples/style/index.md"
+  genesis_consistency_audit: "memory/genesis_consistency_audit.md"
+
+locks:
+  canon_initialized: true
+  characters_initialized: true
+  style_minimal_initialized: true
+  master_outline_initialized: true
+  story_state_initialized: true
+  arc_state_initialized: true
+  character_states_initialized: true
+  continuity_ledgers_initialized: true
+  style_examples_initialized: true
+  genesis_consistency_passed: true
+
+production:
+  target_chapters: 500
+  chapter_words_target: 3200
+  last_batch_audit: null
+  next_batch_start: 1
+  last_atomic_chapter_commit: null
+
+memory:
+  compaction_mode: "hierarchical"
+  detailed_recent_chapters: 15
+  keep_batch_summaries: true
+  keep_arc_summaries: true
+  keep_saga_summaries: true
+
+completion_gate:
+  verify_artifacts_before_reporting_complete: true
+  require_continuity_pass: true
+  require_atomic_chapter_commit: true
+  require_state_in_same_commit: true
+  require_batch_audit: true
+  require_genesis_consistency_pass: true
+  require_style_examples_initialized: true
+
+migration:
+  from_version: null
+  migrated_to: null
+  legacy_cutoff_chapter: 0
+  migration_baseline: null
+  retired_v3_artifacts_preserved: true
+
+notes:
+  framework_migration: "Fresh v4.0 story; no legacy migration."
+  user_constraints:
+    - "Có arc thi đấu tông môn và liên tông với đối thủ đa phong cách."
+    - "Có bí cảnh tranh cơ duyên và lựa chọn đánh đổi thật."
+    - "Có chiến đấu thập tử nhất sinh với thương tích/hậu quả."
+    - "Phản diện thông minh, có tình báo, thử bẫy và thích nghi; main không áp đảo miễn phí."
+    - "Đan đạo là lợi thế cốt lõi nhưng bị giới hạn bởi tài nguyên, thân thể, thần hồn, lò và hỏa."
+    - "Một couple chính, không hậu cung, happy ending."
+    - "State-driven + example-driven prose; rule-driven chỉ giữ hard guardrails."
