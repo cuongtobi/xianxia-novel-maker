@@ -17,8 +17,8 @@ pipeline:
   chapter_transaction: "atomic_git_commit"
   batch_audit_in_last_chapter_commit: true
   current_stage: "READY_TO_WRITE"
-  last_finalized_chapter: 1
-  next_chapter: 2
+  last_finalized_chapter: 2
+  next_chapter: 3
   current_arc: "ARC001"
 
 writer_context:
@@ -123,7 +123,7 @@ migration:
 
 notes:
   framework_migration: "Fresh v4.0 story; no legacy migration."
-  chapter_handoff: "Chapter 1 finalized; runtime state is current through Ch.1 and next chapter is 2. The commit SHA is verified from branch HEAD rather than self-referenced inside this atomic commit."
+  chapter_handoff: "Chapter 2 finalized in prepared state update; runtime points to Ch.3. Atomic commit SHA is verified from branch HEAD after ref update rather than self-referenced inside the commit."
   user_constraints:
     - "Có arc thi đấu tông môn và liên tông với đối thủ đa phong cách."
     - "Có bí cảnh tranh cơ duyên và lựa chọn đánh đổi thật."

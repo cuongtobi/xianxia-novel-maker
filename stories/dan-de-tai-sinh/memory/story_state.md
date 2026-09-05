@@ -2,74 +2,74 @@
 
 # Position
 
-- **Last finalized chapter:** 1
-- **Current time:** Thái Minh lịch 4173, tháng ba, ngày 7, cuối buổi sớm.
+- **Last finalized chapter:** 2
+- **Current time:** Thái Minh lịch 4173, tháng ba, ngày 8, gần trưa.
 - **Current location:** phòng ngoại môn Tạ Trường An, Thanh Huyền Tông, Vân Châu.
 - **Current arc:** ARC001 — Tàn Mạch Ngoại Môn.
-- **Current global objective:** tiếp tục ổn định kinh mạch, hoàn thành hai buổi phân dược còn nợ để nhận hai phần trị liệu tiếp theo, giữ tư cách ngoại môn và chỉ điều tra lô Hồi Khí Tán khi đã có thêm chứng cứ.
+- **Current global objective:** hoàn tất buổi phân dược/trị liệu cuối với Cố vào sáng ngày 9, giữ nhịp hồi phục, sau đó báo danh bù nhiệm vụ hái dược trước giờ Ngọ ngày 10 để tránh lần thất nhiệm thứ hai; tiếp tục giữ lot 17 như lead chưa kết luận.
 
 # Protagonist Global State
 
-- **Public status:** ngoại môn đệ tử hạng thấp, vừa bị thương; trong mắt phần lớn đồng môn vẫn không đáng chú ý.
-- **Cultivation/power:** Luyện Khí tầng 3; không đột phá. Liệu pháp đầu tiên làm mức viêm cấp giảm nhẹ, cho phép một tia pháp lực đi thêm khoảng nửa tấc trước điểm đau; đoạn Thủ Thiếu Dương vẫn tổn thương, không được tu luyện mạnh.
-- **Major resources:** 6 linh thạch hạ phẩm; 2 Dẫn Khí Đan tạp chưa dùng; gói Hồi Khí Tán lô 17 còn đủ đối chiếu nhưng đã lấy một nhúm nhỏ làm thử nghiệm; ngoại môn lệnh bài; đoản kiếm cũ. Không có lò đan, không linh hỏa.
-- **Access/obligation:** thỏa thuận với Cố Tùng Niên gồm 1 linh thạch + tổng cộng 3 buổi sáng phân Thanh Tức Thảo; buổi đầu đã hoàn thành. Hai buổi còn lại đổi lấy hai phần dược liệu trị mạch tiếp theo và mỗi buổi một canh giờ bếp dược phụ. Sau khi hoàn tất, Cố mới cân nhắc cho thuê lò bậc một cũ với giá riêng.
-- **Major injuries/limitations:** bầm ngực/xương sườn còn; hai nhánh phụ vẫn tổn thương nhưng bớt viêm cấp; Thủ Thiếu Dương chưa lành; hồn–thân vẫn cần thích nghi.
-- **Current leverage:** tri thức đan đạo kiếp trước; một giao dịch nhỏ có thể lặp lại với Dược Đường; lead có thể kiểm chứng rằng Hồi Khí Tán lô 17 được nhập qua Cửu Phương Nam kho.
+- **Public status:** ngoại môn đệ tử hạng thấp đang hồi phục; Dược Đường bắt đầu biết hắn có mắt nghề thực dụng nhưng ngoài phạm vi nhỏ này vẫn không đáng chú ý.
+- **Cultivation/power:** Luyện Khí tầng 3; không đột phá. Sau trị liệu lần hai, cảm giác căng cứng buổi sáng giảm và MC hoàn thành được 3 vòng chu thiên rút gọn rất chậm, chủ động né đoạn Thủ Thiếu Dương tổn thương, không phản chấn.
+- **Major resources:** 6 linh thạch hạ phẩm; 2 Dẫn Khí Đan tạp chưa dùng; gói Hồi Khí Tán lot 17 còn giữ nhưng đã mất tổng cộng hai nhúm rất nhỏ cho test; ngoại môn lệnh bài; đoản kiếm cũ; thẻ tre bù nhiệm vụ. Không có lò đan, không linh hỏa.
+- **Access/obligation:** 2/3 buổi phân dược đã hoàn thành; treatment portion 2 đã dùng. Còn 1 buổi sáng ngày 9 để đổi treatment portion 3 + một canh giờ bếp phụ. Sau buổi cuối, Cố đồng ý cho MC xem lò bậc một cũ trước khi thương lượng giá thuê; chưa có quyền sử dụng lò.
+- **Major injuries/limitations:** bầm ngực còn; hai nhánh phụ chưa lành; Thủ Thiếu Dương vẫn là điểm cấm ép; chỉ được chạy chu thiên rút gọn rất nhẹ và phải theo dõi phản ứng.
+- **Current leverage:** tri thức đan đạo; repeatable low-rank herb appraisal; Cố có thêm lý do cho access nhỏ; dữ kiện đối chứng lot 19 cho thấy trace của lot 17 không tự động xuất hiện ở mọi lô từ Cửu Phương Nam kho.
 
 # Major Active Pressures
 
-1. **Khảo hạch ngày 27 tháng ba** vẫn là deadline chính; một lần bỏ nhiệm vụ đã có trong hồ sơ.
-2. **Kinh mạch chưa lành.** Một lần trị liệu chỉ chặn xấu đi phần nào; cần theo dõi phản ứng qua các lần sau.
-3. **Tài nguyên thấp.** Chỉ còn 6 linh thạch, chưa có lò, quyền dùng bếp phụ phụ thuộc việc hoàn thành nghĩa vụ.
-4. **Chi phí thời gian.** Hai buổi sáng tiếp theo phải dành cho phân dược trước khi nhận phần trị liệu tương ứng.
-5. **Lead lô 17.** Cửu Phương Nam kho là nguồn nhập công khai; chưa có bằng chứng đây là âm mưu hay đòn nhắm riêng vào MC.
+1. **Bù nhiệm vụ hái dược:** phải báo danh ở dược sườn bắc trước giờ Ngọ ngày 10 tháng ba. Quá hạn tính lần thất nhiệm thứ hai, mất suất tài nguyên đệ tử và xuống đội tạp dịch một tháng.
+2. **Kỳ khảo hạch ngày 27:** vẫn là deadline lớn; việc bù nhiệm vụ ăn vào thời gian hồi phục/tu luyện.
+3. **Kinh mạch chưa lành:** treatment 2 chỉ tạo chu thiên rút gọn an toàn, không cho phép tu luyện nặng.
+4. **Tài nguyên thấp:** 6 linh thạch, no furnace; còn 1 conditional treatment/stove session.
+5. **Lot-17 anomaly:** lot 19 cùng Cửu Phương Nam kho nhưng không có trace lạnh/cặn muộn. Điều này làm yếu giả thuyết route-wide và thu hẹp câu hỏi về lot 17, không xóa anomaly.
 
 # Faction Positions
 
 | Faction | Current relation to protagonist | Current goal | Active leverage/pressure |
 |---|---|---|---|
-| Thanh Huyền Tông | institutional / neutral | giữ kỷ luật ngoại môn | assessment, duty record |
-| Ngoại Dược Đường | giao dịch nhỏ / thận trọng | giữ kho thuốc, xử lý thiếu hàng | dược liệu loại thấp, bếp phụ, quyền cho thuê lò sau thử việc |
-| Cửu Phương local trade chain | không có quan hệ trực tiếp | lợi nhuận + hợp đồng cung ứng | nguồn của Hồi Khí Tán lô 17; giá/stock |
-| Tịch Đăng local cell | chưa biết MC đặc biệt | giữ tuyến mua hàng | background only; không có escalation |
-| Tạ family | kin / dependent tie | tránh nợ sụp | nghĩa vụ tương lai |
+| Thanh Huyền Tông | institutional / neutral | giữ kỷ luật ngoại môn | duty deadline + day-27 assessment |
+| Ngoại Dược Đường | transactional / cautious professional interest | giữ kho, giảm hao hụt, kiểm chất lượng hàng | 1 session/treatment còn lại; possible furnace inspection after test completion |
+| Cửu Phương local trade chain | no direct relation | profit + contracts | source for lot 17 and lot 19; two lots now known to differ |
+| Tịch Đăng local cell | unaware of MC as special | keep procurement route stable | background only; no escalation/signal |
+| Tạ family | kin / dependent tie | avoid debt collapse | future obligation |
 
 # Major Relationships
 
 | Character | Current durable relationship state | Active unresolved tension |
 |---|---|---|
-| Lục Thanh Nghi | strangers | none; chưa gặp trong Ch.1 |
-| Cố Tùng Niên | giao dịch thử việc, có chú ý thận trọng | MC phải chứng minh độ ổn định qua hai buổi phân dược còn lại; Cố chưa biết nguồn năng lực |
-| Triệu Kính | institutional / chưa gặp trực tiếp | MC chưa biết vai trò side-deal của hắn |
+| Lục Thanh Nghi | strangers | no contact through Ch.2 |
+| Cố Tùng Niên | repeated transactional craft test | one final session remains; Cố is more convinced MC’s skill is reproducible but still has no trust/mentor bond |
+| Triệu Kính | institutional / unseen | MC remains unaware of side-deals |
 | Kỷ Duy | socially distant | ranking benchmark only |
-| Tạ Minh Châu | family affection/obligation | identity/kin duty chưa giải quyết |
-| Lương Tĩnh Viễn | no recognized current relationship | MC chưa biết vai trò hiện tại của Lương |
+| Tạ Minh Châu | family affection/obligation | identity/kin duty unresolved |
+| Lương Tĩnh Viễn | no recognized current relationship | MC still does not know current role; Lương has no signal |
 
 # Active Mysteries / Obligations
 
-- **Mysteries:** nguyên nhân trọng sinh; khoảng trống 7 ngày trước cái chết cũ; vì sao lô Hồi Khí Tán 17 có trace gia công quen; vì sao Mộc Tủy Căn đang thiếu và bị gom.
-- **Debts/promises/commitments:** hai buổi sáng phân dược cho Cố; một lần herb-gathering duty đã bỏ trước truyện; family debt vẫn tồn tại.
-- **Threats:** tổn mạch tái viêm nếu ép tu; mất resource track nếu thất bại kỳ khảo hạch.
-- **Foreshadowing:** lô 17/Cửu Phương là lead kiểm chứng, không phải kết luận về Tịch Đăng.
+- **Mysteries:** rebirth cause; 7-day old-life memory gap; why lot 17 uniquely shows cold late residue while lot 19 from same warehouse does not; reason behind Mộc Tủy Căn market pressure.
+- **Debts/promises/commitments:** one final Medicine Hall morning; report for make-up herb duty before noon day 10; family debt; keep rebirth secret.
+- **Threats:** re-injury if heavy cycling; second duty failure causing labor service/resource loss.
+- **Foreshadowing:** lot 17 remains an evidence object; comparison now argues against assuming the entire Cửu Phương route shares the same processing trace.
 
 # Reader Expectations — Soft Signals
 
 | ID | Expectation | Last meaningful delivery | Current qualitative state | Natural opportunity ahead |
 |---|---|---|---|---|
-| RE001 | alchemy creates logical leverage | Ch.1: low-tech powder test + low-rank treatment + herb sorting bargain | active | repeat treatment, earn furnace access |
-| RE002 | tactical wins, not free power | Ch.1: adapts method to bad body/equipment and pays time + stone | active low | assessment/resource choices |
-| RE003 | intelligent opposition | no direct opponent yet; supply system remains background | background active | only react after detectable signal |
+| RE001 | alchemy creates logical leverage | Ch.2: salvages low-grade roots, adjusts treatment by body response, creates simple lot comparison | active | final treatment + furnace inspection |
+| RE002 | tactical adaptation | Ch.2: accepts data that weakens old-life suspicion; modifies dose instead of repeating formula | active | duty vs recovery scheduling |
+| RE003 | intelligent opposition | no direct opponent; supply variation remains systemic evidence only | background | reaction only after detectable behavior |
 | RE004 | secret-realm choices have cost | none | dormant | later saga |
-| RE005 | equal slow-burn couple | none; FL absent | dormant | future overlap via records, not forced meeting |
+| RE005 | equal slow-burn couple | none; FL still absent | dormant | future record/formation overlap |
 
 # Next Handoff
 
-- **Immediately in motion:** ngày mai sáng MC phải trở lại Dược Đường phân sọt thứ hai để nhận phần trị liệu thứ hai; hôm nay cần nghỉ và theo dõi phản ứng của kinh mạch.
-- **Cannot forget next chapter:** 6 linh thạch; 2 Dẫn Khí Đan chưa dùng; no furnace/spirit fire; lô 17 retained as evidence object; two work mornings remain; MC vẫn không biết Tịch Đăng.
-- **Read deeper only if ambiguity arises:** knowledge/inventory/cultivation ledgers; Cố baseline; final Ch.1 for exact bargain wording.
+- **Immediately in motion:** sáng ngày 9 MC must complete Medicine Hall session 3/treatment 3; then he has until noon day 10 to report for make-up herb gathering.
+- **Cannot forget next chapter:** 6 spirit stones; 2 impure Dẫn Khí Đan unused; lot 17 retained; lot 19 comparator consumed/not owned; one work/treatment session remains; no furnace yet; no Tịch Đăng knowledge.
+- **Useful direct-continuity reads:** Ch.2 final for duty-slip wording and lot-comparison result; inventory/cultivation ledgers.
 
 # Last Update
 
-- **Updated through chapter:** 1
-- **Main global changes:** MC ổn định viêm mạch bước đầu, trả 1 linh thạch, mở giao dịch thử việc với Cố, xác định Hồi Khí Tán là lô 17 từ Cửu Phương Nam kho và giữ kết luận ở mức lead.
+- **Updated through chapter:** 2
+- **Main global changes:** second work/treatment session completed; MC establishes a safe three-loop shortened circulation test; comparator lot 19 lacks lot-17 trace; Cố’s professional confidence rises modestly; make-up herb duty deadline becomes concrete for day 10.

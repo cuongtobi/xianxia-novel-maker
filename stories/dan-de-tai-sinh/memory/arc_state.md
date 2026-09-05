@@ -3,99 +3,88 @@
 # 1. Identity
 
 - **Arc ID / name:** ARC001 — Tàn Mạch Ngoại Môn
-- **Current chapter:** 1
-- **Current phase:** first treatment / resource foothold
+- **Current chapter:** 2
+- **Current phase:** repeatability confirmed / deadline compression
 - **Arc question:** Tạ Trường An có thể sửa đủ kinh mạch và giữ tư cách ngoại môn trước kỳ khảo hạch ngày 27 mà không làm lộ quy mô kiến thức kiếp trước hay không?
-- **Start reality:** Luyện Khí 3, injured, poor, one missed duty already on record, no furnace, suspicious recovery powder.
-- **Exit condition:** MC có chu thiên ổn định, giữ resource track, có kênh đan/dược cấp thấp lặp lại và biến anomaly đầu tiên thành bằng chứng có thể kiểm chứng hơn.
+- **Start reality:** Luyện Khí 3, injured, poor, one missed duty, no furnace, suspicious recovery powder.
+- **Exit condition:** stable circulation, disciple resource track preserved, repeatable low-rank resource method, local anomaly strengthened into verifiable evidence.
 
 # 2. Current Positions
 
 ## Protagonist
 
-- **Public position:** ngoại môn đệ tử bị thương, hạng thấp; Cố Tùng Niên hiện chỉ xem hắn là người có mắt nghề và đáng thử thêm việc nhỏ.
-- **Hidden advantages:** ký ức Đan Đế; khả năng đọc dược tính/gia công; biết hạ kỹ thuật xuống thiết bị thấp tầng.
-- **Vulnerabilities:** Luyện Khí 3, tổn mạch chưa lành, 6 linh thạch, không lò/linh hỏa, thông tin 68 năm cũ.
-- **Current objective:** hoàn tất hai buổi phân dược còn lại, nhận hai lần trị liệu tiếp theo, xác nhận phương pháp có thật sự ổn định kinh mạch rồi mới tăng nhịp tu luyện/điều tra.
+- **Public position:** low-ranked injured outer disciple; Medicine Hall now sees reproducible herb-appraisal skill but not its source/scale.
+- **Hidden advantages:** Alchemy Emperor memory, practical material diagnosis, ability to downscale methods.
+- **Vulnerabilities:** Luyện Khí 3, damaged Hand Shaoyang, 6 spirit stones, no furnace/fire, stale old-life information.
+- **Current objective:** finish the third Medicine Hall session, use treatment 3, then satisfy the make-up herb duty before day-10 noon without worsening the injury.
 
 ## Antagonist / opposing force
 
-Immediate opposition remains scarcity + covert procurement, not personal vendetta.
+Immediate opposition remains scarcity + institutional deadlines + covert procurement background.
 
-- **Position:** Triệu Kính tiếp tục quản một phần phân phối; Cửu Phương Nam kho là nguồn Hồi Khí Tán lô 17; local hidden buyer vẫn hoạt động ngoài nhận thức của MC.
-- **Current objective:** giữ luồng hàng và lợi nhuận yên ổn; local Tịch Đăng handler chưa có lý do quan tâm MC.
-- **Resources/leverage:** stock, paperwork, assignments, merchant intermediaries.
-- **Current information:** không có actor đối nghịch nào biết MC có tri thức Đan Đế; việc MC phân dược cho Cố chưa tạo tín hiệu đủ lớn.
-- **Wrong assumptions:** Triệu Kính vẫn coi hidden demand là chuyện lợi nhuận/đặt hàng đặc biệt; chưa có giả thuyết về MC.
-
-## Relevant factions
-
-| Faction | Current goal | Position | Leverage | Immediate pressure |
-|---|---|---|---|---|
-| Thanh Huyền outer administration | giữ discipline | neutral | assessment rules | ngày 27 |
-| Ngoại Dược Đường | giữ kho + giảm hao hụt | cautiously transactional with MC | dược liệu loại thấp, bếp phụ, possible future furnace rental | hai buổi sorting còn lại |
-| Cửu Phương local branch | lợi nhuận + hợp đồng | commercially strong | kho/transport | nguồn lot 17, price rise |
-| Tịch Đăng local cell | fulfill hidden procurement | invisible | segmented agents | background only |
+- **Position:** Triệu Kính still manages allocations; Cửu Phương supplied both lot 17 and lot 19; hidden buyer remains outside MC awareness.
+- **Current objective:** procurement actors keep margins/flows quiet; nobody has a personal objective against MC.
+- **Resources/leverage:** stock, paperwork, duty assignments, merchant intermediaries.
+- **Current information:** no opposing actor knows MC is unusual beyond Cố’s local professional observation.
+- **Wrong assumptions:** Triệu still interprets hidden demand as commercial/high-margin production.
 
 # 3. Active Pressures
 
-- **External:** assessment; duty deficit cũ; medicine shortage.
-- **Internal:** MC phải chống xu hướng lấy ký ức cũ làm kết luận quá sớm.
-- **Time:** còn lịch tới ngày 27; hai buổi sáng kế tiếp bị khóa một phần bởi giao dịch với Dược Đường.
-- **Resource:** 6 linh thạch, không furnace, medicine access earned per session.
-- **Social/political:** Cố đã chú ý nhẹ; nếu MC bộc lộ quá nhiều, scrutiny có thể đến từ nội bộ trước phản diện.
-- **Cultivation:** viêm giảm nhẹ nhưng Thủ Thiếu Dương vẫn tổn thương; chỉ low-intensity circulation an toàn.
+- **External:** make-up herb duty report deadline before noon day 10; assessment day 27.
+- **Internal:** old-life clues remain emotionally weighted, though MC now has counterevidence.
+- **Time:** one Medicine Hall morning remains; duty must be fitted around recovery immediately afterward.
+- **Resource:** 6 spirit stones; one treatment/stove session remains; no furnace access yet.
+- **Social/political:** Cố’s scrutiny rises slightly because skill has repeated; still no wider attention.
+- **Cultivation:** three-loop shortened circulation is safe enough for testing, not heavy cultivation.
 
 # 4. Relationship Motion
 
 | Relationship | Current state | Active tension | Unspoken issue | What could naturally change it |
 |---|---|---|---|---|
-| MC ↔ Cố Tùng Niên | small transactional test | MC still owes two sessions | Cố chưa biết nguồn kỹ năng; MC không muốn lộ quá mức | độ chính xác lặp lại + cách MC xử lý tài nguyên |
-| MC ↔ Lục Thanh Nghi | strangers | none | parallel anomaly threads remain separate | later ledger/formation overlap |
-| MC ↔ Triệu Kính | institutional / unseen | hidden asymmetry | MC unaware of allocation side-deals | future stock inconsistency |
-| MC ↔ family | inherited kin bond | obligation vs identity | unchanged | family contact/debt pressure |
+| MC ↔ Cố Tùng Niên | repeated transactional craft test | one final session owed | source/scale of MC skill remains hidden | session 3 + furnace inspection/pricing |
+| MC ↔ Lục Thanh Nghi | strangers | none | parallel anomaly threads remain separate | future record/formation overlap |
+| MC ↔ Triệu Kính | institutional / unseen | hidden asymmetry | MC does not know allocation side-deals | duty/stock inconsistency becomes visible |
+| MC ↔ family | inherited kin bond | debt/identity | unchanged | contact/debt pressure |
 
 # 5. Knowledge / Mystery State
 
-- **Known facts:** Hồi Khí Tán của MC là **lô 17**, được nhập qua **Cửu Phương Nam kho** bảy ngày trước rồi Dược Đường chia lại; chất lượng thấp nhưng Cố không xem là hỏng; Mộc Tủy Căn đang thiếu; first low-rank treatment giảm viêm nhẹ.
-- **Suspicions:** trace bất thường có thể đến từ quy trình/chuỗi gia công chung; shortage và lot source có thể liên quan hoặc không.
-- **Wrong beliefs:** none locked; MC chủ động chưa kết luận.
-- **Hidden truths in play:** local procurement overlap with Tịch Đăng remains true but unknown; nobody in that cell knows rebirth.
-- **Reveal opportunities currently ripe:** kiểm tra các gói cùng/khác lot; quan sát stock records; phát hiện pattern nếu nhiều independent points match.
+- **Known facts:** lot 17 and lot 19 both came through Cửu Phương Nam kho, but only lot 17 shows the late cold residue/circular sediment under the low-heat comparison used in Ch.2; treatment 2 improved stiffness enough for three slow shortened circulation loops.
+- **Suspicions:** anomaly may be batch-specific, supplier-processing-specific, container-specific or another local step; it is not automatically warehouse-wide.
+- **Wrong beliefs:** none locked; MC explicitly updates away from a route-wide assumption.
+- **Hidden truths:** local procurement overlap with Tịch Đăng remains unknown and generates no current reaction.
+- **Ripe reveal:** determine whether other lot-17 packages repeat the same trace; later compare upstream batch/stock records if access emerges naturally.
 
 # 6. Unresolved Obligations
 
-- hai buổi sáng phân Thanh Tức Thảo còn lại;
-- hai phần trị liệu tương ứng chưa nhận;
-- one missed herb-gathering duty cũ;
+- one final Medicine Hall sorting morning + treatment portion;
+- make-up herb duty report before noon day 10, failure = second missed duty/labor service;
 - family debt;
 - keep rebirth secret;
-- monitor meridian response before heavier cultivation.
+- do not overcycle damaged Hand Shaoyang.
 
 # 7. Reader Expectations — Soft Signals
 
 | ID | Expectation | Last meaningful delivery | Current pressure | Natural opportunity ahead |
 |---|---|---|---|---|
-| RE001 | alchemy leverage | Ch.1 low-tech diagnosis + treatment + sorting | high | repeatability, resource channel, furnace test |
-| RE002 | tactical adaptation | Ch.1 chose slower low-rank method and paid concrete cost | medium | optimize time/resources toward assessment |
-| RE003 | smart opposition | background supply anomaly only | low/background | no escalation until MC creates detectable signal |
-| RE005 | slow equal romance | none | dormant | no forced meet yet |
+| RE001 | alchemy leverage | Ch.2 repeatable appraisal + adaptive treatment + lot comparison | high | final treatment/furnace inspection |
+| RE002 | tactical adaptation | Ch.2 accepted disconfirming evidence and changed dose | medium-high | time/resource scheduling around duty |
+| RE003 | smart opposition | still background only | low | no escalation until signal exists |
+| RE005 | slow equal romance | none | dormant | future organic overlap |
 
 # 8. Likely Pressure Directions
 
-1. Buổi sorting thứ hai có thể bộc lộ thêm anomaly trong hàng hóa hoặc chỉ chứng minh MC làm việc ổn định; không bắt buộc phải có conspiracy clue.
-2. Phản ứng cơ thể với liều thứ hai có thể buộc MC chỉnh tỷ lệ/thời gian thay vì lặp công thức cứng.
-3. Cố có thể hỏi sâu hơn hoặc đưa bài test nhỏ nếu chất lượng công việc của MC lặp lại được.
-4. MC có thể cân nhắc test một gói Hồi Khí Tán khác lot để phân biệt lỗi lot và lỗi tuyến cung ứng.
-5. Duty/assessment pressure có thể sớm buộc MC chọn giữa chữa trị và kiếm điểm nhiệm vụ.
+1. Session 3 may finish the bargain and expose the actual condition/price of the old rank-1 furnace.
+2. Make-up herb duty can force MC into field conditions before his meridians are ready for normal effort.
+3. Cố’s held lot-17 samples may later provide reproducibility evidence without turning him into a conspiracy partner.
+4. MC may need to choose whether to spend scarce money on furnace access or preserve liquidity for duty/medicine.
 
 # 9. Arc Exit Conditions
 
-- **Must materially change:** meridian stability; outer status; repeatable low-rank resource access; local anomaly becomes stronger evidence.
+- **Must materially change:** meridian stability; outer status; repeatable low-rank resource access; stronger local anomaly evidence.
 - **May remain open:** Tịch Đăng identity; full poison source; rebirth cause; romance.
-- **Hand off later:** tournament qualification, stronger scrutiny, deliberate decision on capability reveal.
+- **Later handoff:** tournament qualification, stronger scrutiny, deliberate capability reveal.
 
 # 10. Last State Update
 
-- **Updated through:** chapter 1
-- **Main changes:** first treatment succeeded partially; spirit stones 7→6; Medicine Hall bargain established; Cố cautious attention begins; Hồi Khí Tán traced to Cửu Phương Nam kho lot 17 without conspiracy conclusion.
+- **Updated through:** chapter 2
+- **Main changes:** second treatment succeeds incrementally; lot-19 comparison weakens route-wide suspicion; one Medicine Hall session remains; make-up herb duty deadline is now explicit before noon day 10.
